@@ -4,8 +4,8 @@ let state = createState(), selectedId = PRODUCTS[0].id, quantity = 1, variant = 
 let lastMessage = '选好种子，再定数量。';
 const variantCopy = {
   wood: {heading:'青禾种子铺', kicker:'阿禾婶的春日货架', catalog:'今日货架', action:'买下', footer:'先看时节，再看余钱。', note:'一 · 稳定的列表与详情，同屏比较'},
-  ledger: {heading:'青禾铺 · 春账', kicker:'四日晴 · 买种账', catalog:'货名与价目', action:'记账购入', footer:'货钱两清，春种入囊。', note:'二 · 左页挑货，右页算账；把交易写进账本'},
-  world: {heading:'阿禾婶的种子铺', kicker:'青禾村 · 当面买种', catalog:'挑些种子', action:'买下', footer:'', note:'三 · 从店主进入，交易时保留村落与人物'}
+  ledger: {heading:'青禾铺 · 春账', kicker:'四日晴 · 买种账', catalog:'今日货目', action:'付钱取货', footer:'货钱两清，春种入囊。', note:'二 · 左页挑货，右页算账；把交易写进账本'},
+  world: {heading:'青禾种子铺', kicker:'青禾村 · 当面买种', catalog:'挑些种子', action:'买下', footer:'', note:'三 · 从店主进入，交易时保留村落与人物'}
 };
 function iconPosition(el, index) {
   el.style.setProperty('--sx', `${(index % 3) * 50}%`);
@@ -40,6 +40,9 @@ function paint() {
   $('mode-note').textContent=copy.note;$('shop-footer-note').textContent=copy.footer;
   for(const button of document.querySelectorAll('[data-product]')){
     const product=PRODUCTS.find(p=>p.id===button.dataset.product),stock=state.stock[product.id];
+    const railNames={cabbage:'青菜种子',radish:'萝卜种子',rice:'水稻种子',chili:'辣椒种子',blueberry:'蓝莓苗',compost:'农家堆肥'};
+    button.querySelector('.product-name').textContent=variant==='world'?railNames[product.id]:product.name;
+    button.querySelector('.product-price > span:first-child').textContent=variant==='world'&&stock===0?'今日售罄':product.price+' 钱';
     button.setAttribute('aria-pressed',String(product.id===selectedId));button.classList.toggle('sold-out',stock===0);
     button.querySelector('.product-stock').textContent=stock===0?'今日售罄':`余 ${stock} ${product.unit}`;
     button.setAttribute('aria-label',`${product.name}，${product.price} 钱，${stock===0?'今日售罄':`余 ${stock} ${product.unit}`}`);
@@ -51,6 +54,7 @@ function paint() {
   $('item-category').textContent=p.growthDays?`${p.seasons.join('、')}季适种 · ${p.unit==='盆'?'苗木':'种子'}`:'四季通用 · 农事用品';
   $('description').textContent=p.description;
   const growingNotes={cabbage:'每天浇水；成熟后收获一次。',radish:'每天浇水；成熟后收获一次。',rice:'需要水田；保持田中有水。',chili:'春季可购买；请等夏季再播种。',blueberry:'已配营养土；今天已售罄。',compost:'对一块空耕地使用，即刻施肥。'};
+  $('ledger-conditions').textContent=p.plantingNote;
   $('planting-note').textContent=growingNotes[p.id];$('planting-note').title=p.plantingNote;
   $('planting-note').classList.toggle('out-of-season',!p.seasons.includes(state.season)&&!p.seasons.includes('通用'));
   $('growth-label').textContent=p.growthDays?'长成':'使用';$('growth').textContent=p.growthDays?p.growthDays+' 天':'即时';

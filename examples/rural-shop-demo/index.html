@@ -4,7 +4,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#213e31"><title>青禾种子铺 · 三种游戏界面小样</title>
 <link rel="stylesheet" href="shop.css">
-<link rel="preload" as="image" href="assets/wood-panel.png">
+<link rel="preload" as="image" href="assets/plain-paper-panel.png">
 <link rel="preload" as="image" href="assets/counter-ledger.png">
 <link rel="preload" as="image" href="assets/item-atlas.png">
 </head>
@@ -16,7 +16,7 @@
     <button data-variant="ledger" aria-pressed="false"><span>二</span> 柜台账本</button>
     <button data-variant="world" aria-pressed="false"><span>三</span> 世界与轻面板</button>
   </nav>
-  <details class="review-controls"><summary>检查状态</summary><div class="review-menu">
+  <details class="review-controls"><summary>状态</summary><div class="review-menu">
     <label for="scenario">独立演示存档</label>
     <select id="scenario"><option value="normal">正常 · 240 钱</option><option value="low-money">钱不足 · 12 钱</option><option value="full-bag">背包已满</option><option value="sold-out">全部售罄</option></select>
     <button id="reset">恢复初始状态</button>
@@ -41,10 +41,12 @@
         <div class="purse"><div><span>钱袋</span><strong id="balance">240 钱</strong></div><div><span>行囊</span><strong id="bag">9 / 24 格</strong></div></div>
       </section>
       <section class="purchase-detail" aria-label="商品详情与购买">
+        <div class="ledger-section"><span>本次购入</span><span>春 · 四日</span></div>
         <div class="item-heading"><div id="detail-art" class="item-art large" role="img" aria-label="小青菜种子图标"></div><div><p id="item-category" class="item-category">春秋播种 · 菜种</p><h2 id="item-name">小青菜种子</h2><p id="item-owned" class="item-owned">行囊已有 2 份</p></div></div>
         <p id="description" class="description"></p>
         <dl class="growth-facts"><div><dt id="growth-label">长成</dt><dd id="growth">4 天</dd></div><div><dt>适种</dt><dd id="seasons">春 / 秋</dd></div><div><dt>单价</dt><dd id="unit-price">12 钱</dd></div></dl>
         <p id="planting-note" class="planting-note"></p>
+        <p id="ledger-conditions" class="ledger-handnote"></p>
         <div class="quantity-line"><label for="quantity">购买数量</label><div class="stepper"><button id="minus" aria-label="减少购买数量">−</button><input id="quantity" inputmode="numeric" type="number" min="1" max="99" step="1" value="1"><button id="plus" aria-label="增加购买数量">+</button></div><span class="quantity-unit">份</span></div>
         <div class="transaction-summary"><div><span>本次花费</span><strong id="total">12 钱</strong></div><div><span>买后余钱</span><strong id="remaining">228 钱</strong></div></div>
         <p id="blocker" class="blocker" aria-live="polite"></p>

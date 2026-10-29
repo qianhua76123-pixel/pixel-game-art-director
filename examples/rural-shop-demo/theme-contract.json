@@ -2,20 +2,21 @@
   "schema_version": 1,
   "kind": "theme-cohesion-contract",
   "status": "DEMO_WORKING_CONTRACT",
-  "notice": "同一主题下的三个布局小样；本合同锁定后续制作的共同依据，不代表用户已经批准最终美术，也不代表严格原生像素生产验收通过。AI源图可供界面比较，不能用演示例外抹掉技术失败。",
+  "notice": "同一乡村商店的三种布局修订。v1.3.0视觉结果被用户否定，本次重做构图、字体、框体和账本信息组织；运行记录不代替用户审美判断。严格原生像素生产缺口继续保留。",
   "path_base": "contract-directory",
   "project_theme": {
     "id": "qinghe-rural-shop",
-    "revision": "1.0-demo",
+    "revision": "1.1-visual-revision",
     "scope": [
       "wood",
       "ledger",
       "world",
       "assets/village-shop.png",
-      "assets/wood-panel.png",
+      "assets/plain-paper-panel.png",
       "assets/counter-ledger.png",
       "assets/item-atlas.png",
-      "assets/font/fusion-pixel-12px-proportional-zh_hans.otf.woff2"
+      "assets/font/fusion-pixel-12px-proportional-zh_hans.otf.woff2",
+      "assets/plain-panel-provenance.json"
     ],
     "decision_basis": "用户要求同主题的三种乡村商店界面与真实中文、像素材。布局差异有意保留，共同美术和交易规则继承；不允许为单个素材另选主题。",
     "reference_assets": [
@@ -25,8 +26,8 @@
         "scope": "shared-world-background"
       },
       {
-        "path": "assets/wood-panel.png",
-        "sha256": "56c33340523cd9729d6e0852147003cfd76237e5bd2b335dcc20adb060e21b6b",
+        "path": "assets/plain-paper-panel.png",
+        "sha256": "01c0fbbca4a26b10ed46fba3d2b8f7cfd09c63ab433a8e3c3844d3892f0a2168",
         "scope": "blank-menu-surface"
       },
       {
@@ -40,19 +41,19 @@
         "scope": "six-item-icon-atlas"
       }
     ],
-    "style_identity": "青禾村春日种子铺：灰瓦白墙、暖赭木材、奶油纸面、自然绿色与克制深色轮廓；像素风格光栅源图。",
+    "style_identity": "青禾村春日种子铺：暖褐窄木边、安静浅纸面、灰瓦白墙和自然绿色；取消华丽金边/宝石母题，以店主、商品与交易为主。源图仍是插画式像素光栅。",
     "color_roles": {
       "world_palette": null,
       "world_palette_note": "四张原图有暖木/米纸/植物绿的共同关系，但没有提取并锁定统一的有限RGB色板；不能把CSS token当作整图量化色板。",
       "ui_tokens": {
-        "ink": "#3a3224",
-        "muted": "#655b43",
-        "paper": "#f1e1b3",
-        "theme_green": "#285740",
-        "primary_action": "#315f43",
-        "focus": "#efb953",
-        "risk": "#8c3e2d",
-        "line": "#bba573"
+        "ink": "#383d2c",
+        "muted": "#77765d",
+        "paper": "#eee5ca",
+        "theme_green": "#52654a",
+        "primary_action": "#5d7050",
+        "focus": "#b77837",
+        "risk": "#934b39",
+        "line": "#c9c4a6"
       },
       "rules": [
         "购买动作在三方案中都使用绿色主行动语义；锈红用于错误或风险。",
@@ -70,7 +71,7 @@
       "reference_scale": "村落内人物、柜台与门保持场景比例；图标和UI不套用世界实物尺寸"
     },
     "material_grammar": {
-      "wood": "暖褐/赭色、可见接缝；UI木纹低干扰，不引入镜面金属高光。",
+      "wood": "新空框的窄棕木边，以8px九宫格显示；没有金属高光或宝石。旧wood-panel.png退出当前界面，仅保留历史源图。",
       "paper": "奶油色、浅纤维或磨损边；正文静区平静，文字保持可变层。",
       "plant": "叶绿与自然阴影，保留白菜/萝卜/辣椒/蓝莓的识别特征。",
       "cloth": "纸包和麻袋保留折痕/编织或布料身份，图标缩小时可减少纹理。"
@@ -106,9 +107,9 @@
         "成交结果"
       ],
       "quiet_regions": {
-        "wood": "源图主纸面x7%-93%,y8%-92%",
-        "ledger": "左页x11%-47%、右页x53%-89%，均y18%-85%；中央装订不能压字",
-        "world": "入口与世界关联；展开的交易面板使用同一木纸主题和同一图集"
+        "wood": "plain-paper-panel.png中心24,24至1512,1000；8px九宫格木边",
+        "ledger": "原双页静区；左货目、右购入记录，不套用A的完整种植说明",
+        "world": "底部短交易窗，3×2商品格与当前商品详情；店主保持可见"
       },
       "state_semantics": {
         "primary_action": "绿色购买动作",
@@ -139,32 +140,15 @@
         }
       ],
       "roles": {
-        "pixel_heading_and_controls": "Fusion Pixel 12px；标题/主要控件使用12px设计网格的整数倍，常见24/36px；它是字体设计约定，不是整张世界图的逻辑网格。",
-        "long_body": "较长中文说明采用system-ui/PingFang SC正文层：正常布局主要16–18 CSS px；短高窗口A约15px、B/C约14px，移动布局约16px。这是用途和适配差异，必须在实际屏幕核验，不能宣称所有状态始终16–18px。",
-        "secondary_labels": "小标签/辅助信息需按最终屏幕核验，不能以CSS标称字号替代读字测试。"
+        "identity": "短标题FusionPixel 24px",
+        "decision": "选中商品和交易重点18px系统中文",
+        "reading": "商品与正文14px系统中文",
+        "support": "库存、条件、反馈12px；独立对比工具有较小字号，关闭符号作为图标"
       },
       "final_screen_checks": {
         "evidence": "runtime-review.json",
-        "tested_viewports": [
-          [
-            1458,
-            891
-          ],
-          [
-            1280,
-            720
-          ],
-          [
-            1920,
-            1080
-          ],
-          [
-            390,
-            844
-          ]
-        ],
-        "scope": "全部三方案于前两种窗口；宽屏和窄屏仅账本。390x844实测标题24px FusionPixel、正文16px system-ui，字体已加载。",
-        "limits": "没有逐个字形覆盖、屏幕阅读器或所有设备测试；12px标签仅用于辅助信息。"
+        "scope": "本次1280×720三方案、1458×891世界窗、390×844账本；截图与源文件绑定。",
+        "limits": "未做用户实验、逐字形或屏幕阅读器测试。"
       }
     }
   },
@@ -267,8 +251,8 @@
           "reason": "屏幕阅读面与世界投影用途不同；布局和物件隐喻差异不改变主题或交易机制。",
           "evidence": [
             {
-              "path": "assets/wood-panel.png",
-              "sha256": "56c33340523cd9729d6e0852147003cfd76237e5bd2b335dcc20adb060e21b6b",
+              "path": "assets/plain-paper-panel.png",
+              "sha256": "01c0fbbca4a26b10ed46fba3d2b8f7cfd09c63ab433a8e3c3844d3892f0a2168",
               "scope": "此角色用途约定与源文件"
             },
             {
@@ -278,7 +262,7 @@
             },
             {
               "path": "index.html",
-              "sha256": "11871500270d7c3e70e4b9b250ffbb15d393b78df4670a984e2027faed08f0eb",
+              "sha256": "1c4bdc6989ae84cc50e5228434a92523e1db06a519bff381fda347ecf09e4c9c",
               "scope": "此角色用途约定与源文件"
             }
           ],
@@ -290,8 +274,8 @@
           "reason": "可变中文与数值是任务主体，需要明确静区。",
           "evidence": [
             {
-              "path": "assets/wood-panel.png",
-              "sha256": "56c33340523cd9729d6e0852147003cfd76237e5bd2b335dcc20adb060e21b6b",
+              "path": "assets/plain-paper-panel.png",
+              "sha256": "01c0fbbca4a26b10ed46fba3d2b8f7cfd09c63ab433a8e3c3844d3892f0a2168",
               "scope": "此角色用途约定与源文件"
             },
             {
@@ -315,7 +299,7 @@
           "evidence": [
             {
               "path": "shop.css",
-              "sha256": "045d66155d553c346ad15cb508523f58d7f2d509c34329c02bca124686893e09",
+              "sha256": "b99400f8e595605be7ab5686955fcc29a905a5d72faf5638a165cebcc34a91ec",
               "scope": "此角色用途约定与源文件"
             },
             {
@@ -345,10 +329,10 @@
       "source_kind": "AI-generated original source"
     },
     {
-      "file": "assets/wood-panel.png",
+      "file": "assets/plain-paper-panel.png",
       "theme_id": "qinghe-rural-shop",
       "role_id": "UI",
-      "sha256": "56c33340523cd9729d6e0852147003cfd76237e5bd2b335dcc20adb060e21b6b",
+      "sha256": "01c0fbbca4a26b10ed46fba3d2b8f7cfd09c63ab433a8e3c3844d3892f0a2168",
       "dimensions": [
         1536,
         1024
@@ -401,7 +385,7 @@
       "scope": {
         "asset_files": [
           "assets/village-shop.png",
-          "assets/wood-panel.png",
+          "assets/plain-paper-panel.png",
           "assets/counter-ledger.png",
           "assets/item-atlas.png"
         ],
@@ -422,6 +406,11 @@
           "path": "assets/prompt-set.md",
           "sha256": "d6a35c1ec38a806cd603379a158063c175059e04620062a0a920d7c2ea8ba425",
           "scope": "共同制作意图，不作验收结果"
+        },
+        {
+          "path": "assets/plain-panel-provenance.json",
+          "sha256": "48164dee5458f28d53f231b7f592623ad20fda65964f61a629a76013f7f179d7",
+          "scope": "新增窄木框的生成、原图与九宫格坐标"
         }
       ],
       "overrides": [],
@@ -459,8 +448,8 @@
           "scope": "审阅时的源文件；发生变化需要复核本项"
         },
         {
-          "path": "assets/wood-panel.png",
-          "sha256": "56c33340523cd9729d6e0852147003cfd76237e5bd2b335dcc20adb060e21b6b",
+          "path": "assets/plain-paper-panel.png",
+          "sha256": "01c0fbbca4a26b10ed46fba3d2b8f7cfd09c63ab433a8e3c3844d3892f0a2168",
           "scope": "审阅时的源文件；发生变化需要复核本项"
         },
         {
@@ -496,8 +485,8 @@
           "scope": "审阅时的源文件；发生变化需要复核本项"
         },
         {
-          "path": "assets/wood-panel.png",
-          "sha256": "56c33340523cd9729d6e0852147003cfd76237e5bd2b335dcc20adb060e21b6b",
+          "path": "assets/plain-paper-panel.png",
+          "sha256": "01c0fbbca4a26b10ed46fba3d2b8f7cfd09c63ab433a8e3c3844d3892f0a2168",
           "scope": "审阅时的源文件；发生变化需要复核本项"
         },
         {
@@ -512,7 +501,7 @@
         }
       ],
       "expected": "四图属于暖色乡村种子铺的同一语义；商品识别保持一致。",
-      "observed": "原图可见暖木与米纸、自然植物色和种子包/麻袋/盆栽；此项只确认题材材质关系，不证明所有像素风格参数一致。",
+      "observed": "已查看新朴素木纸空框与三方案实际成图：窄木边退出主焦点；同一商品源图与纸木关系保留。背景/图标的严格像素颗粒尚未统一。",
       "status": "OBSERVED_PASS",
       "exception": null
     },
@@ -550,8 +539,8 @@
           "scope": "审阅时的源文件；发生变化需要复核本项"
         },
         {
-          "path": "assets/wood-panel.png",
-          "sha256": "56c33340523cd9729d6e0852147003cfd76237e5bd2b335dcc20adb060e21b6b",
+          "path": "assets/plain-paper-panel.png",
+          "sha256": "01c0fbbca4a26b10ed46fba3d2b8f7cfd09c63ab433a8e3c3844d3892f0a2168",
           "scope": "审阅时的源文件；发生变化需要复核本项"
         },
         {
@@ -617,32 +606,17 @@
       "evidence": [
         {
           "path": "shop.css",
-          "sha256": "045d66155d553c346ad15cb508523f58d7f2d509c34329c02bca124686893e09",
+          "sha256": "b99400f8e595605be7ab5686955fcc29a905a5d72faf5638a165cebcc34a91ec",
           "scope": "审阅时的源文件；发生变化需要复核本项"
         },
         {
           "path": "runtime-review.json",
-          "sha256": "014a7aa60920a770b326f46200efac4d574f60549fa4b8c5f62e86202e3bf972",
-          "scope": "Recorded browser observations; scope explicitly limited"
-        },
-        {
-          "path": "screenshots/01-wood.jpg",
-          "sha256": "bbfd7f559548bcab26b990db6b503f0ae787a4310213bc573ddb2b7f04e1094c",
-          "scope": "Rendered screenshot at stated review viewport"
-        },
-        {
-          "path": "screenshots/02-ledger.jpg",
-          "sha256": "bef44a8dee08f3447c237af2b5841c3b8ddf8b223cb28e769725e49d09db1a12",
-          "scope": "Rendered screenshot at stated review viewport"
-        },
-        {
-          "path": "screenshots/03-world.jpg",
-          "sha256": "74110b0e13fefe1acdc85496f2d1a03b6b2e6de4b53692feec423314858b3ac5",
-          "scope": "Rendered screenshot at stated review viewport"
+          "sha256": "a4e4a377698e5910d3870c5627f3158ca72401cc9d6d55ca972f0bc5f7a93c6c",
+          "scope": "Current v1.3.1 review, not user approval"
         }
       ],
       "expected": "同一购买动作使用同一绿色语义，锈红保留风险/错误；样式不随布局任意切换。",
-      "observed": "CSS与三张1458×891实际截图中购买操作均为绿色；错误/缺款使用原因文字与锈红。仅确认这组小样状态语义。",
+      "observed": "购买动作共用#5d7050；错误保持锈红与原因文字，售罄在C的商品格直接可见。",
       "status": "OBSERVED_PASS",
       "exception": null
     },
@@ -654,12 +628,12 @@
       "evidence": [
         {
           "path": "index.html",
-          "sha256": "11871500270d7c3e70e4b9b250ffbb15d393b78df4670a984e2027faed08f0eb",
+          "sha256": "1c4bdc6989ae84cc50e5228434a92523e1db06a519bff381fda347ecf09e4c9c",
           "scope": "审阅时的源文件；发生变化需要复核本项"
         },
         {
           "path": "shop.css",
-          "sha256": "045d66155d553c346ad15cb508523f58d7f2d509c34329c02bca124686893e09",
+          "sha256": "b99400f8e595605be7ab5686955fcc29a905a5d72faf5638a165cebcc34a91ec",
           "scope": "审阅时的源文件；发生变化需要复核本项"
         },
         {
@@ -674,8 +648,8 @@
         },
         {
           "path": "runtime-review.json",
-          "sha256": "014a7aa60920a770b326f46200efac4d574f60549fa4b8c5f62e86202e3bf972",
-          "scope": "Recorded browser observations; scope explicitly limited"
+          "sha256": "a4e4a377698e5910d3870c5627f3158ca72401cc9d6d55ca972f0bc5f7a93c6c",
+          "scope": "Current v1.3.1 review, not user approval"
         }
       ],
       "expected": "同一商品图集、同一交易模型；价格/数量/提示不烘焙进背景。",
@@ -733,42 +707,42 @@
       "evidence": [
         {
           "path": "shop.css",
-          "sha256": "045d66155d553c346ad15cb508523f58d7f2d509c34329c02bca124686893e09",
+          "sha256": "b99400f8e595605be7ab5686955fcc29a905a5d72faf5638a165cebcc34a91ec",
           "scope": "审阅时的源文件；发生变化需要复核本项"
         },
         {
           "path": "index.html",
-          "sha256": "11871500270d7c3e70e4b9b250ffbb15d393b78df4670a984e2027faed08f0eb",
+          "sha256": "1c4bdc6989ae84cc50e5228434a92523e1db06a519bff381fda347ecf09e4c9c",
           "scope": "审阅时的源文件；发生变化需要复核本项"
         },
         {
           "path": "runtime-review.json",
-          "sha256": "014a7aa60920a770b326f46200efac4d574f60549fa4b8c5f62e86202e3bf972",
-          "scope": "Recorded browser observations; scope explicitly limited"
+          "sha256": "a4e4a377698e5910d3870c5627f3158ca72401cc9d6d55ca972f0bc5f7a93c6c",
+          "scope": "Current v1.3.1 review, not user approval"
         },
         {
           "path": "screenshots/01-wood.jpg",
-          "sha256": "bbfd7f559548bcab26b990db6b503f0ae787a4310213bc573ddb2b7f04e1094c",
-          "scope": "Rendered screenshot at stated review viewport"
+          "sha256": "7d564716f91ed9d1049f24df2ccf48094dd70310b227aa21e043e63b74f0cc74",
+          "scope": "Current screenshot at documented viewport"
         },
         {
           "path": "screenshots/02-ledger.jpg",
-          "sha256": "bef44a8dee08f3447c237af2b5841c3b8ddf8b223cb28e769725e49d09db1a12",
-          "scope": "Rendered screenshot at stated review viewport"
+          "sha256": "2f8072da2e110e181d222ec802c9553daf0982d82f9773f67caeb74e75929746",
+          "scope": "Current screenshot at documented viewport"
         },
         {
           "path": "screenshots/03-world.jpg",
-          "sha256": "74110b0e13fefe1acdc85496f2d1a03b6b2e6de4b53692feec423314858b3ac5",
-          "scope": "Rendered screenshot at stated review viewport"
+          "sha256": "1170ec94df739f416e38ac578b74b5936b6ee2b20b52f0931b108d79bd0a0b4c",
+          "scope": "Current screenshot at documented viewport"
         },
         {
           "path": "screenshots/04-mobile.jpg",
-          "sha256": "daa17a67baa5fd4e51f53db1cb81e5b34815b08890e561536ab8078bb050a25b",
-          "scope": "Rendered screenshot at stated review viewport"
+          "sha256": "3fa22187c0ea5e0667d91873c6f840ce351643788042cdaef03532bddd392b69",
+          "scope": "Current screenshot at documented viewport"
         }
       ],
       "expected": "像素标题/控件与主要长中文14–18 CSS px正文按用途和视口分层；实际字号、缺字与对比度必须看运行画面。",
-      "observed": "实际检查1458×891与1280×720三方案及长中文；另检查1920×1080账本和390×844账本。窄屏标题24px FusionPixel，正文16px system-ui，字体已加载且无横溢；允许面板内纵向滚动。未进行完整无障碍/玩家测试。",
+      "observed": "主阅读层级为24/18/14/12，取消24px Fusion在商品/按钮/数值上的泛用；实际查看本次截图。对比工具和关闭图标另有字号。",
       "status": "OBSERVED_PASS",
       "exception": null
     },
@@ -779,8 +753,8 @@
       "method": "按源图实际静区查看长标题、最大数量、错误提示，检查装订/边框是否压字或变形。",
       "evidence": [
         {
-          "path": "assets/wood-panel.png",
-          "sha256": "56c33340523cd9729d6e0852147003cfd76237e5bd2b335dcc20adb060e21b6b",
+          "path": "assets/plain-paper-panel.png",
+          "sha256": "01c0fbbca4a26b10ed46fba3d2b8f7cfd09c63ab433a8e3c3844d3892f0a2168",
           "scope": "审阅时的源文件；发生变化需要复核本项"
         },
         {
@@ -790,37 +764,37 @@
         },
         {
           "path": "shop.css",
-          "sha256": "045d66155d553c346ad15cb508523f58d7f2d509c34329c02bca124686893e09",
+          "sha256": "b99400f8e595605be7ab5686955fcc29a905a5d72faf5638a165cebcc34a91ec",
           "scope": "审阅时的源文件；发生变化需要复核本项"
         },
         {
           "path": "runtime-review.json",
-          "sha256": "014a7aa60920a770b326f46200efac4d574f60549fa4b8c5f62e86202e3bf972",
-          "scope": "Recorded browser observations; scope explicitly limited"
+          "sha256": "a4e4a377698e5910d3870c5627f3158ca72401cc9d6d55ca972f0bc5f7a93c6c",
+          "scope": "Current v1.3.1 review, not user approval"
         },
         {
           "path": "screenshots/01-wood.jpg",
-          "sha256": "bbfd7f559548bcab26b990db6b503f0ae787a4310213bc573ddb2b7f04e1094c",
-          "scope": "Rendered screenshot at stated review viewport"
+          "sha256": "7d564716f91ed9d1049f24df2ccf48094dd70310b227aa21e043e63b74f0cc74",
+          "scope": "Current screenshot at documented viewport"
         },
         {
           "path": "screenshots/02-ledger.jpg",
-          "sha256": "bef44a8dee08f3447c237af2b5841c3b8ddf8b223cb28e769725e49d09db1a12",
-          "scope": "Rendered screenshot at stated review viewport"
+          "sha256": "2f8072da2e110e181d222ec802c9553daf0982d82f9773f67caeb74e75929746",
+          "scope": "Current screenshot at documented viewport"
         },
         {
           "path": "screenshots/03-world.jpg",
-          "sha256": "74110b0e13fefe1acdc85496f2d1a03b6b2e6de4b53692feec423314858b3ac5",
-          "scope": "Rendered screenshot at stated review viewport"
+          "sha256": "1170ec94df739f416e38ac578b74b5936b6ee2b20b52f0931b108d79bd0a0b4c",
+          "scope": "Current screenshot at documented viewport"
         },
         {
           "path": "screenshots/04-mobile.jpg",
-          "sha256": "daa17a67baa5fd4e51f53db1cb81e5b34815b08890e561536ab8078bb050a25b",
-          "scope": "Rendered screenshot at stated review viewport"
+          "sha256": "3fa22187c0ea5e0667d91873c6f840ce351643788042cdaef03532bddd392b69",
+          "scope": "Current screenshot at documented viewport"
         }
       ],
       "expected": "布局适应素材静区；A/B/C结构可变，不能拉坏框体或为塞入文字缩小整个UI。",
-      "observed": "三张1458×891截图确认文字落在纸面；A/C九宫格框体，B沿实际双页避开装订。另检查1920×1080账本静区并修正标题/底部位置。窄屏重排为平铺账目并内滚动；不证明所有视口均已覆盖。",
+      "observed": "A/C采用新原图窄木框；C底部短交易窗保留店主。B左货目/右购入记录。1280×720三方案无面板溢出；390×844账本允许内滚动。",
       "status": "OBSERVED_PASS",
       "exception": null
     },
@@ -847,12 +821,12 @@
         },
         {
           "path": "runtime-review.json",
-          "sha256": "014a7aa60920a770b326f46200efac4d574f60549fa4b8c5f62e86202e3bf972",
-          "scope": "Recorded browser observations; scope explicitly limited"
+          "sha256": "a4e4a377698e5910d3870c5627f3158ca72401cc9d6d55ca972f0bc5f7a93c6c",
+          "scope": "Current v1.3.1 review, not user approval"
         }
       ],
       "expected": "比较方案只改变结构，保持商品、余额、库存、身份和状态语义；失败不扣款。",
-      "observed": "模型10项测试通过；浏览器实际购买3包，余额240→204、槽位9→12、持有2→5、库存12→9；换方案保持；缺款/满包/售罄/非整数禁购无扣款；Esc收起回到入口，E重开。",
+      "observed": "本轮再次实测购买3包：240→204钱，9→12/24格；切到B保持。缺款/满包/售罄禁购原因可见。模型未改。",
       "status": "OBSERVED_PASS",
       "exception": null
     },
@@ -879,10 +853,9 @@
     "visual_status": "UNDETERMINED",
     "runtime_status": "OBSERVED_PASS",
     "scope_and_limits": [
-      "主题继承规则已记录；题材/材质与实际三方案的共同商品、纸木关系和操作语义已有有限证据。",
-      "严格图标alpha门槛为OBSERVED_FAIL；原型源图例外不豁免该失败。",
-      "UI实际窗口、中文和交互证据见runtime-review.json；统一原生网格、共同有限色板及逐物体光照仍待验收。",
-      "A/B/C属于同主题内的结构比较，不能作为为每张素材任意换画风的许可。"
+      "本轮修正了构图、框体/字体主次和账本信息组织；此记录不替代用户的视觉判断。",
+      "源背景与图标的颗粒差异、硬alpha失败和未定逻辑网格仍保留。",
+      "当前窗口与状态走查见runtime-review.json；旧V1.3报告属于历史版本。"
     ]
   },
   "related_documents": [
@@ -891,7 +864,8 @@
     "../../assets/templates/ui-design-contract.json",
     "../../assets/templates/audit-contract.json",
     "data-contract.json",
-    "assets/asset-provenance.json"
+    "assets/asset-provenance.json",
+    "../../validation/UI-REVISION-V1.3.1.md"
   ],
   "open_decisions": [
     "如果进入生产，固定逻辑网格、导出倍率、各role色板和硬alpha处理方案，并保留源图。",
