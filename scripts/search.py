@@ -4,6 +4,7 @@ from pathlib import Path
 import argparse, json, re, sys
 
 ROOT = Path(__file__).resolve().parents[1]
+SYSTEM_GENERIC_TERMS={'制作','任务','教程','提示','帮助','教学','材料','物品','地图','建筑','位置','目标','技能','时间','失败','奖励','继续','保存','状态','status','build','help','skill','map','target','load'}
 PROFILE_HINTS = {
     'cozy-rural': ['乡村','村庄','农舍','田园','温馨','cozy','rural'],
     'limited-handheld': ['掌机','限色','handheld'],
@@ -50,6 +51,10 @@ class Library:
         self.by_id={x['id']:x for x in self.entries}
         case_file=self.root/'references/ui-case-studies.json'
         self.ui_cases=json.loads(case_file.read_text(encoding='utf-8')).get('cases',[]) if case_file.is_file() else []
+        systems_file=self.root/'references/ui-system-patterns.json'
+        self.ui_systems=json.loads(systems_file.read_text(encoding='utf-8')).get('patterns',[]) if systems_file.is_file() else []
+        taxonomy_file=self.root/'references/ui-taxonomy.json'
+        self.ui_axes=json.loads(taxonomy_file.read_text(encoding='utf-8')).get('axes',[]) if taxonomy_file.is_file() else []
         routing=json.loads((self.root/'references/task-routing.json').read_text(encoding='utf-8'))
         self.concepts=routing['concepts'];self.routes=routing['routes'];self.profiles={}
         for kind,name in [('style','style-profiles.json'),('ui','ui-profiles.json')]:
@@ -182,10 +187,54 @@ class Library:
         if ident in self.by_id:return self.compact_tutorial(self.by_id[ident],100,['按ID直接读取'],image_limit)
         for c in self.ui_cases:
             if c['id']==ident:return self.compact_case(c,100,['按ID直接读取'],image_limit)
+        for p in self.ui_systems:
+            if p['id']==ident:return self.compact_system(p,100,['按ID直接读取'],details)
+        for a in self.ui_axes:
+            if a['id']==ident:return self.compact_axis(a,100,['按ID直接读取'])
         for kind,profiles in self.profiles.items():
             for p in profiles:
                 if p['id']==ident:return self.compact_profile(p,kind,100,['按ID直接读取'],image_limit,details)
-        raise ValueError('Unknown tutorial/style/UI/case ID: '+ident)
+        raise ValueError('Unknown tutorial/style/UI/case/system/axis ID: '+ident)
+
+    def compact_system(self,p,score,reasons,details=False):
+        rel='references/ui-system-patterns.md'
+        row={'kind':'system','id':p['id'],'title':p['name'],'summary':p['player_decision'],
+             'score':score,'reasons':reasons,'path':rel,'absolute_path':str(self.root/rel),
+             'required_content':p['required_content'],'source_ids':p['source_ids'],
+             'tutorial_ids':p['related_tutorial_ids'],'case_ids':p['related_case_ids'],
+             'editorial_notice':'系统模式是整理者综合；须按项目机制、真实内容和目标输入方式调整，不是标准认证。'}
+        if details:
+            for key in ['entry_exit','information_structure','components','states','input_flow',
+                        'failures_and_recovery','visual_policy','anti_patterns','acceptance_checks','rural_application']:
+                if key in p:row[key]=p[key]
+        return row
+
+    def system_search(self,task,limit=6,details=False,require_specific=False):
+        rows=[]
+        ui_context=any(contains(task,t) and not is_negated(task,t) for t in ['UI','界面','面板','菜单','HUD','按键','控件','交互'])
+        for p in self.ui_systems:
+            hits=[k for k in p['keywords'] if contains(task,k) and not is_negated(task,k)]
+            if contains(task,p['id']):hits.append(p['id'])
+            if require_specific and not ui_context and not any(h not in SYSTEM_GENERIC_TERMS for h in hits):continue
+            if hits:
+                score=sum(min(len(h),12)+10 for h in hits)
+                rows.append(self.compact_system(p,score,['系统任务：'+'、'.join(hits)],details))
+        return sorted(rows,key=lambda p:(-p['score'],p['id']))[:limit]
+
+    def compact_axis(self,a,score,reasons):
+        rel='references/ui-design-foundations.md'
+        return {'kind':'axis','id':a['id'],'title':a['name'],'summary':a['definition'],
+                'score':score,'reasons':reasons,'path':rel,'absolute_path':str(self.root/rel),
+                'source_ids':a['source_ids'],'values':a['values'],
+                'editorial_notice':'多维工作分类，不是互斥风格榜或统计独立变量；须结合任务判断。'}
+
+    def axis_search(self,task,limit=6):
+        rows=[]
+        for a in self.ui_axes:
+            terms=a.get('keywords',[])+[a['name'],a['id']]+[v['name'] for v in a['values']]
+            hits=[t for t in terms if contains(task,t) and not is_negated(task,t)]
+            if hits:rows.append(self.compact_axis(a,len(hits)*10,['设计维度：'+'、'.join(hits)]))
+        return sorted(rows,key=lambda a:(-a['score'],a['id']))[:limit]
 
     def compact_case(self,c,score,reasons,image_limit=2):
         relative='references/ui-case-studies.md'
@@ -195,17 +244,20 @@ class Library:
             'tutorial_ids':c['tutorial_ids'],'ui_style_ids':c['style_ids'],
             'observed':c['observed'],'strengths':c['strengths'],'limitations':c['limitations'],
             'rights':c['rights'],'evidence_status':c['evidence_status'],
+            'classification':c.get('classification',{}),
             'figures':[dict(im,source_url=im['url'],source_page=im['source_url'],remote_only=True,
                             author=c['creator'],license=c['rights']['license'],
-                            usage='官方截图参考链接，不随资料包复制，不授予游戏素材复用许可。')
+                            usage='官方参考画面链接（类型见 evidence_type），不随资料包复制，不授予游戏素材复用许可。')
                        for im in c['images'][:image_limit]],
-            'editorial_notice':'基于静态官方截图的原创分析；风格关联只表示某些规律可借鉴，不等于完整同款或交互验证。'}
+            'editorial_notice':'基于静态官方参考画面的原创分析；风格关联只表示某些规律可借鉴，不等于完整同款或交互验证。'}
 
     def case_search(self,task,limit=6,image_limit=2,style=None,ui_style=None):
         groups=[['背包','物品整理','库存','inventory'],['商店','交易','出售','shop'],
                 ['对话','对白','dialogue'],['战斗','血条','hud','battle'],
                 ['装备','equipment','loadout'],['科幻','机甲','tactical','mech'],
-                ['幻想','奇幻','rpg'],['升级','level-up']]
+                ['幻想','奇幻','rpg'],['升级','level-up'],['建造','放置','物流','building'],
+                ['地图','导航','map'],['日志','日记','任务','journal'],['设置','无障碍','options','settings'],
+                ['拟物','文件','桌面','skeuomorphic'],['终端','等宽','terminal'],['队伍','船员','crew']]
         active=[g for g in groups if any(contains(task,t) and not is_negated(task,t) for t in g)]
         rows=[]
         for c in self.ui_cases:
@@ -225,8 +277,12 @@ class Library:
         results=[]
         if kind in ['tutorial','all']:results+=self.tutorial_search(task,limit,image_limit,style,ui_style,fulltext)
         if kind in ['style','all']:results+=self.profile_search('style',task,min(limit,2) if kind=='all' else limit,image_limit,style,details)
-        if kind in ['ui','all']:results+=self.profile_search('ui',task,min(limit,2) if kind=='all' else limit,image_limit,ui_style,details)
-        ui_request=ui_style or any(r['id']=='game-ui' for r in self.match_routes(task))
+        systems=self.system_search(task,min(limit,3) if kind=='all' else limit,details,require_specific=kind=='all')
+        if kind in ['system','all']:results+=systems
+        if kind in ['axis','all']:results+=self.axis_search(task,min(limit,2) if kind=='all' else limit)
+        ui_request=ui_style or systems or any(r['id']=='game-ui' for r in self.match_routes(task))
+        if kind=='ui' or (kind=='all' and ui_request):
+            results+=self.profile_search('ui',task,min(limit,2) if kind=='all' else limit,image_limit,ui_style,details)
         if kind=='case' or (kind=='all' and ui_request):
             results+=self.case_search(task,min(limit,3) if kind=='all' else limit,image_limit,style,ui_style)
         return {'status':'ok' if results else 'no_match','task':task,'kind':kind,
@@ -237,9 +293,9 @@ class Library:
 def parser():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('query',nargs='?',default='');p.add_argument('--task')
-    p.add_argument('--kind',choices=['tutorial','style','ui','case','all'],default='tutorial')
+    p.add_argument('--kind',choices=['tutorial','style','ui','case','system','axis','all'],default='tutorial')
     p.add_argument('--style');p.add_argument('--ui-style');p.add_argument('--id')
-    p.add_argument('--list',choices=['styles','ui-styles','cases','routes'],help='List available profiles/cases/routes without retrieving figures')
+    p.add_argument('--list',choices=['styles','ui-styles','cases','systems','ui-axes','routes'],help='List available profiles/cases/systems/axes/routes without retrieving figures')
     p.add_argument('--limit',type=int,default=6);p.add_argument('--images',type=int,default=2)
     p.add_argument('--fulltext',action='store_true');p.add_argument('--details',action='store_true');p.add_argument('--json',action='store_true')
     return p
@@ -254,6 +310,10 @@ def main(argv=None):
         if a.list:
             if a.list=='cases':
                 rows=[lib.compact_case(c,0,['可用真实游戏案例'],0) for c in lib.ui_cases]
+            elif a.list=='systems':
+                rows=[lib.compact_system(q,0,['可用系统模式'],a.details) for q in lib.ui_systems]
+            elif a.list=='ui-axes':
+                rows=[lib.compact_axis(q,0,['可用设计维度']) for q in lib.ui_axes]
             elif a.list=='routes':
                 rows=[{'kind':'route','id':r['id'],'title':r['name'],'summary':'、'.join(r['keywords'][:6]),'score':0,'reasons':['可用任务路线'],'absolute_path':str(lib.root/'references/task-routing.json'),'tutorial_ids':[tid for tid in r['tutorial_ids'] if tid in lib.by_id]} for r in lib.routes]
             else:

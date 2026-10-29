@@ -16,6 +16,8 @@ def build(task,out,limit=8,style=None,ui_style=None,copy_figures=False,library_r
     style_candidates=[x for x in result['results'] if x['kind']=='style']
     ui_candidates=[x for x in result['results'] if x['kind']=='ui']
     cases=[x for x in result['results'] if x['kind']=='case']
+    systems=[x for x in result['results'] if x['kind']=='system']
+    axes=[x for x in result['results'] if x['kind']=='axis']
     matched=lib.match_routes(task)
     selected_routes=matched[:2] if len(matched)>1 and matched[1]['score']>=matched[0]['score']*.75 else matched[:1]
     # Keep UI or audit work primary when it explicitly occurs in the request.
@@ -50,6 +52,7 @@ def build(task,out,limit=8,style=None,ui_style=None,copy_figures=False,library_r
             'ui_style_selection_state':'selected' if ui_style else ('candidates-only' if ui_candidates else 'unspecified'),
             'tutorials':tutorials,'style_candidates':style_candidates,'ui_style_candidates':ui_candidates,
             'ui_case_references':cases,
+            'ui_system_patterns':systems,'ui_design_axes':axes,
             'workflow':[{'route_id':r['id'],'name':r['name'],'steps':r['steps'],'acceptance':r['acceptance']} for r in selected_routes],
             'review_requirements':{'machine':'Run scripts/audit_assets.py against a configured contract when assets exist. Unconfigured checks do not imply PASS.',
                 'visual':['视角与接地','主光与阴影方向','轮廓节奏与细节密度','材质语法','UI文字与交互状态'],
@@ -60,6 +63,22 @@ def build(task,out,limit=8,style=None,ui_style=None,copy_figures=False,library_r
     lines=['# 像素制作任务简报','',task,'',NOTICE,'']
     if not tutorials:
         lines+=['## 检索状态','',result['note'],'']
+    if systems or axes:
+        lines+=['## 界面任务与设计依据','',
+                '先确定玩家决策与内容，再决定呈现位置、视觉语言和输入路径；材质配方不能替代系统设计。',
+                file_link('设计理论与分类',lib.root/'references/ui-design-foundations.md')+' · '+
+                file_link('审查方法与证据',lib.root/'references/ui-evaluation-method.md'),'']
+        for s in systems:
+            lines+=['### '+s['title'],'',s['summary'],'']
+            for key,label in [('required_content','必须内容'),('information_structure','信息组织'),
+                              ('states','状态'),('input_flow','操作路径'),('failures_and_recovery','失败与恢复'),
+                              ('acceptance_checks','验收证据')]:
+                items=s.get(key,[])
+                if isinstance(items,str):items=[items]
+                if items:lines+=['**'+label+'**']+['- '+str(item) for item in items]+['']
+            lines+=['依据来源ID：'+', '.join(s['source_ids'])+'；'+file_link('来源清单',lib.root/'references/ui-system-sources.json'),'']
+        if axes:
+            lines+=['相关设计维度：'+'；'.join(a['title']+'（'+a['id']+'）' for a in axes)+'。读取理论中的定义、取舍与反例后再选值。','']
     lines+=['## 风格约定','']
     if not style_candidates and not ui_candidates:
         lines+=['本次任务没有足够线索选择风格。沿用项目已有规范；若没有，先明确视角、逻辑像素、调色板、主光、轮廓和材质，再制作。','']
@@ -86,13 +105,13 @@ def build(task,out,limit=8,style=None,ui_style=None,copy_figures=False,library_r
             lines+=['配图来源：[原图]('+figure['source_url']+')；许可：'+str(figure['license'])+'。仅作教学参考。','']
     if cases:
         lines+=['## 真实游戏 UI 案例参考','',
-                '以下为官方截图的静态观察与整理者评析。图片仅保留远程链接，不随 --copy-figures 复制；不能用于提取可分发游戏素材，也不能代替中文/手柄/交互实测。','']
+                '以下为官方游戏截图、开发者设计稿或官方指南的静态观察与整理者评析，逐图类型见 evidence_type。图片仅保留远程链接，不随 --copy-figures 复制；不能用于提取可分发游戏素材，也不能代替中文/手柄/交互实测。','']
         for c in cases:
             lines+=['### '+c['title'],'','[官方来源]('+c['source_url']+') · '+c['summary'],'',
                     '可借鉴：'+'；'.join(c['strengths']),'',
                     '局限：'+'；'.join(c['limitations']),'']
             for figure in c['figures']:
-                lines+=['[参考截图：'+figure['caption']+']('+figure['url']+')','']
+                lines+=['['+figure.get('evidence_type','reference')+'：'+figure['caption']+']('+figure['url']+')','']
     lines+=['## 制作路线（整理者编排）','']
     if not selected_routes:
         lines+=['未匹配到已有制作路线。请读取命中的教程并据项目约束拟定步骤，不把一般流程冒充当前任务的已验证方案。','']
