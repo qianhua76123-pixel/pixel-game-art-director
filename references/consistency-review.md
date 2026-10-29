@@ -2,6 +2,20 @@
 
 用于检查已经存在的像素素材、动画帧或游戏界面截图。它不会生成、重绘、裁切保存或自动修复源素材。先读取项目实际美术规范；没有规范时先从用户认可的参考图提取可测量约定，并把尚未确认的项目留空。
 
+## 先检查主题继承
+
+先读 [主题合同说明](theme-cohesion-contract.md)。项目主题优先于单资产配方，`world/character/item-icon/UI/typography` 的用途差异必须有理由；单资产通过集中登记的例外引用差异，不能另选主题。用标准库验证器检查 [主题合同](../assets/templates/theme-contract.json)：
+
+```bash
+python3 scripts/validate_theme_contract.py /path/to/project/theme-contract.json --json
+```
+
+它核对主题ID、已声明role、引用与文件哈希、覆盖/例外的理由和证据，以及关键参数是否仍未确定；不自动分析图片或执行视觉审阅。输出区分 `structure_status`、`completion_status`、已记录的 `recorded_visual_status` / `recorded_runtime_status` / `recorded_strict_pixel_production_status`。`recorded_*` 是合同记录的结论，不是本次命令重新测量所得。
+
+退出码 `0` 表示结构及必要记录完整且无记录失败，`1` 表示结构错误或已记录硬门槛失败，`2` 表示没有明确失败但仍不完整；结合JSON读取具体原因。结构可以 `PASS`，同时视觉 `UNDETERMINED`、严格像素 `OBSERVED_FAIL`。例外存在不能免除全部硬门槛。
+
+主题合同和下面的图片测量合同用途不同，不能将 `theme-contract.json` 直接传给 `audit_assets.py`。主题合同中的 `null` 表示未知，不禁用父级约束；下文图片测量合同中的显式 `null` 才按其自身格式禁用一项测量规则。
+
 ## 运行与输出
 
 需要 Python 3.9+ 和 Pillow。运行路径相对于本skill根目录：
@@ -32,7 +46,7 @@ python3 scripts/audit_assets.py /path/to/assets \
 
 退出码：`0`为机器规则通过、`1`为规则失败、`2`为不完整/无效输入。自动化调用应读取报告，不要把退出码0解释为视觉验收成功。空文件夹不会得到全绿报告。
 
-## 合同格式
+## 图片测量合同格式
 
 顶层包含`schema_version: 1`、可选`project`/`notes`、`defaults`、`roles`和`assets`。规则优先级：默认规则 → 匹配条目的role规则 → 该条目的rules。多个条目按数组顺序应用，后者覆盖前者。嵌套规则对象整体替换，不逐字段合并。
 
@@ -101,3 +115,9 @@ python3 scripts/audit_assets.py /path/to/assets \
 ```
 
 机器复检通过后仍打开新联系表和场景截图。没有观察修订结果时，写“修复建议已提供”而不是“已经修好”。
+
+## 可复查的小样与研究入口
+
+[乡村商店三个可运行小样](../examples/rural-shop-demo/README.md) 共用一套商品图与交易状态，用不同结构比较同一任务；其 [主题合同](../examples/rural-shop-demo/theme-contract.json) 逐项记录证据、期望、观察、状态与例外。4张AI生成PNG是界面样张源图，商品图集含577,839个非0/255的alpha像素，严格硬alpha项失败；有效逻辑像素网格仍未固定。样张可运行、CSS使用最近邻显示、主题结构有效，都不能改写这项生产门槛。
+
+[4组真实游戏画面研究](visual-game-studies.md) 提供8张官方远程图及跨场景、角色、图标与UI的观察方法，独立于14个UI案例。研究图不是项目验收证据，也不能从商业截图提取可分发素材。项目视觉判断仍应基于自己的原图和实际屏幕。

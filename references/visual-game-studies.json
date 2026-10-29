@@ -1,0 +1,523 @@
+{
+  "schema_version": "1.0",
+  "title": "像素游戏 UI 与世界／素材一致性：四组原始图像研究",
+  "created_at": "2026-10-29",
+  "language": "zh-CN",
+  "case_count": 4,
+  "image_reference_count": 8,
+  "evidence_boundary": "每例两张官方商店图已实际查看。observed 只写可见事实；design_inferences 与 cohesion_rules 是本库作者的设计推论／迁移建议。没有访谈作者意图、测量原始色板／像素网格，或运行游戏验证动态交互。",
+  "selection_basis": "为不同 UI 与世界的连接方式选例：几何母题、纹理分层、按任务划分面板家族、经营与拟物任务。不是客观优秀排名，也不是完整游戏审查。",
+  "source_policy": "仅使用开发商／发行商在官方 Steam 商店发布的截图和商店说明；截图直链来自 Steam 官方 appdetails 接口。",
+  "rights": {
+    "license_status": "未发现所选商业截图的开放再分发许可；按第三方版权作品处理。",
+    "permitted_library_use": "本库保存来源链接、哈希和原创评论；Markdown 从官方 CDN 引用原图用于来源核验和视觉研究。可查看不等于获得商业素材授权。",
+    "restrictions": [
+      "商业截图不复制进技能包，不纳入本库开放许可证。",
+      "不得从截图裁切、描摹或提取角色、图标、纹样、地图作为游戏成品素材。",
+      "落地应重新设计并制作项目自有资产；即使远程图失效，也不得用无授权转载补包。"
+    ]
+  },
+  "cases": [
+    {
+      "id": "ART-CASE-001",
+      "slug": "hyper-light-drifter",
+      "game": "Hyper Light Drifter",
+      "developer": "Heart Machine",
+      "focus": "场景几何、荧光强调色与克制的 HUD／图形对话",
+      "tags": [
+        "俯视倾斜视角",
+        "动作",
+        "几何母题",
+        "色彩语义",
+        "低文字UI",
+        "局部交互提示",
+        "轮廓",
+        "环境分区"
+      ],
+      "viewpoint": "所选图为可见地面与建筑正面的二维俯视倾斜视角；并非只见物体顶面的正俯视，也不据截图断言严格等距投影。",
+      "observed": [
+        {
+          "aspect": "配色角色",
+          "evidence": [
+            "ART-CASE-001-A",
+            "ART-CASE-001-B"
+          ],
+          "text": "冷蓝地面提供大面积底色，红披风是人物身份线索；薄荷青、品红与白色出现在 HUD、建筑符号及部分战斗表现中。相同色族跨层出现，但不能据此把所有同色物体解释成同一机制。"
+        },
+        {
+          "aspect": "轮廓与材质",
+          "evidence": [
+            "ART-CASE-001-A",
+            "ART-CASE-001-B"
+          ],
+          "text": "人物以紧凑色块和深色投影立住；石柱以直边、面分区和稀疏纹样表现结构，树冠以大块剪影配边缘碎簇表现。纹样最密集处集中在局部，没有让全部可行走地面同样繁密。"
+        },
+        {
+          "aspect": "UI 框体与图标",
+          "evidence": [
+            "ART-CASE-001-A",
+            "ART-CASE-001-B"
+          ],
+          "text": "状态 HUD 用矩形块和极简图标；交互泡用直角细框。建筑、地面纹样与这些 UI 都能看到方形／阶梯形的重复，联系来自几何语汇，而非共享一种表面材质。"
+        },
+        {
+          "aspect": "文字与信息密度",
+          "evidence": [
+            "ART-CASE-001-A",
+            "ART-CASE-001-B"
+          ],
+          "text": "这两图的 UI 主要是图标、分段条和抽象符号，几乎不能提供正文排版样本；战斗信息集中在左上，交互信息靠近人物。不能由这两图推断完整菜单或中文字体表现。"
+        }
+      ],
+      "design_inferences": [
+        "几何母题比把整个 UI 做成场景物件更容易维持画面亲缘感，同时保留 HUD 的清楚边界。",
+        "红披风作为稳定身份线索，比要求每个地区始终保持同一背景颜色更可迁移；场景分区可以换色，但需要重新检查角色与地面的分离。"
+      ],
+      "cohesion_rules": [
+        {
+          "rule": "先规定一组可跨场景和 UI 使用的基础形状，再决定材质。",
+          "verification": "把建筑纹样、交互提示、状态条并排检查：它们应共享明确的直角／阶梯节奏；不要给单件资产临时追加圆润、金属或卷轴语言。"
+        },
+        {
+          "rule": "分别规定身份色、环境底色与状态强调色的职责。",
+          "verification": "在明暗不同的场景中检查角色仍能辨认；危险信息同时使用形状／位置等线索，不能只借用背景中也常见的红色。"
+        },
+        {
+          "rule": "为活动区域留下纹理密度较低的区域。",
+          "verification": "用实际玩家、道具和提示同时摆入场景审查，检查焦点周围是否被同亮度碎纹掩埋；不以孤立资产的精细程度代替整体判断。"
+        }
+      ],
+      "exceptions_and_limits": [
+        "静态截图不能证明 HUD 出现时机、动画速度、命中判定或无障碍效果；这里没有把状态条颜色擅自命名为生命或弹药。",
+        "该游戏的低文字表达不能直接满足乡村商店的价格、库存、说明与中文长文本；必须补充本地化排版与交易反馈。"
+      ],
+      "quality_basis": "选它是因为两张图能清楚比较场景纹样、角色身份和小型 UI 的关系。这是对形状组织与视觉取舍的原创判断，不是游戏排名、销量或可用性测试结论。",
+      "transfer_to_rural_game": [
+        "固定同一套店主、商品和柜台资产，让招牌、商品选中框、数量按钮共享方角／阶梯节奏；避免每换一个按钮就引用另一款游戏。",
+        "给常驻货币／时段留紧凑区域，把商品说明靠近当前商品；中文正文仍使用清楚的面板，不模仿抽象文字造成阅读障碍。"
+      ],
+      "source_url": "https://store.steampowered.com/app/257850/",
+      "reference_path": "references/visual-game-studies.md",
+      "anchor": "art-case-001",
+      "evidence_status": "reviewed-official-static-images",
+      "reviewed_on": "2026-10-29",
+      "rights": {
+        "license_status": "未发现所选商业截图的开放再分发许可；按第三方版权作品处理。",
+        "permitted_library_use": "本库保存来源链接、哈希和原创评论；Markdown 从官方 CDN 引用原图用于来源核验和视觉研究。可查看不等于获得商业素材授权。",
+        "restrictions": [
+          "商业截图不复制进技能包，不纳入本库开放许可证。",
+          "不得从截图裁切、描摹或提取角色、图标、纹样、地图作为游戏成品素材。",
+          "落地应重新设计并制作项目自有资产；即使远程图失效，也不得用无授权转载补包。"
+        ]
+      },
+      "images": [
+        {
+          "id": "ART-CASE-001-A",
+          "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257850/ss_b38d4392356a39a745fd18c032195a71c40d038b.1920x1080.jpg?t=1762899660",
+          "source_url": "https://store.steampowered.com/app/257850/",
+          "sha256": "80f5482c17267d4e4ade23fa8d527aeb85778479e89553b53759c2ecf188217a",
+          "caption": "战斗截图：左上分段状态条与几何图标，中央冷色地面、红披风角色和高亮攻击。",
+          "evidence_type": "official-store-screenshot",
+          "observations": [
+            "左上黑底区域含白色几何图标、薄荷绿分段条及品红色块，中央没有大面板遮挡。",
+            "地砖、石柱符号和发射物出现方形／直角图形；蓝色地面与紫色外围分区清楚。"
+          ],
+          "reviewed_with": "local-original-image-view",
+          "reviewed_on": "2026-10-29"
+        },
+        {
+          "id": "ART-CASE-001-B",
+          "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/257850/ss_fba6762a846f9d79ade2f008514e2e4cea16d0a4.1920x1080.jpg?t=1762899660",
+          "source_url": "https://store.steampowered.com/app/257850/",
+          "sha256": "278d09a212469806047c721572e01319a9de1305920a098e049c3d12360f2782",
+          "caption": "人物交互截图：青色直角对话泡嵌入石柱、符号与红紫植被构成的场景。",
+          "evidence_type": "official-store-screenshot",
+          "observations": [
+            "人物上方小对话泡采用细直角边框和几何符号；外形语言与旁边石柱的方形纹样接近。",
+            "红披风、青色同行小物体、深蓝地面、红紫树冠在同画面形成不同辨认线索；对话泡没有模拟整块木牌或石板。"
+          ],
+          "reviewed_with": "local-original-image-view",
+          "reviewed_on": "2026-10-29"
+        }
+      ]
+    },
+    {
+      "id": "ART-CASE-002",
+      "slug": "children-of-morta",
+      "game": "Children of Morta",
+      "developer": "Dead Mage",
+      "focus": "密纹理世界与较简洁的符文框体分层，角色身份贯穿多个尺度",
+      "tags": [
+        "俯视倾斜视角",
+        "动作RPG",
+        "合作HUD",
+        "符文",
+        "菱形母题",
+        "角色选择",
+        "纹理密度",
+        "有意分层"
+      ],
+      "viewpoint": "所选战斗图是可见地面与人物正面的俯视倾斜视角；角色选择页包含更大的正面人物表现，二者不应按同一资产像素尺寸制作。",
+      "observed": [
+        {
+          "aspect": "配色与照明",
+          "evidence": [
+            "ART-CASE-002-A",
+            "ART-CASE-002-B"
+          ],
+          "text": "战斗图的蓝紫洞窟承接岩石密纹，火把和大范围橙金技能形成暖亮区域，青白粒子也很醒目；菜单以近黑底托住青色线框。相近的青／金色族在世界效果和 UI 中反复出现，但各处面积与亮度不同。"
+        },
+        {
+          "aspect": "轮廓与材质",
+          "evidence": [
+            "ART-CASE-002-A",
+            "ART-CASE-002-B"
+          ],
+          "text": "岩石、树根、地面有细密的像素纹理；技能图标置于较安静的黑色格内，HUD 外框则有棕金色斜面。菜单人物采用更大、更丰富的明暗表现，仍以服装、发型与肖像对应身份。"
+        },
+        {
+          "aspect": "图形母题与框体",
+          "evidence": [
+            "ART-CASE-002-A",
+            "ART-CASE-002-B"
+          ],
+          "text": "菱形头像、切角、青色线条及角部符号，在底部战斗 HUD 和角色选择页都出现。主面板没有逐块模仿洞窟岩石，图形关联与材质差异同时存在。"
+        },
+        {
+          "aspect": "字体层级与密度",
+          "evidence": [
+            "ART-CASE-002-A",
+            "ART-CASE-002-B"
+          ],
+          "text": "角色页用更大的亮色名字、页签和开始按钮，与较小等级／操作说明区分；战斗页同时出现状态、技能、地图、目标和完成提示。前者以分栏和留白组织，后者的高密度需要动态情境检验。"
+        }
+      ],
+      "design_inferences": [
+        "如果世界纹理已很丰富，UI 可以减少内部噪声，只保留边缘母题；让所有面板也铺满同等级纹理，反而可能破坏信息层级。",
+        "一致性检查应追踪“同一角色在地图、肖像、菜单中的身份”，允许不同呈现尺度；不应把像素尺寸完全相同作为唯一标准。"
+      ],
+      "cohesion_rules": [
+        {
+          "rule": "把纹样限制在规定部位，把文字与图标放在安静底面。",
+          "verification": "将正文背景、边框、角饰分开审查；边角装饰不得侵入数字、技能轮廓或选中边界。"
+        },
+        {
+          "rule": "建立角色跨尺度身份表。",
+          "verification": "并列场景小人、头像、对话立绘与菜单人物，检查发型、服装主块、配件、年龄轮廓是否可对应；允许细节数量随显示尺寸变化。"
+        },
+        {
+          "rule": "为多主体信息重复同一组件结构，并增加非颜色身份线索。",
+          "verification": "同类角色／顾客卡片的顺序、图标语法和数值位置一致；需要区分主体时同时有名字、编号或形状，不能只换颜色。"
+        }
+      ],
+      "exceptions_and_limits": [
+        "第二图含商店宣传的 ONLINE CO-OP 标记，已明确排除其形状、字体和颜色作为游戏内 UI 依据。",
+        "两张图不是相同场景与相同时间的严格对照；不能据静帧证明提示不遮挡战斗，也不能把暗背景判定为动态遮罩的实现。",
+        "所见为拉丁文字与控制器提示，不验证中文排版、键鼠流程或合作可用性。"
+      ],
+      "quality_basis": "选它是因为丰富场景、炫亮技能和带纹样 UI 同时存在，可以研究如何让它们建立联系又保持层次；不意味着高装饰密度适合所有项目。",
+      "transfer_to_rural_game": [
+        "把“青色符文／菱形”换成乡村项目自己的竹编边角、纸签折角或木榫形状，只选一套母题；商品名、价格与库存所在区域保持低纹理。",
+        "店主的小人、头像和对话像共用一张身份规范；同类商品图标共用视角、明暗方向和轮廓处理，不能分别从不同游戏取样后拼接。"
+      ],
+      "source_url": "https://store.steampowered.com/app/330020/",
+      "reference_path": "references/visual-game-studies.md",
+      "anchor": "art-case-002",
+      "evidence_status": "reviewed-official-static-images",
+      "reviewed_on": "2026-10-29",
+      "rights": {
+        "license_status": "未发现所选商业截图的开放再分发许可；按第三方版权作品处理。",
+        "permitted_library_use": "本库保存来源链接、哈希和原创评论；Markdown 从官方 CDN 引用原图用于来源核验和视觉研究。可查看不等于获得商业素材授权。",
+        "restrictions": [
+          "商业截图不复制进技能包，不纳入本库开放许可证。",
+          "不得从截图裁切、描摹或提取角色、图标、纹样、地图作为游戏成品素材。",
+          "落地应重新设计并制作项目自有资产；即使远程图失效，也不得用无授权转载补包。"
+        ]
+      },
+      "images": [
+        {
+          "id": "ART-CASE-002-A",
+          "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/330020/ss_83a775e3ef93bde16a08d009a0ad1fb1b2a43b76.1920x1080.jpg?t=1765218667",
+          "source_url": "https://store.steampowered.com/app/330020/",
+          "sha256": "6832a95fd867e0aa66ee7ce914087f5f824f233ad77562cf5d5b00e3fb530c62",
+          "caption": "合作战斗截图：深蓝洞窟、暖色局部光与高亮技能；两侧底部 HUD 以同一组件结构出现。",
+          "evidence_type": "official-store-screenshot",
+          "observations": [
+            "左右底部 HUD 使用相近的棕金色斜角框、菱形头像、绿色与青色条、深色技能格。",
+            "洞窟岩石纹理密集，橙金和青白战斗效果明亮；顶部完成提示和右侧地图／任务各占独立区域。"
+          ],
+          "reviewed_with": "local-original-image-view",
+          "reviewed_on": "2026-10-29"
+        },
+        {
+          "id": "ART-CASE-002-B",
+          "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/330020/ss_e7bbfd5607b247a6931f521c397bcd50328d45fc.1920x1080.jpg?t=1765218667",
+          "source_url": "https://store.steampowered.com/app/330020/",
+          "sha256": "a3681bb2146ac6c5c03b0e363308cbb6766e50f9b007a135e1eba4202ba1ea30",
+          "caption": "角色选择页：黑底青色符文框、菱形头像和技能图标；左上 ONLINE CO-OP 为商店宣传叠字。",
+          "evidence_type": "official-store-screenshot-with-promotional-overlay",
+          "observations": [
+            "菜单背景很暗，细青框与重复角纹组织各区；中央全身人物与两侧菱形肖像共存，名字、页签、开始按钮更醒目。",
+            "玩家标签同时使用蓝／红颜色及 Player 1／Player 2、P1／P2 文字；宣传叠字不属于本研究的游戏 UI 证据。"
+          ],
+          "reviewed_with": "local-original-image-view",
+          "reviewed_on": "2026-10-29"
+        }
+      ]
+    },
+    {
+      "id": "ART-CASE-003",
+      "slug": "chained-echoes",
+      "game": "Chained Echoes",
+      "developer": "Umami Tiger (Matthias Linda)",
+      "focus": "按功能区分浅色对白与深色战斗界面，用角色身份和像素文字连接世界",
+      "tags": [
+        "俯视倾斜视角",
+        "JRPG",
+        "对话",
+        "战斗菜单",
+        "肖像",
+        "功能分层",
+        "字体层级",
+        "材质区别"
+      ],
+      "viewpoint": "所选场景为二维俯视倾斜表现，可见地面和人物正面；对话头像是独立的大幅人物表现。该案例不能用来直接规定乡村建筑的精确投影角。",
+      "observed": [
+        {
+          "aspect": "配色与功能层次",
+          "evidence": [
+            "ART-CASE-003-A",
+            "ART-CASE-003-B"
+          ],
+          "text": "对白采用浅米色底、深褐字；战斗命令采用深蓝底、白字、金边和红姓名条。两种面板的明暗极性不同，但都用明显边界、细角饰和像素字建立 UI 身份。"
+        },
+        {
+          "aspect": "轮廓、材质与光照",
+          "evidence": [
+            "ART-CASE-003-A",
+            "ART-CASE-003-B"
+          ],
+          "text": "林叶、巨兽、岩壁和木阶以细密簇块表现材质；UI 正文区域大体平整，装饰靠边缘。夜景相对较暗，对白框很亮；不能仅据此确认有对话期间的动态压暗功能。"
+        },
+        {
+          "aspect": "跨尺度身份",
+          "evidence": [
+            "ART-CASE-003-A",
+            "ART-CASE-003-B"
+          ],
+          "text": "剧情的红发人物小人和左下大肖像可对应；战斗角色的发色、脸部和服装线索又以小肖像进入状态区与顺序区。图像尺度变化大，身份线索保持连续。"
+        },
+        {
+          "aspect": "字体与信息密度",
+          "evidence": [
+            "ART-CASE-003-A",
+            "ART-CASE-003-B"
+          ],
+          "text": "对白区优先长句和姓名；战斗区把指令、技能名、费用、资源和顺序分组，正文亮且较粗。顶部行动头像有 Act.／Next 文字，提供颜色之外的顺序线索。此处仅观察到英文。"
+        }
+      ],
+      "design_inferences": [
+        "同一游戏可以使用多个面板家族，只要每个家族对应稳定任务，并共享字形、边界和身份线索；“全部做成同一块木板”并不是一致性的充分条件。",
+        "头像是世界角色与复杂菜单之间的桥梁；商品也可通过固定轮廓与主色块在货架、背包和交易明细中建立同样联系。"
+      ],
+      "cohesion_rules": [
+        {
+          "rule": "为对话、列表与高密度决策分别定义面板用途和明暗关系。",
+          "verification": "同类任务始终用同一家族；检查新界面是否未经说明就换了字形、内边距语法或边角结构。"
+        },
+        {
+          "rule": "让人物／物品的跨界面形象保留少量稳定识别特征。",
+          "verification": "拿同一商品的货架表现、图标和交易明细并排比较形状与主色块；尺寸改变不能让商品变成另一种材质或另一个品种。"
+        },
+        {
+          "rule": "将装饰与读取任务拆开，按信息类型组织数值。",
+          "verification": "检查名字、价格、数量、状态是否各有稳定位置；高纹理背景不应穿过正文和关键数字。"
+        }
+      ],
+      "exceptions_and_limits": [
+        "战斗菜单适合回合决策；不能因此推导实时经营时也能长期占据相同屏幕面积。",
+        "头像与场景小人无需同尺寸，但共用身份不代表可任意混用插画轮廓、像素簇和写实渲染；例外需要项目规范。",
+        "截图不能验证中文长文本、连续输入、遮挡恢复或动态可读性。"
+      ],
+      "quality_basis": "选它是因为两种明显不同的 UI 家族仍能通过身份、文字和边框语法联系，适合纠正“全屏同材质才算统一”的过度简化。",
+      "transfer_to_rural_game": [
+        "对白用浅纸签、买卖清单用稳定的深色或浅色账页家族均可；先确定用途，再规定每类页面的背景、强调色和字号层级。",
+        "同一商品在世界货架、购买列表、背包和收据中复用身份规范与图标源，避免每个界面重新生成一套视觉版本。"
+      ],
+      "source_url": "https://store.steampowered.com/app/1229240/",
+      "reference_path": "references/visual-game-studies.md",
+      "anchor": "art-case-003",
+      "evidence_status": "reviewed-official-static-images",
+      "reviewed_on": "2026-10-29",
+      "rights": {
+        "license_status": "未发现所选商业截图的开放再分发许可；按第三方版权作品处理。",
+        "permitted_library_use": "本库保存来源链接、哈希和原创评论；Markdown 从官方 CDN 引用原图用于来源核验和视觉研究。可查看不等于获得商业素材授权。",
+        "restrictions": [
+          "商业截图不复制进技能包，不纳入本库开放许可证。",
+          "不得从截图裁切、描摹或提取角色、图标、纹样、地图作为游戏成品素材。",
+          "落地应重新设计并制作项目自有资产；即使远程图失效，也不得用无授权转载补包。"
+        ]
+      },
+      "images": [
+        {
+          "id": "ART-CASE-003-A",
+          "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1229240/ss_b25ed2e671e7b616ec14e7ed3a2f483909e368c4.1920x1080.jpg?t=1788522273",
+          "source_url": "https://store.steampowered.com/app/1229240/",
+          "sha256": "42b55132e28aa0286cee4d34d824b524fce3f09a45c3951c081293f9e717510d",
+          "caption": "夜间剧情截图：浅米色对白框、深色文字与红发肖像，和较暗的林地场景形成层级。",
+          "evidence_type": "official-store-screenshot",
+          "observations": [
+            "底部浅色横向对白框有细褐边和小角饰，正文为深褐像素字；角色名以亮字从框上方突出。",
+            "大肖像与场景小人保留红发与服装身份线索；林地、石头与巨兽使用更密集的形状和纹理。"
+          ],
+          "reviewed_with": "local-original-image-view",
+          "reviewed_on": "2026-10-29"
+        },
+        {
+          "id": "ART-CASE-003-B",
+          "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1229240/ss_02152fa16493a1fe30ce307864c7b2d6f82daede.1920x1080.jpg?t=1788522273",
+          "source_url": "https://store.steampowered.com/app/1229240/",
+          "sha256": "58ac0ce3d5a52b983a2835893e1f175964855a1801534d89f80db67a2e8161ce",
+          "caption": "战斗截图：深蓝命令板、细金边、红色姓名条，配合头像状态与顶部行动序列。",
+          "evidence_type": "official-store-screenshot",
+          "observations": [
+            "底部命令板深蓝，外圈细金色纹样；白色指令、金色数值、小图标分别占位。右下角色头像对应 HP／TP 读数。",
+            "地面与升降台为灰褐／黑色材质，角色发色在场景与头像中对应；顶部行动序列以头像和 Act.／Next 标签表达顺序。"
+          ],
+          "reviewed_with": "local-original-image-view",
+          "reviewed_on": "2026-10-29"
+        }
+      ]
+    },
+    {
+      "id": "ART-CASE-004",
+      "slug": "dave-the-diver",
+      "game": "DAVE THE DIVER",
+      "developer": "MINTROCKET",
+      "focus": "经营场景中的物体提示、常驻 HUD 与拟物小游戏分层",
+      "tags": [
+        "侧视",
+        "2D与3D混合",
+        "经营",
+        "餐厅",
+        "拟物化",
+        "物体锚定提示",
+        "小游戏",
+        "系统入口"
+      ],
+      "viewpoint": "所选两图都是侧向观看的餐厅，人物沿横向吧台分布；不是俯视角。官方商店说明明确介绍像素与 3D 图形结合，不能将这套表现视为严格统一网格的纯二维像素资产模板。",
+      "observed": [
+        {
+          "aspect": "配色与光照",
+          "evidence": [
+            "ART-CASE-004-A",
+            "ART-CASE-004-B"
+          ],
+          "text": "两图均以暖木色吧台、黄橙吊灯、蓝色海景及粉／青霓虹组织餐厅。HUD 的黄色货币边与粉色社交区也使用场景中的亮色族，但文字有独立的黑底承托。"
+        },
+        {
+          "aspect": "轮廓与材质层级",
+          "evidence": [
+            "ART-CASE-004-A",
+            "ART-CASE-004-B"
+          ],
+          "text": "餐厅角色和家具可见像素轮廓，灯光及背景有较平滑的明暗变化；中央饮品设备的金属表面、螺钉、玻璃与按钮比边缘 HUD 更拟物。统一感并不依赖每层都使用相同纹理或相同像素尺寸。"
+        },
+        {
+          "aspect": "物体提示与系统框体",
+          "evidence": [
+            "ART-CASE-004-A",
+            "ART-CASE-004-B"
+          ],
+          "text": "点单泡直接靠近顾客，食物图与订单主体相邻；货币、社交、时间与系统入口相对固定在边缘。小游戏在中央放大相关物件，并保留按键、指示箭头和配方示意。"
+        },
+        {
+          "aspect": "字体与密度",
+          "evidence": [
+            "ART-CASE-004-A",
+            "ART-CASE-004-B"
+          ],
+          "text": "货币数值、系统短标签与小游戏步骤分层；小游戏的结果字大且有描边／倾斜强调。经营图同时存在顾客泡、任务、时间和系统图标，信息丰富，但静帧不能证明忙碌时仍易读。"
+        }
+      ],
+      "design_inferences": [
+        "拟物化适合解释具有实体动作的局部任务；常驻信息采用更轻的图形层，可以让餐厅本身继续承担空间和氛围。",
+        "世界物件、订单小图、系统图标和小游戏之间可以保持语义一致；它们不必做成同一块木牌，却需要指向同一商品或操作。"
+      ],
+      "cohesion_rules": [
+        {
+          "rule": "把常驻状态、对象提示与临时操作分成明确层级。",
+          "verification": "同时摆入最忙时刻的顾客、订单泡、货币与弹层，检查谁归谁、谁覆盖谁；临时任务结束后应恢复原场景上下文，此项须运行验证。"
+        },
+        {
+          "rule": "只在能帮助理解动作的局部使用实体隐喻。",
+          "verification": "秤盘、账本、包装台的形状应说明当前动作；无动作意义的常驻数字无需额外加完整木器或机械外壳。"
+        },
+        {
+          "rule": "同一物品的世界表现和图标建立明确映射。",
+          "verification": "从货架到订单到操作台逐项核对品类、轮廓、主色和名称；图标可以简化，但不能换成完全不同的绘画语法。"
+        }
+      ],
+      "exceptions_and_limits": [
+        "这里选择两张餐厅截图以对应乡村商店主题；没有用它们评价潜水 HUD，也没有覆盖整个游戏。",
+        "侧视吧台的横向人物关系不能直接复制到俯视商店；应重新验证货架遮挡、空间路径与头顶泡的位置。",
+        "原图为英文；拟物设备和大结果字不证明触屏、键盘或中文排版都可用，动画／音效和操作成本也未验证。"
+      ],
+      "quality_basis": "选它是因为同一经营空间同时容纳局部物件提示、轻量 HUD 和强拟物小游戏，提供具体的界面层级比较；不把混合渲染本身当作高质量保证。",
+      "transfer_to_rural_game": [
+        "让乡村商店的商品询价泡靠近顾客或柜台；钱袋、时段和背包入口常驻边缘。称重、打包或记账再调用与世界道具对应的临时操作层。",
+        "三种商店方案应沿用同一店主、商品、货架和照明基准，只改变框体／排版／交互隐喻；否则比较混入了资产质量与世界风格差异。"
+      ],
+      "source_url": "https://store.steampowered.com/app/1868140/",
+      "reference_path": "references/visual-game-studies.md",
+      "anchor": "art-case-004",
+      "evidence_status": "reviewed-official-static-images",
+      "reviewed_on": "2026-10-29",
+      "rights": {
+        "license_status": "未发现所选商业截图的开放再分发许可；按第三方版权作品处理。",
+        "permitted_library_use": "本库保存来源链接、哈希和原创评论；Markdown 从官方 CDN 引用原图用于来源核验和视觉研究。可查看不等于获得商业素材授权。",
+        "restrictions": [
+          "商业截图不复制进技能包，不纳入本库开放许可证。",
+          "不得从截图裁切、描摹或提取角色、图标、纹样、地图作为游戏成品素材。",
+          "落地应重新设计并制作项目自有资产；即使远程图失效，也不得用无授权转载补包。"
+        ]
+      },
+      "images": [
+        {
+          "id": "ART-CASE-004-A",
+          "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1868140/ss_783e1f6c2d4c358fb494d055c47c0e888922abd5.1920x1080.jpg?t=1791478061",
+          "source_url": "https://store.steampowered.com/app/1868140/",
+          "sha256": "bd7709a10d3f830851444ba97f5a78f69d44129a4266140b6af287db96802edf",
+          "caption": "餐厅经营截图：菜品提示靠近顾客，货币／时间在边缘，系统入口在底部。",
+          "evidence_type": "official-store-screenshot",
+          "observations": [
+            "木制吧台与暖吊灯构成主体，青蓝海景与粉色霓虹为环境层；顾客头上出现带食物小图的气泡。",
+            "常驻数值区采用干净黑底、细彩色边和亮字；底部用食物、人物、食材、画框等图形加短标签组织系统入口。"
+          ],
+          "reviewed_with": "local-original-image-view",
+          "reviewed_on": "2026-10-29"
+        },
+        {
+          "id": "ART-CASE-004-B",
+          "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1868140/ss_391a1c5adf618fbcd1bec89e25e0ac54bb4d915f.1920x1080.jpg?t=1791478061",
+          "source_url": "https://store.steampowered.com/app/1868140/",
+          "sha256": "e85efee5fef304dcb4260467ce30492d2c3aaa16fa6f3c2cdd0794643f31a8c4",
+          "caption": "饮品小游戏截图：中央出酒设备与杯子采用拟物表达，金色大结果字覆盖其上，餐厅及边缘 HUD 仍可见。",
+          "evidence_type": "official-store-screenshot",
+          "observations": [
+            "中央小游戏呈现金属设备、螺钉、酒嘴和杯子，旁边有配方图、箭头与按键提示；这是比常驻 HUD 更具体的物件隐喻。",
+            "大号倾斜结果字与小号步骤说明形成层级；同一吧台、灯光、霓虹招牌和底部系统入口仍构成背景联系。"
+          ],
+          "reviewed_with": "local-original-image-view",
+          "reviewed_on": "2026-10-29"
+        }
+      ]
+    }
+  ],
+  "cross_case_rules": [
+    "先固定视角、角色身份、材质和色彩职责，再为个别系统记录有理由的视觉例外。",
+    "资产需要成组审查：店主小人／肖像、货架商品／图标／订单、世界招牌／菜单框体，而非只检查单张好看。",
+    "同一游戏允许场景、头像、文字与图标具有不同信息密度；差异要服务任务，不能由每件资产各挑参考造成。",
+    "检查最忙状态与长中文文案；静态风格观察不能代替输入、遮挡、反馈与可读性验证。"
+  ]
+}
