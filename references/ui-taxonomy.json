@@ -1,0 +1,610 @@
+{
+  "schema_version": 1,
+  "kind": "game-ui-multiaxis-taxonomy",
+  "created_at": "2026-10-29",
+  "editorial_notice": "这是基于列明来源的编辑综合工作框架。8个维度可组合、相互约束，并不主张统计独立或学界统一分类；部分值可混合。具体例子为设计推演，不是已实现或已验证的产品。",
+  "axes": [
+    {
+      "id": "visual-treatment",
+      "name": "视觉表现与物件隐喻",
+      "definition": "描述界面如何借助材质、图形与物件线索表达。是本库整理者的可组合工作标签，不是公认互斥流派，也不是质量排名。",
+      "keywords": [
+        "风格",
+        "拟物",
+        "拟物化",
+        "平面",
+        "扁平",
+        "装饰",
+        "视觉",
+        "skeuomorphic",
+        "flat",
+        "graphic"
+      ],
+      "values": [
+        {
+          "id": "skeuomorphic-object",
+          "name": "物件式拟物",
+          "definition": "界面借用具体物件的结构或操作隐喻，而不只是加一张纹理。",
+          "tradeoffs": [
+            "物件结构能帮助理解，也可能浪费面积或使操作过于含蓄",
+            "复杂翻页/开盖动作不应成为重复任务的强制等待"
+          ],
+          "examples": [
+            "设计例：配方册以页签组织菜谱；检验玩家是否理解页签能切换",
+            "反例：给任意矩形加木纹，不足以证明拟物机制成立"
+          ]
+        },
+        {
+          "id": "material-suggestive",
+          "name": "材质暗示",
+          "definition": "保留纸、木、金属、玻璃等身份线索，文字与内容结构保持抽象、可伸缩。",
+          "tradeoffs": [
+            "容易与世界协调，同时较易适应长文本",
+            "装饰不能侵占阅读区或混淆状态"
+          ],
+          "examples": [
+            "设计例：乡村商店用薄木边、安静纸底和统一价签"
+          ]
+        },
+        {
+          "id": "flat-graphic",
+          "name": "平面图形",
+          "definition": "使用明确轮廓、色块、留白、字与图标；弱化体积和真实材质。",
+          "tradeoffs": [
+            "可减少纹理干扰，但仍需明确操作与焦点线索",
+            "平面不等于极简，也不必使用少量信息"
+          ],
+          "examples": [
+            "设计例：战棋单位列表使用平面行、数字和当前选择框"
+          ]
+        },
+        {
+          "id": "graphic-expressive",
+          "name": "强图形与装饰表达",
+          "definition": "借助夸张字体、斜线、剪影、纹章或强节奏构成身份。",
+          "tradeoffs": [
+            "适合强调情绪与重要事件；高频任务仍需稳定读序",
+            "文字旋转、动态切换、强对比同时出现可能争抢注意"
+          ],
+          "examples": [
+            "设计例：升级选择用大图标与标题；属性比较区保持对齐"
+          ]
+        },
+        {
+          "id": "typographic-terminal",
+          "name": "文字与终端表达",
+          "definition": "以文字、符号、格线、列表或等宽节奏承担主要结构。",
+          "tradeoffs": [
+            "适合密集指令和状态；学习成本与字符可读性需检查",
+            "复古终端不是缩小汉字或依赖颜色的理由"
+          ],
+          "examples": [
+            "设计例：日志/生产队列采用清楚行列与可展开详情"
+          ]
+        }
+      ],
+      "source_ids": [
+        "FND-002",
+        "FND-004",
+        "FND-005"
+      ]
+    },
+    {
+      "id": "fiction-relation",
+      "name": "与虚构世界的关系",
+      "definition": "判断表示物本身是否在游戏叙事中存在；信息所指的生命/金钱存在，不代表显示它的数字面板也在世界中存在。",
+      "keywords": [
+        "叙事",
+        "世界内",
+        "diegetic",
+        "非叙事",
+        "fiction",
+        "沉浸"
+      ],
+      "values": [
+        {
+          "id": "fictional-object",
+          "name": "世界中存在的表示物",
+          "definition": "故事设定中的角色能接触或识别该表示物。",
+          "tradeoffs": [
+            "受世界设定约束；仍需解决可读性与访问成本"
+          ],
+          "examples": [
+            "设计例：角色可拿到的任务信件、商人的价目板"
+          ]
+        },
+        {
+          "id": "player-overlay",
+          "name": "面向玩家的表示",
+          "definition": "表示物服务玩家，未主张它是角色可见的世界实体。",
+          "tradeoffs": [
+            "可以直接表达规则，需与世界观看任务协调"
+          ],
+          "examples": [
+            "设计例：屏幕角落的资源计数、快捷栏、设置页"
+          ]
+        },
+        {
+          "id": "ambiguous-hybrid",
+          "name": "不确定或混合",
+          "definition": "表示的虚构身份有灰区，或不同组成部分分别属于不同关系。",
+          "tradeoffs": [
+            "显式记录解释依据，不为填分类而强行判定"
+          ],
+          "examples": [
+            "设计例：受伤时屏幕边缘染红；单凭截图不能判定其叙事解释"
+          ]
+        }
+      ],
+      "source_ids": [
+        "FND-001"
+      ]
+    },
+    {
+      "id": "spatial-placement",
+      "name": "与场景空间的关系",
+      "definition": "判断表示位置是否与游戏世界中的空间/对象关联。与视觉材质和叙事关系分开记录。",
+      "keywords": [
+        "HUD",
+        "空间",
+        "spatial",
+        "几何",
+        "世界锚定",
+        "叠加"
+      ],
+      "values": [
+        {
+          "id": "world-anchored",
+          "name": "世界锚定",
+          "definition": "位置、朝向或遮挡与场景对象或地点相关。",
+          "tradeoffs": [
+            "利于定位对象；可能受镜头、遮挡和距离影响"
+          ],
+          "examples": [
+            "设计例：建造占地框、角色头顶状态"
+          ]
+        },
+        {
+          "id": "screen-overlay",
+          "name": "屏幕叠加",
+          "definition": "相对屏幕/视口组织内容，不随世界几何位置排列。",
+          "tradeoffs": [
+            "易稳定阅读；需管理对世界的遮挡"
+          ],
+          "examples": [
+            "设计例：固定角落HUD、全屏地图或暂停菜单"
+          ]
+        },
+        {
+          "id": "spatial-hybrid",
+          "name": "混合或切换",
+          "definition": "同一系统在世界提示与屏幕详情之间切换。",
+          "tradeoffs": [
+            "需保持对象身份、选择与返回路径一致"
+          ],
+          "examples": [
+            "设计例：点击地块打开侧边建筑详情，地块仍保留高亮"
+          ]
+        }
+      ],
+      "source_ids": [
+        "FND-001"
+      ]
+    },
+    {
+      "id": "information-encoding",
+      "name": "信息表征",
+      "definition": "按玩家需要识别、比较或推断的信息，选择图像、图式、符号与文字，不按材质决定。",
+      "keywords": [
+        "内容",
+        "信息",
+        "图标",
+        "数值",
+        "属性",
+        "编码",
+        "表征"
+      ],
+      "values": [
+        {
+          "id": "pictorial",
+          "name": "具象图像",
+          "definition": "依赖对象的外形、部位、空间或材质帮助识别。",
+          "tradeoffs": [
+            "利于认物，但小尺寸下相似轮廓可能难分"
+          ],
+          "examples": [
+            "设计例：物品缩略图、装备人偶"
+          ]
+        },
+        {
+          "id": "diagrammatic",
+          "name": "图式与关系",
+          "definition": "通过位置、连线、范围、进度或拓扑表达关系。",
+          "tradeoffs": [
+            "可展示依赖；图例和缩放需要验证"
+          ],
+          "examples": [
+            "设计例：科技树、地图路线、建造影响范围"
+          ]
+        },
+        {
+          "id": "symbolic-textual",
+          "name": "文字、数字与符号",
+          "definition": "直接表达名称、单位、条件、精确差值与操作。",
+          "tradeoffs": [
+            "便于精确比较；需本地化、字库和阅读时间"
+          ],
+          "examples": [
+            "设计例：总价、剩余材料、升级前后数值"
+          ]
+        },
+        {
+          "id": "redundant-mixed",
+          "name": "关键语义冗余",
+          "definition": "将关键信息用互补表征表达，避免仅靠单一颜色或感官。",
+          "tradeoffs": [
+            "提高可辨性但不宜所有信息都多重强调"
+          ],
+          "examples": [
+            "设计例：材料不足同时显示数量、缺口文字与标记"
+          ]
+        }
+      ],
+      "source_ids": [
+        "FND-002",
+        "FND-009",
+        "FND-010",
+        "FND-012"
+      ]
+    },
+    {
+      "id": "attention-density",
+      "name": "注意需求与信息密度",
+      "definition": "按当前决策复杂度组织密度。这里是任务模式标签，不是规定每屏几个按钮。",
+      "keywords": [
+        "密度",
+        "信息架构",
+        "层级",
+        "注意",
+        "复杂",
+        "比较",
+        "极简"
+      ],
+      "values": [
+        {
+          "id": "glance",
+          "name": "快速扫视",
+          "definition": "玩家要在短时间识别少量当下关键状态。",
+          "tradeoffs": [
+            "减少搜索范围，同时不能隐藏危险原因"
+          ],
+          "examples": [
+            "设计例：战斗生命、当前工具、可交互提示"
+          ]
+        },
+        {
+          "id": "comparison",
+          "name": "集中比较",
+          "definition": "必须同时对照对象、成本、效果和差异。",
+          "tradeoffs": [
+            "需要稳定对齐；拆到多个隐藏页会增加回忆负担"
+          ],
+          "examples": [
+            "设计例：两件装备比较、购买数量与总价"
+          ]
+        },
+        {
+          "id": "management",
+          "name": "规划与管理",
+          "definition": "玩家操作多对象、队列、依赖和历史。",
+          "tradeoffs": [
+            "需要筛选、分组、概览与详情；不能只靠扩大网格"
+          ],
+          "examples": [
+            "设计例：生产队列、仓库分类、任务日志"
+          ]
+        }
+      ],
+      "source_ids": [
+        "FND-003",
+        "FND-006"
+      ]
+    },
+    {
+      "id": "temporal-exposure",
+      "name": "出现与保留方式",
+      "definition": "规定何时出现、保留多久、如何重新查看。出现策略与装饰动效分别记录。",
+      "keywords": [
+        "常驻",
+        "情境",
+        "提示",
+        "通知",
+        "按需",
+        "时间"
+      ],
+      "values": [
+        {
+          "id": "persistent",
+          "name": "持续可见",
+          "definition": "当前任务持续需要的信息保留在稳定位置。",
+          "tradeoffs": [
+            "占用画面；应核查必要性与HUD配置"
+          ],
+          "examples": [
+            "设计例：实时战斗中的关键生命状态"
+          ]
+        },
+        {
+          "id": "contextual",
+          "name": "情境出现",
+          "definition": "在相关对象/事件触发时显示，结束后退场。",
+          "tradeoffs": [
+            "减少遮挡；触发条件和丢失后的找回方式必须明确"
+          ],
+          "examples": [
+            "设计例：接近可采集对象时显示名称与按键"
+          ]
+        },
+        {
+          "id": "on-demand",
+          "name": "按需打开",
+          "definition": "玩家主动打开详情、记录或管理界面。",
+          "tradeoffs": [
+            "节省常驻空间；入口需可发现，返回需保留上下文"
+          ],
+          "examples": [
+            "设计例：配方手册、完整任务日志、统计详情"
+          ]
+        }
+      ],
+      "source_ids": [
+        "FND-003",
+        "FND-006",
+        "FND-009"
+      ]
+    },
+    {
+      "id": "time-policy",
+      "name": "界面期间的游戏时间",
+      "definition": "界面打开时世界继续、减速、暂停或由回合规则管理。是玩法约束，UI不能擅自改变。",
+      "keywords": [
+        "暂停",
+        "实时",
+        "回合",
+        "世界时间",
+        "多人",
+        "模态"
+      ],
+      "values": [
+        {
+          "id": "live-world",
+          "name": "世界继续运行",
+          "definition": "读取或操作时世界按原规则推进。",
+          "tradeoffs": [
+            "要求风险提示、短流程、明确可退出路径；长文有阅读压力"
+          ],
+          "examples": [
+            "设计例：多人背包；不能声称按暂停键让服务器停止"
+          ]
+        },
+        {
+          "id": "paused-or-slowed",
+          "name": "暂停或减速",
+          "definition": "游戏明确支持界面期间暂停或减速。",
+          "tradeoffs": [
+            "适合细读比较；需要清楚显示规则和恢复时机"
+          ],
+          "examples": [
+            "设计例：单人规划页，按已定玩法规则暂停"
+          ]
+        },
+        {
+          "id": "turn-bound",
+          "name": "回合/阶段约束",
+          "definition": "选择在特定回合或阶段生效。",
+          "tradeoffs": [
+            "需区分预览、排队与已提交；时间自由不代表可无限撤回"
+          ],
+          "examples": [
+            "设计例：技能选择、回合提交、结算"
+          ]
+        }
+      ],
+      "source_ids": [
+        "FND-003",
+        "FND-009"
+      ]
+    },
+    {
+      "id": "input-navigation",
+      "name": "输入与导航模型",
+      "definition": "分别设计目标设备、选择、焦点、确认/取消和输入上下文；不能从截图断言交互。",
+      "keywords": [
+        "手柄",
+        "键盘",
+        "触控",
+        "鼠标",
+        "焦点",
+        "输入",
+        "导航"
+      ],
+      "values": [
+        {
+          "id": "pointer-direct",
+          "name": "指针直接操作",
+          "definition": "鼠标或触控以指向、点击、拖动等操作对象。",
+          "tradeoffs": [
+            "需测试目标大小、间距、拖动替代与遮挡；鼠标hover不能当触控唯一入口"
+          ],
+          "examples": [
+            "设计例：物品拖入槽位，同时提供选择后移动方式"
+          ]
+        },
+        {
+          "id": "focus-command",
+          "name": "焦点与命令",
+          "definition": "用方向键、手柄或其他离散输入移动焦点后执行动作。",
+          "tradeoffs": [
+            "焦点须与选中状态区分；隐藏、关闭与刷新时保持可预测"
+          ],
+          "examples": [
+            "设计例：背包网格到详情按钮的明确导航邻居"
+          ]
+        },
+        {
+          "id": "multimodal",
+          "name": "多输入一致",
+          "definition": "不同输入共享任务含义，允许提示与具体手势不同。",
+          "tradeoffs": [
+            "切换后应保留当前任务；模态UI要防止同一按键穿透到世界"
+          ],
+          "examples": [
+            "设计例：鼠标选商品后拿起手柄继续购买，关闭返回原对象"
+          ]
+        }
+      ],
+      "source_ids": [
+        "FND-008",
+        "FND-013",
+        "FND-014"
+      ]
+    }
+  ],
+  "decision_sequence": [
+    "先确定游戏系统、玩家任务、对象、行动和后果。",
+    "列出必须同时比较的信息以及可按需展开的内容。",
+    "沿用世界时间、输入、多人和存档等玩法约束。",
+    "分别决定虚构关系、空间位置、出现方式与时间策略。",
+    "再决定物件隐喻、视觉材质、字形、图标和装饰密度。",
+    "给出完整状态与焦点、确认、取消和恢复路径。",
+    "用真实内容和目标设备验证；将观察与推断分开。"
+  ],
+  "recipe_reclassification": [
+    {
+      "recipe_id": "wood-paper",
+      "classification": "editorial-visual-theme-recipe",
+      "suggested_visual_treatment_ids": [
+        "material-suggestive",
+        "skeuomorphic-object"
+      ],
+      "note": "木与纸是材质线索；只有具体物件结构/行为成立时才进一步称物件式拟物。",
+      "cannot_infer": [
+        "fiction-relation",
+        "spatial-placement",
+        "time-policy",
+        "input-navigation",
+        "game-system-coverage"
+      ]
+    },
+    {
+      "recipe_id": "compact-handheld",
+      "classification": "editorial-visual-theme-recipe",
+      "suggested_visual_treatment_ids": [
+        "flat-graphic",
+        "typographic-terminal"
+      ],
+      "note": "主要涉及有限色阶、字形与布局密度，不应自动附加真实旧硬件限制。",
+      "cannot_infer": [
+        "fiction-relation",
+        "spatial-placement",
+        "time-policy",
+        "input-navigation",
+        "game-system-coverage"
+      ]
+    },
+    {
+      "recipe_id": "bold-arcade",
+      "classification": "editorial-visual-theme-recipe",
+      "suggested_visual_treatment_ids": [
+        "graphic-expressive",
+        "flat-graphic"
+      ],
+      "note": "强图形与反馈倾向；不等于所有屏幕都应高密度或高速闪烁。",
+      "cannot_infer": [
+        "fiction-relation",
+        "spatial-placement",
+        "time-policy",
+        "input-navigation",
+        "game-system-coverage"
+      ]
+    },
+    {
+      "recipe_id": "ornate-fantasy",
+      "classification": "editorial-visual-theme-recipe",
+      "suggested_visual_treatment_ids": [
+        "material-suggestive",
+        "graphic-expressive"
+      ],
+      "note": "纹章/书页是视觉资源，不能替代装备比较和日志结构。",
+      "cannot_infer": [
+        "fiction-relation",
+        "spatial-placement",
+        "time-policy",
+        "input-navigation",
+        "game-system-coverage"
+      ]
+    },
+    {
+      "recipe_id": "dark-stone",
+      "classification": "editorial-visual-theme-recipe",
+      "suggested_visual_treatment_ids": [
+        "material-suggestive",
+        "flat-graphic"
+      ],
+      "note": "暗色材质不能决定正文对比、叙事位置或导航模型。",
+      "cannot_infer": [
+        "fiction-relation",
+        "spatial-placement",
+        "time-policy",
+        "input-navigation",
+        "game-system-coverage"
+      ]
+    },
+    {
+      "recipe_id": "holo-terminal",
+      "classification": "editorial-visual-theme-recipe",
+      "suggested_visual_treatment_ids": [
+        "flat-graphic",
+        "typographic-terminal",
+        "material-suggestive"
+      ],
+      "note": "发光终端可能是世界实体，也可能是玩家叠加层；必须根据实例判断。",
+      "cannot_infer": [
+        "fiction-relation",
+        "spatial-placement",
+        "time-policy",
+        "input-navigation",
+        "game-system-coverage"
+      ]
+    }
+  ],
+  "framework_crosswalk": {
+    "basis_source_id": "FND-001",
+    "notice": "常用 diegetic/non-diegetic/spatial/meta 简写只适合第一轮讨论；原论文对边界作进一步区分，不应抹去 meta-perception 与 meta-representation 的差别。",
+    "working_labels": [
+      {
+        "label": "diegetic / 世界内表示",
+        "fiction_relation": "fictional-object",
+        "spatial_placement": "world-anchored"
+      },
+      {
+        "label": "non-diegetic overlay / 玩家叠加层",
+        "fiction_relation": "player-overlay",
+        "spatial_placement": "screen-overlay"
+      },
+      {
+        "label": "spatial or geometric / 空间提示",
+        "fiction_relation": "player-overlay",
+        "spatial_placement": "world-anchored"
+      },
+      {
+        "label": "fictional overlay / 世界物件的屏幕化表示",
+        "fiction_relation": "fictional-object",
+        "spatial_placement": "screen-overlay"
+      }
+    ],
+    "meta_caution": "受伤染屏等感知模拟单独标注，不用同一meta标签将其与角色手机/日记的屏幕表示混为一类。"
+  },
+  "not_quality_scores": true,
+  "source_registry": "ui-foundation-sources.json"
+}

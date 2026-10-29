@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "sources": [
+    {"id":"EVAL-001","title":"Heuristic Evaluations: How to Conduct","url":"https://www.nngroup.com/articles/how-to-conduct-a-heuristic-evaluation/","publisher":"Nielsen Norman Group","kind":"method guidance","verified_at":"2026-10-29","supports":["Heuristic inspection and user testing serve different evidence needs."],"caveats":["Not a game UI certification or proof of effectiveness for this project."]},
+    {"id":"EVAL-002","title":"Evaluate Interface Learnability with Cognitive Walkthroughs","url":"https://www.nngroup.com/articles/cognitive-walkthroughs/","publisher":"Nielsen Norman Group","kind":"method guidance","verified_at":"2026-10-29","supports":["Task-step inspection of goals, discoverability, action mapping, and feedback."],"caveats":["An expert walkthrough does not replace observing target players."]},
+    {"id":"EVAL-003","title":"Involving Users in Evaluating Web Accessibility","url":"https://www.w3.org/WAI/test-evaluate/involving-users/","publisher":"W3C WAI","kind":"evaluation guidance","verified_at":"2026-10-29","supports":["Combine technical evaluation with relevant user involvement and bound conclusions to the sample."],"caveats":["Web-focused guidance; method transfer does not certify a native game."]}
+  ]
+}

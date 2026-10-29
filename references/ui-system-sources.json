@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "notice": "这些是一手平台指南或引擎文档，不是随机对照实验，也不为16个原创系统分类作学术认证。来源只支持各自列出的约束。",
+  "sources": [
+    {
+      "id": "SYS-XAG-112",
+      "title": "Xbox Accessibility Guideline 112: UI navigation",
+      "url": "https://learn.microsoft.com/en-us/xbox/accessibility/xbox-accessibility-guidelines/112",
+      "publisher": "Microsoft Xbox",
+      "kind": "platform-design-guideline",
+      "verified_at": "2026-10-29",
+      "access_status": "public substantive content read",
+      "supports": [
+        "支持跨界面的导航规则一致、可预期的焦点次序，以及首次进入时可访问必要设置。"
+      ],
+      "caveats": [
+        "这是导航建议；不规定固定菜单层数、统一按钮位置或本库16类系统。"
+      ],
+      "reuse_policy": "Original short Chinese synthesis with source links; no third-party screenshot binaries copied by this research."
+    },
+    {
+      "id": "SYS-XAG-113",
+      "title": "Xbox Accessibility Guideline 113: UI focus handling",
+      "url": "https://learn.microsoft.com/en-us/xbox/accessibility/xbox-accessibility-guidelines/113",
+      "publisher": "Microsoft Xbox",
+      "kind": "platform-design-guideline",
+      "verified_at": "2026-10-29",
+      "access_status": "public substantive content read",
+      "supports": [
+        "支持明显且屏幕内可见的焦点；模态对话开启时焦点应处于可操作的对话内容。"
+      ],
+      "caveats": [
+        "焦点可见不等于界面已通过完整无障碍或手柄可用性测试。"
+      ],
+      "reuse_policy": "Original short Chinese synthesis with source links; no third-party screenshot binaries copied by this research."
+    },
+    {
+      "id": "SYS-XAG-114",
+      "title": "Xbox Accessibility Guideline 114: UI context",
+      "url": "https://learn.microsoft.com/en-us/xbox/accessibility/xbox-accessibility-guidelines/114",
+      "publisher": "Microsoft Xbox",
+      "kind": "platform-design-guideline",
+      "verified_at": "2026-10-29",
+      "access_status": "public substantive content read",
+      "supports": [
+        "支持使界面用途、控件作用和上下文变化可理解，标签与对应控件建立清楚关联。"
+      ],
+      "caveats": [
+        "不直接规定某游戏必须展示哪些经济、任务或战斗数据；本库字段选择是任务分析。"
+      ],
+      "reuse_policy": "Original short Chinese synthesis with source links; no third-party screenshot binaries copied by this research."
+    },
+    {
+      "id": "SYS-XAG-115",
+      "title": "Xbox Accessibility Guideline 115: Error messages and destructive actions",
+      "url": "https://learn.microsoft.com/en-us/xbox/accessibility/xbox-accessibility-guidelines/115",
+      "publisher": "Microsoft Xbox",
+      "kind": "platform-design-guideline",
+      "verified_at": "2026-10-29",
+      "access_status": "public substantive content read",
+      "supports": [
+        "支持在重要或破坏性操作前让玩家发现和纠正误输入，并给错误与恢复方向。"
+      ],
+      "caveats": [
+        "不是要求每次低风险行动都弹确认框；应按后果与可恢复性选保护方式。"
+      ],
+      "reuse_policy": "Original short Chinese synthesis with source links; no third-party screenshot binaries copied by this research."
+    },
+    {
+      "id": "SYS-XAG-107",
+      "title": "Xbox Accessibility Guideline 107: Input",
+      "url": "https://learn.microsoft.com/en-us/xbox/accessibility/xbox-accessibility-guidelines/107",
+      "publisher": "Microsoft Xbox",
+      "kind": "platform-design-guideline",
+      "verified_at": "2026-10-29",
+      "access_status": "public substantive content read",
+      "supports": [
+        "支持替代输入路径，并将速度、连按、长按与精确指针等输入要求纳入检查。"
+      ],
+      "caveats": [
+        "按键重映射不自动解决全部运动能力障碍；是否等价需要实际任务测试。"
+      ],
+      "reuse_policy": "Original short Chinese synthesis with source links; no third-party screenshot binaries copied by this research."
+    },
+    {
+      "id": "SYS-XAG-104",
+      "title": "Xbox Accessibility Guideline 104: Subtitles and captions",
+      "url": "https://learn.microsoft.com/en-us/xbox/accessibility/xbox-accessibility-guidelines/104",
+      "publisher": "Microsoft Xbox",
+      "kind": "platform-design-guideline",
+      "verified_at": "2026-10-29",
+      "access_status": "public substantive content read",
+      "supports": [
+        "区分对白字幕和更广的音频说明；支持说话者辨识、重要非语音信息的替代呈现及开场前的可达设置。"
+      ],
+      "caveats": [
+        "不是把所有声音逐项堆在屏幕上；内容的重要性、空间指向与呈现负荷需结合具体场景。"
+      ],
+      "reuse_policy": "Original short Chinese synthesis with source links; no third-party screenshot binaries copied by this research."
+    },
+    {
+      "id": "SYS-VALVE-LAYERS",
+      "title": "Steam Input: Action Set Layers",
+      "url": "https://partner.steamgames.com/doc/features/steam_controller/action_set_layers",
+      "publisher": "Valve",
+      "kind": "official-api-documentation",
+      "verified_at": "2026-10-29",
+      "access_status": "public substantive content read",
+      "supports": [
+        "动作层可在基础动作集合上作局部绑定改变；层次顺序影响冲突覆盖，宜随明确游戏状态进入和退出。"
+      ],
+      "caveats": [
+        "API说明只适用于相应Steam Input实现；本库推广为“明确情境输入责任”是设计综合，不是所有引擎必须用此API。"
+      ],
+      "reuse_policy": "Original short Chinese synthesis with source links; no third-party screenshot binaries copied by this research."
+    },
+    {
+      "id": "SYS-GODOT-FOCUS",
+      "title": "Godot 4.5: Keyboard/Controller Navigation and Focus",
+      "url": "https://docs.godotengine.org/en/4.5/tutorials/ui/gui_navigation.html",
+      "publisher": "Godot Engine contributors",
+      "kind": "versioned-engine-documentation",
+      "verified_at": "2026-10-29",
+      "access_status": "public substantive content read",
+      "supports": [
+        "支持配置初始焦点与方向邻居；隐藏控件可能失焦；UI导航输入不应同时承担世界玩法代码。"
+      ],
+      "caveats": [
+        "版本固定4.5。引擎能自动猜测邻居并不保证复杂界面路径正确，仍需实际操作。"
+      ],
+      "reuse_policy": "Original short Chinese synthesis with source links; no third-party screenshot binaries copied by this research."
+    }
+  ]
+}

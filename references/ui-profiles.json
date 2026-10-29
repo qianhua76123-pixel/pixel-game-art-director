@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "kind": "pixel-game-ui-profiles",
+  "kind": "editorial-visual-theme-recipes",
   "editorial_notice": "六种UI配方由整理者编写；组件逻辑参考themed-uiux与列出的官方文档。配图只说明素材或技术，不冒充已完成可交互界面。实际项目字体、交互状态和最终渲染须核验。",
   "path_base": "skill-root",
   "common": {
@@ -581,5 +581,6 @@
         "操作反馈显示真实状态，而不是装饰性的假百分比。"
       ]
     }
-  ]
+  ],
+  "taxonomy_notice": "六套仅是视觉主题配方；UI任务、世界关系、布局、内容与交互须分别设计。详见ui-taxonomy.json与ui-system-patterns.json。"
 }

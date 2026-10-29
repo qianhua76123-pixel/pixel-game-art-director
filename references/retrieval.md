@@ -1,4 +1,4 @@
-# 按任务检索教程、风格与图示
+# 按任务检索教程、UI系统、设计维度与图示
 
 本页说明离线检索命令。脚本从自身位置定位 `library/`，不依赖原素材盘、不需要联网或第三方Python包。运行时的当前目录不影响检索；把整个skill文件夹复制到另一台机器后仍可使用。
 
@@ -13,6 +13,12 @@ python3 scripts/search.py --task '设计暗黑奇幻背包UI，九宫格面板�
 python3 scripts/search.py --id ART-008 --json
 python3 scripts/search.py --list styles --json
 python3 scripts/search.py --list ui-styles --json
+python3 scripts/search.py --task '商店比较种子，选择数量并购买' --kind system --details --json
+python3 scripts/search.py --id shop-trade --details --json
+python3 scripts/search.py --list systems --json
+python3 scripts/search.py --task '拟物账本，世界内界面与屏幕叠加' --kind axis --json
+python3 scripts/search.py --id visual-treatment --json
+python3 scripts/search.py --list ui-axes --json
 python3 scripts/search.py --task '背包和商店UI' --kind case --json
 python3 scripts/search.py --id UI-CASE-003 --json
 python3 scripts/search.py --list cases --json
@@ -24,19 +30,23 @@ python3 scripts/search.py --task '小屏掌机风格' --kind style --details --j
 | 参数 | 行为 |
 |---|---|
 | 位置参数或 `--task` | 自然语言任务，`--task`优先 |
-| `--kind tutorial/style/ui/case/all` | 默认教程；`case`返回真实游戏案例；`all`返回教程、最多各2个风格候选，UI任务另附最多3个案例 |
+| `--kind tutorial/style/ui/case/system/axis/all` | 默认教程；`ui`为视觉主题，`case`为真实游戏案例，`system`为系统任务模式，`axis`为设计维度；`all`合并相关结果 |
 | `--style ID`、`--ui-style ID` | 明确风格约束；不存在的ID返回错误，不静默改成别的风格 |
-| `--id ID` | 直接查询一个教程、风格或案例的元数据 |
-| `--list styles/ui-styles/cases/routes` | 列出可用配方、案例或任务路线，不加载配图，也不自动选择 |
-| `--limit N` | 默认6，范围1–30；`all`下控制教程数，风格候选各不超过2 |
+| `--id ID` | 直接查询教程、风格、案例、系统模式或设计维度；系统用 `shop-trade` 等ID，维度用 `visual-treatment` 等ID |
+| `--list styles/ui-styles/cases/systems/ui-axes/routes` | 列出可用配方、案例、16类系统模式、8个维度或任务路线，不加载配图，也不自动选择 |
+| `--limit N` | 默认6，范围1–30；`all`下教程最多N个，风格/UI主题各最多2、系统最多3、维度最多2，UI任务另附最多3个案例；不是总结果数上限 |
 | `--images N` | 每个结果最多配图数，默认2，范围0–5；优先原图和关键帧，避免把全库图片输出到上下文 |
 | `--fulltext` | 在主题检索基础上补充正文匹配，仍不是向量检索 |
-| `--details` | 风格结果额外返回参数、混用风险和视觉检查项 |
+| `--details` | 风格结果补充参数、混用风险和视觉检查；系统结果补充信息结构、组件、状态、输入、恢复、视觉取舍和验收条件 |
 | `--json` | 机器可读结果；失败时也输出JSON并返回退出码2 |
 
 结果包括匹配原因、真实Markdown路径、图片路径与说明、原作者、许可和来源。相对路径相对于skill根目录；`absolute_path`在本次运行时生成。部分教学图是动画，静态关键帧不能替代完整时序。
 
-案例结果的 `figures` 是远程官方截图链接，标记 `remote_only: true`，没有本地 `absolute_path`。`source_url` 指向图本身，`source_page` 指向官方页面。离线可检索元数据，但查看图需联网。不能因为风格参数命中就推断整套设计同款；优先阅读 `summary`、`limitations` 和 `editorial_notice`。
+UI任务先查 `system`，确定玩家决策与必须内容，再查 `axis` 比较视觉、世界归属、空间、表意、注意需求、出现方式、时间和输入。系统是编辑综合，维度是允许交叉的工作框架；均不是质量排名或官方穷尽分类。`axis` 返回维度定义和全部候选 `values`，不会替项目选值。六套 `ui` 配方只是视觉主题，不能替代上述决定。
+
+系统结果的 `required_content`、`source_ids` 和关联教程可帮助收窄阅读；完整行为请用 `--details`。维度与系统的依据分别在 [设计基础来源](ui-foundation-sources.json)和 [系统规范来源](ui-system-sources.json)，先核对每条来源的适用范围。对应MD可能较长，按命中的ID/名称定位相关段落，不必整份装入上下文。
+
+案例结果的 `figures` 是远程官方截图、设计稿或指南配图链接，按 `evidence_type` 区分，标记 `remote_only: true`，没有本地 `absolute_path`。`source_url` 指向图本身，`source_page` 指向官方页面。离线可检索元数据，但查看图需联网。不能因为风格参数命中就推断整套设计同款；优先阅读 `summary`、`limitations` 和 `editorial_notice`。
 
 风格候选是建议，不是自动锁定。已有项目美术规范优先；显式 `--style` / `--ui-style` 只代表本次调用指定了配方，可能来自agent提案；是否为用户选择以会话为准，不构成用户批准全部参数的证据。若任务表达了“不要暗黑”等直接否定，候选检索会排除对应线索，但复杂否定仍需agent自行核对。
 
@@ -52,7 +62,8 @@ python3 scripts/task_bundle.py --task '暗黑背包UI，九宫格面板、选中
 - `task-brief.md`：任务、选定/候选风格、核心阅读、配图、具体制作路线、验收点和来源。
 - `task-brief.json`：相同信息的机器结构，保留每个教程与图的真实路径、适用版本及许可。
 - 使用 `--copy-figures` 时增加 `figures/`、对应的 `licenses/` 和 `figure-attributions.json`，复制选定教学图并记录逐图出处、许可与SHA-256。
-- UI任务的简报另含 `ui_case_references` 与官方截图链接；商业案例图片不会被 `--copy-figures` 下载或复制。
+- UI任务的简报包含命中的 `ui_system_patterns`、`ui_design_axes` 与 `ui_case_references`：分别供任务/内容设计、维度比较和画面观察。数组为空表示本次没有匹配，不表示系统没有需求或项目已作出选择。
+- 商业案例配图是官方外链，不会被 `--copy-figures` 下载或复制，也不能当作成品游戏素材；只复制已选教学图并保留授权记录。
 
 默认输出8篇核心阅读，可用 `--limit`调整。不同任务使用不同制作步骤和验收条件；没有路线时明确指出缺口，不编造已验证流程。输出目录必须在skill目录之外，保持知识包只读；对相同输出目录重新执行会更新同名简报，复制图像如有旧文件需自行管理。
 
@@ -61,5 +72,7 @@ python3 scripts/task_bundle.py --task '暗黑背包UI，九宫格面板、选中
 ## 推荐读取策略
 
 先看检索结果摘要，再按ID打开相关MD的中文导读、配图与原文小节。处理自然语言任务时，原文可带引擎版本和工具前提；按目标环境核对后再执行。涉及一致性时继续读 [一致性审阅](consistency-review.md)，以实际素材和项目合同测量；风格判断仍需要看图。
+
+UI制作按需读取 [系统模式](ui-system-patterns.md) → [设计基础](ui-design-foundations.md) → [制作与验证](ui-design.md)，把本次决定写入 [UI设计合同](../assets/templates/ui-design-contract.json)。审查时读 [证据协议](ui-evaluation-method.md)，不要把检索匹配分数当作设计质量或用户测试结果；不清楚怎样组合时可看 [乡村商店推演](../examples/ui-design-reasoning.md)。
 
 任务路由维护在 [task-routing.json](task-routing.json)。新增教程只需进入 `library/catalog.json`，即可参与元数据匹配；加入精选任务路线可以提高复杂请求的命中稳定性。没有对应ID的可选教程被跳过，不会生成假文件路径。

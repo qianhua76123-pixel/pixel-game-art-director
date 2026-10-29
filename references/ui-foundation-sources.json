@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "kind": "ui-design-foundation-sources",
+  "source_count": 14,
+  "editorial_notice": "研究、理论、平台指南、Web标准解释和实现文档具有不同证据范围；数量不等于独立实验数量。",
+  "sources": [
+    {
+      "id": "FND-001",
+      "title": "Beyond the HUD: User Interfaces for Increased Player Immersion in FPS Games",
+      "url": "https://publications.lib.chalmers.se/records/fulltext/111921.pdf",
+      "publisher": "Erik Fagerholt and Magnus Lorentzon / Chalmers University of Technology",
+      "kind": "master-thesis",
+      "published_or_version": "2009",
+      "verified_at": "2026-10-29",
+      "verification": "Opened and read relevant primary-source sections",
+      "supports": [
+        "区分虚构世界与几何空间；识别框架中的灰区",
+        "原文区别 meta-perception 和 meta-representation",
+        "全世界内UI不自动提升沉浸"
+      ],
+      "caveats": [
+        "硕士论文，主要研究FPS；不是所有游戏的已验证统一分类",
+        "参见印刷页48–52与72–75（PDF页54–58、78–81）",
+        "不将流行四象限简图冒充原论文完整最终模型"
+      ],
+      "rights": "Source linked; original Chinese synthesis only. No source page, research figure or PDF is redistributed."
+    },
+    {
+      "id": "FND-002",
+      "title": "Signifiers, not affordances",
+      "url": "https://jnd.org/signifiers-not-affordances/",
+      "publisher": "Don Norman",
+      "kind": "author-theoretical-essay",
+      "published_or_version": "2008-11-17",
+      "verified_at": "2026-10-29",
+      "verification": "Opened and read relevant primary-source sections",
+      "supports": [
+        "可感知线索帮助理解操作与情境；外观不等于可行动作"
+      ],
+      "caveats": [
+        "理论/设计论述，非本项目的用户实验",
+        "可点击性线索不要求统一使用立体或拟物外观"
+      ],
+      "rights": "Source linked; original Chinese synthesis only. No source page, research figure or PDF is redistributed."
+    },
+    {
+      "id": "FND-003",
+      "title": "10 Usability Heuristics for User Interface Design",
+      "url": "https://www.nngroup.com/articles/ten-usability-heuristics/",
+      "publisher": "Jakob Nielsen / Nielsen Norman Group",
+      "kind": "practitioner-heuristic",
+      "published_or_version": "1994; reviewed 2024-01-30",
+      "verified_at": "2026-10-29",
+      "verification": "Opened and read relevant primary-source sections",
+      "supports": [
+        "系统状态、控制与退出、识别优于回忆、错误预防、恢复和一致性"
+      ],
+      "caveats": [
+        "原文称其为宽泛经验原则，不是具体合规标准",
+        "游戏可以有意制造挑战；应分清玩法挑战与界面理解障碍"
+      ],
+      "rights": "Source linked; original Chinese synthesis only. No source page, research figure or PDF is redistributed."
+    },
+    {
+      "id": "FND-004",
+      "title": "Flat UI Elements Attract Less Attention and Cause Uncertainty",
+      "url": "https://www.nngroup.com/articles/flat-ui-less-attention-cause-uncertainty/",
+      "publisher": "Kate Moran / Nielsen Norman Group",
+      "kind": "original-research-report",
+      "published_or_version": "2017-09-03",
+      "verified_at": "2026-10-29",
+      "verification": "Opened and read relevant primary-source sections",
+      "supports": [
+        "在特定网页目标定位实验中，弱可点击线索增加搜索代价"
+      ],
+      "caveats": [
+        "71名网页用户、9对页面、寻找点击位置的任务",
+        "不等于完整游戏任务实验；不将22%结果外推为所有平面UI更慢"
+      ],
+      "rights": "Source linked; original Chinese synthesis only. No source page, research figure or PDF is redistributed."
+    },
+    {
+      "id": "FND-005",
+      "title": "Response to Criticisms of Flat-Design Eyetracking Study",
+      "url": "https://www.nngroup.com/articles/response-criticisms-flat-design/",
+      "publisher": "Kate Moran / Nielsen Norman Group",
+      "kind": "research-method-clarification",
+      "published_or_version": "2017-10-15",
+      "verified_at": "2026-10-29",
+      "verification": "Opened and read relevant primary-source sections",
+      "supports": [
+        "研究批评的对象是弱/缺失线索，不是平面风格本身"
+      ],
+      "caveats": [
+        "原研究作者对方法与边界的说明，不是独立复现实验"
+      ],
+      "rights": "Source linked; original Chinese synthesis only. No source page, research figure or PDF is redistributed."
+    },
+    {
+      "id": "FND-006",
+      "title": "Progressive Disclosure",
+      "url": "https://www.nngroup.com/articles/progressive-disclosure/",
+      "publisher": "Jakob Nielsen / Nielsen Norman Group",
+      "kind": "practitioner-design-pattern",
+      "published_or_version": "2006-12-03",
+      "verified_at": "2026-10-29",
+      "verification": "Opened and read relevant primary-source sections",
+      "supports": [
+        "按需求展开低频或高级内容"
+      ],
+      "caveats": [
+        "应用于本库游戏任务是设计推论",
+        "不能隐藏当前决策必须同时比较的成本、收益或风险"
+      ],
+      "rights": "Source linked; original Chinese synthesis only. No source page, research figure or PDF is redistributed."
+    },
+    {
+      "id": "FND-007",
+      "title": "Xbox Accessibility Guideline 101: Text display",
+      "url": "https://learn.microsoft.com/en-us/xbox/accessibility/xbox-accessibility-guidelines/101",
+      "publisher": "Microsoft",
+      "kind": "platform-design-guideline",
+      "published_or_version": "live documentation",
+      "verified_at": "2026-10-29",
+      "verification": "Opened and read relevant primary-source sections",
+      "supports": [
+        "以实际画面字形测量可读性；文本缩放和字符覆盖"
+      ],
+      "caveats": [
+        "指南按平台、分辨率等说明测量口径；不能把数字当像素素材逻辑尺寸",
+        "不把满足单项字高要求称为完整无障碍认证"
+      ],
+      "rights": "Source linked; original Chinese synthesis only. No source page, research figure or PDF is redistributed."
+    },
+    {
+      "id": "FND-008",
+      "title": "Xbox Accessibility Guideline 112: UI navigation",
+      "url": "https://learn.microsoft.com/en-us/xbox/accessibility/xbox-accessibility-guidelines/112",
+      "publisher": "Microsoft",
+      "kind": "platform-design-guideline",
+      "published_or_version": "live documentation",
+      "verified_at": "2026-10-29",
+      "verification": "Opened and read relevant primary-source sections",
+      "supports": [
+        "一致、可预测的界面与焦点路径；初始可访问设置"
+      ],
+      "caveats": [
+        "需要真实输入流程验证；截图不能证明焦点正确"
+      ],
+      "rights": "Source linked; original Chinese synthesis only. No source page, research figure or PDF is redistributed."
+    },
+    {
+      "id": "FND-009",
+      "title": "Xbox Accessibility Guideline 114: UI context",
+      "url": "https://learn.microsoft.com/en-us/xbox/accessibility/xbox-accessibility-guidelines/114",
+      "publisher": "Microsoft",
+      "kind": "platform-design-guideline",
+      "published_or_version": "live documentation",
+      "verified_at": "2026-10-29",
+      "verification": "Opened and read relevant primary-source sections",
+      "supports": [
+        "给出操作对象、功能和后果所需语境"
+      ],
+      "caveats": [
+        "具体屏幕仍需结合内容与玩家经验设计"
+      ],
+      "rights": "Source linked; original Chinese synthesis only. No source page, research figure or PDF is redistributed."
+    },
+    {
+      "id": "FND-010",
+      "title": "Xbox Accessibility Guideline 103: Additional channels for visual and audio cues",
+      "url": "https://learn.microsoft.com/en-us/xbox/accessibility/xbox-accessibility-guidelines/103",
+      "publisher": "Microsoft",
+      "kind": "platform-design-guideline",
+      "published_or_version": "live documentation",
+      "verified_at": "2026-10-29",
+      "verification": "Opened and read relevant primary-source sections",
+      "supports": [
+        "关键信息通过多种可感知方式表达"
+      ],
+      "caveats": [
+        "不是把所有反馈同时加到最高强度；需避免冗余噪声"
+      ],
+      "rights": "Source linked; original Chinese synthesis only. No source page, research figure or PDF is redistributed."
+    },
+    {
+      "id": "FND-011",
+      "title": "Understanding SC 1.4.3: Contrast (Minimum)",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html",
+      "publisher": "W3C Web Accessibility Initiative",
+      "kind": "standard-understanding-document",
+      "published_or_version": "WCAG 2.2",
+      "verified_at": "2026-10-29",
+      "verification": "Opened and read relevant primary-source sections",
+      "supports": [
+        "普通文字4.5:1与大字3:1的对比标准及适用条件"
+      ],
+      "caveats": [
+        "WCAG面向Web；Understanding是解释文档，不是规范文本本体",
+        "不能把此数字直接当游戏整体合规结论；纹理/透明底需检查实际背景"
+      ],
+      "rights": "Source linked; original Chinese synthesis only. No source page, research figure or PDF is redistributed."
+    },
+    {
+      "id": "FND-012",
+      "title": "Understanding SC 1.4.1: Use of Color",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html",
+      "publisher": "W3C Web Accessibility Initiative",
+      "kind": "standard-understanding-document",
+      "published_or_version": "WCAG 2.2",
+      "verified_at": "2026-10-29",
+      "verification": "Opened and read relevant primary-source sections",
+      "supports": [
+        "语义区别不应只依赖颜色"
+      ],
+      "caveats": [
+        "对游戏的应用需结合图标、形状、位置、文字等；检查单项不等于合规"
+      ],
+      "rights": "Source linked; original Chinese synthesis only. No source page, research figure or PDF is redistributed."
+    },
+    {
+      "id": "FND-013",
+      "title": "Understanding SC 2.5.8: Target Size (Minimum)",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html",
+      "publisher": "W3C Web Accessibility Initiative",
+      "kind": "standard-understanding-document",
+      "published_or_version": "WCAG 2.2",
+      "verified_at": "2026-10-29",
+      "verification": "Opened and read relevant primary-source sections",
+      "supports": [
+        "指针目标大小与间距，以及多种例外"
+      ],
+      "caveats": [
+        "24×24 CSS像素是特定Web标准口径；不等于24×24游戏源像素，也不适用于手柄焦点本身"
+      ],
+      "rights": "Source linked; original Chinese synthesis only. No source page, research figure or PDF is redistributed."
+    },
+    {
+      "id": "FND-014",
+      "title": "Action Set Layers",
+      "url": "https://partner.steamgames.com/doc/features/steam_controller/action_set_layers",
+      "publisher": "Valve / Steamworks",
+      "kind": "implementation-documentation",
+      "published_or_version": "live documentation",
+      "verified_at": "2026-10-29",
+      "verification": "Opened and read relevant primary-source sections",
+      "supports": [
+        "输入映射可以随明确游戏状态改变；层次次序和冲突需要管理"
+      ],
+      "caveats": [
+        "Steam Input的具体实现机制，不是所有引擎都应照搬的UX架构",
+        "本库提出模态输入隔离是应用建议，仍需实际验证"
+      ],
+      "rights": "Source linked; original Chinese synthesis only. No source page, research figure or PDF is redistributed."
+    }
+  ]
+}
