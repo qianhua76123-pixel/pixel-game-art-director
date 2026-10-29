@@ -1,5 +1,7 @@
 # v1.3.0 乡村商店与整体主题约束验证
 
+历史记录：这是 v1.3.0 的功能与工具验证；该版视觉随后被用户否定，不能据此称其美术合格。当前修订见 [v1.3.1](UI-REVISION-V1.3.1.md)。
+
 检查日期：2026-10-29。知识库与脚本检查通过；可操作界面小样完成限定范围走查；严格像素生产验收未通过。这三件事分别记录。
 
 ## 内容与工具
@@ -18,7 +20,7 @@
 
 ## 原型浏览器走查
 
-实际记录与源文件哈希：[runtime-review.json](../examples/rural-shop-demo/runtime-review.json)。截图：[木框](../examples/rural-shop-demo/screenshots/01-wood.jpg)、[账本](../examples/rural-shop-demo/screenshots/02-ledger.jpg)、[轻面板](../examples/rural-shop-demo/screenshots/03-world.jpg)、[窄屏账本](../examples/rural-shop-demo/screenshots/04-mobile.jpg)。
+实际记录与源文件哈希：[runtime-review.json](https://github.com/qianhua76123-pixel/pixel-game-art-director/blob/29ab69889fb375611fcc42cb471aaf751fede336/examples/rural-shop-demo/runtime-review.json)。截图：[木框](https://github.com/qianhua76123-pixel/pixel-game-art-director/blob/29ab69889fb375611fcc42cb471aaf751fede336/examples/rural-shop-demo/screenshots/01-wood.jpg)、[账本](https://github.com/qianhua76123-pixel/pixel-game-art-director/blob/29ab69889fb375611fcc42cb471aaf751fede336/examples/rural-shop-demo/screenshots/02-ledger.jpg)、[轻面板](https://github.com/qianhua76123-pixel/pixel-game-art-director/blob/29ab69889fb375611fcc42cb471aaf751fede336/examples/rural-shop-demo/screenshots/03-world.jpg)、[窄屏账本](https://github.com/qianhua76123-pixel/pixel-game-art-director/blob/29ab69889fb375611fcc42cb471aaf751fede336/examples/rural-shop-demo/screenshots/04-mobile.jpg)。
 
 - 1458 × 891、1280 × 720 检查三方案；另检查 1920 × 1080 账本和 390 × 844 账本。窄屏允许面板内纵向滚动，没有横向页面溢出；并非所有内容在窄屏首屏出现。
 - 实际购买 3 包小青菜：240 → 204 钱，9 → 12/24 格，持有 2 → 5，库存 12 → 9。切到另一方案后保持。
