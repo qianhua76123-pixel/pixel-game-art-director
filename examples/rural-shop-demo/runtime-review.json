@@ -1,0 +1,87 @@
+{
+  "reviewed_on": "2026-10-29",
+  "method": "Native in-app browser interaction and screenshot inspection; observations recorded by the implementing agent",
+  "status": "OBSERVED_PASS_WITH_SCOPE_LIMITS",
+  "viewports": [
+    {
+      "size": [
+        1458,
+        891
+      ],
+      "scope": "all three variants; same initial data and quantity=3 screenshots",
+      "device_pixel_ratio": 1
+    },
+    {
+      "size": [
+        1280,
+        720
+      ],
+      "scope": "all three variants; long blueberry title; panels fit; world six-column navigation"
+    },
+    {
+      "size": [
+        1920,
+        1080
+      ],
+      "scope": "ledger only; final blank-page placement; 755px client/scroll height; font loaded",
+      "device_pixel_ratio": 1
+    },
+    {
+      "size": [
+        390,
+        844
+      ],
+      "scope": "ledger reflow; no horizontal page overflow; vertical panel scrolling; focus scrolls quantity into view",
+      "device_pixel_ratio": 1
+    }
+  ],
+  "observations": [
+    "Buy 3 cabbage: 240 to 204 money, used slots 9 to 12 of 24, owned 2 to 5, stock 12 to 9.",
+    "Switch to ledger retains purchased state and quantity.",
+    "12 money plus radish at 18: shortfall 6, button disabled, no debit.",
+    "Full bag and sold-out fixtures: reason visible, purchase disabled, no debit.",
+    "Quantity 1.5: integer validation message, purchase disabled.",
+    "World variant begins at entry; E opens, Escape closes and restores entry focus.",
+    "Arrow navigation follows three-column narrow grid and six-column short desktop grid.",
+    "Longest blueberry title wraps without horizontal overflow; sold-out state remains readable.",
+    "Three final screenshots display same item identity, same green purchase action and separately rendered Chinese content.",
+    "At 390x844, description computed as 16px system-ui, heading as 24px FusionPixel; document.fonts.check returned true.",
+    "No captured console warnings or errors at final check."
+  ],
+  "source_files": {
+    "index.html": "11871500270d7c3e70e4b9b250ffbb15d393b78df4670a984e2027faed08f0eb",
+    "shop.css": "045d66155d553c346ad15cb508523f58d7f2d509c34329c02bca124686893e09",
+    "shop.mjs": "4c2e6c35ab855d702789e83f46e17077cc53c96b5067904ee91eb1c9e193063d",
+    "shop-model.mjs": "3b391d7e3c69090e1c6571ac542fde1130f6ae543ee4a74d7cda173f2de37344",
+    "data-contract.json": "065db7ed6678f31751c12a890a6c5e427d103aefcbb6f2de81b57650c2a923f6"
+  },
+  "screenshots": [
+    {
+      "path": "screenshots/01-wood.jpg",
+      "sha256": "bbfd7f559548bcab26b990db6b503f0ae787a4310213bc573ddb2b7f04e1094c",
+      "format": "JPEG"
+    },
+    {
+      "path": "screenshots/02-ledger.jpg",
+      "sha256": "bef44a8dee08f3447c237af2b5841c3b8ddf8b223cb28e769725e49d09db1a12",
+      "format": "JPEG"
+    },
+    {
+      "path": "screenshots/03-world.jpg",
+      "sha256": "74110b0e13fefe1acdc85496f2d1a03b6b2e6de4b53692feec423314858b3ac5",
+      "format": "JPEG"
+    },
+    {
+      "path": "screenshots/04-mobile.jpg",
+      "sha256": "daa17a67baa5fd4e51f53db1cb81e5b34815b08890e561536ab8078bb050a25b",
+      "format": "JPEG"
+    }
+  ],
+  "limits": [
+    "No player usability study, screen-reader, physical touch device or controller testing.",
+    "No roaming world, production persistence or complete farming systems.",
+    "Reduced-motion CSS inspected; no running animation loop exists. OS preference switching was not tested.",
+    "Image grain, finite palette and object-by-object light/projection have not passed production review. Item atlas binary alpha fails.",
+    "Viewport checks are scoped above, not every variant at every possible size."
+  ]
+}

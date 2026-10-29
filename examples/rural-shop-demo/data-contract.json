@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "kind": "isolated-ui-demonstration-data",
+  "notice": "乡村商店界面小样的原创演示规则，不代表已有游戏规则、真实农业建议或实际商品交易。三种方案共用此状态模型；切换方案不重置数据。",
+  "source_of_truth": "shop-model.mjs",
+  "initial_state": {
+    "balance": 240,
+    "currency": "钱",
+    "capacity": 24,
+    "used": 9,
+    "owned": { "cabbage": 2, "radish": 1, "rice": 0, "chili": 0, "blueberry": 0, "compost": 0 },
+    "other_occupied_slots": 6,
+    "season": "春",
+    "persistence": "in-memory; no existing save is read or overwritten"
+  },
+  "purchase_rules": {
+    "quantity": "Number 类型的 1 至 99 整数；不接受小数、字符串、NaN 或无穷大。",
+    "storage": "为比较界面而采用的简化：每份商品占 1 格，不按类型堆叠。",
+    "constraints": ["商品存在", "数量合法", "库存足够", "钱足够", "空格足够"],
+    "season": "种植季节只解释用途；不限制购买。例如春季允许购买朝天椒种子。",
+    "state_transition": "成功才同时扣钱、减库存、增加持有量和占用格数；失败保持原状态。",
+    "duplicate_confirmation": "purchase 支持 expectedVersion；使用展示报价的 stateVersion 提交，重复旧确认会被拒绝。UI 还应在提交期间阻止重复激活。",
+    "cancel": "取消和关闭只改变界面状态，不调用 purchase，不改变交易数据。",
+    "quote_numbers": "balanceAfter、usedAfter、stockAfter 是未限制的请求预览，失败时可能越界；用 canBuy、blockers、shortfall 说明不可成交，不把预览当真实状态。"
+  },
+  "review_fixtures": [
+    { "id": "normal", "label": "正常营业", "balance": 240, "used": 9 },
+    { "id": "low-money", "label": "钱不够", "balance": 12, "used": 9 },
+    { "id": "full-bag", "label": "背包已满", "balance": 240, "used": 24 },
+    { "id": "sold-out", "label": "全部售罄", "all_stock": 0 }
+  ],
+  "fixture_policy": "审核状态显式标记；选择任一状态从新的基线建立数据，恢复初始状态清除购买结果。切换视觉方案本身不得切换审核状态。",
+  "variable_text": {
+    "source": "PRODUCTS + quote() + purchase().receipt",
+    "long_name_example": "四季蓝莓盆栽苗（带营养土）",
+    "fields": ["商品名", "用途", "适种条件", "生长时间", "单价", "购买数量", "总价", "余额", "持有量", "库存", "背包占用", "失败原因", "成交结果"]
+  },
+  "evidence_boundary": "纯函数测试验证演示交易规则；不证明 UI 输入、画面可读性或真实玩家体验。"
+}

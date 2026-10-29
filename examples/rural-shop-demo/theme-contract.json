@@ -1,0 +1,911 @@
+{
+  "schema_version": 1,
+  "kind": "theme-cohesion-contract",
+  "status": "DEMO_WORKING_CONTRACT",
+  "notice": "同一主题下的三个布局小样；本合同锁定后续制作的共同依据，不代表用户已经批准最终美术，也不代表严格原生像素生产验收通过。AI源图可供界面比较，不能用演示例外抹掉技术失败。",
+  "path_base": "contract-directory",
+  "project_theme": {
+    "id": "qinghe-rural-shop",
+    "revision": "1.0-demo",
+    "scope": [
+      "wood",
+      "ledger",
+      "world",
+      "assets/village-shop.png",
+      "assets/wood-panel.png",
+      "assets/counter-ledger.png",
+      "assets/item-atlas.png",
+      "assets/font/fusion-pixel-12px-proportional-zh_hans.otf.woff2"
+    ],
+    "decision_basis": "用户要求同主题的三种乡村商店界面与真实中文、像素材。布局差异有意保留，共同美术和交易规则继承；不允许为单个素材另选主题。",
+    "reference_assets": [
+      {
+        "path": "assets/village-shop.png",
+        "sha256": "eef7839e5d8d46593d0fffc7275b2263a12765154436d431ecb42b88e251bc13",
+        "scope": "shared-world-background"
+      },
+      {
+        "path": "assets/wood-panel.png",
+        "sha256": "56c33340523cd9729d6e0852147003cfd76237e5bd2b335dcc20adb060e21b6b",
+        "scope": "blank-menu-surface"
+      },
+      {
+        "path": "assets/counter-ledger.png",
+        "sha256": "67c2b11b0fb5a462d76fa01d9e6020554917d35ea0de5788d03cd1ee5a81ab45",
+        "scope": "blank-ledger-counter-surface"
+      },
+      {
+        "path": "assets/item-atlas.png",
+        "sha256": "37263cddbb4dd551148501691403708b5e04cc028d2d9b800af6d2af688cf6e2",
+        "scope": "six-item-icon-atlas"
+      }
+    ],
+    "style_identity": "青禾村春日种子铺：灰瓦白墙、暖赭木材、奶油纸面、自然绿色与克制深色轮廓；像素风格光栅源图。",
+    "color_roles": {
+      "world_palette": null,
+      "world_palette_note": "四张原图有暖木/米纸/植物绿的共同关系，但没有提取并锁定统一的有限RGB色板；不能把CSS token当作整图量化色板。",
+      "ui_tokens": {
+        "ink": "#3a3224",
+        "muted": "#655b43",
+        "paper": "#f1e1b3",
+        "theme_green": "#285740",
+        "primary_action": "#315f43",
+        "focus": "#efb953",
+        "risk": "#8c3e2d",
+        "line": "#bba573"
+      },
+      "rules": [
+        "购买动作在三方案中都使用绿色主行动语义；锈红用于错误或风险。",
+        "纸面为高明度阅读底，木和植物色建立世界联系；正文不可被材质纹理压过。",
+        "选中、焦点和错误需结合边框/文字等信号，不能仅凭颜色判定。"
+      ]
+    },
+    "lighting": {
+      "key_direction": "左上主光是本轮共同制作约定",
+      "ambient_relation": "暖日光与绿植/灰瓦的克制环境色；按材质区分反射",
+      "shadow_rule": "保持主光可解释的接触阴影；AI源图尚未逐物件验证"
+    },
+    "projection": {
+      "world": "正面俯视的村落场景；可见建筑正面与地面",
+      "reference_scale": "村落内人物、柜台与门保持场景比例；图标和UI不套用世界实物尺寸"
+    },
+    "material_grammar": {
+      "wood": "暖褐/赭色、可见接缝；UI木纹低干扰，不引入镜面金属高光。",
+      "paper": "奶油色、浅纤维或磨损边；正文静区平静，文字保持可变层。",
+      "plant": "叶绿与自然阴影，保留白菜/萝卜/辣椒/蓝莓的识别特征。",
+      "cloth": "纸包和麻袋保留折痕/编织或布料身份，图标缩小时可减少纹理。"
+    },
+    "edge_and_detail": {
+      "outer_contour": "以较深综合色支撑轮廓；不得单件加入不同语法的粗黑描边。",
+      "inner_contour": "内部接缝和材质分界弱于外轮廓；尺寸与角色相关。",
+      "detail_frequency": "世界可较丰富，UI文字区更平静；图标需按实际显示大小控制频率。当前四图的有效像素颗粒尚未统一验收。"
+    },
+    "pixel_strategy": {
+      "source_image_class": "AI-generated pixel-style raster source, unprocessed",
+      "logical_grid": null,
+      "export_scale": null,
+      "display_sampling": "当前CSS请求image-rendering:pixelated；它不证明源图固定网格，最终缩放仍需实际屏幕核验。",
+      "alpha_policy_by_role": {
+        "world": "opaque",
+        "UI": "opaque source surfaces",
+        "item-icon": "严格生产目标binary；本次原始图集不符合，限原型比较",
+        "typography": "由字体与浏览器渲染；单独的文字role，不套用图集alpha门槛"
+      }
+    },
+    "ui_content_layer": {
+      "variable_fields": [
+        "商品名称",
+        "用途与适种条件",
+        "持有量",
+        "单价",
+        "数量",
+        "总价",
+        "余额",
+        "背包占用",
+        "缺款/售罄/满包原因",
+        "成交结果"
+      ],
+      "quiet_regions": {
+        "wood": "源图主纸面x7%-93%,y8%-92%",
+        "ledger": "左页x11%-47%、右页x53%-89%，均y18%-85%；中央装订不能压字",
+        "world": "入口与世界关联；展开的交易面板使用同一木纸主题和同一图集"
+      },
+      "state_semantics": {
+        "primary_action": "绿色购买动作",
+        "selected": "绿色/深色边界与当前选择标记",
+        "focus": "可见焦点轮廓，不等于当前选中",
+        "risk": "锈红与明确原因文字",
+        "disabled": "可读的无效操作说明，不用整体低透明度隐藏内容",
+        "success": "中文成交结果与真实余额/数量更新"
+      },
+      "mechanics_source": "shop-model.mjs"
+    },
+    "typography": {
+      "font_sources": [
+        {
+          "family": "Fusion Pixel 12px Proportional zh-Hans",
+          "file": "assets/font/fusion-pixel-12px-proportional-zh_hans.otf.woff2",
+          "sha256": "b67eb7aa592622e5bc1152b800d32404bb887a1e3a2e669b0c2a873d388590d6",
+          "version": "2026.10.25",
+          "source": "https://github.com/TakWolf/fusion-pixel-font/releases/tag/2026.10.25",
+          "license": "SIL Open Font License 1.1",
+          "license_file": "assets/font/OFL.txt",
+          "upstream_notices": [
+            "OFL.txt",
+            "LICENSES/ark-pixel/OFL.txt",
+            "LICENSES/cubic-11/OFL.txt",
+            "LICENSES/galmuri/LICENSE.txt"
+          ]
+        }
+      ],
+      "roles": {
+        "pixel_heading_and_controls": "Fusion Pixel 12px；标题/主要控件使用12px设计网格的整数倍，常见24/36px；它是字体设计约定，不是整张世界图的逻辑网格。",
+        "long_body": "较长中文说明采用system-ui/PingFang SC正文层：正常布局主要16–18 CSS px；短高窗口A约15px、B/C约14px，移动布局约16px。这是用途和适配差异，必须在实际屏幕核验，不能宣称所有状态始终16–18px。",
+        "secondary_labels": "小标签/辅助信息需按最终屏幕核验，不能以CSS标称字号替代读字测试。"
+      },
+      "final_screen_checks": {
+        "evidence": "runtime-review.json",
+        "tested_viewports": [
+          [
+            1458,
+            891
+          ],
+          [
+            1280,
+            720
+          ],
+          [
+            1920,
+            1080
+          ],
+          [
+            390,
+            844
+          ]
+        ],
+        "scope": "全部三方案于前两种窗口；宽屏和窄屏仅账本。390x844实测标题24px FusionPixel、正文16px system-ui，字体已加载。",
+        "limits": "没有逐个字形覆盖、屏幕阅读器或所有设备测试；12px标签仅用于辅助信息。"
+      }
+    }
+  },
+  "inheritance": {
+    "precedence": [
+      "project_theme",
+      "role.overrides",
+      "asset.exception_ids"
+    ],
+    "resolution": "未列出的字段继承父级；overrides 是显式记录，不是自动合并。未知 null 不能禁用父级规则。",
+    "no_per_asset_reselection": [
+      "style_identity",
+      "color_roles",
+      "lighting",
+      "projection",
+      "material_grammar",
+      "edge_and_detail",
+      "pixel_strategy",
+      "ui_content_layer.state_semantics"
+    ],
+    "override_requires": [
+      "field",
+      "value",
+      "reason",
+      "evidence",
+      "review_status"
+    ],
+    "project_revision_required_for": "改变整个项目的共同画风、色彩语义、主光、世界投影或像素策略时更新主题版本并复查影响范围；单个例外不可隐式改变父级。",
+    "conflict_policy": "用户确认要求和项目约定优先。矛盾条目保留UNDETERMINED并说明，不自动采用最新生成图的风格。"
+  },
+  "roles": {
+    "world": {
+      "inherits": "project_theme",
+      "purpose": "场景、建筑、地形与地点关系",
+      "overrides": []
+    },
+    "character": {
+      "inherits": "project_theme",
+      "purpose": "人物身份、比例、动作与落地关系",
+      "overrides": [
+        {
+          "field": "projection.reference_scale",
+          "value": "当前店主嵌在世界背景中，没有独立角色动画或sprite规格。",
+          "reason": "本轮交付界面小样，不虚构已经存在的独立角色资产。",
+          "evidence": [
+            {
+              "path": "assets/village-shop.png",
+              "sha256": "eef7839e5d8d46593d0fffc7275b2263a12765154436d431ecb42b88e251bc13",
+              "scope": "此角色用途约定与源文件"
+            }
+          ],
+          "review_status": "DOCUMENTED"
+        }
+      ]
+    },
+    "item-icon": {
+      "inherits": "project_theme",
+      "purpose": "物品识别与比较；允许为可读性调整尺度和抽象程度",
+      "overrides": [
+        {
+          "field": "projection.world",
+          "value": "正面略俯视的独立物品识别图；使用3列2行、512×512源图单元。",
+          "reason": "商店需要辨识与比较，图标允许不同于世界物体的屏幕尺度，但颜色身份和材质语义须继承。",
+          "evidence": [
+            {
+              "path": "assets/item-atlas.png",
+              "sha256": "37263cddbb4dd551148501691403708b5e04cc028d2d9b800af6d2af688cf6e2",
+              "scope": "此角色用途约定与源文件"
+            },
+            {
+              "path": "assets/asset-provenance.json",
+              "sha256": "091178e7506eb7f465feafd995ebeed74eca36472993cbc7f88a2ff2a06a38dd",
+              "scope": "此角色用途约定与源文件"
+            }
+          ],
+          "review_status": "DOCUMENTED"
+        },
+        {
+          "field": "edge_and_detail.detail_frequency",
+          "value": "优先保留种子包/麻袋/盆栽与作物特征，缩小显示后逐件检查细纹是否成为噪点。",
+          "reason": "UI图标的可读性不等于世界缩略图；仍不能每个图标另选画风。",
+          "evidence": [
+            {
+              "path": "assets/item-atlas.png",
+              "sha256": "37263cddbb4dd551148501691403708b5e04cc028d2d9b800af6d2af688cf6e2",
+              "scope": "此角色用途约定与源文件"
+            }
+          ],
+          "review_status": "DOCUMENTED"
+        }
+      ]
+    },
+    "UI": {
+      "inherits": "project_theme",
+      "purpose": "框体与控件；保留主题，按任务组织内容",
+      "overrides": [
+        {
+          "field": "projection.world",
+          "value": "框体正交正面；账本近俯视的阅读表面；三者属于同一个乡村种子铺主题。",
+          "reason": "屏幕阅读面与世界投影用途不同；布局和物件隐喻差异不改变主题或交易机制。",
+          "evidence": [
+            {
+              "path": "assets/wood-panel.png",
+              "sha256": "56c33340523cd9729d6e0852147003cfd76237e5bd2b335dcc20adb060e21b6b",
+              "scope": "此角色用途约定与源文件"
+            },
+            {
+              "path": "assets/counter-ledger.png",
+              "sha256": "67c2b11b0fb5a462d76fa01d9e6020554917d35ea0de5788d03cd1ee5a81ab45",
+              "scope": "此角色用途约定与源文件"
+            },
+            {
+              "path": "index.html",
+              "sha256": "11871500270d7c3e70e4b9b250ffbb15d393b78df4670a984e2027faed08f0eb",
+              "scope": "此角色用途约定与源文件"
+            }
+          ],
+          "review_status": "DOCUMENTED"
+        },
+        {
+          "field": "edge_and_detail.detail_frequency",
+          "value": "正文周围减少纹理；木框和账本装订只负责材质边界，不占关键字段空间。",
+          "reason": "可变中文与数值是任务主体，需要明确静区。",
+          "evidence": [
+            {
+              "path": "assets/wood-panel.png",
+              "sha256": "56c33340523cd9729d6e0852147003cfd76237e5bd2b335dcc20adb060e21b6b",
+              "scope": "此角色用途约定与源文件"
+            },
+            {
+              "path": "assets/counter-ledger.png",
+              "sha256": "67c2b11b0fb5a462d76fa01d9e6020554917d35ea0de5788d03cd1ee5a81ab45",
+              "scope": "此角色用途约定与源文件"
+            }
+          ],
+          "review_status": "DOCUMENTED"
+        }
+      ]
+    },
+    "typography": {
+      "inherits": "project_theme",
+      "purpose": "可变文字、字形覆盖、层级与实际屏幕可读性",
+      "overrides": [
+        {
+          "field": "pixel_strategy.display_sampling",
+          "value": "像素标题/控件与清晰长中文正文采用明确的两种文字role；最终字符形态和字号单独核验。",
+          "reason": "小样需要真实长中文，不能把整屏非整数缩小来维持装饰构图。",
+          "evidence": [
+            {
+              "path": "shop.css",
+              "sha256": "045d66155d553c346ad15cb508523f58d7f2d509c34329c02bca124686893e09",
+              "scope": "此角色用途约定与源文件"
+            },
+            {
+              "path": "assets/font/font-source.json",
+              "sha256": "22963d4db46f552abd6dabcdd26d9fcb1d686c39b47679404a437effe052da11",
+              "scope": "此角色用途约定与源文件"
+            }
+          ],
+          "review_status": "DOCUMENTED"
+        }
+      ]
+    }
+  },
+  "assets": [
+    {
+      "file": "assets/village-shop.png",
+      "theme_id": "qinghe-rural-shop",
+      "role_id": "world",
+      "sha256": "eef7839e5d8d46593d0fffc7275b2263a12765154436d431ecb42b88e251bc13",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "exception_ids": [
+        "EX-DEMO-SOURCE"
+      ],
+      "source_kind": "AI-generated original source"
+    },
+    {
+      "file": "assets/wood-panel.png",
+      "theme_id": "qinghe-rural-shop",
+      "role_id": "UI",
+      "sha256": "56c33340523cd9729d6e0852147003cfd76237e5bd2b335dcc20adb060e21b6b",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "exception_ids": [
+        "EX-DEMO-SOURCE"
+      ],
+      "source_kind": "AI-generated original source"
+    },
+    {
+      "file": "assets/counter-ledger.png",
+      "theme_id": "qinghe-rural-shop",
+      "role_id": "UI",
+      "sha256": "67c2b11b0fb5a462d76fa01d9e6020554917d35ea0de5788d03cd1ee5a81ab45",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "exception_ids": [
+        "EX-DEMO-SOURCE"
+      ],
+      "source_kind": "AI-generated original source"
+    },
+    {
+      "file": "assets/item-atlas.png",
+      "theme_id": "qinghe-rural-shop",
+      "role_id": "item-icon",
+      "sha256": "37263cddbb4dd551148501691403708b5e04cc028d2d9b800af6d2af688cf6e2",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "exception_ids": [
+        "EX-DEMO-SOURCE"
+      ],
+      "source_kind": "AI-generated original source"
+    },
+    {
+      "file": "assets/font/fusion-pixel-12px-proportional-zh_hans.otf.woff2",
+      "theme_id": "qinghe-rural-shop",
+      "role_id": "typography",
+      "sha256": "b67eb7aa592622e5bc1152b800d32404bb887a1e3a2e669b0c2a873d388590d6",
+      "exception_ids": [],
+      "source_kind": "Unmodified licensed upstream font"
+    }
+  ],
+  "exceptions": [
+    {
+      "id": "EX-DEMO-SOURCE",
+      "scope": {
+        "asset_files": [
+          "assets/village-shop.png",
+          "assets/wood-panel.png",
+          "assets/counter-ledger.png",
+          "assets/item-atlas.png"
+        ],
+        "role_ids": [
+          "world",
+          "item-icon",
+          "UI"
+        ]
+      },
+      "reason": "当前任务是同主题UI结构的实际小样比较，保留首次生成的原始光栅图用于合成；没有执行原生网格、硬alpha和统一色板导出。",
+      "evidence": [
+        {
+          "path": "assets/asset-provenance.json",
+          "sha256": "091178e7506eb7f465feafd995ebeed74eca36472993cbc7f88a2ff2a06a38dd",
+          "scope": "生成记录、尺寸和alpha测量"
+        },
+        {
+          "path": "assets/prompt-set.md",
+          "sha256": "d6a35c1ec38a806cd603379a158063c175059e04620062a0a920d7c2ea8ba425",
+          "scope": "共同制作意图，不作验收结果"
+        }
+      ],
+      "overrides": [],
+      "review_status": "DOCUMENTED",
+      "production_limit": "这条例外仅解释原型采用源图的范围，不改变任何严格生产标准，不把alpha或网格未通过改写为PASS；不能用于直接扩大生产素材。"
+    }
+  ],
+  "technical_audit_bridge": {
+    "theme_contract_is_audit_input": false,
+    "actual_audit_contract": null,
+    "allowed_existing_rule_fields": [
+      "canvas_size",
+      "size_multiple",
+      "grid_scale",
+      "alpha_policy",
+      "palette",
+      "max_colors",
+      "margins",
+      "bottom_anchor",
+      "animation_canvas_consistency"
+    ],
+    "procedure": "尚无本小样的独立audit JSON，不能把本合同直接传入audit_assets.py。可映射各源图canvas_size，RGB表面的opaque，以及图标严格生产binary；逻辑网格与统一色板未定，不得填写猜测值。",
+    "strict_pixel_production_status": "OBSERVED_FAIL"
+  },
+  "review_matrix": [
+    {
+      "id": "R01",
+      "category": "technical",
+      "subject": "四张PNG与字体源文件",
+      "method": "比对当前文件哈希、PNG尺寸/alpha及字体许可文件。",
+      "evidence": [
+        {
+          "path": "assets/village-shop.png",
+          "sha256": "eef7839e5d8d46593d0fffc7275b2263a12765154436d431ecb42b88e251bc13",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        },
+        {
+          "path": "assets/wood-panel.png",
+          "sha256": "56c33340523cd9729d6e0852147003cfd76237e5bd2b335dcc20adb060e21b6b",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        },
+        {
+          "path": "assets/counter-ledger.png",
+          "sha256": "67c2b11b0fb5a462d76fa01d9e6020554917d35ea0de5788d03cd1ee5a81ab45",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        },
+        {
+          "path": "assets/item-atlas.png",
+          "sha256": "37263cddbb4dd551148501691403708b5e04cc028d2d9b800af6d2af688cf6e2",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        },
+        {
+          "path": "assets/font/fusion-pixel-12px-proportional-zh_hans.otf.woff2",
+          "sha256": "b67eb7aa592622e5bc1152b800d32404bb887a1e3a2e669b0c2a873d388590d6",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        }
+      ],
+      "expected": "源文件与provenance记录一致；可解码且没有静默替换。",
+      "observed": "四张PNG按原图读取，尺寸与哈希匹配；Fusion Pixel文件SHA256匹配font-source记录。",
+      "status": "OBSERVED_PASS",
+      "exception": null
+    },
+    {
+      "id": "R02",
+      "category": "visual",
+      "subject": "共同题材、材质与识别语义",
+      "method": "打开四张原图观察纸包、木材、纸面、植物和店铺；不把提示词当图像事实。",
+      "evidence": [
+        {
+          "path": "assets/village-shop.png",
+          "sha256": "eef7839e5d8d46593d0fffc7275b2263a12765154436d431ecb42b88e251bc13",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        },
+        {
+          "path": "assets/wood-panel.png",
+          "sha256": "56c33340523cd9729d6e0852147003cfd76237e5bd2b335dcc20adb060e21b6b",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        },
+        {
+          "path": "assets/counter-ledger.png",
+          "sha256": "67c2b11b0fb5a462d76fa01d9e6020554917d35ea0de5788d03cd1ee5a81ab45",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        },
+        {
+          "path": "assets/item-atlas.png",
+          "sha256": "37263cddbb4dd551148501691403708b5e04cc028d2d9b800af6d2af688cf6e2",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        }
+      ],
+      "expected": "四图属于暖色乡村种子铺的同一语义；商品识别保持一致。",
+      "observed": "原图可见暖木与米纸、自然植物色和种子包/麻袋/盆栽；此项只确认题材材质关系，不证明所有像素风格参数一致。",
+      "status": "OBSERVED_PASS",
+      "exception": null
+    },
+    {
+      "id": "R03",
+      "category": "visual",
+      "subject": "跨角色光源与投影",
+      "method": "对比场景物体与六图标的受光面、接触阴影、可见顶面；再看实际合成。",
+      "evidence": [
+        {
+          "path": "assets/village-shop.png",
+          "sha256": "eef7839e5d8d46593d0fffc7275b2263a12765154436d431ecb42b88e251bc13",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        },
+        {
+          "path": "assets/item-atlas.png",
+          "sha256": "37263cddbb4dd551148501691403708b5e04cc028d2d9b800af6d2af688cf6e2",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        }
+      ],
+      "expected": "左上共同光源；UI/图标采用已记录的用途投影差异。",
+      "observed": "已有共同提示约定，静态原图已查看；未逐物体完成光源/投影标注，亦未凭当前文件替运行合成下结论。",
+      "status": "UNDETERMINED",
+      "exception": null
+    },
+    {
+      "id": "R04",
+      "category": "visual",
+      "subject": "边缘与细节频率",
+      "method": "同显示尺寸并排看三方案与图标局部，再核对世界和UI角色差异。",
+      "evidence": [
+        {
+          "path": "assets/village-shop.png",
+          "sha256": "eef7839e5d8d46593d0fffc7275b2263a12765154436d431ecb42b88e251bc13",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        },
+        {
+          "path": "assets/wood-panel.png",
+          "sha256": "56c33340523cd9729d6e0852147003cfd76237e5bd2b335dcc20adb060e21b6b",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        },
+        {
+          "path": "assets/counter-ledger.png",
+          "sha256": "67c2b11b0fb5a462d76fa01d9e6020554917d35ea0de5788d03cd1ee5a81ab45",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        },
+        {
+          "path": "assets/item-atlas.png",
+          "sha256": "37263cddbb4dd551148501691403708b5e04cc028d2d9b800af6d2af688cf6e2",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        }
+      ],
+      "expected": "role间允许密度不同，但同族图标与控件不突变颗粒或轮廓语法。",
+      "observed": "世界细节较丰富、面板纸区较静；图标与框体边缘颗粒仍需按最终显示尺寸比较，尚无固定原生网格。",
+      "status": "UNDETERMINED",
+      "exception": null
+    },
+    {
+      "id": "R05",
+      "category": "strict-pixel-production",
+      "subject": "item-atlas.png硬alpha",
+      "method": "用解码后的RGBA统计alpha；要求只有0或255。",
+      "evidence": [
+        {
+          "path": "assets/item-atlas.png",
+          "sha256": "37263cddbb4dd551148501691403708b5e04cc028d2d9b800af6d2af688cf6e2",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        },
+        {
+          "path": "assets/asset-provenance.json",
+          "sha256": "091178e7506eb7f465feafd995ebeed74eca36472993cbc7f88a2ff2a06a38dd",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        }
+      ],
+      "expected": "严格像素生产导出alpha仅0/255。",
+      "observed": "实际alpha范围0..254；1,572,864像素中577,839为0<alpha<255，严格binary门槛不通过。",
+      "status": "OBSERVED_FAIL",
+      "exception": "EX-DEMO-SOURCE"
+    },
+    {
+      "id": "R06",
+      "category": "strict-pixel-production",
+      "subject": "原生像素网格与有限色板",
+      "method": "先定义逻辑网格/导出倍率/共同色板，再对导出文件测量和看图。",
+      "evidence": [
+        {
+          "path": "assets/asset-provenance.json",
+          "sha256": "091178e7506eb7f465feafd995ebeed74eca36472993cbc7f88a2ff2a06a38dd",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        }
+      ],
+      "expected": "若交付严格原生像素素材，应有明确网格与逐role导出规格。",
+      "observed": "目前是未处理的高分辨率像素风格源图；源图尺寸和CSS pixelated不能证明统一逻辑网格。",
+      "status": "UNDETERMINED",
+      "exception": "EX-DEMO-SOURCE"
+    },
+    {
+      "id": "R07",
+      "category": "source-inspection",
+      "subject": "跨方案主要行动与错误语义",
+      "method": "读取三方案按钮样式，并在后续截图对照正常/禁用/错误/成功。",
+      "evidence": [
+        {
+          "path": "shop.css",
+          "sha256": "045d66155d553c346ad15cb508523f58d7f2d509c34329c02bca124686893e09",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        },
+        {
+          "path": "runtime-review.json",
+          "sha256": "014a7aa60920a770b326f46200efac4d574f60549fa4b8c5f62e86202e3bf972",
+          "scope": "Recorded browser observations; scope explicitly limited"
+        },
+        {
+          "path": "screenshots/01-wood.jpg",
+          "sha256": "bbfd7f559548bcab26b990db6b503f0ae787a4310213bc573ddb2b7f04e1094c",
+          "scope": "Rendered screenshot at stated review viewport"
+        },
+        {
+          "path": "screenshots/02-ledger.jpg",
+          "sha256": "bef44a8dee08f3447c237af2b5841c3b8ddf8b223cb28e769725e49d09db1a12",
+          "scope": "Rendered screenshot at stated review viewport"
+        },
+        {
+          "path": "screenshots/03-world.jpg",
+          "sha256": "74110b0e13fefe1acdc85496f2d1a03b6b2e6de4b53692feec423314858b3ac5",
+          "scope": "Rendered screenshot at stated review viewport"
+        }
+      ],
+      "expected": "同一购买动作使用同一绿色语义，锈红保留风险/错误；样式不随布局任意切换。",
+      "observed": "CSS与三张1458×891实际截图中购买操作均为绿色；错误/缺款使用原因文字与锈红。仅确认这组小样状态语义。",
+      "status": "OBSERVED_PASS",
+      "exception": null
+    },
+    {
+      "id": "R08",
+      "category": "source-inspection",
+      "subject": "可变中文、共同商品图与数据",
+      "method": "读取HTML、CSS与交易模型，随后运行购买/取消并切换三方案。",
+      "evidence": [
+        {
+          "path": "index.html",
+          "sha256": "11871500270d7c3e70e4b9b250ffbb15d393b78df4670a984e2027faed08f0eb",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        },
+        {
+          "path": "shop.css",
+          "sha256": "045d66155d553c346ad15cb508523f58d7f2d509c34329c02bca124686893e09",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        },
+        {
+          "path": "shop-model.mjs",
+          "sha256": "3b391d7e3c69090e1c6571ac542fde1130f6ae543ee4a74d7cda173f2de37344",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        },
+        {
+          "path": "data-contract.json",
+          "sha256": "065db7ed6678f31751c12a890a6c5e427d103aefcbb6f2de81b57650c2a923f6",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        },
+        {
+          "path": "runtime-review.json",
+          "sha256": "014a7aa60920a770b326f46200efac4d574f60549fa4b8c5f62e86202e3bf972",
+          "scope": "Recorded browser observations; scope explicitly limited"
+        }
+      ],
+      "expected": "同一商品图集、同一交易模型；价格/数量/提示不烘焙进背景。",
+      "observed": "三方案引用同图集与模型；动态中文独立于图像。实际购买3包后从A切到B，204钱与12/24格保持。",
+      "status": "OBSERVED_PASS",
+      "exception": null
+    },
+    {
+      "id": "R09",
+      "category": "technical",
+      "subject": "字体来源与再分发边界",
+      "method": "核对woff2文件、记录的发布版本与随附OFL及上游许可。",
+      "evidence": [
+        {
+          "path": "assets/font/fusion-pixel-12px-proportional-zh_hans.otf.woff2",
+          "sha256": "b67eb7aa592622e5bc1152b800d32404bb887a1e3a2e669b0c2a873d388590d6",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        },
+        {
+          "path": "assets/font/font-source.json",
+          "sha256": "22963d4db46f552abd6dabcdd26d9fcb1d686c39b47679404a437effe052da11",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        },
+        {
+          "path": "assets/font/OFL.txt",
+          "sha256": "bc518cf64b8032c07690f33cc270c35c179255a6ac8efa7c165ebae7e8f76a63",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        },
+        {
+          "path": "assets/font/LICENSES/ark-pixel/OFL.txt",
+          "sha256": "3ab41567e68e3988ba1ef16dd2644eca95ca5648ea12e7d46e6287fc0bbe5aee",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        },
+        {
+          "path": "assets/font/LICENSES/cubic-11/OFL.txt",
+          "sha256": "2b6e5938e5cffa0b9e183bd05f8c363e174e7ebed1a0556e2855fd1707fa2188",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        },
+        {
+          "path": "assets/font/LICENSES/galmuri/LICENSE.txt",
+          "sha256": "86a3ee9495f942f0243f18c103da9faca27adb88142613edb8bb852e56c892c1",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        }
+      ],
+      "expected": "Fusion Pixel源文件可溯源，字体不被根MIT覆盖。",
+      "observed": "使用2026.10.25官方发布文件，SHA256匹配，OFL与上游声明均在目录中；未做子集化或转换。",
+      "status": "OBSERVED_PASS",
+      "exception": null
+    },
+    {
+      "id": "R10",
+      "category": "runtime",
+      "subject": "文字role与实际屏幕",
+      "method": "在目标窗口记录devicePixelRatio、实际字体、最终字号与最长中文，检查三方案和窄屏。",
+      "evidence": [
+        {
+          "path": "shop.css",
+          "sha256": "045d66155d553c346ad15cb508523f58d7f2d509c34329c02bca124686893e09",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        },
+        {
+          "path": "index.html",
+          "sha256": "11871500270d7c3e70e4b9b250ffbb15d393b78df4670a984e2027faed08f0eb",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        },
+        {
+          "path": "runtime-review.json",
+          "sha256": "014a7aa60920a770b326f46200efac4d574f60549fa4b8c5f62e86202e3bf972",
+          "scope": "Recorded browser observations; scope explicitly limited"
+        },
+        {
+          "path": "screenshots/01-wood.jpg",
+          "sha256": "bbfd7f559548bcab26b990db6b503f0ae787a4310213bc573ddb2b7f04e1094c",
+          "scope": "Rendered screenshot at stated review viewport"
+        },
+        {
+          "path": "screenshots/02-ledger.jpg",
+          "sha256": "bef44a8dee08f3447c237af2b5841c3b8ddf8b223cb28e769725e49d09db1a12",
+          "scope": "Rendered screenshot at stated review viewport"
+        },
+        {
+          "path": "screenshots/03-world.jpg",
+          "sha256": "74110b0e13fefe1acdc85496f2d1a03b6b2e6de4b53692feec423314858b3ac5",
+          "scope": "Rendered screenshot at stated review viewport"
+        },
+        {
+          "path": "screenshots/04-mobile.jpg",
+          "sha256": "daa17a67baa5fd4e51f53db1cb81e5b34815b08890e561536ab8078bb050a25b",
+          "scope": "Rendered screenshot at stated review viewport"
+        }
+      ],
+      "expected": "像素标题/控件与主要长中文14–18 CSS px正文按用途和视口分层；实际字号、缺字与对比度必须看运行画面。",
+      "observed": "实际检查1458×891与1280×720三方案及长中文；另检查1920×1080账本和390×844账本。窄屏标题24px FusionPixel，正文16px system-ui，字体已加载且无横溢；允许面板内纵向滚动。未进行完整无障碍/玩家测试。",
+      "status": "OBSERVED_PASS",
+      "exception": null
+    },
+    {
+      "id": "R11",
+      "category": "runtime",
+      "subject": "账本页、木框角部与轻面板合成",
+      "method": "按源图实际静区查看长标题、最大数量、错误提示，检查装订/边框是否压字或变形。",
+      "evidence": [
+        {
+          "path": "assets/wood-panel.png",
+          "sha256": "56c33340523cd9729d6e0852147003cfd76237e5bd2b335dcc20adb060e21b6b",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        },
+        {
+          "path": "assets/counter-ledger.png",
+          "sha256": "67c2b11b0fb5a462d76fa01d9e6020554917d35ea0de5788d03cd1ee5a81ab45",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        },
+        {
+          "path": "shop.css",
+          "sha256": "045d66155d553c346ad15cb508523f58d7f2d509c34329c02bca124686893e09",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        },
+        {
+          "path": "runtime-review.json",
+          "sha256": "014a7aa60920a770b326f46200efac4d574f60549fa4b8c5f62e86202e3bf972",
+          "scope": "Recorded browser observations; scope explicitly limited"
+        },
+        {
+          "path": "screenshots/01-wood.jpg",
+          "sha256": "bbfd7f559548bcab26b990db6b503f0ae787a4310213bc573ddb2b7f04e1094c",
+          "scope": "Rendered screenshot at stated review viewport"
+        },
+        {
+          "path": "screenshots/02-ledger.jpg",
+          "sha256": "bef44a8dee08f3447c237af2b5841c3b8ddf8b223cb28e769725e49d09db1a12",
+          "scope": "Rendered screenshot at stated review viewport"
+        },
+        {
+          "path": "screenshots/03-world.jpg",
+          "sha256": "74110b0e13fefe1acdc85496f2d1a03b6b2e6de4b53692feec423314858b3ac5",
+          "scope": "Rendered screenshot at stated review viewport"
+        },
+        {
+          "path": "screenshots/04-mobile.jpg",
+          "sha256": "daa17a67baa5fd4e51f53db1cb81e5b34815b08890e561536ab8078bb050a25b",
+          "scope": "Rendered screenshot at stated review viewport"
+        }
+      ],
+      "expected": "布局适应素材静区；A/B/C结构可变，不能拉坏框体或为塞入文字缩小整个UI。",
+      "observed": "三张1458×891截图确认文字落在纸面；A/C九宫格框体，B沿实际双页避开装订。另检查1920×1080账本静区并修正标题/底部位置。窄屏重排为平铺账目并内滚动；不证明所有视口均已覆盖。",
+      "status": "OBSERVED_PASS",
+      "exception": null
+    },
+    {
+      "id": "R12",
+      "category": "runtime",
+      "subject": "状态与内容跨方案保持",
+      "method": "正常/钱不足/满包/售罄场景逐一选择商品、确认/取消，再换方案。",
+      "evidence": [
+        {
+          "path": "shop-model.mjs",
+          "sha256": "3b391d7e3c69090e1c6571ac542fde1130f6ae543ee4a74d7cda173f2de37344",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        },
+        {
+          "path": "shop-model.test.mjs",
+          "sha256": "59882432de878b9165612fcd5d66514fee548ff00114c1ae0525eb3e8551a59b",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        },
+        {
+          "path": "data-contract.json",
+          "sha256": "065db7ed6678f31751c12a890a6c5e427d103aefcbb6f2de81b57650c2a923f6",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        },
+        {
+          "path": "runtime-review.json",
+          "sha256": "014a7aa60920a770b326f46200efac4d574f60549fa4b8c5f62e86202e3bf972",
+          "scope": "Recorded browser observations; scope explicitly limited"
+        }
+      ],
+      "expected": "比较方案只改变结构，保持商品、余额、库存、身份和状态语义；失败不扣款。",
+      "observed": "模型10项测试通过；浏览器实际购买3包，余额240→204、槽位9→12、持有2→5、库存12→9；换方案保持；缺款/满包/售罄/非整数禁购无扣款；Esc收起回到入口，E重开。",
+      "status": "OBSERVED_PASS",
+      "exception": null
+    },
+    {
+      "id": "R13",
+      "category": "visual",
+      "subject": "独立角色动画与原生地形tile",
+      "method": "检查是否有独立交付和相应状态。",
+      "evidence": [
+        {
+          "path": "assets/asset-provenance.json",
+          "sha256": "091178e7506eb7f465feafd995ebeed74eca36472993cbc7f88a2ff2a06a38dd",
+          "scope": "审阅时的源文件；发生变化需要复核本项"
+        }
+      ],
+      "expected": "仅检查当前任务存在的资产角色。",
+      "observed": "店主嵌入背景，没有独立角色动画或可复用terrain tileset；本轮不对此作生产声明。",
+      "status": "NOT_APPLICABLE",
+      "exception": null
+    }
+  ],
+  "overall": {
+    "technical_status": "SOURCE_FILES_VERIFIED_WITH_PRODUCTION_FAILURE",
+    "visual_status": "UNDETERMINED",
+    "runtime_status": "OBSERVED_PASS",
+    "scope_and_limits": [
+      "主题继承规则已记录；题材/材质与实际三方案的共同商品、纸木关系和操作语义已有有限证据。",
+      "严格图标alpha门槛为OBSERVED_FAIL；原型源图例外不豁免该失败。",
+      "UI实际窗口、中文和交互证据见runtime-review.json；统一原生网格、共同有限色板及逐物体光照仍待验收。",
+      "A/B/C属于同主题内的结构比较，不能作为为每张素材任意换画风的许可。"
+    ]
+  },
+  "related_documents": [
+    "../../references/theme-cohesion-contract.md",
+    "../../assets/templates/art-bible.json",
+    "../../assets/templates/ui-design-contract.json",
+    "../../assets/templates/audit-contract.json",
+    "data-contract.json",
+    "assets/asset-provenance.json"
+  ],
+  "open_decisions": [
+    "如果进入生产，固定逻辑网格、导出倍率、各role色板和硬alpha处理方案，并保留源图。",
+    "原图改动或CSS/模型变更后，对受影响的证据重新核验，不沿用旧哈希的结论。"
+  ],
+  "declared_roles": [
+    "world",
+    "character",
+    "item-icon",
+    "UI",
+    "typography"
+  ],
+  "validator": {
+    "script": "../../scripts/validate_theme_contract.py",
+    "checks": "结构与证据绑定；视觉与生产状态是有证据范围的记录，不由该脚本自动推断。"
+  }
+}

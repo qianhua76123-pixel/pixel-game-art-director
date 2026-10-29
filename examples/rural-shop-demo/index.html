@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#213e31"><title>青禾种子铺 · 三种游戏界面小样</title>
+<link rel="stylesheet" href="shop.css">
+<link rel="preload" as="image" href="assets/wood-panel.png">
+<link rel="preload" as="image" href="assets/counter-ledger.png">
+<link rel="preload" as="image" href="assets/item-atlas.png">
+</head>
+<body data-variant="wood">
+<div class="comparison-bar">
+  <div class="study-name"><span class="tiny-kicker">可操作界面小样</span><strong>青禾种子铺</strong></div>
+  <nav aria-label="对比三种界面">
+    <button data-variant="wood" aria-pressed="true"><span>一</span> 木框纸面</button>
+    <button data-variant="ledger" aria-pressed="false"><span>二</span> 柜台账本</button>
+    <button data-variant="world" aria-pressed="false"><span>三</span> 世界与轻面板</button>
+  </nav>
+  <details class="review-controls"><summary>检查状态</summary><div class="review-menu">
+    <label for="scenario">独立演示存档</label>
+    <select id="scenario"><option value="normal">正常 · 240 钱</option><option value="low-money">钱不足 · 12 钱</option><option value="full-bag">背包已满</option><option value="sold-out">全部售罄</option></select>
+    <button id="reset">恢复初始状态</button>
+    <p>三种方案共用交易数据。每份商品占 1 格，仅用于比较界面。</p>
+  </div></details>
+</div>
+<main class="world" aria-label="青禾村春日种子铺">
+  <img class="world-art" src="assets/village-shop.png" alt="春晨的南方村落种子铺，店主守着木柜台，周围是竹篮、菜圃与灰瓦白墙。">
+  <div class="scene-shade" aria-hidden="true"></div>
+  <div class="world-time"><strong>青禾村</strong><span>春 · 四日　晴</span></div>
+  <div class="world-balance"><span id="world-coins">240 钱</span><span id="world-bag">行囊 9 / 24</span></div>
+  <button id="shop-entry" class="shop-entry" hidden><span class="entry-name">阿禾婶</span><strong>来挑些春种吧</strong><span class="entry-action">E　打开种子铺</span></button>
+  <div id="welcome" class="world-caption" hidden>“好种子，要赶上好时节。”</div>
+
+  <section id="shop" class="shop-surface" aria-labelledby="shop-heading">
+    <header class="shop-header"><div><p class="shop-eyebrow" id="surface-kicker">阿禾婶的春日货架</p><h1 id="shop-heading">青禾种子铺</h1></div><button id="close-shop" class="close-shop" aria-label="收起商店，回到村落">×</button></header>
+    <div class="shop-layout">
+      <section class="catalog" aria-label="商品选择">
+        <div class="catalog-heading"><span id="catalog-label">今日货架</span><span class="catalog-subhead">单价 / 余量</span></div>
+        <div id="product-list" class="product-list" aria-label="六种商品"></div>
+        <div class="catalog-note"><span class="note-symbol">※</span><p>春天也能先买夏种。<br>种下之前，记得看时节。</p></div>
+        <div class="purse"><div><span>钱袋</span><strong id="balance">240 钱</strong></div><div><span>行囊</span><strong id="bag">9 / 24 格</strong></div></div>
+      </section>
+      <section class="purchase-detail" aria-label="商品详情与购买">
+        <div class="item-heading"><div id="detail-art" class="item-art large" role="img" aria-label="小青菜种子图标"></div><div><p id="item-category" class="item-category">春秋播种 · 菜种</p><h2 id="item-name">小青菜种子</h2><p id="item-owned" class="item-owned">行囊已有 2 份</p></div></div>
+        <p id="description" class="description"></p>
+        <dl class="growth-facts"><div><dt id="growth-label">长成</dt><dd id="growth">4 天</dd></div><div><dt>适种</dt><dd id="seasons">春 / 秋</dd></div><div><dt>单价</dt><dd id="unit-price">12 钱</dd></div></dl>
+        <p id="planting-note" class="planting-note"></p>
+        <div class="quantity-line"><label for="quantity">购买数量</label><div class="stepper"><button id="minus" aria-label="减少购买数量">−</button><input id="quantity" inputmode="numeric" type="number" min="1" max="99" step="1" value="1"><button id="plus" aria-label="增加购买数量">+</button></div><span class="quantity-unit">份</span></div>
+        <div class="transaction-summary"><div><span>本次花费</span><strong id="total">12 钱</strong></div><div><span>买后余钱</span><strong id="remaining">228 钱</strong></div></div>
+        <p id="blocker" class="blocker" aria-live="polite"></p>
+        <button id="buy" class="buy-button"><span id="buy-label">买下 1 份</span><strong id="buy-cost">12 钱</strong></button>
+        <p id="receipt" class="receipt" role="status" aria-live="polite">选好种子，再定数量。</p>
+      </section>
+    </div>
+    <footer class="shop-footer"><span id="shop-footer-note">先看时节，再看余钱。</span><span>Esc 收起 · 方向键选货</span></footer>
+  </section>
+  <div class="world-bottom"><span id="mode-note">一 · 稳定的列表与详情，同屏比较</span><span>中文内容与像素素材 · 独立交互小样</span></div>
+</main>
+<script type="module" src="shop.mjs"></script>
+</body>
+</html>
