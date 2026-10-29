@@ -1,0 +1,41 @@
+{
+  "version": "1.2.0",
+  "verified_at": "2026-10-29",
+  "status": "PASS_WITH_EXPLICIT_EVIDENCE_LIMITS",
+  "tutorial_count": 92,
+  "decoded_teaching_images": 661,
+  "checked_tutorial_local_targets": 696,
+  "ui_cases": 14,
+  "case_image_references": 28,
+  "design_axes": 8,
+  "axis_values": 27,
+  "system_patterns": 16,
+  "systems_with_partial_case_evidence": 11,
+  "unique_method_source_urls": 22,
+  "behavior_checks": {
+    "retrieval": 5,
+    "existing_ui_cases": 5,
+    "new_ui_design": 10,
+    "asset_audit": 12,
+    "total": 32,
+    "passed": 32
+  },
+  "skill_quick_validation": "PASS",
+  "browser_review": {
+    "viewport": [
+      1458,
+      891
+    ],
+    "home_hero_images_loaded": 4,
+    "system_selection": "shop-trade rendered decision, content, states, recovery and acceptance",
+    "case_search": "Papers, Please returned 1 of 14",
+    "console_errors_or_warnings": 0
+  },
+  "limits": [
+    "Editorial framework, not an exhaustive or universally accepted taxonomy.",
+    "Case screenshots and one developer mockup support visible structure, not full interactions.",
+    "No player usability study, controller or localization validation of a game was conducted.",
+    "Browser review applies to the research atlas at the stated viewport, not a shipped game UI.",
+    "Commercial reference image binaries remain outside the public skill."
+  ]
+}
