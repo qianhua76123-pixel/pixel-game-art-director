@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "kind": "theme-cohesion-contract",
+  "status": "DRAFT",
+  "notice": "供 agent 读取维护的美术与 UI 一致性合同，不是 audit_assets.py 的输入，也没有自动继承/审美评分 API。null 表示未知，不能当通过或另选风格的许可。",
+  "path_base": "contract-directory",
+  "project_theme": {
+    "id": null,
+    "revision": null,
+    "scope": [],
+    "decision_basis": null,
+    "reference_assets": [],
+    "style_identity": null,
+    "color_roles": {
+      "world_palette": null,
+      "ui_tokens": {},
+      "rules": []
+    },
+    "lighting": {
+      "key_direction": null,
+      "ambient_relation": null,
+      "shadow_rule": null
+    },
+    "projection": {
+      "world": null,
+      "reference_scale": null
+    },
+    "material_grammar": {},
+    "edge_and_detail": {
+      "outer_contour": null,
+      "inner_contour": null,
+      "detail_frequency": null
+    },
+    "pixel_strategy": {
+      "source_image_class": null,
+      "logical_grid": null,
+      "export_scale": null,
+      "display_sampling": null,
+      "alpha_policy_by_role": {}
+    },
+    "ui_content_layer": {
+      "variable_fields": [],
+      "quiet_regions": null,
+      "state_semantics": {},
+      "mechanics_source": null
+    },
+    "typography": {
+      "font_sources": [],
+      "roles": {},
+      "final_screen_checks": []
+    }
+  },
+  "inheritance": {
+    "precedence": [
+      "project_theme",
+      "role.overrides",
+      "asset.exception_ids"
+    ],
+    "resolution": "未列出的字段继承父级；overrides 是显式记录，不是自动合并。未知 null 不能禁用父级规则。",
+    "no_per_asset_reselection": [
+      "style_identity",
+      "color_roles",
+      "lighting",
+      "projection",
+      "material_grammar",
+      "edge_and_detail",
+      "pixel_strategy",
+      "ui_content_layer.state_semantics"
+    ],
+    "override_requires": [
+      "field",
+      "value",
+      "reason",
+      "evidence",
+      "review_status"
+    ],
+    "project_revision_required_for": "改变整个项目的共同画风、色彩语义、主光、世界投影或像素策略时更新主题版本并复查影响范围；单个例外不可隐式改变父级。",
+    "conflict_policy": "用户确认要求和项目约定优先。矛盾条目保留UNDETERMINED并说明，不自动采用最新生成图的风格。"
+  },
+  "roles": {
+    "world": {
+      "inherits": "project_theme",
+      "purpose": "场景、建筑、地形与地点关系",
+      "overrides": []
+    },
+    "character": {
+      "inherits": "project_theme",
+      "purpose": "人物身份、比例、动作与落地关系",
+      "overrides": []
+    },
+    "item-icon": {
+      "inherits": "project_theme",
+      "purpose": "物品识别与比较；允许为可读性调整尺度和抽象程度",
+      "overrides": []
+    },
+    "UI": {
+      "inherits": "project_theme",
+      "purpose": "框体与控件；保留主题，按任务组织内容",
+      "overrides": []
+    },
+    "typography": {
+      "inherits": "project_theme",
+      "purpose": "可变文字、字形覆盖、层级与实际屏幕可读性",
+      "overrides": []
+    }
+  },
+  "assets": [],
+  "exceptions": [],
+  "technical_audit_bridge": {
+    "theme_contract_is_audit_input": false,
+    "actual_audit_contract": null,
+    "allowed_existing_rule_fields": [
+      "canvas_size",
+      "size_multiple",
+      "grid_scale",
+      "alpha_policy",
+      "palette",
+      "max_colors",
+      "margins",
+      "bottom_anchor",
+      "animation_canvas_consistency"
+    ],
+    "procedure": "只将已确定的技术值人工映射到独立 audit 合同；未定义的逻辑网格、色板等不得猜值。",
+    "strict_pixel_production_status": "UNDETERMINED"
+  },
+  "review_matrix": [
+    {
+      "id": "replace-with-check-id",
+      "category": "technical-or-visual-or-interaction",
+      "subject": null,
+      "method": null,
+      "evidence": [],
+      "expected": null,
+      "observed": null,
+      "status": "UNDETERMINED",
+      "exception": null
+    }
+  ],
+  "overall": {
+    "technical_status": "UNDETERMINED",
+    "visual_status": "UNDETERMINED",
+    "runtime_status": "UNDETERMINED",
+    "scope_and_limits": []
+  },
+  "related_documents": [
+    "art-bible.json",
+    "ui-design-contract.json",
+    "audit-contract.json"
+  ],
+  "open_decisions": [],
+  "declared_roles": [
+    "world",
+    "character",
+    "item-icon",
+    "UI",
+    "typography"
+  ],
+  "validator": {
+    "script": "../../scripts/validate_theme_contract.py",
+    "checks": "结构、继承引用、证据文件与声明状态；不自动分析画风。"
+  }
+}
