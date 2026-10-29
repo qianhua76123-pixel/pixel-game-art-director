@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "kind": "ui-design-contract-draft",
+  "notice": "待项目化填写；null 表示未知，不可当成已经确认或验证。模板不改变游戏机制。",
+  "project": null,
+  "screen_or_flow": null,
+  "player_decision": null,
+  "target_users": null,
+  "platforms": [],
+  "input_methods": [],
+  "language_and_font_coverage": [],
+  "system_pattern_ids": [],
+  "design_dimensions": {
+    "visual-treatment": {
+      "selected_value_ids": [],
+      "reason": null,
+      "evidence": null,
+      "state": "UNDECIDED"
+    },
+    "fiction-relation": {
+      "selected_value_ids": [],
+      "reason": null,
+      "evidence": null,
+      "state": "UNDECIDED"
+    },
+    "spatial-placement": {
+      "selected_value_ids": [],
+      "reason": null,
+      "evidence": null,
+      "state": "UNDECIDED"
+    },
+    "information-encoding": {
+      "selected_value_ids": [],
+      "reason": null,
+      "evidence": null,
+      "state": "UNDECIDED"
+    },
+    "attention-density": {
+      "selected_value_ids": [],
+      "reason": null,
+      "evidence": null,
+      "state": "UNDECIDED"
+    },
+    "temporal-exposure": {
+      "selected_value_ids": [],
+      "reason": null,
+      "evidence": null,
+      "state": "UNDECIDED"
+    },
+    "time-policy": {
+      "selected_value_ids": [],
+      "reason": null,
+      "evidence": null,
+      "state": "UNDECIDED"
+    },
+    "input-navigation": {
+      "selected_value_ids": [],
+      "reason": null,
+      "evidence": null,
+      "state": "UNDECIDED"
+    }
+  },
+  "world_context": {
+    "background_scene": null,
+    "player_can_move": null,
+    "time_behavior": null,
+    "occlusion_constraints": []
+  },
+  "content_fields": [
+    {
+      "id": null,
+      "meaning": null,
+      "source_of_truth": null,
+      "unit": null,
+      "priority": null,
+      "visibility_rule": null,
+      "longest_real_example": null,
+      "empty_or_unknown_display": null
+    }
+  ],
+  "information_structure": {
+    "decision_groups": [],
+    "primary_action": null,
+    "cost_and_effect_comparison": null,
+    "secondary_details": null
+  },
+  "components": [],
+  "navigation": {
+    "entry": null,
+    "initial_focus": null,
+    "directional_neighbors": [],
+    "confirm": null,
+    "cancel": null,
+    "close": null,
+    "return_focus": null,
+    "input_switch_behavior": null
+  },
+  "transaction_and_recovery": {
+    "preconditions": [],
+    "confirmation_policy": null,
+    "undo_or_recovery": null,
+    "failure_messages": []
+  },
+  "visual_contract": {
+    "theme_recipe_id": null,
+    "pixel_rendering_strategy": null,
+    "type_roles": {},
+    "color_semantics": {},
+    "icon_grammar": null,
+    "material_budget": null,
+    "state_distinctions": [],
+    "nine_slice_rules": null
+  },
+  "evaluation": {
+    "test_context": {},
+    "tasks": [],
+    "observations": [],
+    "visual_status": "UNDETERMINED",
+    "interaction_status": "UNDETERMINED",
+    "accessibility_status": "UNDETERMINED"
+  },
+  "source_ids": [],
+  "case_ids": [],
+  "open_questions": []
+}
