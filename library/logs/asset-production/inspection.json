@@ -1,0 +1,1662 @@
+[
+  {
+    "slug": "tutorials/common_workflows",
+    "status": 200,
+    "title": "Common Workflows — Krita Manual 5.3.0 documentation",
+    "words": 2074,
+    "images": [
+      [
+        "../_images/Pepper-speedpaint-deevad.jpg",
+        "Speedpaint of Pepper & Carrot by deevad (David Revoy)."
+      ],
+      [
+        "../_images/Levels-filter.png",
+        "Level filter dialog."
+      ],
+      [
+        "../_images/Color-adjustment-cw.png",
+        "Remove blue lines from image step 1."
+      ],
+      [
+        "../_images/Color-adjustment-02.png",
+        "Removing blue lines from scan step 2."
+      ],
+      [
+        "../_images/Color-adjustment-03.png",
+        "Remove blue lines from scans step 3."
+      ],
+      [
+        "../_images/Color-adjustment-04.png",
+        "Remove blue lines from scans step 4."
+      ],
+      [
+        "../_images/Color-to-alpha.png",
+        "Color to alpha dialog box."
+      ],
+      [
+        "../_images/Floodfill-krita.png",
+        "Flood fill in krita."
+      ],
+      [
+        "../_images/krita-colorize-mask-01.png",
+        "Colorize Mask Editing Tool in the toolbar."
+      ],
+      [
+        "../_images/krita-colorize-mask-02.png",
+        "Colorize Mask with brush strokes"
+      ],
+      [
+        "../_images/krita-colorize-mask-03.png",
+        "Colorize Mask result"
+      ],
+      [
+        "../_images/layer-alpha-lock.png",
+        "Alpha lock button"
+      ],
+      [
+        "../_images/color-lineart.png",
+        "Changing Line Art Color"
+      ],
+      [
+        "../_images/Chaos2.jpg",
+        "Starting a painting from chaotic sketch."
+      ],
+      [
+        "../_images/Layer-docker-pixelart.png",
+        "Layer stack setup for pixel art."
+      ],
+      [
+        "../_images/Gradient-pixelart.png",
+        "Color mapping in index color to grayscale."
+      ],
+      [
+        "../_images/Index-color-filter1.png",
+        "Index color filter dialog."
+      ],
+      [
+        "../_images/Kiki-pixel-art.png",
+        "Pixel art done in Krita."
+      ]
+    ],
+    "headings": [
+      "Common Workflows ¶",
+      "Speed Painting and Conceptualizing ¶",
+      "Colorizing Line Art ¶",
+      "Preparing the line art ¶",
+      "Laying in Flat Colors ¶",
+      "Changing Line Art Color ¶",
+      "Painting ¶",
+      "Starting from chaos ¶",
+      "Starting from a value based underground ¶",
+      "Preparing Tiles and Textures ¶",
+      "Creating Pixel Art ¶"
+    ],
+    "source": []
+  },
+  {
+    "slug": "user_manual/working_with_images",
+    "status": 200,
+    "title": "Working with Images — Krita Manual 5.3.0 documentation",
+    "words": 1755,
+    "images": [
+      [
+        "../_images/document_information_screen.png",
+        "../_images/document_information_screen.png"
+      ],
+      [
+        "../_images/Resize_Canvas.png",
+        "../_images/Resize_Canvas.png"
+      ],
+      [
+        "../_images/Infinite-canvas.png",
+        "../_images/Infinite-canvas.png"
+      ],
+      [
+        "../_images/Scale_Image_to_New_Size.png",
+        "../_images/Scale_Image_to_New_Size.png"
+      ],
+      [
+        "../_images/Separate_Image.png",
+        "../_images/Separate_Image.png"
+      ]
+    ],
+    "headings": [
+      "Working with Images ¶",
+      "What do Images Contain? ¶",
+      "Raster Data ¶",
+      "Vector Data ¶",
+      "Operation Data ¶",
+      "Metadata ¶",
+      "Image size ¶",
+      "DPI/PPI ¶",
+      "Color depth ¶",
+      "Image color space vs layer color space vs conversion. ¶",
+      "Author and Description ¶",
+      "Setting the canvas background color ¶",
+      "Basic transforms ¶",
+      "Cropping and resizing the canvas ¶",
+      "Trimming ¶",
+      "Resizing the canvas ¶",
+      "Resizing the image ¶",
+      "Separating Images ¶",
+      "Saving, Exporting and Opening Files ¶"
+    ],
+    "source": []
+  },
+  {
+    "slug": "user_manual/layers_and_masks",
+    "status": 200,
+    "title": "Introduction to Layers and Masks — Krita Manual 5.3.0 documentation",
+    "words": 1217,
+    "images": [
+      [
+        "../_images/Krita_mouse_right.png",
+        "mouseright"
+      ],
+      [
+        "../_images/Layer-color-filters.svg",
+        "../_images/Layer-color-filters.svg"
+      ],
+      [
+        "../_images/Layer-color-filters-menu.svg",
+        "../_images/Layer-color-filters-menu.svg"
+      ],
+      [
+        "../_images/Krita-types-of-layers.svg",
+        "../_images/Krita-types-of-layers.svg"
+      ],
+      [
+        "../_images/Passthrough-mode_.png",
+        "../_images/Passthrough-mode_.png"
+      ],
+      [
+        "../_images/Layer-composite.png",
+        "../_images/Layer-composite.png"
+      ],
+      [
+        "../_images/Inherit-alpha-02.png",
+        "../_images/Inherit-alpha-02.png"
+      ],
+      [
+        "../_images/Inherit-alpha-krita.jpg",
+        "../_images/Inherit-alpha-krita.jpg"
+      ],
+      [
+        "../_images/Krita-tutorial2-I.1-2.png",
+        "../_images/Krita-tutorial2-I.1-2.png"
+      ],
+      [
+        "../_images/Layer-right-click.svg",
+        "../_images/Layer-right-click.svg"
+      ],
+      [
+        "../_images/Filtermask-button.png",
+        "../_images/Filtermask-button.png"
+      ]
+    ],
+    "headings": [
+      "Introduction to Layers and Masks ¶",
+      "Managing layers ¶",
+      "Types of Layers ¶",
+      "How are layers composited in Krita? ¶",
+      "Inherit Alpha or Clipping layers ¶",
+      "Masks and Filters ¶"
+    ],
+    "source": []
+  },
+  {
+    "slug": "tutorials/clipping_masks_and_alpha_inheritance",
+    "status": 200,
+    "title": "Clipping Masks and Alpha Inheritance — Krita Manual 5.3.0 documentation",
+    "words": 415,
+    "images": [
+      [
+        "../_images/Composition_animation.gif",
+        "Animation showing that groups are composed before the rest of composition takes place."
+      ],
+      [
+        "../_images/Layer-composite.png",
+        "An image showing the way layers composite in Krita."
+      ],
+      [
+        "../_images/Krita-tutorial2-I.1-2.png",
+        "An image showing how the alpha inheritance works and affects layers."
+      ],
+      [
+        "../_images/Tut_Clipping_1.png",
+        "An image with line art and a layer for each flat of color."
+      ],
+      [
+        "../_images/Tut_Clipping_2.png",
+        "An image showing how the alpha inheritance works and affects layers."
+      ],
+      [
+        "../_images/Tut_Clipping_3.png",
+        "Clipping mask step 3."
+      ],
+      [
+        "../_images/Tut_Clipping_4.png",
+        "Clipping mask step 4."
+      ],
+      [
+        "../_images/Tut_Clipping_5.png",
+        "Clipping mask step 5."
+      ],
+      [
+        "../_images/Tut_Clipping_6.png",
+        "Clipping mask step 6."
+      ],
+      [
+        "../_images/Tut_Clipping_7.png",
+        "Clipping mask step 7."
+      ],
+      [
+        "../_images/Tut_clip_blur.gif",
+        "Filter layers and alpha inheritance."
+      ]
+    ],
+    "headings": [
+      "Clipping Masks and Alpha Inheritance ¶"
+    ],
+    "source": []
+  },
+  {
+    "slug": "tutorials/flat-coloring",
+    "status": 200,
+    "title": "Flat Coloring — Krita Manual 5.3.0 documentation",
+    "words": 1742,
+    "images": [
+      [
+        "../_images/Krita_filling_lineart14.png",
+        "Layer structure for flatting in krita."
+      ],
+      [
+        "../_images/Krita_filling_lineart1.png",
+        "Blend mode setup of line art flat coloring."
+      ],
+      [
+        "../_images/Krita_filling_lineart2.png",
+        "Effects of multiply blend mode."
+      ],
+      [
+        "../_images/Krita_mouse_right.png",
+        "mouseright"
+      ],
+      [
+        "../_images/Krita_filling_lineart_selection_1.png",
+        "../_images/Krita_filling_lineart_selection_1.png"
+      ],
+      [
+        "../_images/Krita_filling_lineart_selection_2.png",
+        "../_images/Krita_filling_lineart_selection_2.png"
+      ],
+      [
+        "../_images/Krita_filling_lineart_mask_1.png",
+        "../_images/Krita_filling_lineart_mask_1.png"
+      ],
+      [
+        "../_images/Krita_mouse_right.png",
+        "mouseright"
+      ],
+      [
+        "../_images/Krita_filling_lineart_mask_2.png",
+        "../_images/Krita_filling_lineart_mask_2.png"
+      ],
+      [
+        "../_images/Krita_filling_lineart_mask_3.png",
+        "../_images/Krita_filling_lineart_mask_3.png"
+      ],
+      [
+        "../_images/Krita_filling_lineart_color_to_alpha.png",
+        "../_images/Krita_filling_lineart_color_to_alpha.png"
+      ],
+      [
+        "../_images/fill_tool.svg",
+        "Fill-tool icon."
+      ],
+      [
+        "../_images/Krita_filling_lineart7.png",
+        "Colors filled with fill tool."
+      ],
+      [
+        "../_images/Krita_filling_lineart15.png",
+        "Selecting with selection tools for filling color."
+      ],
+      [
+        "../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../_images/Krita_filling_lineart16.png",
+        "Selection mask in Krita."
+      ],
+      [
+        "../_images/Krita_filling_lineart17.png",
+        "Filling color in selection."
+      ],
+      [
+        "../_images/Krita_mouse_right.png",
+        "mouseright"
+      ],
+      [
+        "../_images/Krita_filling_lineart18.png",
+        "Result of coloring made with the help of selection tools."
+      ],
+      [
+        "../_images/bezier_curve.svg",
+        "path tool"
+      ],
+      [
+        "../_images/Krita_filling_lineart8.png",
+        "Filling color in line art using path tool."
+      ],
+      [
+        "../_images/Krita_filling_lineart9.png",
+        "Erasing with path tool."
+      ],
+      [
+        "../_images/Krita_filling_lineart10.png",
+        "Coloring with colorize mask."
+      ],
+      [
+        "../_images/Krita_mouse_right.png",
+        "mouseright"
+      ],
+      [
+        "../_images/Krita_filling_lineart11.png",
+        "Result from the colorize mask."
+      ],
+      [
+        "../_images/Krita_filling_lineart12.png",
+        "Slitting colors into islands."
+      ],
+      [
+        "../_images/Krita_filling_lineart13.png",
+        "Resulting color islands from split layers."
+      ]
+    ],
+    "headings": [
+      "Flat Coloring ¶",
+      "Understanding Layers ¶",
+      "Preparing your line art ¶",
+      "The Multiply Blending Mode ¶",
+      "Advantages ¶",
+      "Disadvantages ¶",
+      "Using Selections ¶",
+      "Advantages ¶",
+      "Disadvantages ¶",
+      "Using Masks ¶",
+      "Advantages ¶",
+      "Disadvantages ¶",
+      "Using Color to Alpha ¶",
+      "Advantages ¶",
+      "Disadvantages ¶",
+      "Fill Tool ¶",
+      "Advantages ¶",
+      "Disadvantages ¶",
+      "Selections ¶",
+      "Advantages ¶",
+      "Disadvantages ¶",
+      "Geometric tools ¶",
+      "Advantages ¶",
+      "Disadvantages ¶",
+      "Colorize Mask ¶",
+      "Advantages ¶",
+      "Disadvantages ¶",
+      "Conclusion ¶"
+    ],
+    "source": []
+  },
+  {
+    "slug": "user_manual/selections",
+    "status": 200,
+    "title": "Selections — Krita Manual 5.3.0 documentation",
+    "words": 1367,
+    "images": [
+      [
+        "../_images/rectangular_select_tool.svg",
+        "toolselectrect"
+      ],
+      [
+        "../_images/elliptical_select_tool.svg",
+        "toolselectellipse"
+      ],
+      [
+        "../_images/polygonal_select_tool.svg",
+        "toolselectpolygon"
+      ],
+      [
+        "../_images/freehand_select_tool.svg",
+        "toolselectfreehand"
+      ],
+      [
+        "../_images/similar_select_tool.svg",
+        "toolselectsimilar"
+      ],
+      [
+        "../_images/contiguous_select_tool.svg",
+        "toolselectcontiguous"
+      ],
+      [
+        "../_images/path_select_tool.svg",
+        "toolselectpath"
+      ],
+      [
+        "../_images/magnetic_select_tool.svg",
+        "toolselectmagnetic"
+      ],
+      [
+        "../_images/Krita_mouse_right.png",
+        "mouseright"
+      ],
+      [
+        "../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../_images/Ants-displayMode.jpg",
+        "../_images/Ants-displayMode.jpg"
+      ],
+      [
+        "../_images/Mask-displayMode.jpg",
+        "../_images/Mask-displayMode.jpg"
+      ],
+      [
+        "../_images/Global-selection-mask.png",
+        "../_images/Global-selection-mask.png"
+      ],
+      [
+        "../_images/Krita_mouse_right.png",
+        "mouseright"
+      ],
+      [
+        "../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../_images/Vector-pixel-selections.jpg",
+        "../_images/Vector-pixel-selections.jpg"
+      ],
+      [
+        "../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ]
+    ],
+    "headings": [
+      "Selections ¶",
+      "Creating Selections ¶",
+      "Editing Selections ¶",
+      "Removing Selections ¶",
+      "Display Modes ¶",
+      "Global Selection Mask (Painting a Selection) ¶",
+      "Selection from layer transparency ¶",
+      "Pixel and Vector Selection Types ¶",
+      "Selection Action Bar ¶",
+      "Common Shortcuts while Using Selections ¶"
+    ],
+    "source": []
+  },
+  {
+    "slug": "user_manual/mirror_tools",
+    "status": 200,
+    "title": "Mirror Tools — Krita Manual 5.3.0 documentation",
+    "words": 227,
+    "images": [
+      [
+        "../_images/Mirror-tool.png",
+        "../_images/Mirror-tool.png"
+      ]
+    ],
+    "headings": [
+      "Mirror Tools ¶",
+      "Mirroring along a rotated line ¶"
+    ],
+    "source": []
+  },
+  {
+    "slug": "user_manual/painting_with_assistants",
+    "status": 200,
+    "title": "Painting with Assistants — Krita Manual 5.3.0 documentation",
+    "words": 1923,
+    "images": [
+      [
+        "../_images/Krita_basic_assistants.png",
+        "Krita's vanishing point assistants in action."
+      ],
+      [
+        "../_images/Assistants_ellipse_in_perspective.png",
+        "../_images/Assistants_ellipse_in_perspective.png"
+      ],
+      [
+        "../_images/Perspectivegrid.png",
+        "../_images/Perspectivegrid.png"
+      ],
+      [
+        "../_images/Assistants_2_pointperspective_03.png",
+        "../_images/Assistants_2_pointperspective_03.png"
+      ],
+      [
+        "../_images/CurvilinearPerspective.png",
+        "../_images/CurvilinearPerspective.png"
+      ],
+      [
+        "../_images/Assistants_oblique.png",
+        "../_images/Assistants_oblique.png"
+      ],
+      [
+        "../_images/Assistants_dimetric.png",
+        "../_images/Assistants_dimetric.png"
+      ],
+      [
+        "../_images/Assistants_trimetric.png",
+        "../_images/Assistants_trimetric.png"
+      ],
+      [
+        "../_images/Assistants_1_point_perspective.png",
+        "../_images/Assistants_1_point_perspective.png"
+      ],
+      [
+        "../_images/Assistants_2_point_perspective.png",
+        "../_images/Assistants_2_point_perspective.png"
+      ],
+      [
+        "../_images/Assistants_2_pointperspective_02.png",
+        "../_images/Assistants_2_pointperspective_02.png"
+      ],
+      [
+        "../_images/Assistants_3_point_perspective.png",
+        "../_images/Assistants_3_point_perspective.png"
+      ],
+      [
+        "../_images/Assistants_vanishing_point_logic_01.png",
+        "../_images/Assistants_vanishing_point_logic_01.png"
+      ],
+      [
+        "../_images/Assistants_vanishing_point_logic_02.png",
+        "../_images/Assistants_vanishing_point_logic_02.png"
+      ],
+      [
+        "../_images/Assistants_vanishing_point_logic_03.png",
+        "../_images/Assistants_vanishing_point_logic_03.png"
+      ],
+      [
+        "../_images/Fish-eye.gif",
+        "../_images/Fish-eye.gif"
+      ],
+      [
+        "../_images/Assistants_fish-eye_2_02.png",
+        "../_images/Assistants_fish-eye_2_02.png"
+      ]
+    ],
+    "headings": [
+      "Painting with Assistants ¶",
+      "Types ¶",
+      "Ellipse ¶",
+      "Perspective Ellipse ¶",
+      "Perspective ¶",
+      "Ruler ¶",
+      "Spline ¶",
+      "Vanishing Point ¶",
+      "Fish Eye Point ¶",
+      "2 Point Perspective ¶",
+      "Curvilinear Perspective ¶",
+      "Setting up Krita for technical drawing-like perspectives ¶",
+      "Orthographic ¶",
+      "Axonometric ¶",
+      "Linear Perspective ¶",
+      "Logic of the vanishing point ¶",
+      "Fish Eye perspective ¶"
+    ],
+    "source": []
+  },
+  {
+    "slug": "user_manual/loading_saving_brushes",
+    "status": 200,
+    "title": "Loading and Saving Brushes — Krita Manual 5.3.0 documentation",
+    "words": 3308,
+    "images": [
+      [
+        "../_images/Krita_5_0_Brush_Settings_Layout.svg",
+        "../_images/Krita_5_0_Brush_Settings_Layout.svg"
+      ],
+      [
+        "../_images/Krita_4_0_Save_New_Brush_Preset_Dialog.png",
+        "../_images/Krita_4_0_Save_New_Brush_Preset_Dialog.png"
+      ],
+      [
+        "../_images/Krita_4_0_Preset_Icon_Library_Dialog.png",
+        "../_images/Krita_4_0_Preset_Icon_Library_Dialog.png"
+      ],
+      [
+        "../_images/Krita_4_0_brush_curve_calculation_mode.png",
+        "../_images/Krita_4_0_brush_curve_calculation_mode.png"
+      ],
+      [
+        "../_images/Krita_4_0_dirty_preset_icon.png",
+        "../_images/Krita_4_0_dirty_preset_icon.png"
+      ]
+    ],
+    "headings": [
+      "Loading and Saving Brushes ¶",
+      "The Brush settings drop-down ¶",
+      "Tour of the brush settings drop-down ¶",
+      "The On-canvas brush settings ¶",
+      "Making a Brush Preset ¶",
+      "Getting a default for the brush engine. ¶",
+      "Example: Making an inking brush ¶",
+      "Saving the new Brush ¶",
+      "Sharing Brushes ¶",
+      "Sharing a single preset ¶",
+      "Sharing via ZIP (old-fashioned) ¶"
+    ],
+    "source": []
+  },
+  {
+    "slug": "reference_manual/brushes/brush_engines/pixel_brush_engine",
+    "status": 200,
+    "title": "Pixel Brush Engine — Krita Manual 5.3.0 documentation",
+    "words": 317,
+    "images": [
+      [
+        "../../../_images/pixelbrush.svg",
+        "../../../_images/pixelbrush.svg"
+      ],
+      [
+        "../../../_images/Krita_Pixel_Brush_Settings_Popup.png",
+        "../../../_images/Krita_Pixel_Brush_Settings_Popup.png"
+      ],
+      [
+        "../../../_images/Krita_2_9_brushengine_darken_01.png",
+        "../../../_images/Krita_2_9_brushengine_darken_01.png"
+      ],
+      [
+        "../../../_images/Krita_2_9_brushengine_HSV_01.png",
+        "../../../_images/Krita_2_9_brushengine_HSV_01.png"
+      ],
+      [
+        "../../../_images/Krita_2_9_brushengine_HSV_02.png",
+        "../../../_images/Krita_2_9_brushengine_HSV_02.png"
+      ]
+    ],
+    "headings": [
+      "Pixel Brush Engine ¶",
+      "Specific Parameters to the Pixel Brush Engine ¶",
+      "Darken ¶",
+      "Hue, Saturation, Value ¶"
+    ],
+    "source": [
+      "../brush_settings/options.html#option-source",
+      "../brush_settings/options.html#option-source"
+    ]
+  },
+  {
+    "slug": "reference_manual/dockers/palette_docker",
+    "status": 200,
+    "title": "Palette Docker — Krita Manual 5.3.0 documentation",
+    "words": 880,
+    "images": [
+      [
+        "../../_images/Palette-docker.png",
+        "../../_images/Palette-docker.png"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_right.png",
+        "mouseright"
+      ]
+    ],
+    "headings": [
+      "Palette Docker ¶"
+    ],
+    "source": []
+  },
+  {
+    "slug": "reference_manual/dockers/grids_and_guides",
+    "status": 200,
+    "title": "Grids and Guides Docker — Krita Manual 5.3.0 documentation",
+    "words": 795,
+    "images": [
+      [
+        "../../_images/grid_rectangle-overview.png",
+        "../../_images/grid_rectangle-overview.png"
+      ],
+      [
+        "../../_images/grid_rectangle-overview2.png",
+        "../../_images/grid_rectangle-overview2.png"
+      ],
+      [
+        "../../_images/grid_isometric_legacy-overview.png",
+        "../../_images/grid_isometric_legacy-overview.png"
+      ],
+      [
+        "../../_images/grid_isometric_left-angle.png",
+        "../../_images/grid_isometric_left-angle.png"
+      ],
+      [
+        "../../_images/grid_isometric_right-angle.png",
+        "../../_images/grid_isometric_right-angle.png"
+      ],
+      [
+        "../../_images/grid_isometric-overview.png",
+        "../../_images/grid_isometric-overview.png"
+      ],
+      [
+        "../../_images/grid_isometric_left-angle.png",
+        "../../_images/grid_isometric_left-angle.png"
+      ],
+      [
+        "../../_images/grid_isometric_right-angle.png",
+        "../../_images/grid_isometric_right-angle.png"
+      ],
+      [
+        "../../_images/grid_isometric_cellsize.png",
+        "../../_images/grid_isometric_cellsize.png"
+      ],
+      [
+        "../../_images/guides.png",
+        "../../_images/guides.png"
+      ]
+    ],
+    "headings": [
+      "Grids and Guides Docker ¶",
+      "Grids ¶",
+      "Orthogonal grid ¶",
+      "Isometric (Legacy) grid ¶",
+      "Isometric grid ¶",
+      "Guides ¶",
+      "Creating Guides ¶",
+      "Editing Guides ¶",
+      "Removing Guides ¶"
+    ],
+    "source": []
+  },
+  {
+    "slug": "user_manual/animation",
+    "status": 200,
+    "title": "Animation with Krita — Krita Manual 5.3.0 documentation",
+    "words": 2878,
+    "images": [
+      [
+        "../_images/Storyboard_thumbnailonly_view.png",
+        "../_images/Storyboard_thumbnailonly_view.png"
+      ],
+      [
+        "../_images/Introduction_to_animation_01.png",
+        "../_images/Introduction_to_animation_01.png"
+      ],
+      [
+        "../_images/Introduction_to_animation_02.png",
+        "Layout of the layer stack."
+      ],
+      [
+        "../_images/Introduction_to_animation_03.png",
+        "Our simple environment, consisting of a single horizon."
+      ],
+      [
+        "../_images/Introduction_to_animation_04.png",
+        "A head and torso."
+      ],
+      [
+        "../_images/addduplicateframe.svg",
+        "duplicateframe"
+      ],
+      [
+        "../_images/Introduction_to_animation_05.png",
+        "Location of the onion skin icon."
+      ],
+      [
+        "../_images/onionOn.svg",
+        "onionon"
+      ],
+      [
+        "../_images/onionOff.svg",
+        "onionoff"
+      ],
+      [
+        "../_images/onionOn.svg",
+        "onionon"
+      ],
+      [
+        "../_images/Introduction_to_animation_06.png",
+        "Onion skin is turned on."
+      ],
+      [
+        "../_images/Introduction_to_animation_07.png",
+        "The current frame in black and the silhouette of the previous frame in red."
+      ],
+      [
+        "../_images/Introduction_to_animation_08.png",
+        "Current frame is black and silhouette of the future frame is green."
+      ],
+      [
+        "../_images/Introduction_to_animation_09.png",
+        "../_images/Introduction_to_animation_09.png"
+      ],
+      [
+        "../_images/Krita_mouse_right.png",
+        "mouseright"
+      ],
+      [
+        "../_images/Krita_mouse_right.png",
+        "mouseright"
+      ],
+      [
+        "../_images/Introduction_to_animation_10.png",
+        "../_images/Introduction_to_animation_10.png"
+      ],
+      [
+        "../_images/Introduction_to_animation_11.png",
+        "../_images/Introduction_to_animation_11.png"
+      ],
+      [
+        "../_images/Introduction_to_animation_12.png",
+        "../_images/Introduction_to_animation_12.png"
+      ],
+      [
+        "../_images/animation_walkcycle_2021_4_frames.gif",
+        "../_images/animation_walkcycle_2021_4_frames.gif"
+      ],
+      [
+        "../_images/Introduction_to_animation_13.png",
+        "../_images/Introduction_to_animation_13.png"
+      ],
+      [
+        "../_images/Krita_mouse_right.png",
+        "mouseright"
+      ],
+      [
+        "../_images/Introduction_to_animation_14.png",
+        "../_images/Introduction_to_animation_14.png"
+      ],
+      [
+        "../_images/Introduction_to_animation_13.png",
+        "../_images/Introduction_to_animation_13.png"
+      ],
+      [
+        "../_images/Krita_mouse_right.png",
+        "mouseright"
+      ],
+      [
+        "../_images/Introduction_to_animation_13b.png",
+        "../_images/Introduction_to_animation_13b.png"
+      ],
+      [
+        "../_images/Introduction_to_animation_15.png",
+        "../_images/Introduction_to_animation_15.png"
+      ],
+      [
+        "../_images/Introduction_to_animation_14b.png",
+        "../_images/Introduction_to_animation_14b.png"
+      ],
+      [
+        "../_images/Introduction_to_animation_16.png",
+        "../_images/Introduction_to_animation_16.png"
+      ],
+      [
+        "../_images/reference_images_tool.svg",
+        "pintimeline"
+      ],
+      [
+        "../_images/Introduction_to_animation_17.png",
+        "../_images/Introduction_to_animation_17.png"
+      ],
+      [
+        "../_images/Introduction_to_animation_18.png",
+        "../_images/Introduction_to_animation_18.png"
+      ],
+      [
+        "../_images/Introduction_to_animation_walkcycle_02.gif",
+        "../_images/Introduction_to_animation_walkcycle_02.gif"
+      ],
+      [
+        "../_images/Krita_mouse_right.png",
+        "mouseright"
+      ],
+      [
+        "../_images/keyframe-add.svg",
+        "scalaradd"
+      ],
+      [
+        "../_images/Introduction_to_animation_19.png",
+        "../_images/Introduction_to_animation_19.png"
+      ],
+      [
+        "../_images/introduction_to_animation_walkcycle_03_simple_tween.gif",
+        "../_images/introduction_to_animation_walkcycle_03_simple_tween.gif"
+      ],
+      [
+        "../_images/Introduction_to_animation_20a.png",
+        "../_images/Introduction_to_animation_20a.png"
+      ],
+      [
+        "../_images/Introduction_to_animation_20b.png",
+        "../_images/Introduction_to_animation_20b.png"
+      ],
+      [
+        "../_images/Introduction_to_animation_20c.png",
+        "../_images/Introduction_to_animation_20c.png"
+      ],
+      [
+        "../_images/introduction_to_animation_walkcycle_03_adjusted_tween.gif",
+        "../_images/introduction_to_animation_walkcycle_03_adjusted_tween.gif"
+      ]
+    ],
+    "headings": [
+      "Animation with Krita ¶",
+      "Workflow ¶",
+      "Introduction to animation: How to make a walk cycle ¶",
+      "Setup ¶",
+      "Animating ¶",
+      "Expanding upon your rough walk cycle ¶",
+      "Animating with multiple layers ¶",
+      "Exporting ¶",
+      "Animating with transform masks ¶"
+    ],
+    "source": []
+  },
+  {
+    "slug": "reference_manual/dockers/animation_timeline",
+    "status": 200,
+    "title": "Animation Timeline Docker — Krita Manual 5.3.0 documentation",
+    "words": 2302,
+    "images": [
+      [
+        "../../_images/Animation_Timeline_Docker.png",
+        "../../_images/Animation_Timeline_Docker.png"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_right.png",
+        "mouseright"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_right.png",
+        "mouseright"
+      ],
+      [
+        "../../_images/Krita_mouse_right.png",
+        "mouseright"
+      ],
+      [
+        "../../_images/Krita_mouse_right.png",
+        "mouseright"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_right.png",
+        "mouseright"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_right.png",
+        "mouseright"
+      ],
+      [
+        "../../_images/Krita_mouse_right.png",
+        "mouseright"
+      ],
+      [
+        "../../_images/Timeline_insertkeys.png",
+        "../../_images/Timeline_insertkeys.png"
+      ],
+      [
+        "../../_images/Krita_mouse_right.png",
+        "mouseright"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_right.png",
+        "mouseright"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_right.png",
+        "mouseright"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_right.png",
+        "mouseright"
+      ],
+      [
+        "../../_images/Krita_mouse_right.png",
+        "mouseright"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_right.png",
+        "mouseright"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ]
+    ],
+    "headings": [
+      "Animation Timeline Docker ¶",
+      "Overview ¶",
+      "Animating ¶",
+      "Tips ¶",
+      "Controls ¶"
+    ],
+    "source": []
+  },
+  {
+    "slug": "reference_manual/dockers/onion_skin",
+    "status": 200,
+    "title": "Onion Skin Docker — Krita Manual 5.3.0 documentation",
+    "words": 354,
+    "images": [
+      [
+        "../../_images/Onion_skin_docker.png",
+        "../../_images/Onion_skin_docker.png"
+      ],
+      [
+        "../../_images/Onion_skin_01.png",
+        "../../_images/Onion_skin_01.png"
+      ],
+      [
+        "../../_images/Onion_skin_02.png",
+        "../../_images/Onion_skin_02.png"
+      ]
+    ],
+    "headings": [
+      "Onion Skin Docker ¶"
+    ],
+    "source": []
+  },
+  {
+    "slug": "reference_manual/render_animation",
+    "status": 200,
+    "title": "Render Animation — Krita Manual 5.3.0 documentation",
+    "words": 1424,
+    "images": [
+      [
+        "../_images/ffmpeg_screenshot_path.png",
+        "FFmpeg path."
+      ]
+    ],
+    "headings": [
+      "Render Animation ¶",
+      "General ¶",
+      "Export as Image Sequence ¶",
+      "Export as Video ¶",
+      "Setting Up Krita for Exporting Animations ¶",
+      "Step 1 - Downloading FFmpeg ¶",
+      "Step 2 - Unzipping and Linking to Krita ¶",
+      "Step 3 - Testing out an animation ¶"
+    ],
+    "source": []
+  },
+  {
+    "slug": "reference_manual/import_animation",
+    "status": 200,
+    "title": "Import Animation — Krita Manual 5.3.0 documentation",
+    "words": 793,
+    "images": [
+      [
+        "../_images/Animation_split_spritesheet.png",
+        "../_images/Animation_split_spritesheet.png"
+      ],
+      [
+        "../_images/Animation_import_sprites.png",
+        "../_images/Animation_import_sprites.png"
+      ],
+      [
+        "../_images/Animation_set_everything.png",
+        "../_images/Animation_set_everything.png"
+      ],
+      [
+        "../_images/Animation_import_done.png",
+        "../_images/Animation_import_done.png"
+      ],
+      [
+        "../_images/import_video.png",
+        "../_images/import_video.png"
+      ]
+    ],
+    "headings": [
+      "Import Animation ¶",
+      "Import Frames ¶",
+      "Order ¶",
+      "Timing ¶",
+      "Import video file ¶",
+      "Video file info ¶",
+      "Import Options ¶",
+      "Options ¶"
+    ],
+    "source": []
+  },
+  {
+    "slug": "reference_manual/tools/transform",
+    "status": 200,
+    "title": "Transform Tool — Krita Manual 5.3.0 documentation",
+    "words": 1720,
+    "images": [
+      [
+        "../../_images/transform_tool.svg",
+        "tooltransform"
+      ],
+      [
+        "../../_images/Transform_Tool_Options.png",
+        "../../_images/Transform_Tool_Options.png"
+      ],
+      [
+        "../../_images/Krita_transforms_free.png",
+        "../../_images/Krita_transforms_free.png"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_transforms_perspective.png",
+        "../../_images/Krita_transforms_perspective.png"
+      ],
+      [
+        "../../_images/Transform_Tool_Options_Warp.png",
+        "../../_images/Transform_Tool_Options_Warp.png"
+      ],
+      [
+        "../../_images/Krita_transforms_warp.png",
+        "../../_images/Krita_transforms_warp.png"
+      ],
+      [
+        "../../_images/Krita_transforms_cage.png",
+        "../../_images/Krita_transforms_cage.png"
+      ],
+      [
+        "../../_images/Transform_Tool_Options_Liquify.png",
+        "../../_images/Transform_Tool_Options_Liquify.png"
+      ],
+      [
+        "../../_images/Krita_transforms_liquefy.png",
+        "../../_images/Krita_transforms_liquefy.png"
+      ],
+      [
+        "../../_images/Krita_transforms_deformvsliquefy.png",
+        "../../_images/Krita_transforms_deformvsliquefy.png"
+      ],
+      [
+        "../../_images/Krita_transforms_mesh.png",
+        "../../_images/Krita_transforms_mesh.png"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_transforms_recursive.png",
+        "../../_images/Krita_transforms_recursive.png"
+      ]
+    ],
+    "headings": [
+      "Transform Tool ¶",
+      "Free transform ¶",
+      "Rotating the Transformation Bounds ¶",
+      "Perspective ¶",
+      "Warp ¶",
+      "Anchor Points ¶",
+      "Cage ¶",
+      "Adjust Granularity ¶",
+      "Hotkeys ¶",
+      "Liquify ¶",
+      "Mesh ¶",
+      "Shortcuts ¶",
+      "Tool options ¶",
+      "Transform Multiple Layers ¶",
+      "Continuous Transform ¶",
+      "Transformation Masks ¶"
+    ],
+    "source": []
+  },
+  {
+    "slug": "reference_manual/layers_and_masks/transparency_masks",
+    "status": 200,
+    "title": "Transparency Masks — Krita Manual 5.3.0 documentation",
+    "words": 196,
+    "images": [],
+    "headings": [
+      "Transparency Masks ¶",
+      "How to add a transparency mask ¶"
+    ],
+    "source": []
+  },
+  {
+    "slug": "reference_manual/layers_and_masks/clone_layers",
+    "status": 200,
+    "title": "Clone Layers — Krita Manual 5.3.0 documentation",
+    "words": 373,
+    "images": [],
+    "headings": [
+      "Clone Layers ¶",
+      "Example uses of Clone Layers ¶",
+      "Changing the source of Clone Layers ¶"
+    ],
+    "source": []
+  },
+  {
+    "slug": "tutorials/making_an_azalea_with_the_transformation_masks",
+    "status": 200,
+    "title": "Making An Azalea With The Transformation Masks — Krita Manual 5.3.0 documentation",
+    "words": 1447,
+    "images": [
+      [
+        "../_images/Krita-screencast-azaleas.png",
+        "Making azalea with transform masks."
+      ],
+      [
+        "../_images/Azelea_01_trunk-.png",
+        "Starting with the trunk and reference image."
+      ],
+      [
+        "../_images/Azelea_02_drawing-flowers.png",
+        "Making the outline of the flowers."
+      ],
+      [
+        "../_images/Azelea_03_filling-flowers.png",
+        "Coloring the details and filling the flowers."
+      ],
+      [
+        "../_images/Azelea_04_finished-setup.png",
+        "Finished setup for making azalea."
+      ],
+      [
+        "../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../_images/Azelea_05_clonelayer.png",
+        "Create clone layers of the flowers."
+      ],
+      [
+        "../_images/Krita_mouse_right.png",
+        "mouseright"
+      ],
+      [
+        "../_images/Azelea_06_transformmask.png",
+        "Adding transform masks to the cloned layers."
+      ],
+      [
+        "../_images/transform_tool.svg",
+        "tooltransform"
+      ],
+      [
+        "../_images/transform_tool.svg",
+        "tooltransform"
+      ],
+      [
+        "../_images/Azelea_07_clusters.png",
+        "Adding more clusters."
+      ],
+      [
+        "../_images/Azelea_08_leaves.png",
+        "Making leaves."
+      ],
+      [
+        "../_images/Azelea_09_paintingoriginals.png",
+        "Painting originals."
+      ],
+      [
+        "../_images/Azelea_10_alphainheritance_1.png",
+        "Using the alpha inheritance."
+      ],
+      [
+        "../_images/Azelea_11_alphainheritance_2.png",
+        "Clipping the cluster with alpha inheritance."
+      ],
+      [
+        "../_images/Azelea_12_alphainheritance_3.png",
+        "Activate alpha inheritance."
+      ],
+      [
+        "../_images/Azelea_13_alphainheritance_4.png",
+        "Multiplying the clipped shape."
+      ],
+      [
+        "../_images/Azelea_14_alphainheritance_5.png",
+        "Remove extra areas with the eraser."
+      ],
+      [
+        "../_images/Azelea_15_alphainheritance_6.png",
+        "Add shadows and highlights with alpha inheritance technique."
+      ]
+    ],
+    "headings": [
+      "Making An Azalea With The Transformation Masks ¶",
+      "Let’s get to drawing! ¶",
+      "Clone Layers ¶",
+      "Enter Transform Masks! ¶"
+    ],
+    "source": []
+  },
+  {
+    "slug": "reference_manual/tools/multibrush",
+    "status": 200,
+    "title": "Multibrush Tool — Krita Manual 5.3.0 documentation",
+    "words": 331,
+    "images": [
+      [
+        "../../_images/multibrush_tool.svg",
+        "toolmultibrush"
+      ],
+      [
+        "../../_images/Krita-multibrush.png",
+        "../../_images/Krita-multibrush.png"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ]
+    ],
+    "headings": [
+      "Multibrush Tool ¶"
+    ],
+    "source": []
+  },
+  {
+    "slug": "reference_manual/tools/fill",
+    "status": 200,
+    "title": "Fill Tool — Krita Manual 5.3.0 documentation",
+    "words": 1126,
+    "images": [
+      [
+        "../../_images/fill_tool.svg",
+        "toolfill"
+      ],
+      [
+        "../../_images/fill_tool_what_to_fill.png",
+        "../../_images/fill_tool_what_to_fill.png"
+      ],
+      [
+        "../../_images/fill_tool_region-filling-flood-fill.svg",
+        "../../_images/fill_tool_region-filling-flood-fill.svg"
+      ],
+      [
+        "../../_images/fill_tool_region-filling-boundary-fill.svg",
+        "../../_images/fill_tool_region-filling-boundary-fill.svg"
+      ],
+      [
+        "../../_images/fill_tool_pixel_selection_policies.png",
+        "../../_images/fill_tool_pixel_selection_policies.png"
+      ],
+      [
+        "../../_images/opacity_spread.png",
+        "../../_images/opacity_spread.png"
+      ],
+      [
+        "../../_images/fill_tool_close_gap.png",
+        "../../_images/fill_tool_close_gap.png"
+      ],
+      [
+        "../../_images/fill_selection_boundary.png",
+        "../../_images/fill_selection_boundary.png"
+      ],
+      [
+        "../../_images/fill_tool_stop-at-boundary.svg",
+        "../../_images/fill_tool_stop-at-boundary.svg"
+      ],
+      [
+        "../../_images/fill_tool_stop_growing.png",
+        "../../_images/fill_tool_stop_growing.png"
+      ]
+    ],
+    "headings": [
+      "Fill Tool ¶",
+      "Tool Options ¶"
+    ],
+    "source": []
+  },
+  {
+    "slug": "reference_manual/tools/contiguous_select",
+    "status": 200,
+    "title": "Contiguous Selection Tool — Krita Manual 5.3.0 documentation",
+    "words": 459,
+    "images": [
+      [
+        "../../_images/contiguous_select_tool.svg",
+        "toolselectcontiguous"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_right.png",
+        "mouseright"
+      ],
+      [
+        "../../_images/contiguous_selection_close_gap.gif",
+        "../../_images/contiguous_selection_close_gap.gif"
+      ]
+    ],
+    "headings": [
+      "Contiguous Selection Tool ¶",
+      "Hotkeys and Sticky keys ¶",
+      "Tool Options ¶"
+    ],
+    "source": []
+  },
+  {
+    "slug": "reference_manual/tools/rectangle",
+    "status": 200,
+    "title": "Rectangle Tool — Krita Manual 5.3.0 documentation",
+    "words": 434,
+    "images": [
+      [
+        "../../_images/rectangle_tool.svg",
+        "toolrectangle"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ],
+      [
+        "../../_images/Krita_mouse_left.png",
+        "mouseleft"
+      ]
+    ],
+    "headings": [
+      "Rectangle Tool ¶",
+      "Hotkeys and Sticky-keys ¶",
+      "Tool Options ¶",
+      "Fill ¶",
+      "Outline ¶",
+      "Pattern Transform ¶",
+      "Size ¶"
+    ],
+    "source": []
+  },
+  {
+    "slug": "reference_manual/layers_and_masks/transform_masks",
+    "status": 404,
+    "title": "File Not Found (404) — Krita Manual 5.3.0 documentation",
+    "words": 67,
+    "images": [
+      [
+        "_images/Kiki_cLUTprofiles.png",
+        "Image of Kiki looking confused through books."
+      ]
+    ],
+    "headings": [
+      "File Not Found (404) ¶"
+    ],
+    "source": []
+  }
+]

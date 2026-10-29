@@ -1,0 +1,36 @@
+[
+  {
+    "query": "俯视 行走",
+    "category": null,
+    "results": [
+      "ANIM-003",
+      "ANIM-001",
+      "ANIM-004"
+    ]
+  },
+  {
+    "query": "房屋",
+    "category": "drawing",
+    "results": [
+      "ART-008"
+    ]
+  },
+  {
+    "query": "TileMapLayer",
+    "category": null,
+    "results": [
+      "DEV-018",
+      "DEV-017",
+      "DEV-019"
+    ]
+  },
+  {
+    "query": "调色板",
+    "category": "asset-production",
+    "results": [
+      "MAKE-010",
+      "MAKE-001",
+      "MAKE-005"
+    ]
+  }
+]

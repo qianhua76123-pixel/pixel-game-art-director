@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "built_at": "2026-10-29",
+  "skill_frontmatter": "PASS",
+  "library_tutorials": 92,
+  "library_local_images": 661,
+  "art_styles": 8,
+  "ui_styles": 6,
+  "retrieval_behavior_tests": 5,
+  "audit_regression_cases": 12,
+  "art_bible_behavior_checks": 4,
+  "relocation_test": "PASS; paths resolve under copied skill root, including paths with spaces",
+  "input_images_unchanged": true,
+  "independent_forward_test": {
+    "task": "Dark pixel dungeon inventory UI, long Chinese item names, controller; inspect images without project contract",
+    "tutorials_in_bundle": 8,
+    "copied_figures": 15,
+    "decodable_figure_frames": 185,
+    "verified_local_links": 26,
+    "result": "Completed bounded task; no hard blocker remains"
+  },
+  "forward_test_fixes": [
+    "Created missing style/UI references before release",
+    "CLI profile selection now identifies caller choice, not user approval",
+    "Unconfigured audit Markdown now displays raw measurements while remaining INCOMPLETE"
+  ],
+  "limits": [
+    "Art style, perspective, lighting and material consistency require visual review.",
+    "No actual game/UI implementation or project screenshot interaction was tested in this skill-packaging task.",
+    "Tutorial figures are teaching references, not newly authored game assets."
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "original": "Top-Down-Houses-Compressed.gif",
+  "width": 512,
+  "height": 512,
+  "frames": 189,
+  "duration_ms": 22680,
+  "selected": [
+    {
+      "frame": 0,
+      "time_ms": 0
+    },
+    {
+      "frame": 62,
+      "time_ms": 7440
+    },
+    {
+      "frame": 124,
+      "time_ms": 14880
+    },
+    {
+      "frame": 187,
+      "time_ms": 22440
+    }
+  ],
+  "operation": "Extract original frames at 0/33/66/99 percent of duration; add labels outside frames; no interpolation or art recoloring."
+}

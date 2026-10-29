@@ -1,0 +1,160 @@
+{
+  "tutorials": 24,
+  "unique_source_urls": 24,
+  "images": 207,
+  "unique_image_hashes": 203,
+  "image_bytes": 15881777,
+  "errors": [],
+  "files": [
+    {
+      "id": "MAKE-001",
+      "md_bytes": 23107,
+      "source_characters": 14670,
+      "local_images": 18
+    },
+    {
+      "id": "MAKE-002",
+      "md_bytes": 17306,
+      "source_characters": 11606,
+      "local_images": 5
+    },
+    {
+      "id": "MAKE-003",
+      "md_bytes": 15599,
+      "source_characters": 8569,
+      "local_images": 10
+    },
+    {
+      "id": "MAKE-004",
+      "md_bytes": 11354,
+      "source_characters": 4209,
+      "local_images": 11
+    },
+    {
+      "id": "MAKE-005",
+      "md_bytes": 22893,
+      "source_characters": 13479,
+      "local_images": 22
+    },
+    {
+      "id": "MAKE-006",
+      "md_bytes": 16078,
+      "source_characters": 11113,
+      "local_images": 4
+    },
+    {
+      "id": "MAKE-007",
+      "md_bytes": 6468,
+      "source_characters": 1726,
+      "local_images": 1
+    },
+    {
+      "id": "MAKE-008",
+      "md_bytes": 27936,
+      "source_characters": 20909,
+      "local_images": 5
+    },
+    {
+      "id": "MAKE-009",
+      "md_bytes": 10087,
+      "source_characters": 2996,
+      "local_images": 4
+    },
+    {
+      "id": "MAKE-010",
+      "md_bytes": 10488,
+      "source_characters": 5814,
+      "local_images": 1
+    },
+    {
+      "id": "MAKE-011",
+      "md_bytes": 13552,
+      "source_characters": 6787,
+      "local_images": 8
+    },
+    {
+      "id": "MAKE-012",
+      "md_bytes": 35866,
+      "source_characters": 20677,
+      "local_images": 29
+    },
+    {
+      "id": "MAKE-013",
+      "md_bytes": 21545,
+      "source_characters": 15803,
+      "local_images": 2
+    },
+    {
+      "id": "MAKE-014",
+      "md_bytes": 7446,
+      "source_characters": 2573,
+      "local_images": 3
+    },
+    {
+      "id": "MAKE-015",
+      "md_bytes": 14331,
+      "source_characters": 9695,
+      "local_images": 1
+    },
+    {
+      "id": "MAKE-016",
+      "md_bytes": 11573,
+      "source_characters": 5738,
+      "local_images": 5
+    },
+    {
+      "id": "MAKE-017",
+      "md_bytes": 20401,
+      "source_characters": 12333,
+      "local_images": 11
+    },
+    {
+      "id": "MAKE-018",
+      "md_bytes": 18375,
+      "source_characters": 10444,
+      "local_images": 16
+    },
+    {
+      "id": "MAKE-019",
+      "md_bytes": 7100,
+      "source_characters": 2527,
+      "local_images": 1
+    },
+    {
+      "id": "MAKE-020",
+      "md_bytes": 18717,
+      "source_characters": 8457,
+      "local_images": 9
+    },
+    {
+      "id": "MAKE-021",
+      "md_bytes": 9205,
+      "source_characters": 3643,
+      "local_images": 1
+    },
+    {
+      "id": "MAKE-022",
+      "md_bytes": 20249,
+      "source_characters": 10035,
+      "local_images": 16
+    },
+    {
+      "id": "MAKE-023",
+      "md_bytes": 10216,
+      "source_characters": 4181,
+      "local_images": 7
+    },
+    {
+      "id": "MAKE-024",
+      "md_bytes": 23549,
+      "source_characters": 13929,
+      "local_images": 17
+    }
+  ],
+  "visual_review": {
+    "status": "reviewed-representative-images",
+    "method": "view_image contact sheet for MAKE-001..MAKE-023 and standalone MAKE-024/Assistants_dimetric.png",
+    "scope": "24 representative source illustrations; all 207 figure files checked by hashes and raster decode where applicable",
+    "findings": "Real instructional figures and UI screenshots, not logos. Normal-painting examples are explicitly distinguished from strict pixel-art production in the Chinese guides."
+  }
+}

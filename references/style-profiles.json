@@ -1,0 +1,1009 @@
+{
+  "schema_version": 1,
+  "kind": "pixel-art-style-profiles",
+  "editorial_notice": "本文件的八种风格是本skill整理者提供的可调项目配方，不是历史硬件规范、原作者风格分类或任何具体游戏的复制承诺。图示只证明指定技法；选中profile后仍需以用户参考与项目既有资产定稿。",
+  "path_base": "skill-root",
+  "profiles": [
+    {
+      "id": "cozy-rural",
+      "name": "温暖乡村",
+      "summary": "以可读房屋体块、柔和自然色和有节制的手工材质构成生活场景。",
+      "tags": [
+        "乡村",
+        "田园",
+        "cozy",
+        "rural",
+        "俯视",
+        "种田"
+      ],
+      "tasks": [
+        "村庄地表、农舍、树木与农具",
+        "生活模拟的轻量HUD、背包与对话"
+      ],
+      "parameters": {
+        "perspective": {
+          "suggested": "正面可见墙面的3/4俯视；以现有项目参考为准",
+          "lock": [
+            "同类建筑可见屋顶/墙面比例",
+            "地面基准与角色脚底锚点",
+            "树木和房屋的前后排序"
+          ],
+          "do_not_assume": "不要把教程里的弯曲伪透视原样套入严格正面俯视规范。"
+        },
+        "logical_pixels": {
+          "tile_start_px": [
+            16,
+            16
+          ],
+          "character_canvas_start_px": [
+            32,
+            32
+          ],
+          "scale_policy": "画在逻辑像素网格；运行时优先整数倍显示。16/32只是试样起点，房屋可以跨多个图块。"
+        },
+        "value_and_saturation": "中等偏低饱和；地表对比低于交互物；暖亮部与偏冷/绿阴影只作为可调关系。",
+        "outline": "外轮廓可用深综合色，内部线更轻；先试1逻辑像素，不默认每个物体都黑边。",
+        "texture_density": "草地留大块安静区域；纹理集中到树冠转折、屋檐和近景，避免满屏散点。",
+        "lighting": "选单一日光方向并锁定投影方向；室内灯光属于已声明的局部例外。",
+        "animation": "待机幅度小、布料植物有延迟；角色走路保持脚底接地关系。"
+      },
+      "palette": {
+        "kind": "editorial-starter-palette",
+        "colors": [
+          {
+            "role": "deep-shadow",
+            "hex": "#25352F"
+          },
+          {
+            "role": "leaf-shadow",
+            "hex": "#456A46"
+          },
+          {
+            "role": "leaf-light",
+            "hex": "#8CA86B"
+          },
+          {
+            "role": "sunlight",
+            "hex": "#D5D49A"
+          },
+          {
+            "role": "earth",
+            "hex": "#8A6049"
+          },
+          {
+            "role": "wood-light",
+            "hex": "#BC8A61"
+          },
+          {
+            "role": "paper",
+            "hex": "#EAD9AA"
+          },
+          {
+            "role": "accent",
+            "hex": "#C76C52"
+          }
+        ],
+        "policy": "这些颜色由整理者给出，供新项目试样；不是原教程提取色板，也不是硬件规范。已有项目优先沿用已确认的色板；单个素材通常只用其中一部分。"
+      },
+      "ui_profile_ids": [
+        "wood-paper"
+      ],
+      "avoid_mixing": [
+        "正俯视角色与强等距建筑直接混拼",
+        "环境像素细密而角色为粗大像素",
+        "把灰暗边缘当成轮廓而留下去背白边"
+      ],
+      "tutorial_ids": [
+        "ART-008",
+        "ART-010",
+        "ART-011",
+        "ART-012",
+        "ART-014",
+        "ART-016",
+        "MAKE-010",
+        "DEV-017"
+      ],
+      "figures": [
+        {
+          "tutorial_id": "ART-008",
+          "path": "library/assets/drawing/ART-008/Top-Down-Houses-Compressed.gif",
+          "title": "俯视斜视角房屋：从体块到屋顶材质",
+          "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Top-Down-Houses-Compressed.gif",
+          "author": "Pedro Medeiros (Saint11)",
+          "license": "CC-BY-4.0",
+          "scope": "学习房屋体块与屋顶材质；不是本配方完整乡村场景。",
+          "is_complete_style_example": false
+        },
+        {
+          "tutorial_id": "ART-011",
+          "path": "library/assets/drawing/ART-011/Vegetation.gif",
+          "title": "树冠：剪影、体积与有节制的叶片纹理",
+          "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Vegetation.gif",
+          "author": "Pedro Medeiros (Saint11)",
+          "license": "CC-BY-4.0",
+          "scope": "学习树冠剪影和纹理层次。",
+          "is_complete_style_example": false
+        },
+        {
+          "tutorial_id": "ART-014",
+          "path": "library/assets/drawing/ART-014/Wood.gif",
+          "title": "木材：树桩、木板、年轮和木纹",
+          "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Wood.gif",
+          "author": "Pedro Medeiros (Saint11)",
+          "license": "CC-BY-4.0",
+          "scope": "学习木材的表面信息。",
+          "is_complete_style_example": false
+        }
+      ],
+      "visual_checks": [
+        "把一棵树、一栋房屋、一个角色放进同一实际场景，看像素颗粒与投影是否一致。",
+        "缩回目标显示尺寸后，道路与交互物仍能分开，不靠额外亮边补救。",
+        "背包面板材质与世界呼应，文字区保持安静。"
+      ]
+    },
+    {
+      "id": "limited-handheld",
+      "name": "掌机式限色",
+      "summary": "以少量明度阶、清楚轮廓和紧凑界面组织可读的低分辨率世界。",
+      "tags": [
+        "掌机",
+        "限色",
+        "复古",
+        "handheld",
+        "four-color"
+      ],
+      "tasks": [
+        "小画布角色、图块、地图图标",
+        "低分辨率菜单、物品列表与短对话"
+      ],
+      "parameters": {
+        "perspective": {
+          "suggested": "俯视或侧视任选其一，按场景锁定",
+          "lock": [
+            "物体轮廓简化程度",
+            "明度阶角色",
+            "角色与背景的形状分离"
+          ],
+          "do_not_assume": "限色不自动要求某台真实掌机的分辨率、色值或精灵限制。"
+        },
+        "logical_pixels": {
+          "tile_start_px": [
+            16,
+            16
+          ],
+          "character_canvas_start_px": [
+            16,
+            24
+          ],
+          "scale_policy": "先在1x确认识别，再以整数倍看显示效果；文字可使用独立但明确的UI像素网格。"
+        },
+        "value_and_saturation": "默认试4个有序明度；不同色系可整体替换，但每种语义的明度职责保持稳定。",
+        "outline": "依靠深浅轮廓和留白；背景少用与主角同强度的连续深边。",
+        "texture_density": "用形状先表达材质；只在能读出结构的局部使用规则抖色。",
+        "lighting": "用有限明度表达体积，不为每种材质随意加新色。",
+        "animation": "少量关键帧优先；动作读得清比帧数多更重要。"
+      },
+      "palette": {
+        "kind": "editorial-starter-palette",
+        "colors": [
+          {
+            "role": "ink",
+            "hex": "#243B32"
+          },
+          {
+            "role": "shade",
+            "hex": "#506B42"
+          },
+          {
+            "role": "mid",
+            "hex": "#9EAC62"
+          },
+          {
+            "role": "paper",
+            "hex": "#DDE6AD"
+          }
+        ],
+        "policy": "这些颜色由整理者给出，供新项目试样；不是原教程提取色板，也不是硬件规范。已有项目优先沿用已确认的色板；单个素材通常只用其中一部分。"
+      },
+      "ui_profile_ids": [
+        "compact-handheld"
+      ],
+      "avoid_mixing": [
+        "宣称本配方符合某真实硬件限制",
+        "孤立单像素纹理填满大面积地面",
+        "中文菜单强行压成仅适合拉丁字母的微型点阵"
+      ],
+      "tutorial_ids": [
+        "ART-001",
+        "ART-002",
+        "ART-004",
+        "ART-005",
+        "ART-006",
+        "ANIM-003",
+        "MAKE-010",
+        "DEV-021"
+      ],
+      "figures": [
+        {
+          "tutorial_id": "ART-005",
+          "path": "library/assets/drawing/ART-005/Silhouette.gif",
+          "title": "用剪影建立角色与道具识别性",
+          "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Silhouette.gif",
+          "author": "Pedro Medeiros (Saint11)",
+          "license": "CC-BY-4.0",
+          "scope": "学习低分辨率下靠剪影识别物体。",
+          "is_complete_style_example": false
+        },
+        {
+          "tutorial_id": "ART-002",
+          "path": "library/assets/drawing/ART-002/Fundamentals2.gif",
+          "title": "直线步长、曲线与意外方块",
+          "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Fundamentals2.gif",
+          "author": "Pedro Medeiros (Saint11)",
+          "license": "CC-BY-4.0",
+          "scope": "学习有限像素网格里的线条节奏。",
+          "is_complete_style_example": false
+        }
+      ],
+      "visual_checks": [
+        "转为灰度后主角、背景与文字仍能分层。",
+        "未显示标签时，关键物品轮廓也能辨认。",
+        "中文与数字在最终尺寸无缺字、粘连或非整数缩放。"
+      ]
+    },
+    {
+      "id": "one-bit",
+      "name": "双色剪影",
+      "summary": "以两种颜色及正负形构成空间，用轮廓和图案替代连续明暗。",
+      "tags": [
+        "1bit",
+        "1-bit",
+        "双色",
+        "单色",
+        "剪影"
+      ],
+      "tasks": [
+        "极简地牢、图标、符号化角色",
+        "双色菜单、地图与强对比提示"
+      ],
+      "parameters": {
+        "perspective": {
+          "suggested": "优先正交俯视或侧视，减少复杂透视歧义",
+          "lock": [
+            "背景与主体的正负形关系",
+            "黑白反转的语义",
+            "纹样表示的材质类别"
+          ],
+          "do_not_assume": "1-bit指颜色约束；透明像素可作为独立掩码，但是否允许应在项目规范声明。"
+        },
+        "logical_pixels": {
+          "tile_start_px": [
+            16,
+            16
+          ],
+          "character_canvas_start_px": [
+            24,
+            24
+          ],
+          "scale_policy": "所有形状按同一逻辑网格；放大使用最近邻，不能用抗锯齿增加中间色。"
+        },
+        "value_and_saturation": "主要追求明度分离；双色也可以是非纯黑白两色。强调状态不依赖第三色。",
+        "outline": "轮廓与背景留白共同工作；用局部反相或间隔线分离重叠对象。",
+        "texture_density": "纹理数量严格克制；点阵、斜线、实体块各有固定职责，不混用频率相近的噪声。",
+        "lighting": "通过正负形和分区表达照明，避免给所有边同时打白描边。",
+        "animation": "用姿态、剪影和停顿表达动作；光闪可以用形状变化，避免把高频全屏反相当常驻反馈。"
+      },
+      "palette": {
+        "kind": "editorial-starter-palette",
+        "colors": [
+          {
+            "role": "ink",
+            "hex": "#1A1D22"
+          },
+          {
+            "role": "paper",
+            "hex": "#F2EADA"
+          }
+        ],
+        "policy": "这些颜色由整理者给出，供新项目试样；不是原教程提取色板，也不是硬件规范。已有项目优先沿用已确认的色板；单个素材通常只用其中一部分。"
+      },
+      "ui_profile_ids": [
+        "compact-handheld",
+        "dark-stone"
+      ],
+      "avoid_mixing": [
+        "把自动阈值化照片直接当精修像素资产",
+        "同一纹样同时表示可通行地面和危险区",
+        "加入半透明灰色后仍声称严格双色"
+      ],
+      "tutorial_ids": [
+        "STYLE-001",
+        "ART-001",
+        "ART-002",
+        "ART-004",
+        "ART-005",
+        "ART-021",
+        "ANIM-008"
+      ],
+      "figures": [
+        {
+          "tutorial_id": "STYLE-001",
+          "path": "library/assets/supplement/STYLE-001/1-bit.gif",
+          "title": "Saint11 1-bit像素画教程",
+          "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/1-bit.gif",
+          "author": "Pedro Medeiros (Saint11)",
+          "license": "CC-BY-4.0",
+          "scope": "学习双色条件下的明暗与形状组织，不是本配方完整游戏画面。",
+          "is_complete_style_example": false
+        },
+        {
+          "tutorial_id": "ART-005",
+          "path": "library/assets/drawing/ART-005/Silhouette.gif",
+          "title": "用剪影建立角色与道具识别性",
+          "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Silhouette.gif",
+          "author": "Pedro Medeiros (Saint11)",
+          "license": "CC-BY-4.0",
+          "scope": "学习轮廓与负形辨识；原图本身不是双色风格成品。",
+          "is_complete_style_example": false
+        },
+        {
+          "tutorial_id": "ART-021",
+          "path": "library/assets/drawing/ART-021/Darkness.gif",
+          "title": "暗场景：保留信息、投影与有限亮点",
+          "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Darkness.gif",
+          "author": "Pedro Medeiros (Saint11)",
+          "license": "CC-BY-4.0",
+          "scope": "学习暗场景保留关键信息。",
+          "is_complete_style_example": false
+        }
+      ],
+      "visual_checks": [
+        "缩小后交互物不与背景合成同一团块。",
+        "反相选中态仍保留标签与焦点标记。",
+        "配色约束和透明度约束各自有明确记录。"
+      ]
+    },
+    {
+      "id": "vivid-arcade",
+      "name": "鲜明街机",
+      "summary": "用强色块、夸张姿态和明确反馈构成快速可读的动作画面。",
+      "tags": [
+        "街机",
+        "鲜艳",
+        "arcade",
+        "action",
+        "卡通"
+      ],
+      "tasks": [
+        "战斗角色、攻击特效、拾取物",
+        "分数、血条、开始与失败界面"
+      ],
+      "parameters": {
+        "perspective": {
+          "suggested": "侧视或俯视均可，先锁投影再设计夸张比例",
+          "lock": [
+            "角色身高与武器比例",
+            "轮廓重量",
+            "命中反馈与危险区的识别规则"
+          ],
+          "do_not_assume": "街机是本配方的阅读节奏，不等于某年代所有作品的美术规则。"
+        },
+        "logical_pixels": {
+          "tile_start_px": [
+            16,
+            16
+          ],
+          "character_canvas_start_px": [
+            32,
+            32
+          ],
+          "scale_policy": "世界与角色同一逻辑网格；大型特效可跨多格，不能只靠模糊放大增加冲击。"
+        },
+        "value_and_saturation": "饱和色集中在主角、奖励、危险与命中；背景适度降饱和，避免所有对象抢焦点。",
+        "outline": "稳定深边与大色块；内部细节服从动作剪影。",
+        "texture_density": "低到中等纹理密度；主要色块要能容纳快速运动而不闪碎点。",
+        "lighting": "主光方向稳定，命中闪光是短时且有标注的例外。",
+        "animation": "清楚预备、发力、回收；可用拖影、挤压和停顿，保持可关闭/降低闪烁的方案。"
+      },
+      "palette": {
+        "kind": "editorial-starter-palette",
+        "colors": [
+          {
+            "role": "deep",
+            "hex": "#241E3B"
+          },
+          {
+            "role": "purple",
+            "hex": "#69469C"
+          },
+          {
+            "role": "blue",
+            "hex": "#377DB7"
+          },
+          {
+            "role": "cyan",
+            "hex": "#5ED4D1"
+          },
+          {
+            "role": "red",
+            "hex": "#D95763"
+          },
+          {
+            "role": "orange",
+            "hex": "#ED9A53"
+          },
+          {
+            "role": "yellow",
+            "hex": "#F4DE86"
+          },
+          {
+            "role": "light",
+            "hex": "#F7F1CE"
+          }
+        ],
+        "policy": "这些颜色由整理者给出，供新项目试样；不是原教程提取色板，也不是硬件规范。已有项目优先沿用已确认的色板；单个素材通常只用其中一部分。"
+      },
+      "ui_profile_ids": [
+        "bold-arcade"
+      ],
+      "avoid_mixing": [
+        "每个对象都用最大饱和度和最亮高光",
+        "用相同形状颜色表示奖励与敌方投射物",
+        "直接模糊滤镜替代像素拖影"
+      ],
+      "tutorial_ids": [
+        "ART-005",
+        "ART-020",
+        "ANIM-005",
+        "ANIM-008",
+        "ANIM-010",
+        "ANIM-012",
+        "DEV-010"
+      ],
+      "figures": [
+        {
+          "tutorial_id": "ANIM-010",
+          "path": "library/assets/animation/ANIM-010/Squash.gif",
+          "title": "挤压与拉伸：动作方向、材质和体积感",
+          "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Squash.gif",
+          "author": "Pedro Medeiros (Saint11)",
+          "license": "CC-BY-4.0",
+          "scope": "学习挤压与拉伸的动作逻辑，不代表配方的角色外观。",
+          "is_complete_style_example": false
+        },
+        {
+          "tutorial_id": "ANIM-012",
+          "path": "library/assets/animation/ANIM-012/MotionBlur.gif",
+          "title": "运动拖影：用少量帧连接快速动作",
+          "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/MotionBlur.gif",
+          "author": "Pedro Medeiros (Saint11)",
+          "license": "CC-BY-4.0",
+          "scope": "学习绘制快速运动拖影。",
+          "is_complete_style_example": false
+        }
+      ],
+      "visual_checks": [
+        "快速扫视即可分辨主角、敌人、奖励与危险。",
+        "单帧静止和循环播放都能读出动作方向。",
+        "关掉闪光后，命中和受击仍有形状或声音等反馈。"
+      ]
+    },
+    {
+      "id": "muted-fantasy",
+      "name": "低饱和幻想",
+      "summary": "以统一材质色系、适度细节和较沉稳的明暗组织探索场景。",
+      "tags": [
+        "幻想",
+        "fantasy",
+        "低饱和",
+        "探索",
+        "中古"
+      ],
+      "tasks": [
+        "石木建筑、装备、森林与遗迹",
+        "背包、任务日志、技能与装备比较"
+      ],
+      "parameters": {
+        "perspective": {
+          "suggested": "3/4俯视；屋顶、装备和人物使用同一高度暗示",
+          "lock": [
+            "材质的亮部宽度",
+            "主光与环境色",
+            "纹理在近远景中的密度变化"
+          ],
+          "do_not_assume": "低饱和不等于低对比；可交互内容仍需有分离。"
+        },
+        "logical_pixels": {
+          "tile_start_px": [
+            16,
+            16
+          ],
+          "character_canvas_start_px": [
+            32,
+            48
+          ],
+          "scale_policy": "可用32px图块提高结构量，但同一资产族不混两种逻辑像素颗粒。"
+        },
+        "value_and_saturation": "低到中等饱和；重要对象通过明度、轮廓或局部暖色突出，不能只加全局饱和。",
+        "outline": "可选择性描边；同材质交界与外轮廓的线重不同。",
+        "texture_density": "中等细节，优先大面再局部刻画；背景重复纹理避免和文字区冲突。",
+        "lighting": "一致主光加柔和环境色；金属、石头和布料用不同亮部形状。",
+        "animation": "角色动作有重量；装备随动不改变尺寸和握点。"
+      },
+      "palette": {
+        "kind": "editorial-starter-palette",
+        "colors": [
+          {
+            "role": "deep",
+            "hex": "#252936"
+          },
+          {
+            "role": "cool-shadow",
+            "hex": "#485361"
+          },
+          {
+            "role": "stone",
+            "hex": "#7D8583"
+          },
+          {
+            "role": "cloth",
+            "hex": "#7D626C"
+          },
+          {
+            "role": "wood",
+            "hex": "#8A6C50"
+          },
+          {
+            "role": "leaf",
+            "hex": "#667B5A"
+          },
+          {
+            "role": "gold",
+            "hex": "#BAA26C"
+          },
+          {
+            "role": "light",
+            "hex": "#DDD3B1"
+          }
+        ],
+        "policy": "这些颜色由整理者给出，供新项目试样；不是原教程提取色板，也不是硬件规范。已有项目优先沿用已确认的色板；单个素材通常只用其中一部分。"
+      },
+      "ui_profile_ids": [
+        "ornate-fantasy",
+        "wood-paper"
+      ],
+      "avoid_mixing": [
+        "石头与金属使用同样高光宽度",
+        "一套素材厚黑描边、另一套完全无边却无过渡规则",
+        "装饰纹理压过可交互信息"
+      ],
+      "tutorial_ids": [
+        "ART-003",
+        "ART-009",
+        "ART-014",
+        "ART-015",
+        "ART-018",
+        "ART-019",
+        "ART-022",
+        "MAKE-010"
+      ],
+      "figures": [
+        {
+          "tutorial_id": "ART-018",
+          "path": "library/assets/drawing/ART-018/Metal.gif",
+          "title": "金属：强反差、高光与表面故事",
+          "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Metal.gif",
+          "author": "Pedro Medeiros (Saint11)",
+          "license": "CC-BY-4.0",
+          "scope": "学习金属高光与材质区别。",
+          "is_complete_style_example": false
+        },
+        {
+          "tutorial_id": "ART-015",
+          "path": "library/assets/drawing/ART-015/Rock.gif",
+          "title": "岩石：大面、层理与不同地质形状",
+          "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Rock.gif",
+          "author": "Pedro Medeiros (Saint11)",
+          "license": "CC-BY-4.0",
+          "scope": "学习岩石的大面组织。",
+          "is_complete_style_example": false
+        },
+        {
+          "tutorial_id": "ART-019",
+          "path": "library/assets/drawing/ART-019/Fabric.gif",
+          "title": "布料与旗帜：受力、褶皱和风中运动",
+          "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Fabric.gif",
+          "author": "Pedro Medeiros (Saint11)",
+          "license": "CC-BY-4.0",
+          "scope": "学习布料褶皱与受力。",
+          "is_complete_style_example": false
+        }
+      ],
+      "visual_checks": [
+        "灰度下仍能分开交互对象与环境。",
+        "同一套装备在小图标和场景里共享材质色阶。",
+        "日志和装备比较用真实长文本检查，装饰不占阅读空间。"
+      ]
+    },
+    {
+      "id": "dark-gothic",
+      "name": "暗色哥特",
+      "summary": "在大片暗面中保留轮廓与局部亮点，以石、铁和冷暖光塑造压迫感。",
+      "tags": [
+        "暗黑",
+        "哥特",
+        "gothic",
+        "dark",
+        "地牢"
+      ],
+      "tasks": [
+        "地牢建筑、怪物、烛光、铁器",
+        "暗色装备面板、生命状态与警告"
+      ],
+      "parameters": {
+        "perspective": {
+          "suggested": "项目既有俯视或侧视；照明布局先于表面纹理",
+          "lock": [
+            "最暗层级仍保留多少信息",
+            "可交互轮廓的亮度下限",
+            "局部光源与角色受光关系"
+          ],
+          "do_not_assume": "画面暗不代表文字或交互提示必须低可见度。"
+        },
+        "logical_pixels": {
+          "tile_start_px": [
+            16,
+            16
+          ],
+          "character_canvas_start_px": [
+            32,
+            48
+          ],
+          "scale_policy": "大暗面先按原尺寸审阅，不能依赖放大截图才能辨认门与障碍。"
+        },
+        "value_and_saturation": "用分层暗部而非把所有颜色压黑；少量暖亮点吸引注意，危险提示同时用形状/图标。",
+        "outline": "背景边界可弱化，交互轮廓在必要处补亮；光源决定边缘，不给所有物体一圈白光。",
+        "texture_density": "中低密度，近景裂纹与铁锈可集中；远景减少高频噪点。",
+        "lighting": "明确火光、月光等例外光源的位置；比较受光边与投影是否能解释。",
+        "animation": "动作节奏可沉重，关键攻击仍有清楚预备和回收；暗色拖影不能遮蔽判定。"
+      },
+      "palette": {
+        "kind": "editorial-starter-palette",
+        "colors": [
+          {
+            "role": "near-black",
+            "hex": "#151720"
+          },
+          {
+            "role": "stone-shadow",
+            "hex": "#2B303B"
+          },
+          {
+            "role": "stone",
+            "hex": "#515865"
+          },
+          {
+            "role": "pale",
+            "hex": "#9EA5AE"
+          },
+          {
+            "role": "warm-light",
+            "hex": "#D4A768"
+          },
+          {
+            "role": "rust",
+            "hex": "#744B45"
+          },
+          {
+            "role": "blood",
+            "hex": "#8A3D4A"
+          },
+          {
+            "role": "highlight",
+            "hex": "#E4D8B6"
+          }
+        ],
+        "policy": "这些颜色由整理者给出，供新项目试样；不是原教程提取色板，也不是硬件规范。已有项目优先沿用已确认的色板；单个素材通常只用其中一部分。"
+      },
+      "ui_profile_ids": [
+        "dark-stone",
+        "ornate-fantasy"
+      ],
+      "avoid_mixing": [
+        "用统一降低透明度让禁用文本不可读",
+        "把受光方向冲突解释成气氛",
+        "满屏高对比裂纹使角色失去轮廓"
+      ],
+      "tutorial_ids": [
+        "ART-021",
+        "ART-022",
+        "ART-015",
+        "ART-018",
+        "ANIM-005",
+        "DEV-019"
+      ],
+      "figures": [
+        {
+          "tutorial_id": "ART-021",
+          "path": "library/assets/drawing/ART-021/Darkness.gif",
+          "title": "暗场景：保留信息、投影与有限亮点",
+          "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Darkness.gif",
+          "author": "Pedro Medeiros (Saint11)",
+          "license": "CC-BY-4.0",
+          "scope": "学习暗场景中的信息保留。",
+          "is_complete_style_example": false
+        },
+        {
+          "tutorial_id": "ART-022",
+          "path": "library/assets/drawing/ART-022/IlluminationTechniques.gif",
+          "title": "像素光照方案：主光、补光、轮廓光与逆光",
+          "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/IlluminationTechniques.gif",
+          "author": "Pedro Medeiros (Saint11)",
+          "license": "CC-BY-4.0",
+          "scope": "学习不同光照方案，不允许一组素材任意混光。",
+          "is_complete_style_example": false
+        }
+      ],
+      "visual_checks": [
+        "在实际显示亮度下仍能找到出口、角色和关键提示。",
+        "世界暗部与UI阅读底色分别设定，不用同一数值机械套用。",
+        "相邻物体的高光与阴影能由已知光源解释。"
+      ]
+    },
+    {
+      "id": "isometric-diorama",
+      "name": "等距微缩场景",
+      "summary": "用固定的2:1像素等距风格网格、模块化体块和统一落地关系组织微缩场景。",
+      "tags": [
+        "等距",
+        "isometric",
+        "diorama",
+        "2:1",
+        "微缩"
+      ],
+      "tasks": [
+        "建筑模块、设施、家具和地面",
+        "建造、放置、旋转与资源反馈"
+      ],
+      "parameters": {
+        "perspective": {
+          "suggested": "2:1像素等距风格投影；它是常用像素表现约定，不声称数学真等距",
+          "lock": [
+            "所有地面菱形的两个轴步长",
+            "竖直边方向",
+            "占地与高度的分离",
+            "遮挡/排序锚点"
+          ],
+          "do_not_assume": "与正面俯视或透视消失点素材混用前必须重新投影。"
+        },
+        "logical_pixels": {
+          "tile_start_px": [
+            32,
+            16
+          ],
+          "character_canvas_start_px": [
+            32,
+            48
+          ],
+          "scale_policy": "用菱形占地与透明外接矩形分别记录；贴图尺寸不等于碰撞占地。"
+        },
+        "value_and_saturation": "三主面有稳定明度关系；同类建筑的顶面/侧面/正面不要各自换色阶职责。",
+        "outline": "长边保持固定阶梯节奏；小装饰服从建筑大边，不增加随机斜率。",
+        "texture_density": "先验证体块和接缝再加纹理；同一模块的重复边在拼合后消失。",
+        "lighting": "锁定三面的受光排序和投影方向；旋转资产时重新检查光照与材质。",
+        "animation": "设施动画以轴和接地点为基准；旋转或弹起不改变占地网格约定。"
+      },
+      "palette": {
+        "kind": "editorial-starter-palette",
+        "colors": [
+          {
+            "role": "deep",
+            "hex": "#293A4C"
+          },
+          {
+            "role": "shadow",
+            "hex": "#4D6375"
+          },
+          {
+            "role": "cool-plane",
+            "hex": "#7D99A6"
+          },
+          {
+            "role": "light-plane",
+            "hex": "#B6C9C5"
+          },
+          {
+            "role": "warm-plane",
+            "hex": "#D8C2A1"
+          },
+          {
+            "role": "wood",
+            "hex": "#A47B63"
+          },
+          {
+            "role": "plant",
+            "hex": "#789477"
+          },
+          {
+            "role": "accent",
+            "hex": "#C17B70"
+          }
+        ],
+        "policy": "这些颜色由整理者给出，供新项目试样；不是原教程提取色板，也不是硬件规范。已有项目优先沿用已确认的色板；单个素材通常只用其中一部分。"
+      },
+      "ui_profile_ids": [
+        "wood-paper",
+        "holo-terminal"
+      ],
+      "avoid_mixing": [
+        "一部分采用2:1阶梯，一部分按另一斜率绘制",
+        "把贴图底边当作所有建筑统一的排序点",
+        "用非整数旋转得到模糊斜线后直接导出"
+      ],
+      "tutorial_ids": [
+        "ART-024",
+        "ART-002",
+        "ART-003",
+        "ART-007",
+        "MAKE-011",
+        "MAKE-024",
+        "DEV-017",
+        "DEV-018"
+      ],
+      "figures": [
+        {
+          "tutorial_id": "ART-024",
+          "path": "library/assets/drawing/ART-024/Isometric.gif",
+          "title": "2:1像素等距风格网格与立体造型",
+          "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Isometric.gif",
+          "author": "Pedro Medeiros (Saint11)",
+          "license": "CC-BY-4.0",
+          "scope": "学习2:1像素等距风格网格和体块。",
+          "is_complete_style_example": false
+        },
+        {
+          "tutorial_id": "ART-007",
+          "path": "library/assets/drawing/ART-007/Tiles.gif",
+          "title": "无缝主图块、边缘块与变体",
+          "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Tiles.gif",
+          "author": "Pedro Medeiros (Saint11)",
+          "license": "CC-BY-4.0",
+          "scope": "学习模块边缘与重复图块。",
+          "is_complete_style_example": false
+        }
+      ],
+      "visual_checks": [
+        "拼成3×3地块后无阶梯错位或高度跳变。",
+        "前后遮挡按占地锚点工作，较高建筑不会错误遮住前景角色。",
+        "放置轮廓表示占地，不能与装饰外扩混淆。"
+      ]
+    },
+    {
+      "id": "neon-scifi",
+      "name": "霓虹科幻",
+      "summary": "以冷暗底色、发光形状与清楚的科技结构组织高对比场景。",
+      "tags": [
+        "科幻",
+        "霓虹",
+        "neon",
+        "sci-fi",
+        "赛博"
+      ],
+      "tasks": [
+        "终端、机械、能量器件和夜景",
+        "终端面板、装备状态与扫描交互"
+      ],
+      "parameters": {
+        "perspective": {
+          "suggested": "俯视、侧视或等距任选现有项目约定，不能由霓虹题材代替透视定义",
+          "lock": [
+            "发光色的功能语义",
+            "机械硬边的线重",
+            "光晕与实体的边界",
+            "主光与自发光的区别"
+          ],
+          "do_not_assume": "霓虹不是所有边都发光；发光效果也不要求关闭像素清晰度。"
+        },
+        "logical_pixels": {
+          "tile_start_px": [
+            16,
+            16
+          ],
+          "character_canvas_start_px": [
+            32,
+            32
+          ],
+          "scale_policy": "实体按逻辑网格；若使用独立高分辨率光晕层，应记录为例外，并保留关闭后的清楚实体。"
+        },
+        "value_and_saturation": "大面积暗色，中等亮度结构，少量高饱和发光；警告色与装饰光分离。",
+        "outline": "硬边清楚；发光可在轮廓外独立表现，不把实体边缘全部软化。",
+        "texture_density": "纹理较少，结构缝、散热片、接口有功能逻辑；文字背后不铺密集电路纹。",
+        "lighting": "区分环境光、局部灯和自发光；相邻金属反射只能在有来源时添加。",
+        "animation": "短促机械反馈与扫描进度；避免用常驻闪烁承担关键信息，提供静态/低运动状态。"
+      },
+      "palette": {
+        "kind": "editorial-starter-palette",
+        "colors": [
+          {
+            "role": "deep",
+            "hex": "#101827"
+          },
+          {
+            "role": "surface",
+            "hex": "#26354A"
+          },
+          {
+            "role": "steel",
+            "hex": "#536A84"
+          },
+          {
+            "role": "pale",
+            "hex": "#B8CCD9"
+          },
+          {
+            "role": "cyan",
+            "hex": "#52D6CF"
+          },
+          {
+            "role": "blue",
+            "hex": "#5B8ADD"
+          },
+          {
+            "role": "magenta",
+            "hex": "#C56BA8"
+          },
+          {
+            "role": "warning",
+            "hex": "#E9B86E"
+          }
+        ],
+        "policy": "这些颜色由整理者给出，供新项目试样；不是原教程提取色板，也不是硬件规范。已有项目优先沿用已确认的色板；单个素材通常只用其中一部分。"
+      },
+      "ui_profile_ids": [
+        "holo-terminal"
+      ],
+      "avoid_mixing": [
+        "同一种青色既是可交互按钮又是危险警报",
+        "对实体贴图全面施加模糊光晕",
+        "不记录例外而混入写实高分辨率图标"
+      ],
+      "tutorial_ids": [
+        "ART-018",
+        "ART-020",
+        "ART-021",
+        "ART-022",
+        "ANIM-009",
+        "ANIM-012",
+        "DEV-019",
+        "DEV-021"
+      ],
+      "figures": [
+        {
+          "tutorial_id": "ART-018",
+          "path": "library/assets/drawing/ART-018/Metal.gif",
+          "title": "金属：强反差、高光与表面故事",
+          "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Metal.gif",
+          "author": "Pedro Medeiros (Saint11)",
+          "license": "CC-BY-4.0",
+          "scope": "学习机械材质的高光和体块。",
+          "is_complete_style_example": false
+        },
+        {
+          "tutorial_id": "ART-022",
+          "path": "library/assets/drawing/ART-022/IlluminationTechniques.gif",
+          "title": "像素光照方案：主光、补光、轮廓光与逆光",
+          "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/IlluminationTechniques.gif",
+          "author": "Pedro Medeiros (Saint11)",
+          "license": "CC-BY-4.0",
+          "scope": "学习光源组织；不是完整霓虹场景范例。",
+          "is_complete_style_example": false
+        }
+      ],
+      "visual_checks": [
+        "关闭光晕后实体轮廓和操作状态仍可辨认。",
+        "文字与焦点标记在最亮和最暗背景帧均可读。",
+        "装饰扫描线不遮挡文字，也不伪装实际加载进度。"
+      ]
+    }
+  ]
+}

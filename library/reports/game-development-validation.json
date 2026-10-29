@@ -1,0 +1,191 @@
+{
+  "validated_at": "2026-10-29",
+  "tutorials": 24,
+  "unique_source_pages": 24,
+  "local_images": 270,
+  "original_videos": 5,
+  "extracted_video_stills": 15,
+  "source_code_blocks": 138,
+  "failures": [],
+  "checks": [
+    "YAML metadata",
+    "relative file links",
+    "local image embeds",
+    "image decode and SHA-256",
+    "original video SHA-256",
+    "original code block preservation",
+    "boilerplate removal",
+    "distinct source URLs"
+  ],
+  "visual_review": "Representative images from all 24 tutorials viewed in two contact sheets; source screenshots, sprite GIFs, diagrams and video stills confirmed. This is document QA, not execution of all Godot exercises.",
+  "items": [
+    {
+      "id": "DEV-001",
+      "images": 17,
+      "source_code_blocks": 0,
+      "markdown_bytes": 19025,
+      "failures": []
+    },
+    {
+      "id": "DEV-002",
+      "images": 21,
+      "source_code_blocks": 0,
+      "markdown_bytes": 21879,
+      "failures": []
+    },
+    {
+      "id": "DEV-003",
+      "images": 1,
+      "source_code_blocks": 8,
+      "markdown_bytes": 11216,
+      "failures": []
+    },
+    {
+      "id": "DEV-004",
+      "images": 19,
+      "source_code_blocks": 22,
+      "markdown_bytes": 27716,
+      "failures": []
+    },
+    {
+      "id": "DEV-005",
+      "images": 5,
+      "source_code_blocks": 0,
+      "markdown_bytes": 7891,
+      "failures": []
+    },
+    {
+      "id": "DEV-006",
+      "images": 9,
+      "source_code_blocks": 0,
+      "markdown_bytes": 11726,
+      "failures": []
+    },
+    {
+      "id": "DEV-007",
+      "images": 10,
+      "source_code_blocks": 20,
+      "markdown_bytes": 21014,
+      "failures": []
+    },
+    {
+      "id": "DEV-008",
+      "images": 2,
+      "source_code_blocks": 6,
+      "markdown_bytes": 9251,
+      "failures": []
+    },
+    {
+      "id": "DEV-009",
+      "images": 5,
+      "source_code_blocks": 10,
+      "markdown_bytes": 15327,
+      "failures": []
+    },
+    {
+      "id": "DEV-010",
+      "images": 7,
+      "source_code_blocks": 18,
+      "markdown_bytes": 15420,
+      "failures": []
+    },
+    {
+      "id": "DEV-011",
+      "images": 5,
+      "source_code_blocks": 2,
+      "markdown_bytes": 10275,
+      "failures": []
+    },
+    {
+      "id": "DEV-012",
+      "images": 13,
+      "source_code_blocks": 10,
+      "markdown_bytes": 18045,
+      "failures": []
+    },
+    {
+      "id": "DEV-013",
+      "images": 18,
+      "source_code_blocks": 4,
+      "markdown_bytes": 21531,
+      "failures": []
+    },
+    {
+      "id": "DEV-014",
+      "images": 3,
+      "source_code_blocks": 12,
+      "markdown_bytes": 22962,
+      "failures": []
+    },
+    {
+      "id": "DEV-015",
+      "images": 3,
+      "source_code_blocks": 2,
+      "markdown_bytes": 10110,
+      "failures": []
+    },
+    {
+      "id": "DEV-016",
+      "images": 4,
+      "source_code_blocks": 11,
+      "markdown_bytes": 26475,
+      "failures": []
+    },
+    {
+      "id": "DEV-017",
+      "images": 34,
+      "source_code_blocks": 0,
+      "markdown_bytes": 47448,
+      "failures": []
+    },
+    {
+      "id": "DEV-018",
+      "images": 17,
+      "source_code_blocks": 0,
+      "markdown_bytes": 29994,
+      "failures": []
+    },
+    {
+      "id": "DEV-019",
+      "images": 8,
+      "source_code_blocks": 0,
+      "markdown_bytes": 23997,
+      "failures": []
+    },
+    {
+      "id": "DEV-020",
+      "images": 1,
+      "source_code_blocks": 0,
+      "markdown_bytes": 7386,
+      "failures": []
+    },
+    {
+      "id": "DEV-021",
+      "images": 12,
+      "source_code_blocks": 0,
+      "markdown_bytes": 36385,
+      "failures": []
+    },
+    {
+      "id": "DEV-022",
+      "images": 4,
+      "source_code_blocks": 1,
+      "markdown_bytes": 34912,
+      "failures": []
+    },
+    {
+      "id": "DEV-023",
+      "images": 35,
+      "source_code_blocks": 12,
+      "markdown_bytes": 37434,
+      "failures": []
+    },
+    {
+      "id": "DEV-024",
+      "images": 17,
+      "source_code_blocks": 0,
+      "markdown_bytes": 26300,
+      "failures": []
+    }
+  ]
+}

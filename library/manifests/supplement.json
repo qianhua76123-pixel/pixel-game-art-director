@@ -1,0 +1,898 @@
+[
+  {
+    "id": "UI-001",
+    "title": "像素UI九宫格：固定角、可平铺边与文字区",
+    "category": "ui-design",
+    "tags": [
+      "UI",
+      "nine-slice",
+      "9-slice",
+      "九宫格",
+      "边框",
+      "按钮",
+      "面板"
+    ],
+    "summary": "让一个像素面板覆盖不同宽高，同时保留角部与边缘的像素结构。",
+    "path": "tutorials/supplement/UI-001-nine-slice.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/UI-9-Slice.gif",
+    "source_title": "UI-9-Slice.gif",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "intermediate",
+    "content_mode": "translated-image-tutorial",
+    "version": "git:ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "能读取像素画布与时间轴"
+    ],
+    "learning_objectives": [
+      "把矩形拆成4个角、4条边和中心；角部保持尺寸，横边只沿横向扩展，竖边只沿纵向扩展。",
+      "原图建议边缘能与角及自身重复衔接；中心与边缘少放高频细节，角部可以更丰富。",
+      "边缘优先重复平铺。原作者提醒拉伸只适合很少细节的边；像素图仍要检查实际显示后的网格。",
+      "给标题、页脚或特殊顶部另作变体，不必强迫所有面板共用一个外框。",
+      "细长的血条、滑块和分隔条可以用三段切片；是否横向或竖向由伸展方向决定。"
+    ],
+    "images": [
+      {
+        "path": "assets/supplement/UI-001/UI-9-Slice.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/UI-9-Slice.gif",
+        "caption": "第一张原图展示九宫格、横竖扩展、标题/页脚变体和三段条形；第二张是同一教程的corner、edge、middle命名图，不另计新教程。",
+        "sha256": "a0c3ba9dc176322e5f2aea221db3e1440a78fa0fabc850ec39d4d995b0a3b846",
+        "author": "Pedro Medeiros (Saint11)",
+        "license": "CC-BY-4.0",
+        "role": "original"
+      },
+      {
+        "path": "assets/supplement/UI-001/UI-9-Slice-frame-000.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/UI-9-Slice.gif",
+        "caption": "UI-9-Slice.gif 第0帧截取（0开始，非逐帧全集）",
+        "sha256": "ee305a74887aeb966dd896b0eae361758ae1ac944c4d7b0788e7a59656262833",
+        "author": "Pedro Medeiros (Saint11)",
+        "license": "CC-BY-4.0",
+        "role": "keyframe",
+        "derived": true
+      },
+      {
+        "path": "assets/supplement/UI-001/UI-9-Slice-frame-024.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/UI-9-Slice.gif",
+        "caption": "UI-9-Slice.gif 第24帧截取（0开始，非逐帧全集）",
+        "sha256": "69e7aeb7d96ad356de0fd1c80488c190bf6aa37d356d3b0dd26309bd5a328510",
+        "author": "Pedro Medeiros (Saint11)",
+        "license": "CC-BY-4.0",
+        "role": "keyframe",
+        "derived": true
+      },
+      {
+        "path": "assets/supplement/UI-001/UI-9-Slice-frame-048.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/UI-9-Slice.gif",
+        "caption": "UI-9-Slice.gif 第48帧截取（0开始，非逐帧全集）",
+        "sha256": "05b559da79839fa62a648c8c2be345a71918f6e77ce3945f450dd7bb85895860",
+        "author": "Pedro Medeiros (Saint11)",
+        "license": "CC-BY-4.0",
+        "role": "keyframe",
+        "derived": true
+      },
+      {
+        "path": "assets/supplement/UI-001/UI-9-Slice-names.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/UI-9-Slice-names.gif",
+        "caption": "第一张原图展示九宫格、横竖扩展、标题/页脚变体和三段条形；第二张是同一教程的corner、edge、middle命名图，不另计新教程。",
+        "sha256": "a7b1130c6d8e2259decfd9fde10dfbb7fb004adfa9f98d2105f09f08d7ccd431",
+        "author": "Pedro Medeiros (Saint11)",
+        "license": "CC-BY-4.0",
+        "role": "original"
+      },
+      {
+        "path": "assets/supplement/UI-001/UI-9-Slice-names-frame-000.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/UI-9-Slice-names.gif",
+        "caption": "UI-9-Slice-names.gif 第0帧截取（0开始，非逐帧全集）",
+        "sha256": "f4b22bd86ce3f8fcfda67d8cb7ab458352527123e8bbceb431d23c69ec66f395",
+        "author": "Pedro Medeiros (Saint11)",
+        "license": "CC-BY-4.0",
+        "role": "keyframe",
+        "derived": true
+      },
+      {
+        "path": "assets/supplement/UI-001/UI-9-Slice-names-frame-002.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/UI-9-Slice-names.gif",
+        "caption": "UI-9-Slice-names.gif 第2帧截取（0开始，非逐帧全集）",
+        "sha256": "b649c20bc5421e1033c61d16f5a69573664524c0cf862f94b5790f50803da6fd",
+        "author": "Pedro Medeiros (Saint11)",
+        "license": "CC-BY-4.0",
+        "role": "keyframe",
+        "derived": true
+      },
+      {
+        "path": "assets/supplement/UI-001/UI-9-Slice-names-frame-003.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/UI-9-Slice-names.gif",
+        "caption": "UI-9-Slice-names.gif 第3帧截取（0开始，非逐帧全集）",
+        "sha256": "a6a6be150e70943b5cebc40372939e5b0e8efb6c951d64bd0fab93261dbcab1e",
+        "author": "Pedro Medeiros (Saint11)",
+        "license": "CC-BY-4.0",
+        "role": "keyframe",
+        "derived": true
+      }
+    ]
+  },
+  {
+    "id": "STYLE-001",
+    "title": "双色1-bit画法：形状、抖色与图标辨识",
+    "category": "drawing",
+    "tags": [
+      "1-bit",
+      "one-bit",
+      "双色",
+      "单色",
+      "风格",
+      "图标",
+      "抖色"
+    ],
+    "summary": "用两个可见颜色组织大形、阴影和图标，不依赖连续色阶。",
+    "path": "tutorials/supplement/STYLE-001-one-bit-design.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/1-bit.gif",
+    "source_title": "1-bit.gif",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "intermediate",
+    "content_mode": "translated-image-tutorial",
+    "version": "git:ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "能读取像素画布与时间轴"
+    ],
+    "learning_objectives": [
+      "先用轮廓和少量实心阴影块定义大形；原图提示避免过多细节。",
+      "需要软阴影观感时可使用规则抖色；过量抖色容易混乱，应在原尺寸检查。",
+      "用白描边、黑描边，必要时双层线来分离背景；注意细线意外黏连。",
+      "做图标时先选最能代表物体或概念的一个特征；无法识别时从草图重新迭代。",
+      "像素抗锯齿空间有限时，直线和规律角度通常更容易组织；也可通过流畅动画补充表达。"
+    ],
+    "images": [
+      {
+        "path": "assets/supplement/STYLE-001/1-bit.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/1-bit.gif",
+        "caption": "上左讲抖色；上右用脸部对比细节密度；中间展示描边分离与线条黏连；底部是图标简化和规则角度示例。",
+        "sha256": "401a85288e87cdc1cee21ee63a316fd9ab6333916a9f3c2fb6f94917d8774718",
+        "author": "Pedro Medeiros (Saint11)",
+        "license": "CC-BY-4.0",
+        "role": "original"
+      },
+      {
+        "path": "assets/supplement/STYLE-001/1-bit-frame-000.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/1-bit.gif",
+        "caption": "1-bit.gif 第0帧截取（0开始，非逐帧全集）",
+        "sha256": "c4b2388d5cfdea6cfa220a75e07331fd2c0f6bb3ca4f10fa9b66406e6422af2a",
+        "author": "Pedro Medeiros (Saint11)",
+        "license": "CC-BY-4.0",
+        "role": "keyframe",
+        "derived": true
+      },
+      {
+        "path": "assets/supplement/STYLE-001/1-bit-frame-026.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/1-bit.gif",
+        "caption": "1-bit.gif 第26帧截取（0开始，非逐帧全集）",
+        "sha256": "7935586cd1d0138f1950bfcab3b45d3a6b08139f0aab45a0ee9d5e668a972a6b",
+        "author": "Pedro Medeiros (Saint11)",
+        "license": "CC-BY-4.0",
+        "role": "keyframe",
+        "derived": true
+      },
+      {
+        "path": "assets/supplement/STYLE-001/1-bit-frame-051.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/1-bit.gif",
+        "caption": "1-bit.gif 第51帧截取（0开始，非逐帧全集）",
+        "sha256": "92005c522c2ce8387fb9912fe5c0ba6fb3380f0e4197f63bc915bf4089366c95",
+        "author": "Pedro Medeiros (Saint11)",
+        "license": "CC-BY-4.0",
+        "role": "keyframe",
+        "derived": true
+      }
+    ]
+  },
+  {
+    "id": "FLOW-001",
+    "title": "复杂动画规划：草稿、关键姿势与中间帧",
+    "category": "asset-production",
+    "tags": [
+      "planning",
+      "动画规划",
+      "关键帧",
+      "流程",
+      "分层"
+    ],
+    "summary": "先确定动作含义和节奏，再投入细节与插帧。",
+    "path": "tutorials/supplement/FLOW-001-animation-planning.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Planning.gif",
+    "source_title": "Planning.gif",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "intermediate",
+    "content_mode": "translated-image-tutorial",
+    "version": "git:ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "能读取像素画布与时间轴"
+    ],
+    "learning_objectives": [
+      "先明确正在制作哪个角色、对象与动作；原图从待机的第一帧作为基准。",
+      "画粗略动画草稿，建立基本动作和时间感，暂时不追求所有细节。",
+      "选择最能描述动作的关键姿势并完成它们。",
+      "补充关键姿势之间的空缺；使用局部复制等方法辅助，但以动作节奏为验收。",
+      "最后增加额外中间帧，再调时序；草稿可用颜色区分不同深度，复杂动作也可分别管理文件。"
+    ],
+    "images": [
+      {
+        "path": "assets/supplement/FLOW-001/Planning.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Planning.gif",
+        "caption": "图从静止姿势流向粗稿、关键帧、中间帧、额外帧；底部提示以颜色区分深度，并可将不同动作分别存放。",
+        "sha256": "ac72cfb4854e788496335de05bc38bbc028e8ea4f488e92f5735dd3d8e1c2fb9",
+        "author": "Pedro Medeiros (Saint11)",
+        "license": "CC-BY-4.0",
+        "role": "original"
+      },
+      {
+        "path": "assets/supplement/FLOW-001/Planning-frame-000.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Planning.gif",
+        "caption": "Planning.gif 第0帧截取（0开始，非逐帧全集）",
+        "sha256": "fb2064e697e8131a1a2eac5756786ca2afcacf9e3a75739a12ac705cdf214e4b",
+        "author": "Pedro Medeiros (Saint11)",
+        "license": "CC-BY-4.0",
+        "role": "keyframe",
+        "derived": true
+      },
+      {
+        "path": "assets/supplement/FLOW-001/Planning-frame-009.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Planning.gif",
+        "caption": "Planning.gif 第9帧截取（0开始，非逐帧全集）",
+        "sha256": "0b7cfc7e80dba3f502e15efff36f1e872b141398c59e82d44226c28743c724c9",
+        "author": "Pedro Medeiros (Saint11)",
+        "license": "CC-BY-4.0",
+        "role": "keyframe",
+        "derived": true
+      },
+      {
+        "path": "assets/supplement/FLOW-001/Planning-frame-017.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Planning.gif",
+        "caption": "Planning.gif 第17帧截取（0开始，非逐帧全集）",
+        "sha256": "b67c265e437177f0aed3cc1b9b8fac5ef67f2d6d3ddbdd178afd1d58513761b4",
+        "author": "Pedro Medeiros (Saint11)",
+        "license": "CC-BY-4.0",
+        "role": "keyframe",
+        "derived": true
+      }
+    ]
+  },
+  {
+    "id": "FLOW-002",
+    "title": "像素美术制作顺序：剪影、色块、轮廓与精修",
+    "category": "asset-production",
+    "tags": [
+      "pipeline",
+      "美术一致性",
+      "剪影",
+      "色块",
+      "光源",
+      "精修"
+    ],
+    "summary": "先建立剪影和大色块，再上光与细节，持续回看姿势和整体阅读。",
+    "path": "tutorials/supplement/FLOW-002-pixel-art-process.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Pipeline.gif",
+    "source_title": "Pipeline.gif",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "intermediate",
+    "content_mode": "translated-image-tutorial",
+    "version": "git:ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "能读取像素画布与时间轴"
+    ],
+    "learning_objectives": [
+      "先让角色在剪影里可识别；暂不担心细小装饰。",
+      "组织大的颜色块；画细节时仍继续保持大色块的主次。",
+      "为重要物体与前景加入轮廓分离，必要时在同一对象内也使用内轮廓区分结构。",
+      "逐色加入光影，控制噪点；原作者偏好较大的像素簇。",
+      "细节阶段继续修剪影、姿势与背景；末尾清理噪点，检查颜色、光源方向和难读区域。"
+    ],
+    "images": [
+      {
+        "path": "assets/supplement/FLOW-002/Pipeline.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Pipeline.gif",
+        "caption": "动态图先演示完整绘制，再以箭头和下方卡片回顾阶段；仅看首帧的空白画布无法理解。本文附后期关键帧供静态阅读。",
+        "sha256": "2cc16082637217dd9d2e699dba90a97714764d5293200b50ac580332951479ed",
+        "author": "Pedro Medeiros (Saint11)",
+        "license": "CC-BY-4.0",
+        "role": "original"
+      },
+      {
+        "path": "assets/supplement/FLOW-002/Pipeline-frame-019.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Pipeline.gif",
+        "caption": "Pipeline.gif 第19帧截取（0开始，非逐帧全集）",
+        "sha256": "c2a27533d4ec783f75e051569814e58f568e12f0153d3e2d9f189a7b2ed99d82",
+        "author": "Pedro Medeiros (Saint11)",
+        "license": "CC-BY-4.0",
+        "role": "keyframe",
+        "derived": true
+      },
+      {
+        "path": "assets/supplement/FLOW-002/Pipeline-frame-022.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Pipeline.gif",
+        "caption": "Pipeline.gif 第22帧截取（0开始，非逐帧全集）",
+        "sha256": "a080e38e2a3916face893dd90ed71d026059255f9a5325d95e644fa35a266610",
+        "author": "Pedro Medeiros (Saint11)",
+        "license": "CC-BY-4.0",
+        "role": "keyframe",
+        "derived": true
+      },
+      {
+        "path": "assets/supplement/FLOW-002/Pipeline-frame-024.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Pipeline.gif",
+        "caption": "Pipeline.gif 第24帧截取（0开始，非逐帧全集）",
+        "sha256": "d7718f9399169fae4ddc0d3adedb8b543091118d14be37abf28c828825506471",
+        "author": "Pedro Medeiros (Saint11)",
+        "license": "CC-BY-4.0",
+        "role": "keyframe",
+        "derived": true
+      },
+      {
+        "path": "assets/supplement/FLOW-002/Pipeline-frame-027.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Pipeline.gif",
+        "caption": "Pipeline.gif 第27帧截取（0开始，非逐帧全集）",
+        "sha256": "de9cd1ecd933fc160ecf59343f3bcc82c3889ec8e7e73001d4e45de3bc3dc3e1",
+        "author": "Pedro Medeiros (Saint11)",
+        "license": "CC-BY-4.0",
+        "role": "keyframe",
+        "derived": true
+      }
+    ]
+  },
+  {
+    "id": "MAKE-025",
+    "title": "模块化像素动画：部件拆分、遮挡与局部逐帧",
+    "category": "asset-production",
+    "tags": [
+      "modular",
+      "模块化",
+      "关节",
+      "动画",
+      "遮挡",
+      "机械"
+    ],
+    "summary": "按部件制作较大像素角色，利用遮挡隐藏接缝，并保留需要逐帧重画的部分。",
+    "path": "tutorials/supplement/MAKE-025-modular-animation.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Modular.gif",
+    "source_title": "Modular.gif",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "intermediate",
+    "content_mode": "translated-image-tutorial",
+    "version": "git:ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "能读取像素画布与时间轴"
+    ],
+    "learning_objectives": [
+      "先画整体草图，确认各部件如何组合及遮挡。",
+      "单独制作部件，隐藏在其他部件后方的区域也需补完整。",
+      "移动和旋转部件构建动作；并非所有部件都能免于逐帧动画。",
+      "把需要弯曲的接缝藏到其他部件后，或用关节材质帮助解释连接处。",
+      "机械部件可以加入多层与旋转点附近的细节；避免没有可见支点的旋转。"
+    ],
+    "images": [
+      {
+        "path": "assets/supplement/MAKE-025/Modular.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Modular.gif",
+        "caption": "大怪物展示部件与遮挡；下方小人物说明小素材也可用但收益有限；机械臂和靴子示范关节材质与旋转连接。",
+        "sha256": "4a1351c3b33492791540d3053c82f86c9f3e362286baed79cd74fefb91e5352e",
+        "author": "Pedro Medeiros (Saint11)",
+        "license": "CC-BY-4.0",
+        "role": "original"
+      },
+      {
+        "path": "assets/supplement/MAKE-025/Modular-frame-000.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Modular.gif",
+        "caption": "Modular.gif 第0帧截取（0开始，非逐帧全集）",
+        "sha256": "3affc3edfa479fa5132494c10110fe51a5e34bc20c7387b2368547efdc146eaa",
+        "author": "Pedro Medeiros (Saint11)",
+        "license": "CC-BY-4.0",
+        "role": "keyframe",
+        "derived": true
+      },
+      {
+        "path": "assets/supplement/MAKE-025/Modular-frame-022.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Modular.gif",
+        "caption": "Modular.gif 第22帧截取（0开始，非逐帧全集）",
+        "sha256": "bf97acf34235ae669ea01e2320f8f950a64d0814ee8978a77950a9c0a4cf8ec2",
+        "author": "Pedro Medeiros (Saint11)",
+        "license": "CC-BY-4.0",
+        "role": "keyframe",
+        "derived": true
+      },
+      {
+        "path": "assets/supplement/MAKE-025/Modular-frame-043.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Modular.gif",
+        "caption": "Modular.gif 第43帧截取（0开始，非逐帧全集）",
+        "sha256": "466ef13ad2bf2bd384004c5c7204dc3f06258fe2858d7fb791954e59d8f9138a",
+        "author": "Pedro Medeiros (Saint11)",
+        "license": "CC-BY-4.0",
+        "role": "keyframe",
+        "derived": true
+      }
+    ]
+  },
+  {
+    "id": "UI-002",
+    "title": "游戏UI主题：颜色、字体、图标与状态外观的统一",
+    "category": "ui-design",
+    "path": "tutorials/game-development/UI-002-gui-theme-system.md",
+    "source_url": "https://docs.godotengine.org/en/4.5/tutorials/ui/gui_skinning.html",
+    "source_title": "Introduction to GUI skinning",
+    "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+    "license": "CC-BY-3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0/",
+    "license_evidence_url": "https://github.com/godotengine/godot-docs/blob/4.5/README.md#license",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN+en",
+    "source_language": "en",
+    "level": "intermediate",
+    "tags": [
+      "UI",
+      "theme",
+      "StyleBox",
+      "皮肤",
+      "美术一致性",
+      "按钮"
+    ],
+    "summary": "使用Theme资源统一项目界面的颜色、字体、图标与StyleBox，并理解局部覆盖的优先级。",
+    "images": [
+      {
+        "path": "assets/game-development/UI-002/tank-kings-by-winterpixel-games.png",
+        "source_url": "https://docs.godotengine.org/en/4.5/_images/tank-kings-by-winterpixel-games.png",
+        "caption": "原教程图示：Introduction to GUI skinning — tank-kings-by-winterpixel-games.png",
+        "sha256": "1e5ae47edf322fbfa80917bd432a840c2f74ef11487a0ce8782553efa2da5445",
+        "width": 1176,
+        "height": 640,
+        "frames": 1,
+        "author": "Winterpixel Games (screenshot credited in the Godot documentation)",
+        "license": "CC-BY-3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/",
+        "usage_note": "Documentation illustration; not a supplied game-art asset. Retain the original credit."
+      },
+      {
+        "path": "assets/game-development/UI-002/themecheck.webp",
+        "source_url": "https://docs.godotengine.org/en/4.5/_images/themecheck.webp",
+        "caption": "原教程图示：Customizing a control — themecheck.webp",
+        "sha256": "7155a2099255bdc4cca8423556a1a075f923a799939db9a6facd6cc6c6e93f59",
+        "width": 302,
+        "height": 326,
+        "frames": 1,
+        "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+        "license": "CC-BY-3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      }
+    ],
+    "content_mode": "licensed-fulltext-with-chinese-guide",
+    "version": "Godot 4.5 documentation branch",
+    "prerequisites": [
+      "DEV-001",
+      "基本Control节点"
+    ],
+    "learning_objectives": [
+      "先列出按钮、标签和面板在项目中共享的颜色、字体大小、图标和背景外观。",
+      "创建共享Theme资源，在项目级或Control分支根节点应用，并在各独立场景预览。",
+      "使用type variation区分Header等语义角色，避免每个节点重复局部修改。",
+      "焦点StyleBox覆盖在基础状态上；设计为边缘或适当透明的框，避免遮住普通/按下外观。",
+      "出现不一致时先检查local override，再查最近的父Control主题和项目主题，避免误改全局资源。"
+    ],
+    "source_snapshot": "sources/game-development/UI-002.article.html",
+    "source_snapshot_sha256": "f13657b6b20eedbf47a8ab2e8a41dd3e780fddc558ff30a3946b4c51ec32df26",
+    "embedded_videos": [],
+    "image_download_errors": [],
+    "markdown_sha256": "640b20b39e81d7d19af705dec15c6b55548bb8c8fcb812947a27401a1a07b1ce",
+    "markdown_bytes": 17859
+  },
+  {
+    "id": "UI-003",
+    "title": "游戏UI布局：容器、物品网格、长文本与可变尺寸",
+    "category": "ui-design",
+    "path": "tutorials/game-development/UI-003-ui-containers.md",
+    "source_url": "https://docs.godotengine.org/en/4.5/tutorials/ui/gui_containers.html",
+    "source_title": "Using Containers",
+    "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+    "license": "CC-BY-3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0/",
+    "license_evidence_url": "https://github.com/godotengine/godot-docs/blob/4.5/README.md#license",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN+en",
+    "source_language": "en",
+    "level": "intermediate",
+    "tags": [
+      "UI",
+      "Container",
+      "layout",
+      "背包",
+      "物品栏",
+      "容器"
+    ],
+    "summary": "用布局容器组织背包网格、属性行与可滚动说明，避免图文重叠。",
+    "images": [
+      {
+        "path": "assets/game-development/UI-003/godot_containers.png",
+        "source_url": "https://docs.godotengine.org/en/4.5/_images/godot_containers.png",
+        "caption": "原教程图示：Container layout — godot_containers.png",
+        "sha256": "e5bb25760426e459a24c727c0aa6692ae2f872ef9aea183b6d04e13173abd86a",
+        "width": 1286,
+        "height": 761,
+        "frames": 1,
+        "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+        "license": "CC-BY-3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "path": "assets/game-development/UI-003/container_example.gif",
+        "source_url": "https://docs.godotengine.org/en/4.5/_images/container_example.gif",
+        "caption": "原教程图示：Container layout — container_example.gif",
+        "sha256": "b844604af902ee79ca2e15184dd149d68e292611be491021a7a63c9b8a52b215",
+        "width": 424,
+        "height": 232,
+        "frames": 61,
+        "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+        "license": "CC-BY-3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "path": "assets/game-development/UI-003/container_sizing_options.webp",
+        "source_url": "https://docs.godotengine.org/en/4.5/_images/container_sizing_options.webp",
+        "caption": "原教程图示：Sizing options — container_sizing_options.webp",
+        "sha256": "bd1f5f503877f29baebbc1456ecc7b96f868d316286107ba7e2c0f994818486c",
+        "width": 298,
+        "height": 147,
+        "frames": 1,
+        "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+        "license": "CC-BY-3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "path": "assets/game-development/UI-003/containers_box.png",
+        "source_url": "https://docs.godotengine.org/en/4.5/_images/containers_box.png",
+        "caption": "原教程图示：Box Containers — containers_box.png",
+        "sha256": "fb25c729c5d5d1246f875f1754e65b6e715caad21467d6327f30d0e67cdd4911",
+        "width": 535,
+        "height": 145,
+        "frames": 1,
+        "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+        "license": "CC-BY-3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "path": "assets/game-development/UI-003/containers_grid.png",
+        "source_url": "https://docs.godotengine.org/en/4.5/_images/containers_grid.png",
+        "caption": "原教程图示：Grid Container — containers_grid.png",
+        "sha256": "6fbe850a458a80cae0ebad8a5a91679f3702d13d98ea65046f5cafe8f3258e79",
+        "width": 506,
+        "height": 141,
+        "frames": 1,
+        "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+        "license": "CC-BY-3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "path": "assets/game-development/UI-003/containers_margin.png",
+        "source_url": "https://docs.godotengine.org/en/4.5/_images/containers_margin.png",
+        "caption": "原教程图示：Margin Container — containers_margin.png",
+        "sha256": "bd85afc338daa4cd10c29ac9d65cd4186c1a5cb295dad792c94c8fd3d652a947",
+        "width": 547,
+        "height": 147,
+        "frames": 1,
+        "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+        "license": "CC-BY-3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "path": "assets/game-development/UI-003/containers_margin_constants.png",
+        "source_url": "https://docs.godotengine.org/en/4.5/_images/containers_margin_constants.png",
+        "caption": "原教程图示：Margin Container — containers_margin_constants.png",
+        "sha256": "994c6ad198a9674ca790bce7cf5b99ace3f46a95ee6afc235310756d112837e8",
+        "width": 244,
+        "height": 147,
+        "frames": 1,
+        "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+        "license": "CC-BY-3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "path": "assets/game-development/UI-003/containers_tab.png",
+        "source_url": "https://docs.godotengine.org/en/4.5/_images/containers_tab.png",
+        "caption": "原教程图示：Tab Container — containers_tab.png",
+        "sha256": "2d9e70f7a2df7c80510320d895ba6240d07a68ca2936d89796e2eefd7396d92b",
+        "width": 535,
+        "height": 142,
+        "frames": 1,
+        "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+        "license": "CC-BY-3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "path": "assets/game-development/UI-003/containers_tab_click.gif",
+        "source_url": "https://docs.godotengine.org/en/4.5/_images/containers_tab_click.gif",
+        "caption": "原教程图示：Tab Container — containers_tab_click.gif",
+        "sha256": "3eb38477753f2af32e0581328eaa2869500652622e55b173328680eaff08c2de",
+        "width": 340,
+        "height": 170,
+        "frames": 56,
+        "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+        "license": "CC-BY-3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "path": "assets/game-development/UI-003/containers_split.png",
+        "source_url": "https://docs.godotengine.org/en/4.5/_images/containers_split.png",
+        "caption": "原教程图示：Split Container — containers_split.png",
+        "sha256": "71265452a881a651d1e996da81efc1fbde23f960f88d525f389a741da6b2b3f4",
+        "width": 571,
+        "height": 149,
+        "frames": 1,
+        "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+        "license": "CC-BY-3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "path": "assets/game-development/UI-003/containers_split_drag.gif",
+        "source_url": "https://docs.godotengine.org/en/4.5/_images/containers_split_drag.gif",
+        "caption": "原教程图示：Split Container — containers_split_drag.gif",
+        "sha256": "735523b24163878fab2e921d7af75c54c32c4233bc5823a40ba2311dced3b884",
+        "width": 340,
+        "height": 170,
+        "frames": 70,
+        "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+        "license": "CC-BY-3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "path": "assets/game-development/UI-003/containers_panel.png",
+        "source_url": "https://docs.godotengine.org/en/4.5/_images/containers_panel.png",
+        "caption": "原教程图示：PanelContainer — containers_panel.png",
+        "sha256": "fa0021ed955c9d239dac1cbe3bb027e13db084553f8b10809b8eaa3b75762f36",
+        "width": 551,
+        "height": 149,
+        "frames": 1,
+        "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+        "license": "CC-BY-3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "path": "assets/game-development/UI-003/containers_scroll.png",
+        "source_url": "https://docs.godotengine.org/en/4.5/_images/containers_scroll.png",
+        "caption": "原教程图示：ScrollContainer — containers_scroll.png",
+        "sha256": "f2dd0828f4f4e1313eb673dab3a852597e26b47870b585291ecd25fd460998e6",
+        "width": 519,
+        "height": 256,
+        "frames": 1,
+        "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+        "license": "CC-BY-3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "path": "assets/game-development/UI-003/containers_center_pan.gif",
+        "source_url": "https://docs.godotengine.org/en/4.5/_images/containers_center_pan.gif",
+        "caption": "原教程图示：ScrollContainer — containers_center_pan.gif",
+        "sha256": "ae448ba13934aa7f407e68d56eff00e05e5cf7b7300a9ccd0407b34880e1a833",
+        "width": 370,
+        "height": 142,
+        "frames": 35,
+        "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+        "license": "CC-BY-3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "path": "assets/game-development/UI-003/containers_aspectratio.webp",
+        "source_url": "https://docs.godotengine.org/en/4.5/_images/containers_aspectratio.webp",
+        "caption": "原教程图示：AspectRatioContainer — containers_aspectratio.webp",
+        "sha256": "2e4083cfde90558984ce2ff704851bfe3d231b2ea80638d0fdc377c5f4d310a2",
+        "width": 513,
+        "height": 250,
+        "frames": 1,
+        "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+        "license": "CC-BY-3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "path": "assets/game-development/UI-003/containers_aspectratio_drag.webp",
+        "source_url": "https://docs.godotengine.org/en/4.5/_images/containers_aspectratio_drag.webp",
+        "caption": "原教程图示：AspectRatioContainer — containers_aspectratio_drag.webp",
+        "sha256": "4e91d83e26abf3bb19641ecc5cfcb79162dea4b916b9ab6d98ed947821b3d07f",
+        "width": 348,
+        "height": 274,
+        "frames": 70,
+        "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+        "license": "CC-BY-3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "path": "assets/game-development/UI-003/containers_hflow.webp",
+        "source_url": "https://docs.godotengine.org/en/4.5/_images/containers_hflow.webp",
+        "caption": "原教程图示：FlowContainer — containers_hflow.webp",
+        "sha256": "ad1760e27c167ad66762a240681d7be804de6906f1830d3e732505c7c489546b",
+        "width": 513,
+        "height": 250,
+        "frames": 1,
+        "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+        "license": "CC-BY-3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "path": "assets/game-development/UI-003/containers_hflow_drag.webp",
+        "source_url": "https://docs.godotengine.org/en/4.5/_images/containers_hflow_drag.webp",
+        "caption": "原教程图示：FlowContainer — containers_hflow_drag.webp",
+        "sha256": "0f5379f761b17b2b54af3b2b3523c6e9833762c2869314928a571d5f982dcdff",
+        "width": 600,
+        "height": 322,
+        "frames": 69,
+        "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+        "license": "CC-BY-3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "path": "assets/game-development/UI-003/containers_center.webp",
+        "source_url": "https://docs.godotengine.org/en/4.5/_images/containers_center.webp",
+        "caption": "原教程图示：CenterContainer — containers_center.webp",
+        "sha256": "9df71f77588bfe0fd5cd7a93a32751218781c8a3591606b99b07fde4d9984f20",
+        "width": 513,
+        "height": 144,
+        "frames": 1,
+        "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+        "license": "CC-BY-3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "path": "assets/game-development/UI-003/containers_center_drag.webp",
+        "source_url": "https://docs.godotengine.org/en/4.5/_images/containers_center_drag.webp",
+        "caption": "原教程图示：CenterContainer — containers_center_drag.webp",
+        "sha256": "4c975e77bc51c0ce826ddc9d0442fdb731670fe4d7bd6ccd6e3e2224d7967505",
+        "width": 600,
+        "height": 342,
+        "frames": 49,
+        "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+        "license": "CC-BY-3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      }
+    ],
+    "content_mode": "licensed-fulltext-with-chinese-guide",
+    "version": "Godot 4.5 documentation branch",
+    "prerequisites": [
+      "UI-002"
+    ],
+    "learning_objectives": [
+      "选择适合信息结构的HBox/VBox/Grid或Margin等容器，不先把每个子控件固定到绝对位置。",
+      "加入Container的Control子节点由父容器管理位置；手工拖动结果可能在下一次布局时被覆盖。",
+      "分别检查横向和纵向的Fill、Expand和Shrink设置，控制谁获得剩余空间。",
+      "用嵌套容器组合物品网格、说明区和底部操作；用PanelContainer保留面板样式边距。",
+      "加入最长名称、最大数量和最低支持窗口尺寸；必要时滚动或重排，避免把全部文本缩得更小。"
+    ],
+    "source_snapshot": "sources/game-development/UI-003.article.html",
+    "source_snapshot_sha256": "5d7db6769aad3d493b8fd7b0ff42de125142fd6a7a1d9ef7bca215dc177fa363",
+    "embedded_videos": [],
+    "image_download_errors": [],
+    "markdown_sha256": "c206ea55c0fe6361a4db6e11ff93a72f39c058159ad645f242f742a9bb88b2ac",
+    "markdown_bytes": 21095
+  },
+  {
+    "id": "UI-004",
+    "title": "游戏HUD锚点：宽高比变化中的定位与安全边距",
+    "category": "ui-design",
+    "path": "tutorials/game-development/UI-004-ui-anchors.md",
+    "source_url": "https://docs.godotengine.org/en/4.5/tutorials/ui/size_and_anchors.html",
+    "source_title": "Size and anchors",
+    "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+    "license": "CC-BY-3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0/",
+    "license_evidence_url": "https://github.com/godotengine/godot-docs/blob/4.5/README.md#license",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN+en",
+    "source_language": "en",
+    "level": "beginner",
+    "tags": [
+      "UI",
+      "HUD",
+      "anchors",
+      "锚点",
+      "分辨率",
+      "布局"
+    ],
+    "summary": "让角落HUD、居中弹窗和边缘控件在窗口变化时维持合理关系。",
+    "images": [
+      {
+        "path": "assets/game-development/UI-004/anchors.png",
+        "source_url": "https://docs.godotengine.org/en/4.5/_images/anchors.png",
+        "caption": "原教程图示：Size and anchors — anchors.png",
+        "sha256": "6bad3516002d5b95dc93cd8b674ad5eee59da1cafa82c247dc15d9e9ed938bd4",
+        "width": 433,
+        "height": 395,
+        "frames": 1,
+        "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+        "license": "CC-BY-3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "path": "assets/game-development/UI-004/offset.webp",
+        "source_url": "https://docs.godotengine.org/en/4.5/_images/offset.webp",
+        "caption": "原教程图示：Size and anchors — offset.webp",
+        "sha256": "1b93c5c2a314ec862febdadc92675d918705c31a0edb2916056e03066ae66cf8",
+        "width": 800,
+        "height": 478,
+        "frames": 1,
+        "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+        "license": "CC-BY-3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "path": "assets/game-development/UI-004/offset_end.webp",
+        "source_url": "https://docs.godotengine.org/en/4.5/_images/offset_end.webp",
+        "caption": "原教程图示：Size and anchors — offset_end.webp",
+        "sha256": "578fce54d3332b30f407941a85f50610650a01cfe787f43927b23764ca74fa75",
+        "width": 800,
+        "height": 478,
+        "frames": 1,
+        "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+        "license": "CC-BY-3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "path": "assets/game-development/UI-004/offset_around.webp",
+        "source_url": "https://docs.godotengine.org/en/4.5/_images/offset_around.webp",
+        "caption": "原教程图示：Size and anchors — offset_around.webp",
+        "sha256": "528c68a68048b4bc0bd95c9e70ac82a3b79c6e7297f7ff66449f762575bd122c",
+        "width": 800,
+        "height": 478,
+        "frames": 1,
+        "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+        "license": "CC-BY-3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      },
+      {
+        "path": "assets/game-development/UI-004/anchor_presets.webp",
+        "source_url": "https://docs.godotengine.org/en/4.5/_images/anchor_presets.webp",
+        "caption": "原教程图示：Anchor Presets — anchor_presets.webp",
+        "sha256": "49dfc43f52bddd48b16a132cca1ecf319bc454ffddd0af5ebae6c2bdb45bd351",
+        "width": 242,
+        "height": 283,
+        "frames": 1,
+        "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+        "license": "CC-BY-3.0",
+        "license_url": "https://creativecommons.org/licenses/by/3.0/"
+      }
+    ],
+    "content_mode": "licensed-fulltext-with-chinese-guide",
+    "version": "Godot 4.5 documentation branch",
+    "prerequisites": [
+      "DEV-020"
+    ],
+    "learning_objectives": [
+      "确认Control以父Control或视口作为参考。",
+      "用0到1的anchor位置表示相对边缘，用offset描述相对于anchor的像素距离。",
+      "固定在右下角的控件按右/下锚点设置偏移；居中控件可采用0.5锚点与半尺寸的正负偏移。",
+      "使用编辑器Anchor预设提高效率，再检查是否需要容器接管复杂排布。",
+      "在多个宽高比和界面倍率下检查四角HUD、居中面板、文字与安全边距。"
+    ],
+    "source_snapshot": "sources/game-development/UI-004.article.html",
+    "source_snapshot_sha256": "ceeaa67561219764e635abb5b971e6732d6ebc74a58b43beae934c05ae61b6f7",
+    "embedded_videos": [],
+    "image_download_errors": [],
+    "markdown_sha256": "2c9334210c81c3c82cbea342469b6fe1bcbe96f41a4804f4f73116d26de5a8d8",
+    "markdown_bytes": 9116
+  }
+]

@@ -1,0 +1,56 @@
+[
+  {
+    "id": "UI-001",
+    "file": "UI-9-Slice.gif",
+    "path": "assets/supplement/UI-001/UI-9-Slice.gif",
+    "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/UI-9-Slice.gif",
+    "sha256": "a0c3ba9dc176322e5f2aea221db3e1440a78fa0fabc850ec39d4d995b0a3b846",
+    "preview": "assets/supplement/UI-001/UI-9-Slice.png",
+    "frames": 49
+  },
+  {
+    "id": "UI-001",
+    "file": "UI-9-Slice-names.gif",
+    "path": "assets/supplement/UI-001/UI-9-Slice-names.gif",
+    "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/UI-9-Slice-names.gif",
+    "sha256": "a7b1130c6d8e2259decfd9fde10dfbb7fb004adfa9f98d2105f09f08d7ccd431",
+    "preview": "assets/supplement/UI-001/UI-9-Slice-names.png",
+    "frames": 4
+  },
+  {
+    "id": "STYLE-001",
+    "file": "1-bit.gif",
+    "path": "assets/supplement/STYLE-001/1-bit.gif",
+    "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/1-bit.gif",
+    "sha256": "401a85288e87cdc1cee21ee63a316fd9ab6333916a9f3c2fb6f94917d8774718",
+    "preview": "assets/supplement/STYLE-001/1-bit.png",
+    "frames": 52
+  },
+  {
+    "id": "FLOW-001",
+    "file": "Planning.gif",
+    "path": "assets/supplement/FLOW-001/Planning.gif",
+    "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Planning.gif",
+    "sha256": "ac72cfb4854e788496335de05bc38bbc028e8ea4f488e92f5735dd3d8e1c2fb9",
+    "preview": "assets/supplement/FLOW-001/Planning.png",
+    "frames": 18
+  },
+  {
+    "id": "FLOW-002",
+    "file": "Pipeline.gif",
+    "path": "assets/supplement/FLOW-002/Pipeline.gif",
+    "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Pipeline.gif",
+    "sha256": "2cc16082637217dd9d2e699dba90a97714764d5293200b50ac580332951479ed",
+    "preview": "assets/supplement/FLOW-002/Pipeline.png",
+    "frames": 28
+  },
+  {
+    "id": "MAKE-025",
+    "file": "Modular.gif",
+    "path": "assets/supplement/MAKE-025/Modular.gif",
+    "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Modular.gif",
+    "sha256": "4a1351c3b33492791540d3053c82f86c9f3e362286baed79cd74fefb91e5352e",
+    "preview": "assets/supplement/MAKE-025/Modular.png",
+    "frames": 44
+  }
+]

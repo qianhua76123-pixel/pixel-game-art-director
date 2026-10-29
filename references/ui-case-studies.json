@@ -1,0 +1,544 @@
+{
+  "schema_version": 1,
+  "kind": "real-game-ui-case-studies",
+  "created_at": "2026-10-29",
+  "case_count": 6,
+  "image_reference_count": 12,
+  "editorial_notice": "本次新增的6个案例，区别于原有6套UI配方。优秀是基于所选截图的设计评判，不是完整游戏UI质量认证。截图为官方商店宣传素材，可能来自旧版本；没有运行游戏或验证交互。",
+  "retrieval_notice": "风格ID只表示可借鉴关系，不是游戏官方分类，也不证明现有6套配方都有真实案例。",
+  "coverage_gaps": [
+    "dark-stone、compact-handheld、bold-arcade 尚无本次专门案例",
+    "未覆盖设置、存档、错误、空态和完整手柄焦点状态",
+    "未验证中文长文案、小屏、色觉差异、动态转场或实际游戏交互"
+  ],
+  "cases": [
+    {
+      "id": "UI-CASE-001",
+      "slug": "stardew-valley",
+      "game": "Stardew Valley",
+      "title": "木框对话：同一组件融入明亮节庆与室内场景",
+      "creator": "ConcernedApe",
+      "tags": [
+        "乡村",
+        "木框",
+        "纸面",
+        "对话",
+        "头像",
+        "俯视",
+        "wood",
+        "paper",
+        "dialogue",
+        "portrait"
+      ],
+      "tasks": [
+        "乡村游戏对话框",
+        "人物头像与文本布局",
+        "场景和UI材质统一"
+      ],
+      "style_ids": [
+        "wood-paper"
+      ],
+      "art_style_ids": [
+        "cozy-rural"
+      ],
+      "observed": [
+        "正文、头像、名字分别占固定区域；边框以棕橙色像素块建立厚度。",
+        "两张图的对白组件结构一致，场景色彩和人物头像则各不相同。"
+      ],
+      "strengths": [
+        "适合借鉴组件一致性：同一框体跨环境复用，人物身份仍突出。",
+        "暖色不透明正文区能隔开繁杂场景；木材质呼应乡村世界。"
+      ],
+      "limitations": [
+        "只观察了对白截图，没有观察背包、商店、焦点或中文排版。",
+        "较厚边框与大头像占用屏幕，移植到小屏需重新分配文本面积。"
+      ],
+      "application_note": "可供 wood-paper 的对白结构和材质关系参考；不是该配方的官方实现。",
+      "source_url": "https://store.steampowered.com/app/413150/?l=english",
+      "source_type": "developer/publisher Steam storefront",
+      "screenshot_metadata_url": "https://store.steampowered.com/api/appdetails?appids=413150&l=english",
+      "observed_at": "2026-10-29",
+      "evidence_status": "VISUALLY_REVIEWED_OFFICIAL_SCREENSHOTS",
+      "judgment_type": "原创设计评析；非官方最佳实践认证、非用户测试",
+      "images": [
+        {
+          "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/ss_10628b4a811c0a925a1433d4323f78c7017dbbe4.1920x1080.jpg?t=1786554168",
+          "caption": "明亮节庆场景中的木框对白与右侧人物肖像。",
+          "screenshot_index": 4,
+          "width": 1920,
+          "height": 1080,
+          "sha256": "c73b8ea0158057e06df20b5d8eae100bbd58b6eb924815d34d23b963f854691e",
+          "source_url": "https://store.steampowered.com/app/413150/?l=english",
+          "observations": [
+            "明亮节庆场景中的木框对白与右侧人物肖像。"
+          ]
+        },
+        {
+          "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/ss_30aeedc47e731232ade368831a598d6545346f70.1920x1080.jpg?t=1786554168",
+          "caption": "室内场景使用同样的木框、暖色正文底和右侧肖像布局。",
+          "screenshot_index": 7,
+          "width": 1920,
+          "height": 1080,
+          "sha256": "579cfdf513157daca13b8c2943739dd7b6efe0d9ff8a1660e007ba8f75828f5f",
+          "source_url": "https://store.steampowered.com/app/413150/?l=english",
+          "observations": [
+            "室内场景使用同样的木框、暖色正文底和右侧肖像布局。"
+          ]
+        }
+      ],
+      "tutorial_ids": [
+        "UI-001",
+        "UI-002",
+        "UI-003",
+        "UI-004"
+      ],
+      "rights": {
+        "license": "No open-content license verified for game screenshots",
+        "usage": "Reference and visual criticism only; do not treat screenshot pixels as distributable game assets.",
+        "public_repository_policy": "Store URLs, source attribution and original analysis only; exclude screenshot binaries.",
+        "local_review_only": true,
+        "source_credit": "ConcernedApe"
+      }
+    },
+    {
+      "id": "UI-CASE-002",
+      "slug": "eastward",
+      "game": "Eastward",
+      "title": "场景对白与轻量战斗HUD：让世界保持主角",
+      "creator": "Pixpil / Chucklefish",
+      "tags": [
+        "俯视",
+        "对白气泡",
+        "轻HUD",
+        "霓虹",
+        "角色状态",
+        "战斗",
+        "dialogue",
+        "hud",
+        "health"
+      ],
+      "tasks": [
+        "世界内对白",
+        "轻量战斗HUD",
+        "高细节场景上的UI"
+      ],
+      "style_ids": [
+        "holo-terminal"
+      ],
+      "art_style_ids": [
+        "neon-scifi"
+      ],
+      "observed": [
+        "对白以角色附近的浅色气泡呈现，角色名和正文有视觉层级。",
+        "战斗HUD采用细轮廓、亮色心形与数字，集中在角落。"
+      ],
+      "strengths": [
+        "适合借鉴低遮挡HUD：信息量克制，画面中部仍展示角色和攻击。",
+        "气泡位置把说话人和文字连接起来，减少视线寻找。"
+      ],
+      "limitations": [
+        "截图中的滤镜、细字与弱化角色名不能证明最终尺寸的可读性。",
+        "没有背包与菜单样本；这里只给 holo-terminal 借鉴线条和HUD组织，不把整套风格归类为全息终端。"
+      ],
+      "application_note": "只参考 holo-terminal 的角落HUD与细轮廓组织；对白不属于全息材质。",
+      "source_url": "https://store.steampowered.com/app/977880/?l=english",
+      "source_type": "developer/publisher Steam storefront",
+      "screenshot_metadata_url": "https://store.steampowered.com/api/appdetails?appids=977880&l=english",
+      "observed_at": "2026-10-29",
+      "evidence_status": "VISUALLY_REVIEWED_OFFICIAL_SCREENSHOTS",
+      "judgment_type": "原创设计评析；非官方最佳实践认证、非用户测试",
+      "images": [
+        {
+          "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_ddd76431b1df70e234494c92370e2391680c98ef.1920x1080.jpg?t=1782290198",
+          "caption": "市集中的浅色对白气泡，尾部指向说话角色。",
+          "screenshot_index": 3,
+          "width": 1920,
+          "height": 1080,
+          "sha256": "bf709bd60afbb1551010ff80f499b5c5fa72b79c7e77a93cf65eda83f51442c5",
+          "source_url": "https://store.steampowered.com/app/977880/?l=english",
+          "observations": [
+            "市集中的浅色对白气泡，尾部指向说话角色。"
+          ]
+        },
+        {
+          "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/977880/ss_d33bc97134437987ed89194d04b39f2e4658df20.1920x1080.jpg?t=1782290198",
+          "caption": "战斗中生命与弹药位于左下，资源数在右上，中央区域保留给行动。",
+          "screenshot_index": 8,
+          "width": 1920,
+          "height": 1080,
+          "sha256": "1abbb3425516316ac4a546ecfda673915e56934aea5ad43017596e8f5af74c26",
+          "source_url": "https://store.steampowered.com/app/977880/?l=english",
+          "observations": [
+            "战斗中生命与弹药位于左下，资源数在右上，中央区域保留给行动。"
+          ]
+        }
+      ],
+      "tutorial_ids": [
+        "UI-001",
+        "UI-002",
+        "UI-003",
+        "UI-004"
+      ],
+      "rights": {
+        "license": "No open-content license verified for game screenshots",
+        "usage": "Reference and visual criticism only; do not treat screenshot pixels as distributable game assets.",
+        "public_repository_policy": "Store URLs, source attribution and original analysis only; exclude screenshot binaries.",
+        "local_review_only": true,
+        "source_credit": "Pixpil / Chucklefish"
+      }
+    },
+    {
+      "id": "UI-CASE-003",
+      "slug": "moonlighter",
+      "game": "Moonlighter",
+      "title": "书页背包与药水商店：同一材质服务不同信息任务",
+      "creator": "Digital Sun / 11 bit studios",
+      "tags": [
+        "俯视",
+        "背包",
+        "商店",
+        "装备",
+        "书页",
+        "纸面",
+        "inventory",
+        "shop",
+        "equipment",
+        "controller"
+      ],
+      "tasks": [
+        "背包装备页",
+        "商店商品详情",
+        "配方材料是否充足",
+        "手柄操作提示"
+      ],
+      "style_ids": [
+        "wood-paper",
+        "ornate-fantasy"
+      ],
+      "art_style_ids": [
+        "muted-fantasy"
+      ],
+      "observed": [
+        "背包使用米色书页、绿色语义线条和规则网格，装备人物在右页。",
+        "商店复用纸面、绿色选中角标和底部操作提示，但把列表与配方详情分开。"
+      ],
+      "strengths": [
+        "适合借鉴跨页面一致性：材质、色彩角色、焦点角标在两个任务中延续。",
+        "材料状态同时用数量、勾叉和色块表达，具有可迁移的信息冗余。"
+      ],
+      "limitations": [
+        "书本装饰和人物展示占较大面积，密集物品列表需控制每屏数量。",
+        "只看到一个选择状态；未操作手柄、测试焦点移动或中文长文案。"
+      ],
+      "application_note": "wood-paper 借鉴纸面与网格；ornate-fantasy 借鉴装饰分布。不要照搬书页资产。",
+      "source_url": "https://store.steampowered.com/app/606150/?l=english",
+      "source_type": "developer/publisher Steam storefront",
+      "screenshot_metadata_url": "https://store.steampowered.com/api/appdetails?appids=606150&l=english",
+      "observed_at": "2026-10-29",
+      "evidence_status": "VISUALLY_REVIEWED_OFFICIAL_SCREENSHOTS",
+      "judgment_type": "原创设计评析；非官方最佳实践认证、非用户测试",
+      "images": [
+        {
+          "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/606150/ss_c7c33eb041627f7a5fdbdefb0e41269178faf372.1920x1080.jpg?t=1790860598",
+          "caption": "打开的书页承载背包与装备，绿色角标表示当前格子，底部显示手柄操作提示。",
+          "screenshot_index": 2,
+          "width": 1920,
+          "height": 1080,
+          "sha256": "b5d5555c6ad4397e929caaf8ef8482dafa972d72459b790c11b8b4709e57674a",
+          "source_url": "https://store.steampowered.com/app/606150/?l=english",
+          "observations": [
+            "打开的书页承载背包与装备，绿色角标表示当前格子，底部显示手柄操作提示。"
+          ]
+        },
+        {
+          "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/606150/ss_99f46056bb1d647adf3ea8f044bf016a8a3da428.1920x1080.jpg?t=1790860598",
+          "caption": "药水列表与详情分栏；配方材料以数量、勾叉和颜色表示是否足够。",
+          "screenshot_index": 6,
+          "width": 1920,
+          "height": 1080,
+          "sha256": "0b91bb9b4d2e36ece87a40fbe30d6a893a843816e580ff20b6ed5f93f9175e01",
+          "source_url": "https://store.steampowered.com/app/606150/?l=english",
+          "observations": [
+            "药水列表与详情分栏；配方材料以数量、勾叉和颜色表示是否足够。"
+          ]
+        }
+      ],
+      "tutorial_ids": [
+        "UI-001",
+        "UI-002",
+        "UI-003",
+        "UI-004"
+      ],
+      "rights": {
+        "license": "No open-content license verified for game screenshots",
+        "usage": "Reference and visual criticism only; do not treat screenshot pixels as distributable game assets.",
+        "public_repository_policy": "Store URLs, source attribution and original analysis only; exclude screenshot binaries.",
+        "local_review_only": true,
+        "source_credit": "Digital Sun / 11 bit studios"
+      }
+    },
+    {
+      "id": "UI-CASE-004",
+      "slug": "into-the-breach",
+      "game": "Into the Breach",
+      "title": "战术HUD与机甲配置：让危险、动作和后果可对照",
+      "creator": "Subset Games",
+      "tags": [
+        "等距",
+        "战棋",
+        "科幻",
+        "机甲",
+        "信息层级",
+        "战斗HUD",
+        "装备",
+        "tactical",
+        "hud",
+        "loadout",
+        "mech"
+      ],
+      "tasks": [
+        "战术战斗HUD",
+        "攻击顺序与危险区",
+        "机甲装备配置",
+        "密集信息分区"
+      ],
+      "style_ids": [
+        "holo-terminal"
+      ],
+      "art_style_ids": [
+        "isometric-diorama"
+      ],
+      "observed": [
+        "深色底、细框与白字构成信息面板，黄色数字与红色区域用于棋盘提示。",
+        "战术画面的结束回合按钮较突出，单位操作和地块说明分开。"
+      ],
+      "strengths": [
+        "适合借鉴信息分层：全局、单位、格子三个尺度各有稳定位置。",
+        "棋盘提示结合形状、箭头、数字，能作为风险预览结构的参考。"
+      ],
+      "limitations": [
+        "多区域同时出现会提高初次理解成本，需要教学和按需提示。",
+        "这是克制的科幻仪表风格，并无全息发光材质；holo-terminal 仅作信息结构借鉴。"
+      ],
+      "application_note": "不照搬霓虹；主要借鉴终端式面板的信息组织和战术标记。",
+      "source_url": "https://store.steampowered.com/app/590380/?l=english",
+      "source_type": "developer/publisher Steam storefront",
+      "screenshot_metadata_url": "https://store.steampowered.com/api/appdetails?appids=590380&l=english",
+      "observed_at": "2026-10-29",
+      "evidence_status": "VISUALLY_REVIEWED_OFFICIAL_SCREENSHOTS",
+      "judgment_type": "原创设计评析；非官方最佳实践认证、非用户测试",
+      "images": [
+        {
+          "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/590380/ss_4b985c7747c1ff0b7fbbf3eaf8ca5a1272f0dadb.1920x1080.jpg?t=1755610784",
+          "caption": "战术画面把全局资源、回合动作、任务和地块提示分在边缘，棋盘上显示箭头与顺序数字。",
+          "screenshot_index": 3,
+          "width": 1280,
+          "height": 720,
+          "sha256": "7dd85bb6af5eee32dfb7d8ad781fef31a51c2d8c928792421b0d526e9f6c9a6f",
+          "source_url": "https://store.steampowered.com/app/590380/?l=english",
+          "observations": [
+            "战术画面把全局资源、回合动作、任务和地块提示分在边缘，棋盘上显示箭头与顺序数字。"
+          ]
+        },
+        {
+          "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/590380/ss_f3ca4120fe01efcdd4cd355b7e5798f98b695233.1920x1080.jpg?t=1755610784",
+          "caption": "机甲配置页以模块化区域并列显示人物、武器、升级和存储。",
+          "screenshot_index": 6,
+          "width": 1280,
+          "height": 720,
+          "sha256": "ab923d5ff5b64d5d59c772877bbab4fdacd17bd5f544c6650c8d82015d886a61",
+          "source_url": "https://store.steampowered.com/app/590380/?l=english",
+          "observations": [
+            "机甲配置页以模块化区域并列显示人物、武器、升级和存储。"
+          ]
+        }
+      ],
+      "tutorial_ids": [
+        "UI-001",
+        "UI-002",
+        "UI-003",
+        "UI-004"
+      ],
+      "rights": {
+        "license": "No open-content license verified for game screenshots",
+        "usage": "Reference and visual criticism only; do not treat screenshot pixels as distributable game assets.",
+        "public_repository_policy": "Store URLs, source attribution and original analysis only; exclude screenshot binaries.",
+        "local_review_only": true,
+        "source_credit": "Subset Games"
+      }
+    },
+    {
+      "id": "UI-CASE-005",
+      "slug": "sea-of-stars",
+      "game": "Sea of Stars",
+      "title": "战斗命令与升级选择：状态与决策分别占据清楚位置",
+      "creator": "Sabotage Studio",
+      "tags": [
+        "幻想",
+        "JRPG",
+        "回合制",
+        "技能菜单",
+        "升级",
+        "金色装饰",
+        "battle",
+        "level-up",
+        "rpg"
+      ],
+      "tasks": [
+        "回合制战斗菜单",
+        "角色生命魔法状态",
+        "升级奖励选择",
+        "幻想UI装饰密度"
+      ],
+      "style_ids": [
+        "ornate-fantasy"
+      ],
+      "art_style_ids": [],
+      "observed": [
+        "战斗面板采用深色矩形底和较细边框，命令选中项有色块及指针。",
+        "升级页扩大图标和留白，以金色标题、少量装饰和底部数值摘要建立层级。"
+      ],
+      "strengths": [
+        "适合借鉴任务驱动的密度变化：战斗保持紧凑，奖励选择释放空间。",
+        "升级前后数值与选择图标同屏，便于比较当前决策。"
+      ],
+      "limitations": [
+        "两张静态图不能说明切换动画、焦点顺序或动态信息是否清楚。",
+        "英文缩写较多；中文和辅助说明需单独验证，不宜机械套用字体与间距。"
+      ],
+      "application_note": "ornate-fantasy 可借鉴装饰克制与关键奖励的强调，不意味着游戏官方遵循此配方。",
+      "source_url": "https://store.steampowered.com/app/1244090/?l=english",
+      "source_type": "developer/publisher Steam storefront",
+      "screenshot_metadata_url": "https://store.steampowered.com/api/appdetails?appids=1244090&l=english",
+      "observed_at": "2026-10-29",
+      "evidence_status": "VISUALLY_REVIEWED_OFFICIAL_SCREENSHOTS",
+      "judgment_type": "原创设计评析；非官方最佳实践认证、非用户测试",
+      "images": [
+        {
+          "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_f756ff477590284c7192ffcef99237de056e4aeb.1920x1080.jpg?t=1780931183",
+          "caption": "战斗命令靠近当前角色，左下按队员列出生命和魔法，敌方头顶显示图标信息。",
+          "screenshot_index": 0,
+          "width": 1920,
+          "height": 1080,
+          "sha256": "27339800e0960f10a297f29769b74b8d7b161e224d24d5b783ba7247af37813b",
+          "source_url": "https://store.steampowered.com/app/1244090/?l=english",
+          "observations": [
+            "战斗命令靠近当前角色，左下按队员列出生命和魔法，敌方头顶显示图标信息。"
+          ]
+        },
+        {
+          "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1244090/ss_3fe41c00a7122c63aa05b4ea331c6f995e356788.1920x1080.jpg?t=1780931183",
+          "caption": "升级页以四个大图标展示选择，底部列出属性变化，手形指针标记当前项。",
+          "screenshot_index": 5,
+          "width": 1920,
+          "height": 1080,
+          "sha256": "bdf8222b088d49d980db140195243b0d6dbb51311f91e92543812d615a38bde4",
+          "source_url": "https://store.steampowered.com/app/1244090/?l=english",
+          "observations": [
+            "升级页以四个大图标展示选择，底部列出属性变化，手形指针标记当前项。"
+          ]
+        }
+      ],
+      "tutorial_ids": [
+        "UI-001",
+        "UI-002",
+        "UI-003",
+        "UI-004"
+      ],
+      "rights": {
+        "license": "No open-content license verified for game screenshots",
+        "usage": "Reference and visual criticism only; do not treat screenshot pixels as distributable game assets.",
+        "public_repository_policy": "Store URLs, source attribution and original analysis only; exclude screenshot binaries.",
+        "local_review_only": true,
+        "source_credit": "Sabotage Studio"
+      }
+    },
+    {
+      "id": "UI-CASE-006",
+      "slug": "backpack-hero",
+      "game": "Backpack Hero",
+      "title": "空间背包与出售面板：界面直接承载核心决策",
+      "creator": "Jaspel / Pretty Soon / IndieArk",
+      "tags": [
+        "背包",
+        "物品整理",
+        "商店",
+        "出售",
+        "详情浮层",
+        "格子",
+        "inventory",
+        "shop",
+        "tooltip",
+        "grid"
+      ],
+      "tasks": [
+        "多格物品背包",
+        "物品说明浮层",
+        "出售选择与收益预览",
+        "背包与战斗同屏"
+      ],
+      "style_ids": [
+        "wood-paper"
+      ],
+      "art_style_ids": [],
+      "observed": [
+        "背包物品的长度和占格直接可见；说明浮层把标题、稀有度和规则分段。",
+        "出售页使用统一棕色框、卡格和粗体标题，并把转移方向画在两栏之间。"
+      ],
+      "strengths": [
+        "适合借鉴让UI服务玩法：占格与物品形状是决策信息，不只是装饰。",
+        "待售清单与收益预览同屏，可作为交易确认前的结构参考。"
+      ],
+      "limitations": [
+        "长规则浮层会遮挡战斗与背包，需检查定位和可关闭行为。",
+        "粗像素字与密集行文在小屏/中文下风险较高；未验证实际交互。"
+      ],
+      "application_note": "wood-paper 仅借鉴棕色框体和一致组件；实际背景是棕色平面，不应声称具有纸纹。",
+      "source_url": "https://store.steampowered.com/app/1970580/?l=english",
+      "source_type": "developer/publisher Steam storefront",
+      "screenshot_metadata_url": "https://store.steampowered.com/api/appdetails?appids=1970580&l=english",
+      "observed_at": "2026-10-29",
+      "evidence_status": "VISUALLY_REVIEWED_OFFICIAL_SCREENSHOTS",
+      "judgment_type": "原创设计评析；非官方最佳实践认证、非用户测试",
+      "images": [
+        {
+          "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1970580/ss_e39025fae7fd8cc1f0f9c15cc7c66748e92d4773.1920x1080.jpg?t=1771527569",
+          "caption": "战斗上方的背包显示多格物品，浮层展示选中护甲的规则与数值。",
+          "screenshot_index": 2,
+          "width": 1920,
+          "height": 1080,
+          "sha256": "a324f313f9e49930a9b5d3f7f7cff08add159a075df80e4b73cf3790fca727c5",
+          "source_url": "https://store.steampowered.com/app/1970580/?l=english",
+          "observations": [
+            "战斗上方的背包显示多格物品，浮层展示选中护甲的规则与数值。"
+          ]
+        },
+        {
+          "url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1970580/ss_507d43eec5d1b81ac876d25619e058a1672e64b0.1920x1080.jpg?t=1771527569",
+          "caption": "出售页把持有物品与待售物品分栏，中间有转移箭头，右侧显示资源收益。",
+          "screenshot_index": 6,
+          "width": 1920,
+          "height": 1080,
+          "sha256": "2179e5e89829583cff3a2f836e1fab0005d247d0d76688e8e838673972a785c4",
+          "source_url": "https://store.steampowered.com/app/1970580/?l=english",
+          "observations": [
+            "出售页把持有物品与待售物品分栏，中间有转移箭头，右侧显示资源收益。"
+          ]
+        }
+      ],
+      "tutorial_ids": [
+        "UI-001",
+        "UI-002",
+        "UI-003",
+        "UI-004"
+      ],
+      "rights": {
+        "license": "No open-content license verified for game screenshots",
+        "usage": "Reference and visual criticism only; do not treat screenshot pixels as distributable game assets.",
+        "public_repository_policy": "Store URLs, source attribution and original analysis only; exclude screenshot binaries.",
+        "local_review_only": true,
+        "source_credit": "Jaspel / Pretty Soon / IndieArk"
+      }
+    }
+  ]
+}

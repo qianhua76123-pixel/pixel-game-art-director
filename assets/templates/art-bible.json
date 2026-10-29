@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "draft",
+  "project_name": null,
+  "task": null,
+  "reference_images": [],
+  "art_profile_id": null,
+  "ui_profile_id": null,
+  "projection": {"kind": null, "camera_angle_or_rule": null, "visible_planes": null},
+  "scale": {"logical_tile_size": null, "reference_character_height": null, "display_integer_scale": null},
+  "lighting": {"key_direction": null, "shadow_color_role": null, "exceptions": []},
+  "palette": {"named_colors": [], "roles": {}, "allowed_variations": []},
+  "shape_language": {"outline_rule": null, "cluster_density": null, "material_rules": {}},
+  "animation": {"directions": [], "canvas_by_role": {}, "pivots_by_role": {}, "frame_timing_policy": null},
+  "ui": {"material": null, "nine_slice_rules": null, "font_fallbacks": [], "type_sizes_at_display": {}, "states": {}, "input_targets": []},
+  "exports": {"source_format": null, "delivery_format": null, "naming_rule": null},
+  "machine_audit_contract": "audit-contract.json",
+  "accepted_exceptions": [],
+  "open_decisions": [],
+  "evidence": []
+}

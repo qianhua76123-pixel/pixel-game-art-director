@@ -1,0 +1,779 @@
+[
+  {
+    "id": "DEV-001",
+    "slug": "nodes-and-scenes",
+    "source_path": "getting_started/step_by_step/nodes_and_scenes.html",
+    "title": "用节点与场景组织像素游戏",
+    "level": "beginner",
+    "tags": [
+      "Godot",
+      "节点",
+      "场景",
+      "项目结构"
+    ],
+    "summary": "先理解节点树和可保存场景，再把角色、房屋、道具拆成可独立编辑的单位。",
+    "prerequisites": [
+      "能打开 Godot 4.5 编辑器"
+    ],
+    "steps": [
+      "在新场景中添加根节点，观察场景树、检查器与二维视图各自负责什么。",
+      "按原文建立带文字的最小场景，修改节点属性并观察视图中的变化。",
+      "把场景保存成 .tscn；分别运行当前场景和整个项目，确认两者入口不同。",
+      "把一个场景设为主场景；练习把角色显示节点和碰撞节点放在同一角色根节点之下。"
+    ],
+    "exercise": "建立一个名为 Village 的场景，以及独立的 Signpost 场景。先用文本占位验证结构，再替换成你自己的像素素材。",
+    "checks": [
+      "运行项目时进入指定主场景。",
+      "节点名称能反映职责，显示与交互子节点归在正确父节点下。",
+      "能解释节点是组成单位、场景是保存后的节点树。"
+    ],
+    "caution": "本篇属于引擎基础，不会直接教绘画；像素素材的尺寸与锚点应在美术规范中另行固定。"
+  },
+  {
+    "id": "DEV-002",
+    "slug": "scene-instances",
+    "source_path": "getting_started/step_by_step/instancing.html",
+    "title": "用场景实例复用树木、建筑和道具",
+    "level": "beginner",
+    "tags": [
+      "Godot",
+      "实例化",
+      "复用",
+      "俯视场景"
+    ],
+    "summary": "掌握同一场景多个实例的共性与局部覆盖，避免复制节点后难以批量维护。",
+    "prerequisites": [
+      "DEV-001"
+    ],
+    "steps": [
+      "下载并打开原文的实例化练习项目，观察主场景如何引用独立的球场景。",
+      "在主场景中放置多个同源实例，移动位置并运行检查。",
+      "打开源场景修改共享属性，回到主场景观察所有实例的更新。",
+      "对一个实例单独覆盖属性，再用恢复按钮取消覆盖；理解源场景值与实例值的区别。",
+      "把同样方法用于树木或路灯：共用素材与交互结构，仅覆盖位置、颜色或交互参数。"
+    ],
+    "exercise": "用一个 Tree.tscn 放置六棵树，统一修改树冠图层，再只改变其中一棵树的交互半径。",
+    "checks": [
+      "源场景变化能传播到未覆盖该属性的实例。",
+      "局部覆盖不影响其他实例。",
+      "重复物件没有被维护成六份互不关联的节点树。"
+    ],
+    "caution": "原文用物理小球演示复用；树木案例是整理者的迁移练习，并非原教程原图。"
+  },
+  {
+    "id": "DEV-003",
+    "slug": "player-input",
+    "source_path": "getting_started/step_by_step/scripting_player_input.html",
+    "title": "读取玩家输入并驱动角色",
+    "level": "beginner",
+    "tags": [
+      "Godot",
+      "输入",
+      "动作映射",
+      "角色控制"
+    ],
+    "summary": "从按键状态读取开始，将输入、方向与运动参数连接起来。",
+    "prerequisites": [
+      "会给节点附加脚本",
+      "理解变量和函数"
+    ],
+    "steps": [
+      "先运行原文已有旋转与前进脚本，确认每帧更新发生的位置。",
+      "使用 Input.is_action_pressed 读取动作，而非把按键编码散落在各处。",
+      "把左、右动作转成旋转方向，再将向前动作与当前朝向结合。",
+      "检查同时按键、松开按键以及没有输入时的行为；保留 delta 对每秒速度的换算。",
+      "俯视四向或八向移动改用 DEV-012 的 Input.get_vector 路线，不要把旋转式控制直接等同于四向角色。"
+    ],
+    "exercise": "为原示例添加暂停运动动作，要求松开移动键后停止前进，但仍能按方向键旋转。",
+    "checks": [
+      "输入动作名称与项目设置完全相同。",
+      "松开按键后没有残留速度。",
+      "改变运行帧率时，按住一秒得到的运动量基本一致。"
+    ],
+    "caution": "本篇示范旋转式运动；角色碰撞响应需要另外阅读 CharacterBody2D 教程。"
+  },
+  {
+    "id": "DEV-004",
+    "slug": "signals",
+    "source_path": "getting_started/step_by_step/signals.html",
+    "title": "用信号连接按钮、计时器与游戏事件",
+    "level": "beginner",
+    "tags": [
+      "Godot",
+      "信号",
+      "事件",
+      "交互"
+    ],
+    "summary": "学习编辑器连线和代码连接两种信号方式，让按钮、计时器和自定义事件触发逻辑。",
+    "prerequisites": [
+      "DEV-001",
+      "基础 GDScript"
+    ],
+    "steps": [
+      "按原文搭建按钮与移动图像的场景，选中按钮并打开信号面板。",
+      "把 pressed 信号连接到接收节点的方法，在回调中切换运动。",
+      "添加 Timer 并以代码连接 timeout，比较信号声明、连接和响应的不同职责。",
+      "阅读完整脚本后创建自定义信号，把事件的必要数据作为参数传递。",
+      "迁移到俯视场景时，让宝箱发出 opened 或 collected 信号，由关卡或背包系统接收。"
+    ],
+    "exercise": "建立一个可点击的宝箱占位场景，第一次开启时发出包含道具名称的信号；第二次点击不重复发放。",
+    "checks": [
+      "事件发出一次时接收函数只执行一次。",
+      "信号参数与接收函数一致。",
+      "宝箱场景不依赖某个固定 HUD 节点路径。"
+    ],
+    "caution": "opened 等命名是整理者练习设计；官方原文以按钮和计时器示范。"
+  },
+  {
+    "id": "DEV-005",
+    "slug": "first-game-project-setup",
+    "source_path": "getting_started/first_2d_game/01.project_setup.html",
+    "title": "完整二维小游戏：项目与素材准备",
+    "level": "beginner",
+    "tags": [
+      "Godot",
+      "完整项目",
+      "素材导入",
+      "项目结构"
+    ],
+    "summary": "开始官方 Dodge the Creeps 项目，建立资源目录、窗口设置和素材导入基础。",
+    "prerequisites": [
+      "完成 Godot 基础节点与脚本入门"
+    ],
+    "steps": [
+      "新建项目，并按原文要求准备官方教学资源包。",
+      "把资源解压到项目目录，等待编辑器导入后确认目录和资源名称。",
+      "设置项目的窗口尺寸与拉伸参数，区分设计分辨率和实际窗口大小。",
+      "把场景、脚本与素材按职责分开存放，再保存项目设置。"
+    ],
+    "exercise": "建立项目目录清单，注明角色、敌人、字体、声音各自在哪里；保留原包的许可信息。",
+    "checks": [
+      "素材导入没有丢失纹理或字体。",
+      "窗口方向和尺寸符合原教程。",
+      "后续章节引用资源时能定位到相同文件名。"
+    ],
+    "caution": "官方项目的素材不是严格像素画，也不是俯视 RPG；这里学习完整游戏结构，像素清晰度另见 DEV-021。"
+  },
+  {
+    "id": "DEV-006",
+    "slug": "first-game-player-scene",
+    "source_path": "getting_started/first_2d_game/02.player_scene.html",
+    "title": "完整二维小游戏：玩家场景与动画资源",
+    "level": "beginner",
+    "tags": [
+      "Godot",
+      "完整项目",
+      "AnimatedSprite2D",
+      "碰撞形状"
+    ],
+    "summary": "组合 Area2D、动画精灵与碰撞形状，制作可独立复用的玩家场景。",
+    "prerequisites": [
+      "DEV-005"
+    ],
+    "steps": [
+      "以 Area2D 建立玩家根节点，并按原文配置命名与分组方式。",
+      "添加 AnimatedSprite2D，为 SpriteFrames 创建行走方向相关的动画。",
+      "把素材帧放入正确动画并设置速度，使用编辑器预览播放。",
+      "添加 CollisionShape2D，选择适合角色的形状并调整大小。",
+      "保存玩家场景，确认它可以独立打开和后续被主场景实例化。"
+    ],
+    "exercise": "为玩家准备一个额外 idle 动画，记录它与原行走帧共享的画布尺寸和底部锚点。",
+    "checks": [
+      "动画帧没有因裁剪导致角色跳动。",
+      "碰撞形状覆盖实际接触区域。",
+      "节点名称与下一章脚本引用一致。"
+    ],
+    "caution": "原教程玩家使用 Area2D 做重叠检测；需要撞墙和沿墙滑动的 RPG 玩家通常改用 CharacterBody2D。"
+  },
+  {
+    "id": "DEV-007",
+    "slug": "first-game-player-code",
+    "source_path": "getting_started/first_2d_game/03.coding_the_player.html",
+    "title": "完整二维小游戏：移动、动画切换与受击",
+    "level": "beginner",
+    "tags": [
+      "Godot",
+      "完整项目",
+      "角色移动",
+      "受击",
+      "动画切换"
+    ],
+    "summary": "把输入、速度、屏幕边界、动画和受击信号接成一个可测试的玩家控制器。",
+    "prerequisites": [
+      "DEV-006",
+      "理解信号"
+    ],
+    "steps": [
+      "给玩家添加脚本并定义速度，读取各方向输入形成运动向量。",
+      "对非零方向进行归一化，再乘以速度与 delta，防止对角移动更快。",
+      "根据移动方向播放动画与翻转图像；没有移动时停止动画。",
+      "限制玩家位置在可见范围内，避免角色完全离开屏幕。",
+      "连接碰撞信号，隐藏玩家并延迟禁用碰撞形状；通过 start 方法恢复初始位置与状态。"
+    ],
+    "exercise": "在四个方向和四个对角方向各移动相同时间，记录距离；受击后重开一局确认可再次控制。",
+    "checks": [
+      "斜向移动没有比轴向移动快。",
+      "站立时不会持续播放跑动帧。",
+      "重开时玩家显示、位置和碰撞均恢复。"
+    ],
+    "caution": "Area2D 的这套直接位置更新不提供实体阻挡；切换到角色物理体后应采用 DEV-014 的运动方法。"
+  },
+  {
+    "id": "DEV-008",
+    "slug": "first-game-enemies",
+    "source_path": "getting_started/first_2d_game/04.creating_the_enemy.html",
+    "title": "完整二维小游戏：敌人场景与离屏清理",
+    "level": "beginner",
+    "tags": [
+      "Godot",
+      "完整项目",
+      "敌人",
+      "RigidBody2D",
+      "对象生命周期"
+    ],
+    "summary": "为敌人建立可生成的独立场景，配置动画和离开画面后的释放逻辑。",
+    "prerequisites": [
+      "DEV-006",
+      "基础 GDScript"
+    ],
+    "steps": [
+      "建立 RigidBody2D 敌人根节点，并按原文设置碰撞与重力相关参数。",
+      "添加动画精灵、碰撞形状和可见性通知节点，检查它们的相对位置。",
+      "在初始化时从可用动画中选择外观，使同一场景能生成不同敌人。",
+      "连接离开屏幕的信号，调用 queue_free 释放敌人实例。",
+      "保存为独立场景，交给下一章主场景负责生成。"
+    ],
+    "exercise": "记录一分钟内活动敌人数量；让敌人出屏后确认数量回落，而不是持续累积。",
+    "checks": [
+      "敌人不会因默认重力朝错误方向下坠。",
+      "动画名称来自当前 SpriteFrames。",
+      "出屏实例会释放，场景树没有无界增长。"
+    ],
+    "caution": "这是穿越屏幕的敌人示例，不包含寻路或追踪 AI。"
+  },
+  {
+    "id": "DEV-009",
+    "slug": "first-game-main-loop",
+    "source_path": "getting_started/first_2d_game/05.the_main_game_scene.html",
+    "title": "完整二维小游戏：生成、计分与回合循环",
+    "level": "beginner",
+    "tags": [
+      "Godot",
+      "完整项目",
+      "生成器",
+      "计时器",
+      "游戏循环"
+    ],
+    "summary": "把玩家、敌人、计时器和边界路径组合成完整一局游戏。",
+    "prerequisites": [
+      "DEV-007",
+      "DEV-008"
+    ],
+    "steps": [
+      "建立主场景，添加玩家实例、开始位置、计时器及用于生成敌人的路径。",
+      "用 Path2D 定义生成边界，再用 PathFollow2D 选择边界上的生成位置。",
+      "加载敌人 PackedScene，每次计时器触发时实例化并赋予位置与速度。",
+      "实现 new_game 与 game_over，分别重置分数和启动或停止相关计时器。",
+      "独立测试主场景后，把它设为项目入口，再接入 HUD。"
+    ],
+    "exercise": "把敌人生成间隔改为三个档位，测量每局开始到首个敌人出现的延迟，并验证结束后不再生成。",
+    "checks": [
+      "敌人从预期边缘进入画面。",
+      "开始新局时分数归零。",
+      "游戏结束停止生成和计分计时器。"
+    ],
+    "caution": "随机性只负责生成位置、方向或速度的变化；不应据此推断游戏一定具有更强留存。"
+  },
+  {
+    "id": "DEV-010",
+    "slug": "first-game-hud",
+    "source_path": "getting_started/first_2d_game/06.heads_up_display.html",
+    "title": "完整二维小游戏：HUD、开始按钮与重开",
+    "level": "beginner",
+    "tags": [
+      "Godot",
+      "完整项目",
+      "HUD",
+      "CanvasLayer",
+      "状态恢复"
+    ],
+    "summary": "让分数、提示和开始按钮独立于游戏世界，连接开局、结束与清理流程。",
+    "prerequisites": [
+      "DEV-009",
+      "DEV-004"
+    ],
+    "steps": [
+      "以 CanvasLayer 建立 HUD，添加分数标签、提示标签、开始按钮和消息计时器。",
+      "设置控件锚点与布局，使不同窗口尺寸下仍处于预期位置。",
+      "把按钮点击转换成 start_game 信号，让主场景响应新局请求。",
+      "实现分数更新、短时提示和游戏结束提示，按顺序隐藏与显示按钮。",
+      "新局开始前清理旧敌人，避免上一局实例留在场景中。"
+    ],
+    "exercise": "连续输掉并重开三局，记录分数、按钮、消息和旧敌人的状态是否全部复位。",
+    "checks": [
+      "HUD 不随世界物体运动而漂移。",
+      "同一局只触发一次开始事件。",
+      "重开后没有旧敌人或上局分数残留。"
+    ],
+    "caution": "HUD示例是结构练习。实际沉浸式像素游戏可减少屏幕控件数量，但不能省略必要状态反馈。"
+  },
+  {
+    "id": "DEV-011",
+    "slug": "first-game-finishing",
+    "source_path": "getting_started/first_2d_game/07.finishing-up.html",
+    "title": "完整二维小游戏：声音、背景与交付检查",
+    "level": "beginner",
+    "tags": [
+      "Godot",
+      "完整项目",
+      "声音",
+      "背景",
+      "交付"
+    ],
+    "summary": "完成官方小游戏最后的声音和视觉设置，并把游戏循环作为整体检查。",
+    "prerequisites": [
+      "DEV-010"
+    ],
+    "steps": [
+      "按原文添加背景或调整背景色，确保角色和敌人具有足够对比。",
+      "添加背景音乐和失败音效的音频播放器，并设置对应音频流。",
+      "在开始和结束事件中控制音乐及音效播放，避免重复叠加。",
+      "运行整个项目检查开始、游玩、失败、重开流程，再阅读官方后续学习建议。"
+    ],
+    "exercise": "在静音与有声两种状态各完成一局，确保没有声音时也能理解开始和失败状态。",
+    "checks": [
+      "重开不会叠加两层背景音乐。",
+      "失败音效在正确事件触发。",
+      "主场景能从干净启动进入完整回合。"
+    ],
+    "caution": "本章完成的是入门项目的收尾；发布平台导出、签名与商店要求需要另查对应版本的导出文档。"
+  },
+  {
+    "id": "DEV-012",
+    "slug": "top-down-movement",
+    "source_path": "tutorials/2d/2d_movement.html",
+    "title": "俯视角色的八向移动、朝向与点击移动",
+    "level": "beginner",
+    "tags": [
+      "Godot",
+      "俯视",
+      "八向移动",
+      "点击移动",
+      "CharacterBody2D"
+    ],
+    "summary": "对照四种二维控制方案，优先掌握适合俯视游戏的八向移动。",
+    "prerequisites": [
+      "项目已配置输入动作",
+      "DEV-001"
+    ],
+    "steps": [
+      "建立 CharacterBody2D 根节点，添加 Sprite2D 和 CollisionShape2D。",
+      "在 Input Map 中建立 left、right、up、down 等动作，核对大小写。",
+      "读取 Input.get_vector，将结果乘以速度写入 velocity，并在物理更新中调用 move_and_slide。",
+      "比较旋转前进与鼠标朝向两种方案，确定角色朝向与运动方向是否需要分离。",
+      "点击移动时存储目标坐标，并设置抵达距离阈值，避免越过目标后左右振荡。"
+    ],
+    "exercise": "做一个四面有墙的小院，分别使用键盘八向与点击目标两种输入；要求抵达目标后停止。",
+    "checks": [
+      "八向速度一致。",
+      "碰墙后不穿透。",
+      "点击目标靠近时不抖动。",
+      "输入名与原文脚本完全一致。"
+    ],
+    "caution": "原文嵌入的 webm 动态演示保留本地原视频及静态抽帧辅助阅读；抽帧不等同于逐帧动作或语音转录，实际转存状态见本文来源说明。"
+  },
+  {
+    "id": "DEV-013",
+    "slug": "sprite-animation",
+    "source_path": "tutorials/2d/2d_sprite_animation.html",
+    "title": "把角色帧图和精灵表接成二维动画",
+    "level": "beginner",
+    "tags": [
+      "Godot",
+      "AnimatedSprite2D",
+      "AnimationPlayer",
+      "精灵表",
+      "动画"
+    ],
+    "summary": "比较散帧、精灵表与属性动画三条导入路线，保证动作帧顺序和速度正确。",
+    "prerequisites": [
+      "有合法来源的散帧或 sprite sheet",
+      "了解角色场景"
+    ],
+    "steps": [
+      "散帧方案：给 AnimatedSprite2D 创建 SpriteFrames，再把同一动作的图片按序加入。",
+      "精灵表方案：用 Add frames from sprite sheet 设置横纵格数，按播放顺序选择帧。",
+      "为动作命名并设置播放速度与循环状态，再在运行时调用 play 切换动作。",
+      "AnimationPlayer 方案：为 Sprite2D 配置横纵帧数，把 frame 属性插入关键帧轨道。",
+      "接入角色控制脚本，分别检查移动、停下和方向翻转的表现。"
+    ],
+    "exercise": "接入四向 idle 与 walk，每个方向都从固定锚点播放；用同一测试场景对比两种动画节点方案。",
+    "checks": [
+      "没有采到相邻帧边缘。",
+      "切换动作不改变角色基准点。",
+      "循环动画首尾连续，非循环动作不会意外重播。"
+    ],
+    "caution": "文中部分示例美术署名为 ansimuz 与 tgfcoder，保留原署名。软件截图的教程许可不自动等于所有素材包的单独使用许可。"
+  },
+  {
+    "id": "DEV-014",
+    "slug": "character-body-collisions",
+    "source_path": "tutorials/physics/using_character_body_2d.html",
+    "title": "角色碰撞：移动、沿墙滑动与反弹",
+    "level": "intermediate",
+    "tags": [
+      "Godot",
+      "CharacterBody2D",
+      "碰撞",
+      "俯视",
+      "物理"
+    ],
+    "summary": "区分 move_and_collide 与 move_and_slide，按角色行为选择运动和碰撞响应。",
+    "prerequisites": [
+      "DEV-012",
+      "理解二维向量"
+    ],
+    "steps": [
+      "使用 CharacterBody2D 表示由脚本直接控制的角色，为它添加碰撞形状。",
+      "用 move_and_collide 提交一次位移并检查碰撞返回值，理解它不会自动完成所有滑动行为。",
+      "用 move_and_slide 让引擎按 velocity 计算运动与沿表面滑动；不要再次把 velocity 乘 delta 传给该方法。",
+      "读取滑动碰撞数据，检查接触物体与法线，再根据需求实现反弹或停止。",
+      "俯视移动与平台跳跃分开处理：明确重力、up_direction、地面判断是否适用于当前玩法。"
+    ],
+    "exercise": "建立窄通道、凸角和斜墙三种测试区，记录角色贴墙移动是否卡住或穿透。",
+    "checks": [
+      "运动代码放在物理更新中。",
+      "角色不会因为重复 delta 换算而速度错误。",
+      "反弹采用碰撞法线，滑动采用适合的运动方法。"
+    ],
+    "caution": "官方页同时涉及二维和三维概念以及平台跳跃；俯视项目只选与自身控制模型相符的部分。"
+  },
+  {
+    "id": "DEV-015",
+    "slug": "area2d-triggers",
+    "source_path": "tutorials/physics/using_area_2d.html",
+    "title": "Area2D：拾取物、门口、伤害区与区域影响",
+    "level": "beginner",
+    "tags": [
+      "Godot",
+      "Area2D",
+      "触发器",
+      "拾取",
+      "交互"
+    ],
+    "summary": "使用重叠检测和区域参数构建交互范围，区分检测区域与实体阻挡。",
+    "prerequisites": [
+      "DEV-004",
+      "了解碰撞层与遮罩"
+    ],
+    "steps": [
+      "建立 Area2D 和 CollisionShape2D，先用调试显示确认区域的位置与尺寸。",
+      "配置 collision_layer 与 collision_mask，明确区域属于哪一层以及检测哪些层。",
+      "按目标节点类型选择 body_entered 或 area_entered 等信号。",
+      "在回调中核验进入者类型或组别，执行拾取、开门或伤害等逻辑。",
+      "如果需要区域重力或阻尼，阅读覆盖模式并分开测试；普通拾取区不必启用这些影响。"
+    ],
+    "exercise": "给院门设置一个只有玩家进入时才亮起的交互提示区，敌人经过时不触发。",
+    "checks": [
+      "检测范围与可见提示一致。",
+      "错误层的对象不会触发逻辑。",
+      "离开区域时提示正确关闭。"
+    ],
+    "caution": "Area2D 本身用于检测和影响，不等同于会阻挡角色的墙体。"
+  },
+  {
+    "id": "DEV-016",
+    "slug": "physics-layers-and-shapes",
+    "source_path": "tutorials/physics/physics_introduction.html",
+    "title": "二维物理基础：形状、图层、遮罩和物体类型",
+    "level": "beginner",
+    "tags": [
+      "Godot",
+      "物理",
+      "碰撞层",
+      "碰撞遮罩",
+      "基础"
+    ],
+    "summary": "为墙、玩家、动态道具和触发区选择正确物理节点，并解释碰撞筛选规则。",
+    "prerequisites": [
+      "DEV-001"
+    ],
+    "steps": [
+      "对照 Area2D、StaticBody2D、RigidBody2D 和 CharacterBody2D 的职责，先分类游戏物件。",
+      "给每种物件添加合适形状，优先让形状简单且与实际碰撞范围一致。",
+      "创建有语义的碰撞层名称，例如 world、player、enemy、pickup。",
+      "将所属层和检测遮罩分别记录在表格中，逐对测试允许或禁止的相互作用。",
+      "在物理回调中处理运动；对动态刚体使用其支持的物理接口，避免直接位置赋值破坏模拟。"
+    ],
+    "exercise": "列出玩家、石墙、可推箱、拾取物四类对象的节点类型与层表，并在测试场景逐项验证。",
+    "checks": [
+      "可见图像与碰撞形状没有明显偏移。",
+      "玩家能被墙阻挡并触发拾取区。",
+      "关闭一个遮罩位后行为变化符合设计。"
+    ],
+    "caution": "碰撞层和遮罩不是渲染图层；调整它们不会改变绘制前后关系。"
+  },
+  {
+    "id": "DEV-017",
+    "slug": "tileset-authoring",
+    "source_path": "tutorials/2d/using_tilesets.html",
+    "title": "TileSet：图集切分、碰撞、遮挡与地形规则",
+    "level": "intermediate",
+    "tags": [
+      "Godot",
+      "TileSet",
+      "图集",
+      "自动拼接",
+      "俯视地图"
+    ],
+    "summary": "把像素 tilesheet 转换成可绘制地图的资源，附加碰撞、导航、遮挡与元数据。",
+    "prerequisites": [
+      "统一网格的 tilesheet",
+      "DEV-016"
+    ],
+    "steps": [
+      "创建 TileSet 资源并确认 tile size，再把图片作为 atlas source 加入。",
+      "设置 texture region、margins 与 separation，检查每个网格是否准确包含一个图块。",
+      "为需要阻挡的图块绘制碰撞多边形；按用途配置导航或光照遮挡层。",
+      "用 custom data 保存玩法元数据，例如地表类型或移动代价，不把这些信息塞进文件名猜测。",
+      "建立 terrain set 和各 terrain，给边或角设置 peering bits，并测试真实拼接组合。",
+      "利用多选和属性绘制批量配置，再为视觉变化建立 alternative tiles。"
+    ],
+    "exercise": "制作草地、土路、墙壁三类图块；草地和土路可行走，墙壁阻挡，路口能自动连接。",
+    "checks": [
+      "图集切分没有吃到邻格像素。",
+      "地形的内角、外角、直边和孤立块均有预期结果。",
+      "碰撞与图像脚底接触区域匹配。"
+    ],
+    "caution": "美术图块能无缝重复不代表 terrain 规则完整；两种问题必须分别验证。"
+  },
+  {
+    "id": "DEV-018",
+    "slug": "tilemap-layer-painting",
+    "source_path": "tutorials/2d/using_tilemaps.html",
+    "title": "TileMapLayer：分层绘图、图案与自动地形",
+    "level": "intermediate",
+    "tags": [
+      "Godot",
+      "TileMapLayer",
+      "地图",
+      "地形",
+      "Y排序"
+    ],
+    "summary": "用多个 TileMapLayer 组织地面、墙体和装饰，配合地形和图案快速制作俯视地图。",
+    "prerequisites": [
+      "DEV-017"
+    ],
+    "steps": [
+      "给 TileMapLayer 指定已配置的 TileSet，先确认画笔中可见的图块正确。",
+      "将地面、实体障碍和上层装饰放在职责清晰的多个层中。",
+      "分别尝试画笔、直线、矩形、填充与选择工具，留意连续区域填充条件。",
+      "把重复的花坛或路口存成 patterns，再在地图上复用。",
+      "切换 terrain 绘制，验证邻接关系；随机散布只用于适合随机变化的装饰。",
+      "检查渲染排序、物理层和导航设置；对于角色经过树后或屋前的场景，按项目设计配置排序。"
+    ],
+    "exercise": "绘制一个含入口、道路、水池和树木的 20×15 格庭院，保留可通行路径并检查遮挡关系。",
+    "checks": [
+      "地面层不意外挡住角色。",
+      "重复图案的边缘没有缺角。",
+      "删除或改名资源后没有未处理的缺失图块。"
+    ],
+    "caution": "此版本文档使用 TileMapLayer。旧 Godot 3 的 TileMap 与 Godot 4 早期教程界面不同，不要直接混套。"
+  },
+  {
+    "id": "DEV-019",
+    "slug": "lights-and-shadows",
+    "source_path": "tutorials/2d/2d_lights_and_shadows.html",
+    "title": "俯视场景的二维灯光、遮挡与材质响应",
+    "level": "intermediate",
+    "tags": [
+      "Godot",
+      "灯光",
+      "阴影",
+      "LightOccluder2D",
+      "场景"
+    ],
+    "summary": "配置点光、方向光和遮挡轮廓，理解法线图、镜面图与廉价发光替代方案。",
+    "prerequisites": [
+      "已有可见二维场景",
+      "理解渲染层和碰撞层的区别"
+    ],
+    "steps": [
+      "先建立可读的无动态灯光场景，再按原文添加 PointLight2D 或 DirectionalLight2D。",
+      "设置灯光颜色、能量和纹理，逐一观察照亮区域的变化。",
+      "启用阴影后，为遮挡物添加 LightOccluder2D；使用自动生成或手动轮廓并检查空洞。",
+      "必要时配置法线图和镜面图，让像素素材对光照产生方向性响应。",
+      "比较加法精灵与真实二维灯光，按效果需求和性能预算选择。"
+    ],
+    "exercise": "给夜间庭院增加一盏路灯和一堵遮光墙；比较普通亮斑与真实阴影对场景可读性的影响。",
+    "checks": [
+      "角色和路径在最暗区域仍能识别。",
+      "遮挡轮廓没有封住应透光的门洞。",
+      "灯光变化不会掩盖原有明暗层级。"
+    ],
+    "caution": "像素风不要求使用动态法线光照；风格一致性优先于效果数量。"
+  },
+  {
+    "id": "DEV-020",
+    "slug": "canvas-layers",
+    "source_path": "tutorials/2d/canvas_layers.html",
+    "title": "CanvasLayer：分离游戏世界、背景与HUD",
+    "level": "beginner",
+    "tags": [
+      "Godot",
+      "CanvasLayer",
+      "HUD",
+      "相机",
+      "绘制顺序"
+    ],
+    "summary": "理解视口、CanvasItem 和 CanvasLayer 的关系，避免固定界面随镜头移动。",
+    "prerequisites": [
+      "DEV-001",
+      "项目中存在 Camera2D 或 HUD"
+    ],
+    "steps": [
+      "阅读视口和 CanvasItem 的关系图，先区分节点层级与渲染画布层。",
+      "将场景物件留在世界画布，让 Camera2D 的变换影响它们。",
+      "建立专门的 CanvasLayer 容纳 HUD，配置其 layer 值以控制覆盖顺序。",
+      "让背景、世界、前景和界面各自承担单一职责，再用镜头移动验证关系。"
+    ],
+    "exercise": "制作一个可移动镜头的小场景，左上角固定显示坐标，世界中的路牌随镜头移动。",
+    "checks": [
+      "HUD 位置不受世界镜头平移影响。",
+      "世界标签和固定界面没有放错画布。",
+      "layer 值的覆盖关系可解释而非靠反复试数。"
+    ],
+    "caution": "CanvasLayer 的 layer 与 CanvasItem 的 z_index 是不同维度；不要用碰撞层解决绘制顺序。"
+  },
+  {
+    "id": "DEV-021",
+    "slug": "pixel-perfect-resolutions",
+    "source_path": "tutorials/rendering/multiple_resolutions.html",
+    "title": "像素清晰度：基础分辨率、缩放与宽高比",
+    "level": "intermediate",
+    "tags": [
+      "Godot",
+      "像素清晰度",
+      "整数缩放",
+      "分辨率",
+      "适配"
+    ],
+    "summary": "把设计分辨率与窗口尺寸分开，理解 viewport/canvas_items 与整数缩放的取舍。",
+    "prerequisites": [
+      "有包含细线和像素角色的测试场景"
+    ],
+    "steps": [
+      "选择项目的基础分辨率并记录期望像素尺度，先固定一个可验证基准。",
+      "比较 stretch mode 的 canvas_items 与 viewport，对照原文截图观察内容和渲染分辨率的区别。",
+      "设定 stretch aspect 以决定超宽或过高窗口如何留边或扩展可见区。",
+      "像素游戏重点测试 integer scale mode，避免非整数缩放让像素宽度不一致。",
+      "在多种窗口尺寸、全屏和高 DPI 屏幕上检查；纹理过滤设置需另对照导入和渲染文档。"
+    ],
+    "exercise": "在基准的 2 倍、3 倍及一个非整数尺寸运行，截取同一细线区域，对比像素宽度与黑边。",
+    "checks": [
+      "像素边缘没有双线性模糊。",
+      "同一素材的像素块宽高一致。",
+      "宽高比改变时重要交互物仍可见或有明确适配。"
+    ],
+    "caution": "整数缩放可能留下更大边框；这是显示策略，不是源素材分辨率错误。官方原文也含3D与移动应用情况，需按用途筛选。"
+  },
+  {
+    "id": "DEV-022",
+    "slug": "image-import-pipeline",
+    "source_path": "tutorials/assets_pipeline/importing_images.html",
+    "title": "像素图片导入：压缩、纹理与透明边缘",
+    "level": "intermediate",
+    "tags": [
+      "Godot",
+      "素材导入",
+      "纹理",
+      "压缩",
+      "透明"
+    ],
+    "summary": "阅读图像导入选项与压缩差异，明确哪些设置会影响像素边缘、透明和运行资源。",
+    "prerequisites": [
+      "准备 PNG 像素图和透明素材",
+      "了解导入面板"
+    ],
+    "steps": [
+      "导入一张带透明边缘的 PNG，观察 Godot 生成的纹理资源以及重新导入流程。",
+      "对照无损、有损和显存压缩模式的目标与代价，选择适合二维像素素材的配置。",
+      "检查 mipmaps、色彩和透明相关处理是否适合当前显示尺度。",
+      "在实际游戏视图中测试，而不只看编辑器缩略图；Godot 4 的纹理过滤也由渲染/CanvasItem设置参与控制。",
+      "保留原始素材与导入配置，避免从运行时压缩结果反向当作绘画源文件。"
+    ],
+    "exercise": "选一张包含细杆和透明孔洞的道具图，比较两种压缩配置的实际渲染截图并记录差异。",
+    "checks": [
+      "细线、孔洞和边缘颜色保留。",
+      "透明区域没有明显白边或黑边。",
+      "缩放测试和导入配置可以复现。"
+    ],
+    "caution": "不要照搬 Godot 3 中“在导入面板关闭 Filter”的旧操作；本库固定4.5，需要对照该版的过滤设置位置。"
+  },
+  {
+    "id": "DEV-023",
+    "slug": "animation-tree-state-machine",
+    "source_path": "tutorials/animation/animation_tree.html",
+    "title": "AnimationTree：动作混合与状态机",
+    "level": "intermediate",
+    "tags": [
+      "Godot",
+      "AnimationTree",
+      "状态机",
+      "动作切换",
+      "动画"
+    ],
+    "summary": "建立可管理的动作状态转换，理解混合树、状态机与动画播放控制的职责。",
+    "prerequisites": [
+      "已使用 AnimationPlayer 创建动画",
+      "DEV-013"
+    ],
+    "steps": [
+      "先准备可独立播放的 AnimationPlayer 动画，再创建引用它的 AnimationTree。",
+      "阅读不同根节点类型，按需求选择混合树或状态机。",
+      "为 idle、walk、attack 建立状态与转换，并指定必要的条件和切换模式。",
+      "通过 AnimationTree 参数和状态机 playback 控制运行，避免同时用多套播放入口竞争。",
+      "检查共享轨道的默认值与 RESET 动画等混合要求，防止状态切换后残留属性。"
+    ],
+    "exercise": "制作 idle→walk→attack→idle 的最小流程，禁止攻击未结束时被普通移动状态立即打断。",
+    "checks": [
+      "状态转换条件可从代码和图中清晰追溯。",
+      "切换动作后位置、透明度等属性不会残留。",
+      "静止与移动之间没有错误循环或不可达状态。"
+    ],
+    "caution": "官方页面也涵盖3D、骨骼和高级混合。逐帧像素动画并不一定需要插值混合；优先选能保持帧形状清晰的切换方式。"
+  },
+  {
+    "id": "DEV-024",
+    "slug": "parallax-backgrounds",
+    "source_path": "tutorials/2d/2d_parallax.html",
+    "title": "Parallax2D：循环背景与多层视差",
+    "level": "intermediate",
+    "tags": [
+      "Godot",
+      "Parallax2D",
+      "背景",
+      "循环",
+      "场景"
+    ],
+    "summary": "用分层滚动制造深度，检查重复范围和镜头移动时的接缝。",
+    "prerequisites": [
+      "有适合循环的背景素材",
+      "理解 Camera2D"
+    ],
+    "steps": [
+      "建立 Parallax2D 并添加可见背景，先让相机运动验证基础跟随关系。",
+      "用 scroll_scale 调整远近层相对相机的移动速度，逐层设置而非同时修改。",
+      "配置 repeat_size 等重复参数，使重复范围覆盖正确的纹理尺寸。",
+      "检查子节点偏移、缩放与可视窗口尺寸，避免重复时露出空白或错位。",
+      "使用正反方向镜头运动与较大窗口测试循环边界。"
+    ],
+    "exercise": "为村庄外景制作远山、云层、近景树影三个层，每层采用不同滚动比例并保持无缝循环。",
+    "checks": [
+      "镜头反向移动时没有突然跳变。",
+      "接缝处纹理连续且不会露出空白。",
+      "视差不会使可交互前景的位置产生误导。"
+    ],
+    "caution": "Parallax2D 的用法应按4.5页面操作；旧教程中的 ParallaxBackground/ParallaxLayer 结构不宜直接混用。"
+  }
+]

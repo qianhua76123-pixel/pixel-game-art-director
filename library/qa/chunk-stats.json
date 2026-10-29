@@ -1,0 +1,7 @@
+{
+  "chunks": 468,
+  "tutorials": 92,
+  "target_characters": 2200,
+  "max_chunk_characters": 11867,
+  "note": "Long code blocks/tables remain intact and can exceed target length."
+}

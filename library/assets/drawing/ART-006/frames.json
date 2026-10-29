@@ -1,0 +1,26 @@
+{
+  "original": "Resizing.gif",
+  "width": 512,
+  "height": 512,
+  "frames": 78,
+  "duration_ms": 14040,
+  "selected": [
+    {
+      "frame": 0,
+      "time_ms": 0
+    },
+    {
+      "frame": 25,
+      "time_ms": 4500
+    },
+    {
+      "frame": 51,
+      "time_ms": 9180
+    },
+    {
+      "frame": 77,
+      "time_ms": 13860
+    }
+  ],
+  "operation": "Extract original frames at 0/33/66/99 percent of duration; add labels outside frames; no interpolation or art recoloring."
+}

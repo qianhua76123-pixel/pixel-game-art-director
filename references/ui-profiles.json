@@ -1,0 +1,585 @@
+{
+  "schema_version": 1,
+  "kind": "pixel-game-ui-profiles",
+  "editorial_notice": "六种UI配方由整理者编写；组件逻辑参考themed-uiux与列出的官方文档。配图只说明素材或技术，不冒充已完成可交互界面。实际项目字体、交互状态和最终渲染须核验。",
+  "path_base": "skill-root",
+  "common": {
+    "classification": "editorial-workflow",
+    "interaction_contract": [
+      "normal",
+      "hover-if-pointer",
+      "pressed",
+      "selected",
+      "focus",
+      "disabled",
+      "error",
+      "loading",
+      "empty"
+    ],
+    "controller": "定义进入面板初始焦点、四向邻居、确认/取消和关闭后返回焦点；隐藏或删除当前节点后把焦点移到合理仍可见目标。不要把UI导航动作同时当世界移动输入。",
+    "scaling": "分别记录世界逻辑像素、UI逻辑像素、显示倍率与文字层策略。用最终屏幕尺寸检查；像素素材优先整数倍，长中文通过重排/分页处理。",
+    "hit_area": "图标外观尺寸不等于可点击区域。按目标输入测试命中范围与间距；触控原型可先以44×44屏幕逻辑px作为整理者起点，再按设备实测调整，这不是所有平台统一规范。命中区域不可互相重叠。",
+    "font_checks": [
+      "保留字体来源和许可，确认实际字库覆盖。",
+      "测试最长中文名、混排数字、标点、负号、单位与大数值。",
+      "检查最终显示尺寸、字形粗细、基线、行高与缺字，不只看编辑器字号。"
+    ],
+    "contrast": "正文可参考WCAG2.2普通文字4.5:1作为检查目标，适用大型文字为3:1；游戏需要结合实际显示再看清楚度。本配方没有承诺全部颜色组合已达标，也不把单一对比数值当整体合规结论。",
+    "rendered_checks": [
+      "当前用户尺寸、较小支持尺寸与较大尺寸。",
+      "最长文本/最大合理数字、内容最密状态、空态与禁用态。",
+      "鼠标/键盘/手柄的完整进入-操作-退出路径。",
+      "减少运动/静态状态，以及纹理/光照最不利背景。"
+    ]
+  },
+  "external_sources": [
+    {
+      "title": "Godot 4.5 NinePatchRect",
+      "url": "https://docs.godotengine.org/en/4.5/classes/class_ninepatchrect.html",
+      "scope": "九宫格边角与轴向平铺/拉伸模式"
+    },
+    {
+      "title": "Godot 4.5 Keyboard/Controller Navigation and Focus",
+      "url": "https://docs.godotengine.org/en/4.5/tutorials/ui/gui_navigation.html",
+      "scope": "初始焦点、四向邻居、UI动作与游戏输入分离"
+    },
+    {
+      "title": "W3C WCAG 2.2 Understanding Contrast Minimum",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html",
+      "scope": "文字对比检查目标与适用范围"
+    }
+  ],
+  "profiles": [
+    {
+      "id": "wood-paper",
+      "name": "木框纸面",
+      "summary": "以木、布或纸形成世界内的轻量阅读面板；适合生活模拟和自然题材。",
+      "art_profile_ids": [
+        "cozy-rural",
+        "muted-fantasy",
+        "isometric-diorama"
+      ],
+      "palette": {
+        "panel": "#EAD9AA",
+        "panel_edge": "#76513B",
+        "text": "#2D302A",
+        "muted_text": "#5E594A",
+        "accent": "#7D583D",
+        "focus": "#285D51",
+        "danger": "#8B3543"
+      },
+      "material": "四周表现木框/缝边，中心使用低纹理纸面；动态数字和标签作为独立文字层。",
+      "nine_slice": {
+        "corners": "固定木榫、钉子和圆角的逻辑像素尺寸。",
+        "edges": "单一方向可平铺木纹；边角接缝需要实际拉长面板验证。",
+        "center": "无缝低纹理纸底；长文本区域可使用更平静的实色变体。",
+        "minimum_size_rule": "最小宽高必须容纳两侧边框、内边距与最短实际标签，不仅等于两角宽度之和。"
+      },
+      "typography": {
+        "latin": "标题可用有手工感的像素字体；正文与数值优先清楚字形。",
+        "cjk": "选择已有授权且覆盖实际中文字符的字体；缺字时替换同一文字角色的字体，不逐字混入不同笔画风格。",
+        "fallback": "可以让正文使用清楚CJK常规字体，但记录为UI文字层例外；不要为迎合拉丁微型点阵压扁汉字。",
+        "hierarchy": "物品名 > 关键属性/动作 > 次要描述；数字使用稳定宽度或预留宽度。"
+      },
+      "content_layout": "世界画面保持主要空间；背包/对话在玩家需要时展开。价格、消耗、效果与主动作放在同一读序内；装饰叶片不占据标签和按钮命中区。",
+      "icons": "物品沿用场景资产的材质与轮廓；状态图标比物品纹理更简洁，保持同样视觉重量。",
+      "states": {
+        "normal": "浅纸面、稳定深文字；主操作通过位置和框形区分。",
+        "hover": "边框变暖或局部提亮，不改变排版尺寸。",
+        "pressed": "内容可下移1个已声明UI逻辑像素，但命中框保持稳定。",
+        "selected": "加叶签或实心标记并保留文字，不能只换颜色。",
+        "focus": "独立可见的外框或箭头；与selected可同时存在。",
+        "disabled": "保留可读文字，改边框/材质并写出缺少条件；不把整组透明度压到不可读。",
+        "error": "在相关动作旁显示原因和恢复动作，危险色配图标/文字。",
+        "loading": "在按钮或槽位显示局部等待，避免整张背包跳位。",
+        "empty": "保留空槽结构并给当前上下文的下一步，例如“采集后存入”。"
+      },
+      "motion": "少量纸签弹性或柔和出现；关闭动画后停在最终可读状态。",
+      "avoid": [
+        "把厚重木框包在每个数字外面",
+        "为了放长中文而非整数缩小整个UI",
+        "让纹理高光穿过文字笔画"
+      ],
+      "tutorial_ids": [
+        "UI-001",
+        "UI-002",
+        "UI-003",
+        "UI-004",
+        "DEV-010",
+        "DEV-020",
+        "DEV-021",
+        "ART-014",
+        "ART-019"
+      ],
+      "figures": [
+        {
+          "tutorial_id": "UI-001",
+          "path": "library/assets/supplement/UI-001/UI-9-Slice.gif",
+          "title": "Saint11 九宫格面板图示",
+          "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/UI-9-Slice.gif",
+          "author": "Pedro Medeiros (Saint11)",
+          "license": "CC-BY-4.0",
+          "scope": "学习角、边、中心的分区；不是某UI主题完整界面。",
+          "is_complete_style_example": false
+        },
+        {
+          "tutorial_id": "DEV-010",
+          "path": "library/assets/game-development/DEV-010/custom_font_load_font.webp",
+          "title": "完整二维小游戏：HUD、开始按钮与重开",
+          "source_url": "https://docs.godotengine.org/en/4.5/_images/custom_font_load_font.webp",
+          "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+          "license": "CC-BY-3.0",
+          "scope": "学习游戏HUD、文字与按钮布局；示例画风不是本主题要求。",
+          "is_complete_style_example": false
+        }
+      ],
+      "visual_checks": [
+        "最长物品名与大数值不压到木框。",
+        "拉长面板后钉子和角花没有变形。",
+        "在浅草地和暗室背景上都能看到焦点。"
+      ]
+    },
+    {
+      "id": "compact-handheld",
+      "name": "紧凑掌机界面",
+      "summary": "用清楚点阵字、简单线框和有节制的图标服务小画布，不依赖装饰制造层级。",
+      "art_profile_ids": [
+        "limited-handheld",
+        "one-bit"
+      ],
+      "palette": {
+        "panel": "#DDE6AD",
+        "panel_edge": "#243B32",
+        "text": "#243B32",
+        "muted_text": "#425739",
+        "accent": "#243B32",
+        "focus": "#243B32",
+        "danger": "#243B32"
+      },
+      "material": "双色或四阶明度的平面面板；重点使用留白、边框和选中符号。",
+      "nine_slice": {
+        "corners": "简单1至2逻辑像素转角；圆角/直角规则全局一致。",
+        "edges": "纯色线段可拉长，图案边只按完整周期平铺。",
+        "center": "安静实色，不铺满抖色。",
+        "minimum_size_rule": "短标签必须有可见内边距；空间不够则分页/详情页，不再压缩字体。"
+      },
+      "typography": {
+        "latin": "可使用与UI逻辑网格匹配的固定宽度点阵；先检查0/O、1/I和标点。",
+        "cjk": "中文另选足够字符尺寸和覆盖范围的字库；为中文版本扩展行高与面板。",
+        "fallback": "若没有合格小字号CJK点阵，改用独立清楚文字层并调整布局，声明混合渲染而不假装同网格。",
+        "hierarchy": "以行距、缩进、指针和反相分层，避免仅靠增加颜色。"
+      },
+      "content_layout": "每屏围绕一个决定：选择物品、确认动作或读对话。长描述进入详情；保持返回位置与所选行。",
+      "icons": "用轮廓和负形作图标；可交互箭头、锁、检查标记不得与装饰图案混淆。",
+      "states": {
+        "normal": "稳定浅底深字或其反相版本。",
+        "hover": "轻边或指针，鼠标态不成为唯一操作提示。",
+        "pressed": "短暂反相或内缩标记，标签继续可读。",
+        "selected": "固定行指针/实心方块加反相。",
+        "focus": "带框或双角标，与已选中物品的标记区分。",
+        "disabled": "加锁或斜线符号并保留条件文本；不能只用不可辨的近似明度。",
+        "error": "使用明确符号与短句，颜色受限时仍能读懂。",
+        "loading": "静态等待词或简短进度标记；不要求观看闪烁字符。",
+        "empty": "空列表保持标题和返回动作，说明下一步。"
+      },
+      "motion": "反相和指针移动以低幅度为主；持续闪烁可关闭。",
+      "avoid": [
+        "以真实硬件约束为由让现代玩家读不清",
+        "强行把所有中文塞进和拉丁字母一样宽的格子",
+        "选中、焦点和错误都只靠同一种反相"
+      ],
+      "tutorial_ids": [
+        "UI-001",
+        "UI-002",
+        "UI-003",
+        "UI-004",
+        "DEV-010",
+        "DEV-020",
+        "DEV-021",
+        "ART-002",
+        "ART-004"
+      ],
+      "figures": [
+        {
+          "tutorial_id": "UI-001",
+          "path": "library/assets/supplement/UI-001/UI-9-Slice.gif",
+          "title": "Saint11 九宫格面板图示",
+          "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/UI-9-Slice.gif",
+          "author": "Pedro Medeiros (Saint11)",
+          "license": "CC-BY-4.0",
+          "scope": "学习角、边、中心的分区；不是某UI主题完整界面。",
+          "is_complete_style_example": false
+        },
+        {
+          "tutorial_id": "DEV-010",
+          "path": "library/assets/game-development/DEV-010/custom_font_load_font.webp",
+          "title": "完整二维小游戏：HUD、开始按钮与重开",
+          "source_url": "https://docs.godotengine.org/en/4.5/_images/custom_font_load_font.webp",
+          "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+          "license": "CC-BY-3.0",
+          "scope": "学习游戏HUD、文字与按钮布局；示例画风不是本主题要求。",
+          "is_complete_style_example": false
+        }
+      ],
+      "visual_checks": [
+        "双色状态下仍分辨当前焦点、选中项目与不可用项目。",
+        "文字在目标显示倍率清楚，关键信息不靠像素级猜测。",
+        "手柄从第一页进入/退出详情后回到原项目。"
+      ]
+    },
+    {
+      "id": "bold-arcade",
+      "name": "醒目街机界面",
+      "summary": "通过大色块、短标签和强形状反馈传递即时操作，HUD不盖住主要动作区。",
+      "art_profile_ids": [
+        "vivid-arcade"
+      ],
+      "palette": {
+        "panel": "#241E3B",
+        "panel_edge": "#69469C",
+        "text": "#F7F1CE",
+        "muted_text": "#C3BBD5",
+        "accent": "#F4DE86",
+        "focus": "#5ED4D1",
+        "danger": "#F08C94"
+      },
+      "material": "宽边、徽章和实体色块；以少量材质细节服务动作信息。",
+      "nine_slice": {
+        "corners": "角块/铆钉固定尺寸，不随按钮文字长度变胖。",
+        "edges": "用可重复条纹或单色边框，避免斜线在连接处断裂。",
+        "center": "纯色或低对比纹理，为大数字保留稳定底色。",
+        "minimum_size_rule": "主按钮适配最长实际动作词；得分区预留最大合理位数。"
+      },
+      "typography": {
+        "latin": "展示字可用于短标题；分数数字需稳定字宽与清楚轮廓。",
+        "cjk": "短标题也需明确笔画结构，正文使用清楚中文字库；不要靠重复外描边硬凑粗字。",
+        "fallback": "展示字缺字时整段切到同角色备用字体，保持字号层级。",
+        "hierarchy": "即时状态、主行动与庆祝标题优先；说明文字避免占据战斗中心。"
+      },
+      "content_layout": "HUD锚定边缘但避开危险与角色常活动区；暂停、失败、奖励面板分别围绕继续/重试/领取任务。",
+      "icons": "生命、弹药和奖励图标用不同轮廓与形状，不能仅按红黄蓝区分。",
+      "states": {
+        "normal": "实体大色块和清楚短标签。",
+        "hover": "提高边框或外轮廓对比，不能改变按钮位置。",
+        "pressed": "小幅压下或挤压图形，文字不同时模糊缩放。",
+        "selected": "实心标记或切角框，配当前选项文本。",
+        "focus": "独立高对比边框/箭头，支持方向键移动。",
+        "disabled": "色块降强调但标签仍可读，显示锁定或资源条件。",
+        "error": "短句加警示形状；不依赖整屏红闪。",
+        "loading": "可读进度或等待状态，不能伪造进度百分比。",
+        "empty": "明确当前没有对象，并保留返回/继续动作。"
+      },
+      "motion": "反馈可以弹性明显，但命中、选择和完成必须有静态结果；提供减少屏闪与背景运动的路径。",
+      "avoid": [
+        "HUD像同等重要的彩色卡片铺满屏幕",
+        "每次得分都播放不可跳过的大幅庆祝",
+        "危险和奖励使用相同脉冲颜色"
+      ],
+      "tutorial_ids": [
+        "UI-001",
+        "UI-002",
+        "UI-003",
+        "UI-004",
+        "DEV-010",
+        "DEV-020",
+        "DEV-021",
+        "ANIM-008",
+        "ANIM-010",
+        "ANIM-012"
+      ],
+      "figures": [
+        {
+          "tutorial_id": "UI-001",
+          "path": "library/assets/supplement/UI-001/UI-9-Slice.gif",
+          "title": "Saint11 九宫格面板图示",
+          "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/UI-9-Slice.gif",
+          "author": "Pedro Medeiros (Saint11)",
+          "license": "CC-BY-4.0",
+          "scope": "学习角、边、中心的分区；不是某UI主题完整界面。",
+          "is_complete_style_example": false
+        },
+        {
+          "tutorial_id": "DEV-010",
+          "path": "library/assets/game-development/DEV-010/custom_font_load_font.webp",
+          "title": "完整二维小游戏：HUD、开始按钮与重开",
+          "source_url": "https://docs.godotengine.org/en/4.5/_images/custom_font_load_font.webp",
+          "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+          "license": "CC-BY-3.0",
+          "scope": "学习游戏HUD、文字与按钮布局；示例画风不是本主题要求。",
+          "is_complete_style_example": false
+        }
+      ],
+      "visual_checks": [
+        "最忙战斗场面仍读得到生命和当前焦点。",
+        "长得分数字不会挤到暂停按钮。",
+        "关闭闪光与弹跳时仍能区分成功、失败和禁用。"
+      ]
+    },
+    {
+      "id": "ornate-fantasy",
+      "name": "克制幻想装饰",
+      "summary": "把金属、书页和少量纹章放在边缘，让物品比较、任务与对话仍有清楚读序。",
+      "art_profile_ids": [
+        "muted-fantasy",
+        "dark-gothic"
+      ],
+      "palette": {
+        "panel": "#DDD3B1",
+        "panel_edge": "#665743",
+        "text": "#2B2C34",
+        "muted_text": "#5B574E",
+        "accent": "#765731",
+        "focus": "#3A5C6D",
+        "danger": "#8A3D4A"
+      },
+      "material": "皮革/书页主体配局部金属饰件；一个面板只用少数材料层，不把每个控件做成复杂道具。",
+      "nine_slice": {
+        "corners": "角花与纹章保持固定尺寸；不能把中心徽章放进会平铺的切片。",
+        "edges": "边条按同一逻辑像素宽度平铺；装饰周期不切半。",
+        "center": "低纹理书页/布面，正文底下移除强划痕。",
+        "minimum_size_rule": "正文区域由真实段落决定；装饰只使用剩余边界，必要时采用简化窄面板变体。"
+      },
+      "typography": {
+        "latin": "装饰字体限制在短标题或章名；属性与说明采用清楚字形。",
+        "cjk": "可用与题材相符但笔画不拥挤的中文字体；避免把细书法字当密集正文。",
+        "fallback": "整段标题或正文按角色fallback，确认数字、符号和中英基线协调。",
+        "hierarchy": "物品名、等级/属性、价格/需求、操作按钮按决策顺序排；差值不得只靠颜色。"
+      },
+      "content_layout": "比较装备时并列相同属性顺序；任务日志优先目标、进度与下一步，背景卷轴不决定内容容量。",
+      "icons": "物品图标共享世界材质与光源；功能图标使用更简化的轮廓，稀有度额外配文字/形状。",
+      "states": {
+        "normal": "安静纸底、固定边框。",
+        "hover": "局部金属或边条提亮，不给整块正文打强光。",
+        "pressed": "边缘压暗或短位移，内容区域保持稳定。",
+        "selected": "角签/纹章加标题标记。",
+        "focus": "独立清楚外框，与稀有度边框区分。",
+        "disabled": "锁定符号和缺少条件；字体不因做旧纹理而消失。",
+        "error": "就地显示需求未满足或操作失败原因。",
+        "loading": "保留面板尺寸，局部显示等待文字或进度。",
+        "empty": "保留章节结构，提供具体来源或下一步。"
+      },
+      "motion": "慢而短的展开可以作为装饰，关闭后直接显示最终布局；不能强制每次翻页等待卷轴动画。",
+      "avoid": [
+        "用饰件把所有信息挤成小字",
+        "把稀有度边框误当焦点框",
+        "金属面板和世界光源方向互相矛盾"
+      ],
+      "tutorial_ids": [
+        "UI-001",
+        "UI-002",
+        "UI-003",
+        "UI-004",
+        "DEV-010",
+        "DEV-020",
+        "DEV-021",
+        "ART-018",
+        "ART-019",
+        "ART-020"
+      ],
+      "figures": [
+        {
+          "tutorial_id": "UI-001",
+          "path": "library/assets/supplement/UI-001/UI-9-Slice.gif",
+          "title": "Saint11 九宫格面板图示",
+          "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/UI-9-Slice.gif",
+          "author": "Pedro Medeiros (Saint11)",
+          "license": "CC-BY-4.0",
+          "scope": "学习角、边、中心的分区；不是某UI主题完整界面。",
+          "is_complete_style_example": false
+        },
+        {
+          "tutorial_id": "DEV-010",
+          "path": "library/assets/game-development/DEV-010/custom_font_load_font.webp",
+          "title": "完整二维小游戏：HUD、开始按钮与重开",
+          "source_url": "https://docs.godotengine.org/en/4.5/_images/custom_font_load_font.webp",
+          "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+          "license": "CC-BY-3.0",
+          "scope": "学习游戏HUD、文字与按钮布局；示例画风不是本主题要求。",
+          "is_complete_style_example": false
+        }
+      ],
+      "visual_checks": [
+        "最长中文物品名和三位差值不撞角花。",
+        "同一属性在比较面板中对齐且含明确增减符号。",
+        "控制器可以访问页签、列表、详情和动作，并返回原焦点。"
+      ]
+    },
+    {
+      "id": "dark-stone",
+      "name": "暗石铁器界面",
+      "summary": "用暗石底和清楚的文字/焦点对比维持氛围，同时让关键操作可靠可见。",
+      "art_profile_ids": [
+        "dark-gothic",
+        "one-bit"
+      ],
+      "palette": {
+        "panel": "#242A35",
+        "panel_edge": "#5F6876",
+        "text": "#E4D8B6",
+        "muted_text": "#B7BBC4",
+        "accent": "#D4A768",
+        "focus": "#A7CAD0",
+        "danger": "#EEA0A7"
+      },
+      "material": "暗色石面或铁板，纹理集中在边缘与非阅读区；世界背景与文字底色分开管理。",
+      "nine_slice": {
+        "corners": "裂口/铆钉固定逻辑尺寸，裂纹不穿过文本。",
+        "edges": "边条的破损位置可平铺但节奏稀疏。",
+        "center": "比边缘安静，允许为文字使用更纯的暗色。",
+        "minimum_size_rule": "保留足够亮色文字空间和焦点外扩区；不能为了气氛使标签贴边。"
+      },
+      "typography": {
+        "latin": "带硬朗造型的短标题可用；正文避免细长或强纹理字形。",
+        "cjk": "选稳定笔画的中文正文，逐条检查暗底细线是否断裂。",
+        "fallback": "备用字库保持文字尺寸与行高，不能因缺字突然变成更细的灰字。",
+        "hierarchy": "生命、消耗和确认结果优先；低重要度信息可缩减，但重要状态不一律变暗。"
+      },
+      "content_layout": "警告贴近相关动作；危险操作的文字和返回路径都清楚。装备图与属性区有明确边界，纹理不承担语义。",
+      "icons": "状态图标用清楚亮面和剪影；即使世界素材较暗，也允许UI状态层有更高可读性。",
+      "states": {
+        "normal": "深底配清楚亮字。",
+        "hover": "边框与局部材质提亮，文本对比保持。",
+        "pressed": "轻微内压边线，不让整块UI变黑。",
+        "selected": "亮色缺口/刻痕标记加标题状态。",
+        "focus": "独立浅色外框或角标，不能与场景火光混淆。",
+        "disabled": "保留标签，使用锁/说明和弱边框；不要仅整体降透明度。",
+        "error": "浅危险色、图标和简短原因，保持返回/重试按钮。",
+        "loading": "静态文字也能表达等待；不用无限闪红模拟危险。",
+        "empty": "显示“未持有”等真实状态，并保留获取方向。"
+      },
+      "motion": "可用轻微金属响应；屏闪、雾和背景粒子与UI状态分开，可减少运动。",
+      "avoid": [
+        "所有文字为了暗黑氛围都用低对比灰色",
+        "持续火光让选中框看似闪烁消失",
+        "靠复杂裂纹分隔可点击和不可点击区域"
+      ],
+      "tutorial_ids": [
+        "UI-001",
+        "UI-002",
+        "UI-003",
+        "UI-004",
+        "DEV-010",
+        "DEV-020",
+        "DEV-021",
+        "ART-021",
+        "ART-022"
+      ],
+      "figures": [
+        {
+          "tutorial_id": "UI-001",
+          "path": "library/assets/supplement/UI-001/UI-9-Slice.gif",
+          "title": "Saint11 九宫格面板图示",
+          "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/UI-9-Slice.gif",
+          "author": "Pedro Medeiros (Saint11)",
+          "license": "CC-BY-4.0",
+          "scope": "学习角、边、中心的分区；不是某UI主题完整界面。",
+          "is_complete_style_example": false
+        },
+        {
+          "tutorial_id": "DEV-010",
+          "path": "library/assets/game-development/DEV-010/custom_font_load_font.webp",
+          "title": "完整二维小游戏：HUD、开始按钮与重开",
+          "source_url": "https://docs.godotengine.org/en/4.5/_images/custom_font_load_font.webp",
+          "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+          "license": "CC-BY-3.0",
+          "scope": "学习游戏HUD、文字与按钮布局；示例画风不是本主题要求。",
+          "is_complete_style_example": false
+        }
+      ],
+      "visual_checks": [
+        "最暗场景和最亮火光帧中标签均能读到。",
+        "禁用原因可读，焦点边框与稀有度/受击提示分得开。",
+        "灰度状态下警告与普通提示仍有图标或文字区别。"
+      ]
+    },
+    {
+      "id": "holo-terminal",
+      "name": "全息终端界面",
+      "summary": "以结构清楚的硬边框、少量发光线和安静文字区表现科技感。",
+      "art_profile_ids": [
+        "neon-scifi",
+        "isometric-diorama"
+      ],
+      "palette": {
+        "panel": "#172334",
+        "panel_edge": "#536A84",
+        "text": "#D4E3E9",
+        "muted_text": "#A7BBCB",
+        "accent": "#52D6CF",
+        "focus": "#E9B86E",
+        "danger": "#F0A0BB"
+      },
+      "material": "实体面板或半透明背景需先选定；若半透明，保证文字区对最坏背景仍足够遮罩。光线只是装饰层，不替代面板结构。",
+      "nine_slice": {
+        "corners": "切角/接口固定像素尺寸，不随宽度任意拉斜。",
+        "edges": "短线段可平铺，扫描线与边框分层。",
+        "center": "纯色或极低频图案；文字下面不放网格和扫描闪线。",
+        "minimum_size_rule": "字段名、当前值、单位与操作提示都能完整容纳；不足时重排，不把终端缩成小字表格。"
+      },
+      "typography": {
+        "latin": "数值可用清楚等宽字；标题不必全大写或加入无意义字符。",
+        "cjk": "中文使用覆盖完整的清楚字库，检查等宽数字与中文的基线和行高。",
+        "fallback": "整字段切换备用字体，禁止用字间距硬把汉字压进拉丁宽度。",
+        "hierarchy": "当前状态、主操作、危险/限制优先；装饰遥测不超过真正任务信息的显著性。"
+      },
+      "content_layout": "围绕扫描、装备、建造或对话等游戏任务；只显示玩家能理解和使用的数据，避免把实现模块拼成仪表板。",
+      "icons": "图标用稳定硬边和简洁连接结构；能量/故障/交互各有独立形状，不只依赖青、粉、黄。",
+      "states": {
+        "normal": "暗面、清楚文本、少量结构光。",
+        "hover": "交互边发光或刻线增强，标签保持实色。",
+        "pressed": "局部边线压入或短扫描反馈，不能整面板缩放模糊。",
+        "selected": "稳定实线/角标加状态文本。",
+        "focus": "暖色外框或方向箭头，与青色装饰光分离。",
+        "disabled": "断开接口/锁图标和原因，文本保持可读。",
+        "error": "警示形状与具体错误文本，可提供恢复动作。",
+        "loading": "真实进度或不确定等待；不能将装饰扫描百分比伪称任务进度。",
+        "empty": "显示当前未发现/未安装状态，并给下一步。"
+      },
+      "motion": "扫描线和噪波不得遮文字；减少运动时用静态角标与状态文字代替。",
+      "avoid": [
+        "为了科幻风加入无关折线图和遥测卡片",
+        "所有可交互与装饰都用同样青色闪烁",
+        "光晕模糊掉按钮边界和焦点框"
+      ],
+      "tutorial_ids": [
+        "UI-001",
+        "UI-002",
+        "UI-003",
+        "UI-004",
+        "DEV-010",
+        "DEV-020",
+        "DEV-021",
+        "ART-018",
+        "ART-022",
+        "ANIM-009"
+      ],
+      "figures": [
+        {
+          "tutorial_id": "UI-001",
+          "path": "library/assets/supplement/UI-001/UI-9-Slice.gif",
+          "title": "Saint11 九宫格面板图示",
+          "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/UI-9-Slice.gif",
+          "author": "Pedro Medeiros (Saint11)",
+          "license": "CC-BY-4.0",
+          "scope": "学习角、边、中心的分区；不是某UI主题完整界面。",
+          "is_complete_style_example": false
+        },
+        {
+          "tutorial_id": "DEV-010",
+          "path": "library/assets/game-development/DEV-010/custom_font_load_font.webp",
+          "title": "完整二维小游戏：HUD、开始按钮与重开",
+          "source_url": "https://docs.godotengine.org/en/4.5/_images/custom_font_load_font.webp",
+          "author": "Juan Linietsky, Ariel Manzur and the Godot community",
+          "license": "CC-BY-3.0",
+          "scope": "学习游戏HUD、文字与按钮布局；示例画风不是本主题要求。",
+          "is_complete_style_example": false
+        }
+      ],
+      "visual_checks": [
+        "关闭光晕后仍可辨认按钮、选中与焦点。",
+        "半透明面板叠在最高亮度世界画面时文字仍可读。",
+        "操作反馈显示真实状态，而不是装饰性的假百分比。"
+      ]
+    }
+  ]
+}

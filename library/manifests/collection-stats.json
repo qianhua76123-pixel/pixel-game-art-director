@@ -1,0 +1,19 @@
+{
+  "tutorials": 92,
+  "by_category": {
+    "drawing": 25,
+    "animation": 12,
+    "asset-production": 27,
+    "game-development": 24,
+    "ui-design": 4
+  },
+  "image_references": 661,
+  "unique_image_paths": 661,
+  "markdown_bytes": 1195745,
+  "source_urls": 92,
+  "licenses": {
+    "CC-BY-4.0": 41,
+    "GFDL-1.3-or-later": 24,
+    "CC-BY-3.0": 27
+  }
+}

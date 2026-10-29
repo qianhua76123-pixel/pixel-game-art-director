@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "retrieved_at": "2026-10-29",
+  "tutorial_count": 92,
+  "unique_source_count": 92,
+  "by_category": {
+    "drawing": 25,
+    "animation": 12,
+    "asset-production": 27,
+    "game-development": 24,
+    "ui-design": 4
+  },
+  "decoded_image_files": 661,
+  "checked_local_targets": 696,
+  "errors": [],
+  "warnings": [],
+  "limitations": [
+    "Local structural checks do not execute Godot or Krita projects.",
+    "Remote site availability is recorded at collection time, not guaranteed in future.",
+    "Image interpretation is a manual reading, not a claim of exhaustive OCR."
+  ]
+}

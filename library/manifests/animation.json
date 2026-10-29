@@ -1,0 +1,1026 @@
+[
+  {
+    "id": "ANIM-001",
+    "title": "侧视行走：接触、下压、经过与抬升",
+    "category": "animation",
+    "path": "tutorials/animation/ANIM-001-walk-cycle.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Walk.gif",
+    "source_title": "Walk.gif",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "beginner",
+    "tags": [
+      "animation",
+      "walk-cycle",
+      "character",
+      "timing",
+      "行走",
+      "关键帧"
+    ],
+    "summary": "用接触、下压、经过和抬升组织行走，比较12帧与6帧版本。",
+    "images": [
+      {
+        "path": "assets/animation/ANIM-001/Walk.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Walk.gif",
+        "caption": "Saint11 原始动画教程图；包含文字与多个动画示例。",
+        "sha256": "f465b4f9281c1cd2e2faa9753fddcf96b4d6d3a9c54575950043272149eb820d",
+        "kind": "original-gif",
+        "width": 512,
+        "height": 512,
+        "frames": 12
+      },
+      {
+        "path": "assets/animation/ANIM-001/frame-000.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Walk.gif",
+        "caption": "原GIF第0帧（从0计），时间约0 ms；帧截取，未重绘。",
+        "sha256": "254e959586c41a640732cd286fc16b5bc5888e914043bd54fa701130ba0b9b94",
+        "kind": "extracted-frame",
+        "frame": 0,
+        "time_ms": 0
+      },
+      {
+        "path": "assets/animation/ANIM-001/frame-003.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Walk.gif",
+        "caption": "原GIF第3帧（从0计），时间约300 ms；帧截取，未重绘。",
+        "sha256": "54e383656505058e28754c97cabee6a6358392fbacc8c47bb942edc40dbaea82",
+        "kind": "extracted-frame",
+        "frame": 3,
+        "time_ms": 300
+      },
+      {
+        "path": "assets/animation/ANIM-001/frame-006.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Walk.gif",
+        "caption": "原GIF第6帧（从0计），时间约600 ms；帧截取，未重绘。",
+        "sha256": "30ef459c0905315afc7a3205cd0a0a8116fb6d6bb3b6f04f371cd45cb492e7c7",
+        "kind": "extracted-frame",
+        "frame": 6,
+        "time_ms": 600
+      },
+      {
+        "path": "assets/animation/ANIM-001/frame-009.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Walk.gif",
+        "caption": "原GIF第9帧（从0计），时间约900 ms；帧截取，未重绘。",
+        "sha256": "1e4592ee43788da0cb8d41f4499b807d90bb5b144993928c273047f08297c017",
+        "kind": "extracted-frame",
+        "frame": 9,
+        "time_ms": 900
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "Saint11Tutorials@ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "能画稳定的角色侧面轮廓",
+      "理解帧与时间轴"
+    ],
+    "learning_objectives": [
+      "原图比较12帧与6帧行走：分别给每条腿6帧和3帧。低分辨率下，减少中间帧也能保持动作可读。",
+      "行走不是整个人水平平移：落脚冲击使头和躯干降低，重心随后上升。",
+      "手臂与对侧腿配合。相对角色身体，支撑脚在触地期间向后移动。"
+    ],
+    "original_duration_ms": 1200,
+    "verification": "original-image-visually-read; no engine execution"
+  },
+  {
+    "id": "ANIM-002",
+    "title": "侧视跑步：腾空、下落、接触与恢复",
+    "category": "animation",
+    "path": "tutorials/animation/ANIM-002-run-cycle.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/RunCycleSimple.gif",
+    "source_title": "RunCycleSimple.gif",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "beginner",
+    "tags": [
+      "animation",
+      "run-cycle",
+      "character",
+      "keyframes",
+      "跑步"
+    ],
+    "summary": "先建立跑步四种核心姿态，再用插帧控制流畅度。",
+    "images": [
+      {
+        "path": "assets/animation/ANIM-002/RunCycleSimple.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/RunCycleSimple.gif",
+        "caption": "Saint11 原始动画教程图；包含文字与多个动画示例。",
+        "sha256": "f7a1b449bb6880149620e8fe30cbb2ed21088091323b28195ae87c65b11f4909",
+        "kind": "original-gif",
+        "width": 512,
+        "height": 512,
+        "frames": 32
+      },
+      {
+        "path": "assets/animation/ANIM-002/frame-000.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/RunCycleSimple.gif",
+        "caption": "原GIF第0帧（从0计），时间约0 ms；帧截取，未重绘。",
+        "sha256": "d41758c59c21ce1600b15dedb6fd3a250654a2f508cee0c470ce1fad2f02454a",
+        "kind": "extracted-frame",
+        "frame": 0,
+        "time_ms": 0
+      },
+      {
+        "path": "assets/animation/ANIM-002/frame-008.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/RunCycleSimple.gif",
+        "caption": "原GIF第8帧（从0计），时间约640 ms；帧截取，未重绘。",
+        "sha256": "1e3451527e4fc9d1efe4007707d10badb5675f5561b41859c92e5339ecf02bea",
+        "kind": "extracted-frame",
+        "frame": 8,
+        "time_ms": 640
+      },
+      {
+        "path": "assets/animation/ANIM-002/frame-016.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/RunCycleSimple.gif",
+        "caption": "原GIF第16帧（从0计），时间约1280 ms；帧截取，未重绘。",
+        "sha256": "d41758c59c21ce1600b15dedb6fd3a250654a2f508cee0c470ce1fad2f02454a",
+        "kind": "extracted-frame",
+        "frame": 16,
+        "time_ms": 1280
+      },
+      {
+        "path": "assets/animation/ANIM-002/frame-024.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/RunCycleSimple.gif",
+        "caption": "原GIF第24帧（从0计），时间约1920 ms；帧截取，未重绘。",
+        "sha256": "1e3451527e4fc9d1efe4007707d10badb5675f5561b41859c92e5339ecf02bea",
+        "kind": "extracted-frame",
+        "frame": 24,
+        "time_ms": 1920
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "Saint11Tutorials@ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "ANIM-001"
+    ],
+    "learning_objectives": [
+      "原图把一侧腿的基本跑步概括为四种姿态，再为另一侧重复；展示8帧和16帧版本。",
+      "跑步有双脚离地的腾空阶段；它与行走的区别不是单纯播放更快。",
+      "关键姿势先成立，增加中间帧才有意义。"
+    ],
+    "original_duration_ms": 2560,
+    "verification": "original-image-visually-read; no engine execution"
+  },
+  {
+    "id": "ANIM-003",
+    "title": "俯视行走：六帧周期与四方向遮挡",
+    "category": "animation",
+    "path": "tutorials/animation/ANIM-003-top-down-walk.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/TopDownWalkCycle.gif",
+    "source_title": "TopDownWalkCycle.gif",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "beginner",
+    "tags": [
+      "top-down",
+      "walk-cycle",
+      "four-directions",
+      "occlusion",
+      "俯视",
+      "四方向"
+    ],
+    "summary": "从站姿建立俯视六帧行走，保持头、躯干、腿和脚的层叠关系。",
+    "images": [
+      {
+        "path": "assets/animation/ANIM-003/TopDownWalkCycle.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/TopDownWalkCycle.gif",
+        "caption": "Saint11 原始动画教程图；包含文字与多个动画示例。",
+        "sha256": "b21c27c41e4b91976b2198517bd6a9f6aeac7ce29e9b6bfdbf65e275ed6d7738",
+        "kind": "original-gif",
+        "width": 512,
+        "height": 512,
+        "frames": 12
+      },
+      {
+        "path": "assets/animation/ANIM-003/frame-000.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/TopDownWalkCycle.gif",
+        "caption": "原GIF第0帧（从0计），时间约0 ms；帧截取，未重绘。",
+        "sha256": "f13da048cf1cd7ccb4f1863a358bdc9b3e30780099ae1036661639e040a23d64",
+        "kind": "extracted-frame",
+        "frame": 0,
+        "time_ms": 0
+      },
+      {
+        "path": "assets/animation/ANIM-003/frame-003.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/TopDownWalkCycle.gif",
+        "caption": "原GIF第3帧（从0计），时间约300 ms；帧截取，未重绘。",
+        "sha256": "ce755c5a8c81c04686ec26e80a0474de504ad88930190acc26549dff2de7d7c6",
+        "kind": "extracted-frame",
+        "frame": 3,
+        "time_ms": 300
+      },
+      {
+        "path": "assets/animation/ANIM-003/frame-006.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/TopDownWalkCycle.gif",
+        "caption": "原GIF第6帧（从0计），时间约600 ms；帧截取，未重绘。",
+        "sha256": "27128df6c26ca226f98f722277a371f14412a18528af1914003e094a3a6e10a1",
+        "kind": "extracted-frame",
+        "frame": 6,
+        "time_ms": 600
+      },
+      {
+        "path": "assets/animation/ANIM-003/frame-009.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/TopDownWalkCycle.gif",
+        "caption": "原GIF第9帧（从0计），时间约900 ms；帧截取，未重绘。",
+        "sha256": "bd2faa99f9e167005d26dd21e814772a9a4fdf5cbfb6ccb52f57678d2ba5435c",
+        "kind": "extracted-frame",
+        "frame": 9,
+        "time_ms": 900
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "Saint11Tutorials@ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "能画正面俯视站姿",
+      "ANIM-001"
+    ],
+    "learning_objectives": [
+      "原图提醒俯视角色的遮挡顺序：脚在腿后、腿在躯干后、躯干在头后。这里是常见游戏俯视表现，并非完全垂直向下的正投影。",
+      "正面六帧循环可从一条腿前进、同侧手臂后退开始，再制作另一侧。",
+      "背面与侧面可借用运动逻辑，但仍需重画可见部位。"
+    ],
+    "original_duration_ms": 1200,
+    "verification": "original-image-visually-read; no engine execution"
+  },
+  {
+    "id": "ANIM-004",
+    "title": "俯视跑步：层叠体块、腾空与恢复",
+    "category": "animation",
+    "path": "tutorials/animation/ANIM-004-top-down-run.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/TopDownRun.gif",
+    "source_title": "TopDownRun.gif",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "intermediate",
+    "tags": [
+      "top-down",
+      "run-cycle",
+      "secondary-motion",
+      "俯视跑步",
+      "头发"
+    ],
+    "summary": "把头、躯干和脚当作层叠体块，设计正面、背面与侧面的跑步。",
+    "images": [
+      {
+        "path": "assets/animation/ANIM-004/TopDownRun.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/TopDownRun.gif",
+        "caption": "Saint11 原始动画教程图；包含文字与多个动画示例。",
+        "sha256": "0cd238fc69d8c8c3df759960d3c2c5eb9f13d900b6e06d0c1a3a8256ba9f40c0",
+        "kind": "original-gif",
+        "width": 512,
+        "height": 512,
+        "frames": 10
+      },
+      {
+        "path": "assets/animation/ANIM-004/frame-000.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/TopDownRun.gif",
+        "caption": "原GIF第0帧（从0计），时间约0 ms；帧截取，未重绘。",
+        "sha256": "7b199f79e6c10c34a8e27e8b2c7101a67062bf5bb07ba7f565adc6a11127f49a",
+        "kind": "extracted-frame",
+        "frame": 0,
+        "time_ms": 0
+      },
+      {
+        "path": "assets/animation/ANIM-004/frame-002.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/TopDownRun.gif",
+        "caption": "原GIF第2帧（从0计），时间约200 ms；帧截取，未重绘。",
+        "sha256": "cd850033f5654ede689d6cca6b9ca710030543d9ce0820a2a66469b5b83c823b",
+        "kind": "extracted-frame",
+        "frame": 2,
+        "time_ms": 200
+      },
+      {
+        "path": "assets/animation/ANIM-004/frame-005.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/TopDownRun.gif",
+        "caption": "原GIF第5帧（从0计），时间约500 ms；帧截取，未重绘。",
+        "sha256": "2738dc19a786f04c317ad743bd40b0b95bebd342456ef53d677edcc22d5fdb3d",
+        "kind": "extracted-frame",
+        "frame": 5,
+        "time_ms": 500
+      },
+      {
+        "path": "assets/animation/ANIM-004/frame-007.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/TopDownRun.gif",
+        "caption": "原GIF第7帧（从0计），时间约700 ms；帧截取，未重绘。",
+        "sha256": "68123189ff50759e99ceb37f95f34d4e89af2cf9af383949aee6b3a46d2c141a",
+        "kind": "extracted-frame",
+        "frame": 7,
+        "time_ms": 700
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "Saint11Tutorials@ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "ANIM-002",
+      "ANIM-003"
+    ],
+    "learning_objectives": [
+      "原作者把头、身体和脚看作三个叠在一起的形状，以维持俯视角色的体积。",
+      "图中说明最简跑步可用4帧，但更详细的展示分成3个腾空帧和3个恢复帧；这是不同复杂度的方案。",
+      "另一半可复用动作结构，但头发和不对称装饰不能不加检查地翻转。"
+    ],
+    "original_duration_ms": 1000,
+    "verification": "original-image-visually-read; no engine execution"
+  },
+  {
+    "id": "ANIM-005",
+    "title": "俯视攻击：预备、斩击与回收",
+    "category": "animation",
+    "path": "tutorials/animation/ANIM-005-top-down-attack.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/TopDownAttack.gif",
+    "source_title": "TopDownAttack.gif",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "intermediate",
+    "tags": [
+      "top-down",
+      "attack",
+      "anticipation",
+      "recovery",
+      "motion-blur",
+      "攻击"
+    ],
+    "summary": "从层叠身体的前倾开始，组织武器预备、完整斩击和不同路径的回收。",
+    "images": [
+      {
+        "path": "assets/animation/ANIM-005/TopDownAttack.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/TopDownAttack.gif",
+        "caption": "Saint11 原始动画教程图；包含文字与多个动画示例。",
+        "sha256": "a9ba14c6bfd58ccf7c73a072cf810eae320aee608b3a68ec4c53c0c7c08e508d",
+        "kind": "original-gif",
+        "width": 512,
+        "height": 512,
+        "frames": 11
+      },
+      {
+        "path": "assets/animation/ANIM-005/frame-000.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/TopDownAttack.gif",
+        "caption": "原GIF第0帧（从0计），时间约0 ms；帧截取，未重绘。",
+        "sha256": "7a83cd5734d302ad43cef1f0f8ab2e7904f2893d22898710f10c2196dbe257cd",
+        "kind": "extracted-frame",
+        "frame": 0,
+        "time_ms": 0
+      },
+      {
+        "path": "assets/animation/ANIM-005/frame-002.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/TopDownAttack.gif",
+        "caption": "原GIF第2帧（从0计），时间约160 ms；帧截取，未重绘。",
+        "sha256": "7a83cd5734d302ad43cef1f0f8ab2e7904f2893d22898710f10c2196dbe257cd",
+        "kind": "extracted-frame",
+        "frame": 2,
+        "time_ms": 160
+      },
+      {
+        "path": "assets/animation/ANIM-005/frame-005.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/TopDownAttack.gif",
+        "caption": "原GIF第5帧（从0计），时间约400 ms；帧截取，未重绘。",
+        "sha256": "356c530cfb1e04593dcb9e94618a7d8d7c52318905fa054fac2491bf560fe1bc",
+        "kind": "extracted-frame",
+        "frame": 5,
+        "time_ms": 400
+      },
+      {
+        "path": "assets/animation/ANIM-005/frame-008.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/TopDownAttack.gif",
+        "caption": "原GIF第8帧（从0计），时间约680 ms；帧截取，未重绘。",
+        "sha256": "a1a502a2c80b1bc5ce30feac284582cef3f7f4e57fed8694323dccdf656c7c80",
+        "kind": "extracted-frame",
+        "frame": 8,
+        "time_ms": 680
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "Saint11Tutorials@ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "ANIM-003",
+      "能画持武器站姿"
+    ],
+    "learning_objectives": [
+      "攻击时可把身体想成向前倾斜的层叠体块，带动头部与对侧手脚。",
+      "通常保留一只脚触地，动作更有支点。",
+      "原作者说玩家角色经常避免明显预备动作，这是响应感的取舍，不是所有攻击都禁止预备。"
+    ],
+    "original_duration_ms": 920,
+    "verification": "original-image-visually-read; no engine execution"
+  },
+  {
+    "id": "ANIM-006",
+    "title": "待机动画：两帧、三帧、六帧与次级运动",
+    "category": "animation",
+    "path": "tutorials/animation/ANIM-006-character-idle.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/characterIdle.gif",
+    "source_title": "characterIdle.gif",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "beginner",
+    "tags": [
+      "idle",
+      "subpixel",
+      "secondary-motion",
+      "character",
+      "待机",
+      "呼吸"
+    ],
+    "summary": "从微小上下变化扩展到头发延迟、横向补偿和角色性格动作。",
+    "images": [
+      {
+        "path": "assets/animation/ANIM-006/characterIdle.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/characterIdle.gif",
+        "caption": "Saint11 原始动画教程图；包含文字与多个动画示例。",
+        "sha256": "f9c9cb05273ae16327d45f8ccd39d506c3e7dff52321b5bfae2558b15f9831d4",
+        "kind": "original-gif",
+        "width": 512,
+        "height": 512,
+        "frames": 60
+      },
+      {
+        "path": "assets/animation/ANIM-006/frame-000.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/characterIdle.gif",
+        "caption": "原GIF第0帧（从0计），时间约0 ms；帧截取，未重绘。",
+        "sha256": "a9cce2911aa4768d88422845e9ab5b1afc468efa4b006ec1a1da89d18fe3034f",
+        "kind": "extracted-frame",
+        "frame": 0,
+        "time_ms": 0
+      },
+      {
+        "path": "assets/animation/ANIM-006/frame-015.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/characterIdle.gif",
+        "caption": "原GIF第15帧（从0计），时间约1500 ms；帧截取，未重绘。",
+        "sha256": "11b4799b7730d7424769d4f0bbd0bee8e5f053e2fcf0e52d7200ac1268e9f707",
+        "kind": "extracted-frame",
+        "frame": 15,
+        "time_ms": 1500
+      },
+      {
+        "path": "assets/animation/ANIM-006/frame-030.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/characterIdle.gif",
+        "caption": "原GIF第30帧（从0计），时间约3000 ms；帧截取，未重绘。",
+        "sha256": "a9cce2911aa4768d88422845e9ab5b1afc468efa4b006ec1a1da89d18fe3034f",
+        "kind": "extracted-frame",
+        "frame": 30,
+        "time_ms": 3000
+      },
+      {
+        "path": "assets/animation/ANIM-006/frame-045.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/characterIdle.gif",
+        "caption": "原GIF第45帧（从0计），时间约4500 ms；帧截取，未重绘。",
+        "sha256": "ee750e7ec21bde3ebed87ebdd48854c31e88991c2d532459132e7c0f0362cdad",
+        "kind": "extracted-frame",
+        "frame": 45,
+        "time_ms": 4500
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "Saint11Tutorials@ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "完成稳定角色站姿"
+    ],
+    "learning_objectives": [
+      "原图示范富有弹性的待机，包含2、3、6帧不同复杂度；夸张程度应服务角色。",
+      "两帧基础版是在下压时张开手臂、弯膝，上升时让手臂向下；整体体积保持稳定。",
+      "更多帧可让头部、脸和头发错开节奏，形成次级运动。"
+    ],
+    "original_duration_ms": 6000,
+    "verification": "original-image-visually-read; no engine execution"
+  },
+  {
+    "id": "ANIM-007",
+    "title": "跳跃与落地：上升、拐点、下落和接触",
+    "category": "animation",
+    "path": "tutorials/animation/ANIM-007-jump-land.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Jump.gif",
+    "source_title": "Jump.gif",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "intermediate",
+    "tags": [
+      "jump",
+      "landing",
+      "anticipation",
+      "squash",
+      "跳跃",
+      "落地"
+    ],
+    "summary": "区分原地起跳和前向跳跃，并把顶点过渡与落地压缩做清楚。",
+    "images": [
+      {
+        "path": "assets/animation/ANIM-007/Jump.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Jump.gif",
+        "caption": "Saint11 原始动画教程图；包含文字与多个动画示例。",
+        "sha256": "2f77444610d7fdbba9c4be049c2b2f731c34f0865ff660a28b38d21c61a52690",
+        "kind": "original-gif",
+        "width": 512,
+        "height": 512,
+        "frames": 24
+      },
+      {
+        "path": "assets/animation/ANIM-007/frame-000.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Jump.gif",
+        "caption": "原GIF第0帧（从0计），时间约0 ms；帧截取，未重绘。",
+        "sha256": "5db70186721ef74af5ee4f1564d08a8ef324619e992c57d8830659dbde8f9e60",
+        "kind": "extracted-frame",
+        "frame": 0,
+        "time_ms": 0
+      },
+      {
+        "path": "assets/animation/ANIM-007/frame-006.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Jump.gif",
+        "caption": "原GIF第6帧（从0计），时间约480 ms；帧截取，未重绘。",
+        "sha256": "d037ff2f773002c584435491de64c799cfac95540e0d5f59d3226c1eebe026fd",
+        "kind": "extracted-frame",
+        "frame": 6,
+        "time_ms": 480
+      },
+      {
+        "path": "assets/animation/ANIM-007/frame-012.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Jump.gif",
+        "caption": "原GIF第12帧（从0计），时间约960 ms；帧截取，未重绘。",
+        "sha256": "513037f60602d32e435de2215a06597d4c348d00aada577fa3e01e73015617e3",
+        "kind": "extracted-frame",
+        "frame": 12,
+        "time_ms": 960
+      },
+      {
+        "path": "assets/animation/ANIM-007/frame-018.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Jump.gif",
+        "caption": "原GIF第18帧（从0计），时间约1440 ms；帧截取，未重绘。",
+        "sha256": "ca0b28453b4e46107f7d3a3c36748e99cf35e3bdb89ed34d354afd8929362a6c",
+        "kind": "extracted-frame",
+        "frame": 18,
+        "time_ms": 1440
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "Saint11Tutorials@ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "ANIM-002",
+      "理解游戏跳跃状态"
+    ],
+    "learning_objectives": [
+      "原图作者倾向分开制作水平速度为0的向上跳与水平速度大于0的向前跳。",
+      "上升、垂直速度反向的顶点、下落和落地是不同阶段，不能全部循环同一组帧。",
+      "快速动作可用高对比的手部帮助观察者追踪。"
+    ],
+    "original_duration_ms": 1920,
+    "verification": "original-image-visually-read; no engine execution"
+  },
+  {
+    "id": "ANIM-008",
+    "title": "动画缓动：用间距表达加速、减速与过冲",
+    "category": "animation",
+    "path": "tutorials/animation/ANIM-008-easing-timing.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Easings.gif",
+    "source_title": "Easings.gif",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "intermediate",
+    "tags": [
+      "easing",
+      "timing",
+      "spacing",
+      "anticipation",
+      "overshoot",
+      "缓动"
+    ],
+    "summary": "通过逐帧位置间距理解线性、缓入缓出、预备与过冲。",
+    "images": [
+      {
+        "path": "assets/animation/ANIM-008/Easings.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Easings.gif",
+        "caption": "Saint11 原始动画教程图；包含文字与多个动画示例。",
+        "sha256": "c210d363be3511752bb1401df905f59b359cda0b6bd5d724930483d43755ac30",
+        "kind": "original-gif",
+        "width": 512,
+        "height": 512,
+        "frames": 23
+      },
+      {
+        "path": "assets/animation/ANIM-008/frame-000.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Easings.gif",
+        "caption": "原GIF第0帧（从0计），时间约0 ms；帧截取，未重绘。",
+        "sha256": "1a5e1b9f7b7a9cbc9a31c426374ee6cdb5daa1f457d3e8bf671bb17fbedef2ec",
+        "kind": "extracted-frame",
+        "frame": 0,
+        "time_ms": 0
+      },
+      {
+        "path": "assets/animation/ANIM-008/frame-005.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Easings.gif",
+        "caption": "原GIF第5帧（从0计），时间约400 ms；帧截取，未重绘。",
+        "sha256": "39e53339ec1bc28942bd76072f77d2ed0eb7c0be4d807dc17e28b1423787d6a4",
+        "kind": "extracted-frame",
+        "frame": 5,
+        "time_ms": 400
+      },
+      {
+        "path": "assets/animation/ANIM-008/frame-011.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Easings.gif",
+        "caption": "原GIF第11帧（从0计），时间约880 ms；帧截取，未重绘。",
+        "sha256": "d29de8a7ed762725fac0044c51e5c0dc87acc56558538d8876724429d6ee7a7f",
+        "kind": "extracted-frame",
+        "frame": 11,
+        "time_ms": 880
+      },
+      {
+        "path": "assets/animation/ANIM-008/frame-017.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Easings.gif",
+        "caption": "原GIF第17帧（从0计），时间约1360 ms；帧截取，未重绘。",
+        "sha256": "e179fb0d564290d38171da572005e0c9344f3a23da9b4fa4d9a7ee03e9172397",
+        "kind": "extracted-frame",
+        "frame": 17,
+        "time_ms": 1360
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "Saint11Tutorials@ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "理解帧间时间与帧间位移"
+    ],
+    "learning_objectives": [
+      "原图把 easing 解释为加速度问题；等间距同时间的运动看起来接近匀速。",
+      "缓入缓出改变运动中的间距，原作者也会变形中间帧来增强动感。",
+      "预备和过冲可让攻击等有力动作更明确，也可轻微跳过中间帧让节奏更有力。"
+    ],
+    "original_duration_ms": 1840,
+    "verification": "original-image-visually-read; no engine execution"
+  },
+  {
+    "id": "ANIM-009",
+    "title": "无缝循环：错开周期与粒子出生时刻",
+    "category": "animation",
+    "path": "tutorials/animation/ANIM-009-seamless-loop.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/loop.gif",
+    "source_title": "loop.gif",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "intermediate",
+    "tags": [
+      "loop",
+      "particles",
+      "phase",
+      "seamless",
+      "循环",
+      "粒子"
+    ],
+    "summary": "让尾帧自然接首帧，利用不同周期和不同相位减弱循环痕迹。",
+    "images": [
+      {
+        "path": "assets/animation/ANIM-009/loop.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/loop.gif",
+        "caption": "Saint11 原始动画教程图；包含文字与多个动画示例。",
+        "sha256": "6f702df42bfd40d528bcd12d4356f41d3fd9ecb80b05debdc60b7768f5d0d7aa",
+        "kind": "original-gif",
+        "width": 512,
+        "height": 512,
+        "frames": 16
+      },
+      {
+        "path": "assets/animation/ANIM-009/frame-000.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/loop.gif",
+        "caption": "原GIF第0帧（从0计），时间约0 ms；帧截取，未重绘。",
+        "sha256": "8a39a397d04d261306e431911dceb4c8b293b0b55cfa7e7af53a4001b217e061",
+        "kind": "extracted-frame",
+        "frame": 0,
+        "time_ms": 0
+      },
+      {
+        "path": "assets/animation/ANIM-009/frame-004.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/loop.gif",
+        "caption": "原GIF第4帧（从0计），时间约400 ms；帧截取，未重绘。",
+        "sha256": "8e029b7b0741344477629293d41a0806a91454d468a532413b33bfac5ef694ff",
+        "kind": "extracted-frame",
+        "frame": 4,
+        "time_ms": 400
+      },
+      {
+        "path": "assets/animation/ANIM-009/frame-008.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/loop.gif",
+        "caption": "原GIF第8帧（从0计），时间约800 ms；帧截取，未重绘。",
+        "sha256": "e0d1c4e694e45f4020843ecf9155a3df5af2e1c188d79049ebc110dd4bb14f3b",
+        "kind": "extracted-frame",
+        "frame": 8,
+        "time_ms": 800
+      },
+      {
+        "path": "assets/animation/ANIM-009/frame-012.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/loop.gif",
+        "caption": "原GIF第12帧（从0计），时间约1200 ms；帧截取，未重绘。",
+        "sha256": "d3697a5ebb2e1010f32d42fff3290c3f6b1f28d65507bddf105b71fad84e9ade",
+        "kind": "extracted-frame",
+        "frame": 12,
+        "time_ms": 1200
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "Saint11Tutorials@ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "知道图层和时间轴"
+    ],
+    "learning_objectives": [
+      "无缝循环的尾帧应当能自然成为首帧之前的一帧，不要求尾帧与首帧完全相同。",
+      "原图用法师、漂浮书、旋转法阵与披风特效的重叠动作，让循环起点不明显。",
+      "粒子和火焰可错开出生与消失时间；不要所有对象同帧重启。"
+    ],
+    "original_duration_ms": 1600,
+    "verification": "original-image-visually-read; no engine execution"
+  },
+  {
+    "id": "ANIM-010",
+    "title": "挤压与拉伸：动作方向、材质和体积感",
+    "category": "animation",
+    "path": "tutorials/animation/ANIM-010-squash-stretch.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Squash.gif",
+    "source_title": "Squash.gif",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "intermediate",
+    "tags": [
+      "squash-and-stretch",
+      "anticipation",
+      "material",
+      "volume",
+      "挤压",
+      "拉伸"
+    ],
+    "summary": "用一压一伸交代发力，同时保持视觉体积并按材质调整变形幅度。",
+    "images": [
+      {
+        "path": "assets/animation/ANIM-010/Squash.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Squash.gif",
+        "caption": "Saint11 原始动画教程图；包含文字与多个动画示例。",
+        "sha256": "67aa9b80a30b5716b11c78540d76c1efd512efd857b15a8305b3e5ce47704f6b",
+        "kind": "original-gif",
+        "width": 512,
+        "height": 512,
+        "frames": 19
+      },
+      {
+        "path": "assets/animation/ANIM-010/frame-000.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Squash.gif",
+        "caption": "原GIF第0帧（从0计），时间约0 ms；帧截取，未重绘。",
+        "sha256": "5e5e1c659bb30a67eabe1fdce93d4c4058bd46617d50e0fd082478f0b4ed47b1",
+        "kind": "extracted-frame",
+        "frame": 0,
+        "time_ms": 0
+      },
+      {
+        "path": "assets/animation/ANIM-010/frame-004.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Squash.gif",
+        "caption": "原GIF第4帧（从0计），时间约320 ms；帧截取，未重绘。",
+        "sha256": "51db7abe46a4fdab19becd53102240f3563020b6db139f7d176dfb55c1cf8d51",
+        "kind": "extracted-frame",
+        "frame": 4,
+        "time_ms": 320
+      },
+      {
+        "path": "assets/animation/ANIM-010/frame-009.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Squash.gif",
+        "caption": "原GIF第9帧（从0计），时间约720 ms；帧截取，未重绘。",
+        "sha256": "643139c428eb79aebeed5db10902d738f145f539124dd9b6d0662c149c18dda6",
+        "kind": "extracted-frame",
+        "frame": 9,
+        "time_ms": 720
+      },
+      {
+        "path": "assets/animation/ANIM-010/frame-014.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Squash.gif",
+        "caption": "原GIF第14帧（从0计），时间约1120 ms；帧截取，未重绘。",
+        "sha256": "f5c67419c21c4f5105d038be6e74acc5e58cf9e9ed3c843d0bb6c4de2fe78ed3",
+        "kind": "extracted-frame",
+        "frame": 14,
+        "time_ms": 1120
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "Saint11Tutorials@ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "ANIM-008"
+    ],
+    "learning_objectives": [
+      "原图写“mass never changes”，意指表现上保持物体的质量/体积感；宽度变化时要相应补偿高度，不是在教物理质量计算。",
+      "预备时通常沿主要动作的反向压缩，然后沿动作方向伸展。",
+      "物体材质决定变形幅度，较硬物体应少变形。"
+    ],
+    "original_duration_ms": 1520,
+    "verification": "original-image-visually-read; no engine execution"
+  },
+  {
+    "id": "ANIM-011",
+    "title": "亚像素运动错觉：轮廓、内部与色阶",
+    "category": "animation",
+    "path": "tutorials/animation/ANIM-011-subpixel-illusion.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Subpixel.gif",
+    "source_title": "Subpixel.gif",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "advanced",
+    "tags": [
+      "subpixel",
+      "color",
+      "outline",
+      "idle",
+      "亚像素",
+      "微动作"
+    ],
+    "summary": "在整数像素网格内，通过错时移动局部与色阶制造小于1像素的运动感。",
+    "images": [
+      {
+        "path": "assets/animation/ANIM-011/Subpixel.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Subpixel.gif",
+        "caption": "Saint11 原始动画教程图；包含文字与多个动画示例。",
+        "sha256": "91ecf5e66b7ce0737dea9dbf48e7d9c0ded662c5c8ca4b960c166be687421183",
+        "kind": "original-gif",
+        "width": 512,
+        "height": 512,
+        "frames": 17
+      },
+      {
+        "path": "assets/animation/ANIM-011/frame-000.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Subpixel.gif",
+        "caption": "原GIF第0帧（从0计），时间约0 ms；帧截取，未重绘。",
+        "sha256": "134aeadb2b3f76a74179949342620cdadf4fa99ac4d555607b2eda9c06be2cb0",
+        "kind": "extracted-frame",
+        "frame": 0,
+        "time_ms": 0
+      },
+      {
+        "path": "assets/animation/ANIM-011/frame-004.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Subpixel.gif",
+        "caption": "原GIF第4帧（从0计），时间约400 ms；帧截取，未重绘。",
+        "sha256": "fc8d8e3afb2904d8396f464eda15479090cf4639cdfc655d7b5db66b8e45fc61",
+        "kind": "extracted-frame",
+        "frame": 4,
+        "time_ms": 400
+      },
+      {
+        "path": "assets/animation/ANIM-011/frame-008.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Subpixel.gif",
+        "caption": "原GIF第8帧（从0计），时间约800 ms；帧截取，未重绘。",
+        "sha256": "1d0d6c22d02a87b242732002ed315a81c04cd314742458e980b02330a6c6303a",
+        "kind": "extracted-frame",
+        "frame": 8,
+        "time_ms": 800
+      },
+      {
+        "path": "assets/animation/ANIM-011/frame-012.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Subpixel.gif",
+        "caption": "原GIF第12帧（从0计），时间约1200 ms；帧截取，未重绘。",
+        "sha256": "f2364ba15f3f3c753a00ab1c90301688ad7a5815405d12368e30d67e4433058b",
+        "kind": "extracted-frame",
+        "frame": 12,
+        "time_ms": 1200
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "Saint11Tutorials@ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "掌握像素轮廓与有限调色板",
+      "ANIM-006"
+    ],
+    "learning_objectives": [
+      "原图先澄清：像素并不能真的移动小于1个网格；这里讲的是视觉错觉。",
+      "可让局部先移动，或让内部与轮廓不同步。",
+      "颜色渐变可以辅助极小运动，但颜色过多会模糊像素。"
+    ],
+    "original_duration_ms": 1700,
+    "verification": "original-image-visually-read; no engine execution"
+  },
+  {
+    "id": "ANIM-012",
+    "title": "运动拖影：用少量帧连接快速动作",
+    "category": "animation",
+    "path": "tutorials/animation/ANIM-012-motion-smear.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/MotionBlur.gif",
+    "source_title": "MotionBlur.gif",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "intermediate",
+    "tags": [
+      "motion-blur",
+      "smear",
+      "attack",
+      "vfx",
+      "拖影",
+      "快速动作"
+    ],
+    "summary": "用像素形状与色阶绘制拖影，使高速运动保持方向和力度。",
+    "images": [
+      {
+        "path": "assets/animation/ANIM-012/MotionBlur.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/MotionBlur.gif",
+        "caption": "Saint11 原始动画教程图；包含文字与多个动画示例。",
+        "sha256": "a94b0e13e62623b36fa8e01823fb52e8a731345762eac5b11d5d66b34cca597d",
+        "kind": "original-gif",
+        "width": 512,
+        "height": 512,
+        "frames": 32
+      },
+      {
+        "path": "assets/animation/ANIM-012/frame-000.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/MotionBlur.gif",
+        "caption": "原GIF第0帧（从0计），时间约0 ms；帧截取，未重绘。",
+        "sha256": "0177c78acdc713c4ae02f162064a8ec91b808b87469c22e561cb814cdf55741d",
+        "kind": "extracted-frame",
+        "frame": 0,
+        "time_ms": 0
+      },
+      {
+        "path": "assets/animation/ANIM-012/frame-008.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/MotionBlur.gif",
+        "caption": "原GIF第8帧（从0计），时间约640 ms；帧截取，未重绘。",
+        "sha256": "a5d4c4f41d1245a5cdebe44fde688179e860acb50c1e2ff0159a43604b9ac1ec",
+        "kind": "extracted-frame",
+        "frame": 8,
+        "time_ms": 640
+      },
+      {
+        "path": "assets/animation/ANIM-012/frame-016.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/MotionBlur.gif",
+        "caption": "原GIF第16帧（从0计），时间约1280 ms；帧截取，未重绘。",
+        "sha256": "0ff4f665519929ef9e8650d71e3080bbbcd39b590d8996da8a9707bcb56212d5",
+        "kind": "extracted-frame",
+        "frame": 16,
+        "time_ms": 1280
+      },
+      {
+        "path": "assets/animation/ANIM-012/frame-024.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/MotionBlur.gif",
+        "caption": "原GIF第24帧（从0计），时间约1920 ms；帧截取，未重绘。",
+        "sha256": "62407232ec3559e67af5365b85fa944f04b425b6f89d8cc7c667e2e7f237cd23",
+        "kind": "extracted-frame",
+        "frame": 24,
+        "time_ms": 1920
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "Saint11Tutorials@ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "ANIM-005或ANIM-008"
+    ],
+    "learning_objectives": [
+      "原图中的motion blur主要是绘制出来的拖影/拉伸帧，而非对成品套摄影模糊滤镜。",
+      "拖影把当前形状与前一帧位置联系起来，能用较少帧表达复杂快速动作。",
+      "原图展示多种剑的拖影形状；不存在适用于所有动作的同一模板。"
+    ],
+    "original_duration_ms": 2560,
+    "verification": "original-image-visually-read; no engine execution"
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "version": "1.1.0",
+  "status": "PASS",
+  "original_tutorials": 92,
+  "tutorial_image_files": 661,
+  "art_profiles": 8,
+  "ui_profiles": 6,
+  "ui_cases": 6,
+  "official_screenshot_links": 12,
+  "screenshot_binaries_bundled": false,
+  "tests": {
+    "retrieval_behaviors": 5,
+    "asset_audit_behaviors": 12,
+    "ui_case_behaviors": 5
+  },
+  "scope": "Source-linked UI cases, task brief integration, public packaging; no game runtime or UI interaction certification."
+}

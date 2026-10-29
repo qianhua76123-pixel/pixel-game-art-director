@@ -1,0 +1,26 @@
+{
+  "original": "TopDownTricks.gif",
+  "width": 512,
+  "height": 512,
+  "frames": 42,
+  "duration_ms": 5040,
+  "selected": [
+    {
+      "frame": 0,
+      "time_ms": 0
+    },
+    {
+      "frame": 13,
+      "time_ms": 1560
+    },
+    {
+      "frame": 27,
+      "time_ms": 3240
+    },
+    {
+      "frame": 41,
+      "time_ms": 4920
+    }
+  ],
+  "operation": "Extract original frames at 0/33/66/99 percent of duration; add labels outside frames; no interpolation or art recoloring."
+}

@@ -1,0 +1,15 @@
+# macOS and Python metadata
+.DS_Store
+._*
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local secrets and generated working outputs
+.env
+.env.*
+!.env.example
+outputs/
+*.zip
+*.zip.sha256

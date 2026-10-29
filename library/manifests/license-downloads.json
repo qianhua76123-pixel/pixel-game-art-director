@@ -1,0 +1,28 @@
+[
+  {
+    "path": "licenses/saint11-README.md",
+    "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "sha256": "b61c63336bf7ec71e7a1131c5a54043c7e700036115f5a853ef0e4f322881a05",
+    "retrieved_at": "2026-10-29"
+  },
+  {
+    "path": "licenses/CC-BY-4.0.txt",
+    "source_url": "https://creativecommons.org/licenses/by/4.0/legalcode.txt",
+    "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+    "retrieved_at": "2026-10-29"
+  },
+  {
+    "path": "licenses/CC-BY-3.0.html",
+    "source_url": "https://creativecommons.org/licenses/by/3.0/legalcode",
+    "sha256": "967a3670bcbfdc50614e71062b18effed899007a0e364541328ebdb863520132",
+    "retrieved_at": "2026-10-29"
+  },
+  {
+    "path": "licenses/GFDL-1.3.txt",
+    "source_evidence": "licenses/krita-licensing-evidence.md",
+    "copied_from": "licenses/krita-GFDL-1.3.txt",
+    "note": "Direct GNU URL returned HTTP403; identical license text is supplied from the Krita collector copy.",
+    "sha256": "1110d2ccb3e6a0eb003f305bab016aefc8ebaa4a25d18cf7e492eba1933ecfd5",
+    "retrieved_at": "2026-10-29"
+  }
+]

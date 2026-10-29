@@ -1,0 +1,1369 @@
+{
+  "schema_version": 1,
+  "tool": "pixel-game-art-director/audit_assets.py",
+  "contract_path": "../audit-contract.json",
+  "machine_status": "FAIL",
+  "overall_status": "NEEDS_VISUAL_REVIEW",
+  "errors": [],
+  "assets": [
+    {
+      "path": "../inputs/bad-alpha.png",
+      "relative_path": "bad-alpha.png",
+      "input_root": "../inputs",
+      "roles": [],
+      "matching_patterns": [],
+      "rules": {
+        "canvas_size": [
+          8,
+          8
+        ],
+        "size_multiple": [
+          2,
+          2
+        ],
+        "grid_scale": 2,
+        "alpha_policy": "binary",
+        "palette": {
+          "colors": [
+            "#DC6428"
+          ],
+          "max_distance": 0
+        },
+        "max_colors": 1,
+        "margins": {
+          "min": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "max": [
+            2,
+            2,
+            2,
+            2
+          ]
+        },
+        "bottom_anchor": {
+          "padding": 2,
+          "tolerance": 0
+        },
+        "animation_canvas_consistency": true
+      },
+      "sha256": "e13daf5e660f29856e9fdf1668d04bfe32c90dbeda03220fc9649f51ab3e1d5f",
+      "machine_status": "FAIL",
+      "coverage": {
+        "total_frames": 1,
+        "measured_frames": 1,
+        "measured_indices": [
+          0
+        ],
+        "complete": true
+      },
+      "checks": {
+        "canvas_size": {
+          "status": "PASS",
+          "expected": [
+            8,
+            8
+          ],
+          "observed": {
+            "frame_sizes": [
+              [
+                8,
+                8
+              ]
+            ]
+          },
+          "reason": "Decoded logical frame canvas dimensions must match the contract.",
+          "failing_frames": []
+        },
+        "size_multiple": {
+          "status": "PASS",
+          "expected": [
+            2,
+            2
+          ],
+          "observed": {
+            "frame_sizes": [
+              [
+                8,
+                8
+              ]
+            ]
+          },
+          "reason": "Canvas dimensions must be divisible by the configured x/y multiples.",
+          "failing_frames": []
+        },
+        "grid_scale": {
+          "status": "FAIL",
+          "expected": 2,
+          "observed": {
+            "frames": [
+              {
+                "index": 0,
+                "misaligned_dimensions": false,
+                "unequal_blocks": 1,
+                "sample_blocks": [
+                  [
+                    2,
+                    2
+                  ]
+                ]
+              }
+            ]
+          },
+          "reason": "Every origin-aligned NxN output block must repeat one RGBA pixel; fully transparent RGB is ignored. This does not infer artistic pixel quality.",
+          "failing_frames": [
+            0
+          ]
+        },
+        "alpha_policy": {
+          "status": "FAIL",
+          "expected": "binary",
+          "observed": {
+            "partial_alpha_pixels": 1,
+            "transparent_pixels": 48
+          },
+          "reason": "Partial alpha is allowed only according to the contract; this measure does not prove white halos or their absence.",
+          "failing_frames": [
+            0
+          ]
+        },
+        "palette": {
+          "status": "PASS",
+          "expected": {
+            "colors": [
+              "#DC6428"
+            ],
+            "max_distance": 0
+          },
+          "observed": {
+            "frames": [
+              {
+                "index": 0,
+                "worst_rgb_distance": 0,
+                "outside_pixels": 0,
+                "sample_outside_colors": []
+              }
+            ]
+          },
+          "reason": "Visible RGB colors are compared to the explicit palette using Euclidean RGB distance, not perceptual color similarity.",
+          "failing_frames": []
+        },
+        "max_colors": {
+          "status": "PASS",
+          "expected": 1,
+          "observed": {
+            "max_colors_in_one_frame": 1,
+            "union_rgb_colors": 1
+          },
+          "reason": "Limit applies per decoded frame to visible RGB; union count is reported separately. Hidden RGB and alpha values are not separate colors.",
+          "failing_frames": []
+        },
+        "margins": {
+          "status": "PASS",
+          "expected": {
+            "min": [
+              2,
+              2,
+              2,
+              2
+            ],
+            "max": [
+              2,
+              2,
+              2,
+              2
+            ]
+          },
+          "observed": {
+            "frames": [
+              {
+                "index": 0,
+                "margins_ltrb": [
+                  2,
+                  2,
+                  2,
+                  2
+                ]
+              }
+            ]
+          },
+          "reason": "Transparent margins use the bounding box of all alpha>0 pixels. Empty frames have no measurable bounds and fail a configured margin rule.",
+          "failing_frames": []
+        },
+        "bottom_anchor": {
+          "status": "PASS",
+          "expected": {
+            "padding": 2,
+            "tolerance": 0
+          },
+          "observed": {
+            "frames": [
+              {
+                "index": 0,
+                "bottom_padding": 2
+              }
+            ]
+          },
+          "reason": "Measures the lowest nontransparent pixel against the canvas bottom, not a semantic foot, pivot, or engine ground contact.",
+          "failing_frames": []
+        },
+        "animation_canvas_consistency": {
+          "status": "PASS",
+          "expected": true,
+          "observed": {
+            "decoded_frame_sizes": [
+              [
+                8,
+                8
+              ]
+            ],
+            "frame_count": 1
+          },
+          "reason": "Checks composited logical frames. GIF/WebP internal delta rectangles are not source sprite frame dimensions; PNG sequences are separate assets.",
+          "failing_frames": []
+        }
+      },
+      "frames": [
+        {
+          "index": 0,
+          "size": [
+            8,
+            8
+          ],
+          "duration_ms": 0,
+          "visible_bounds": [
+            2,
+            2,
+            6,
+            6
+          ],
+          "margins_ltrb": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "visible_pixels": 16,
+          "partial_alpha_pixels": 1,
+          "transparent_pixels": 48,
+          "rgb_color_count": 1,
+          "palette_distance": {
+            "worst_rgb_distance": 0,
+            "outside_pixels": 0,
+            "sample_outside_colors": []
+          },
+          "grid": {
+            "misaligned_dimensions": false,
+            "unequal_blocks": 1,
+            "sample_blocks": [
+              [
+                2,
+                2
+              ]
+            ]
+          }
+        }
+      ],
+      "union_rgb_colors": 1,
+      "top_visible_colors": [
+        {
+          "hex": "#DC6428",
+          "pixels": 16
+        }
+      ]
+    },
+    {
+      "path": "../inputs/bad-grid.png",
+      "relative_path": "bad-grid.png",
+      "input_root": "../inputs",
+      "roles": [],
+      "matching_patterns": [],
+      "rules": {
+        "canvas_size": [
+          8,
+          8
+        ],
+        "size_multiple": [
+          2,
+          2
+        ],
+        "grid_scale": 2,
+        "alpha_policy": "binary",
+        "palette": {
+          "colors": [
+            "#DC6428"
+          ],
+          "max_distance": 0
+        },
+        "max_colors": 1,
+        "margins": {
+          "min": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "max": [
+            2,
+            2,
+            2,
+            2
+          ]
+        },
+        "bottom_anchor": {
+          "padding": 2,
+          "tolerance": 0
+        },
+        "animation_canvas_consistency": true
+      },
+      "sha256": "e48b9a3a0328ecabcbd4fe4b0c0fe8e466de620823e16a35c5c34b995b9cd33d",
+      "machine_status": "FAIL",
+      "coverage": {
+        "total_frames": 1,
+        "measured_frames": 1,
+        "measured_indices": [
+          0
+        ],
+        "complete": true
+      },
+      "checks": {
+        "canvas_size": {
+          "status": "PASS",
+          "expected": [
+            8,
+            8
+          ],
+          "observed": {
+            "frame_sizes": [
+              [
+                8,
+                8
+              ]
+            ]
+          },
+          "reason": "Decoded logical frame canvas dimensions must match the contract.",
+          "failing_frames": []
+        },
+        "size_multiple": {
+          "status": "PASS",
+          "expected": [
+            2,
+            2
+          ],
+          "observed": {
+            "frame_sizes": [
+              [
+                8,
+                8
+              ]
+            ]
+          },
+          "reason": "Canvas dimensions must be divisible by the configured x/y multiples.",
+          "failing_frames": []
+        },
+        "grid_scale": {
+          "status": "FAIL",
+          "expected": 2,
+          "observed": {
+            "frames": [
+              {
+                "index": 0,
+                "misaligned_dimensions": false,
+                "unequal_blocks": 1,
+                "sample_blocks": [
+                  [
+                    2,
+                    2
+                  ]
+                ]
+              }
+            ]
+          },
+          "reason": "Every origin-aligned NxN output block must repeat one RGBA pixel; fully transparent RGB is ignored. This does not infer artistic pixel quality.",
+          "failing_frames": [
+            0
+          ]
+        },
+        "alpha_policy": {
+          "status": "PASS",
+          "expected": "binary",
+          "observed": {
+            "partial_alpha_pixels": 0,
+            "transparent_pixels": 49
+          },
+          "reason": "Partial alpha is allowed only according to the contract; this measure does not prove white halos or their absence.",
+          "failing_frames": []
+        },
+        "palette": {
+          "status": "PASS",
+          "expected": {
+            "colors": [
+              "#DC6428"
+            ],
+            "max_distance": 0
+          },
+          "observed": {
+            "frames": [
+              {
+                "index": 0,
+                "worst_rgb_distance": 0,
+                "outside_pixels": 0,
+                "sample_outside_colors": []
+              }
+            ]
+          },
+          "reason": "Visible RGB colors are compared to the explicit palette using Euclidean RGB distance, not perceptual color similarity.",
+          "failing_frames": []
+        },
+        "max_colors": {
+          "status": "PASS",
+          "expected": 1,
+          "observed": {
+            "max_colors_in_one_frame": 1,
+            "union_rgb_colors": 1
+          },
+          "reason": "Limit applies per decoded frame to visible RGB; union count is reported separately. Hidden RGB and alpha values are not separate colors.",
+          "failing_frames": []
+        },
+        "margins": {
+          "status": "PASS",
+          "expected": {
+            "min": [
+              2,
+              2,
+              2,
+              2
+            ],
+            "max": [
+              2,
+              2,
+              2,
+              2
+            ]
+          },
+          "observed": {
+            "frames": [
+              {
+                "index": 0,
+                "margins_ltrb": [
+                  2,
+                  2,
+                  2,
+                  2
+                ]
+              }
+            ]
+          },
+          "reason": "Transparent margins use the bounding box of all alpha>0 pixels. Empty frames have no measurable bounds and fail a configured margin rule.",
+          "failing_frames": []
+        },
+        "bottom_anchor": {
+          "status": "PASS",
+          "expected": {
+            "padding": 2,
+            "tolerance": 0
+          },
+          "observed": {
+            "frames": [
+              {
+                "index": 0,
+                "bottom_padding": 2
+              }
+            ]
+          },
+          "reason": "Measures the lowest nontransparent pixel against the canvas bottom, not a semantic foot, pivot, or engine ground contact.",
+          "failing_frames": []
+        },
+        "animation_canvas_consistency": {
+          "status": "PASS",
+          "expected": true,
+          "observed": {
+            "decoded_frame_sizes": [
+              [
+                8,
+                8
+              ]
+            ],
+            "frame_count": 1
+          },
+          "reason": "Checks composited logical frames. GIF/WebP internal delta rectangles are not source sprite frame dimensions; PNG sequences are separate assets.",
+          "failing_frames": []
+        }
+      },
+      "frames": [
+        {
+          "index": 0,
+          "size": [
+            8,
+            8
+          ],
+          "duration_ms": 0,
+          "visible_bounds": [
+            2,
+            2,
+            6,
+            6
+          ],
+          "margins_ltrb": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "visible_pixels": 15,
+          "partial_alpha_pixels": 0,
+          "transparent_pixels": 49,
+          "rgb_color_count": 1,
+          "palette_distance": {
+            "worst_rgb_distance": 0,
+            "outside_pixels": 0,
+            "sample_outside_colors": []
+          },
+          "grid": {
+            "misaligned_dimensions": false,
+            "unequal_blocks": 1,
+            "sample_blocks": [
+              [
+                2,
+                2
+              ]
+            ]
+          }
+        }
+      ],
+      "union_rgb_colors": 1,
+      "top_visible_colors": [
+        {
+          "hex": "#DC6428",
+          "pixels": 15
+        }
+      ]
+    },
+    {
+      "path": "../inputs/bad-palette.png",
+      "relative_path": "bad-palette.png",
+      "input_root": "../inputs",
+      "roles": [],
+      "matching_patterns": [],
+      "rules": {
+        "canvas_size": [
+          8,
+          8
+        ],
+        "size_multiple": [
+          2,
+          2
+        ],
+        "grid_scale": 2,
+        "alpha_policy": "binary",
+        "palette": {
+          "colors": [
+            "#DC6428"
+          ],
+          "max_distance": 0
+        },
+        "max_colors": 1,
+        "margins": {
+          "min": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "max": [
+            2,
+            2,
+            2,
+            2
+          ]
+        },
+        "bottom_anchor": {
+          "padding": 2,
+          "tolerance": 0
+        },
+        "animation_canvas_consistency": true
+      },
+      "sha256": "22307bc35543ea1a30876b38b89128ca6a5e642b11c7f4c5b6b30549525db87b",
+      "machine_status": "FAIL",
+      "coverage": {
+        "total_frames": 1,
+        "measured_frames": 1,
+        "measured_indices": [
+          0
+        ],
+        "complete": true
+      },
+      "checks": {
+        "canvas_size": {
+          "status": "PASS",
+          "expected": [
+            8,
+            8
+          ],
+          "observed": {
+            "frame_sizes": [
+              [
+                8,
+                8
+              ]
+            ]
+          },
+          "reason": "Decoded logical frame canvas dimensions must match the contract.",
+          "failing_frames": []
+        },
+        "size_multiple": {
+          "status": "PASS",
+          "expected": [
+            2,
+            2
+          ],
+          "observed": {
+            "frame_sizes": [
+              [
+                8,
+                8
+              ]
+            ]
+          },
+          "reason": "Canvas dimensions must be divisible by the configured x/y multiples.",
+          "failing_frames": []
+        },
+        "grid_scale": {
+          "status": "PASS",
+          "expected": 2,
+          "observed": {
+            "frames": [
+              {
+                "index": 0,
+                "misaligned_dimensions": false,
+                "unequal_blocks": 0,
+                "sample_blocks": []
+              }
+            ]
+          },
+          "reason": "Every origin-aligned NxN output block must repeat one RGBA pixel; fully transparent RGB is ignored. This does not infer artistic pixel quality.",
+          "failing_frames": []
+        },
+        "alpha_policy": {
+          "status": "PASS",
+          "expected": "binary",
+          "observed": {
+            "partial_alpha_pixels": 0,
+            "transparent_pixels": 48
+          },
+          "reason": "Partial alpha is allowed only according to the contract; this measure does not prove white halos or their absence.",
+          "failing_frames": []
+        },
+        "palette": {
+          "status": "FAIL",
+          "expected": {
+            "colors": [
+              "#DC6428"
+            ],
+            "max_distance": 0
+          },
+          "observed": {
+            "frames": [
+              {
+                "index": 0,
+                "worst_rgb_distance": 344.456,
+                "outside_pixels": 16,
+                "sample_outside_colors": [
+                  {
+                    "color": "#00FFFF",
+                    "pixels": 16,
+                    "distance": 344.456
+                  }
+                ]
+              }
+            ]
+          },
+          "reason": "Visible RGB colors are compared to the explicit palette using Euclidean RGB distance, not perceptual color similarity.",
+          "failing_frames": [
+            0
+          ]
+        },
+        "max_colors": {
+          "status": "PASS",
+          "expected": 1,
+          "observed": {
+            "max_colors_in_one_frame": 1,
+            "union_rgb_colors": 1
+          },
+          "reason": "Limit applies per decoded frame to visible RGB; union count is reported separately. Hidden RGB and alpha values are not separate colors.",
+          "failing_frames": []
+        },
+        "margins": {
+          "status": "PASS",
+          "expected": {
+            "min": [
+              2,
+              2,
+              2,
+              2
+            ],
+            "max": [
+              2,
+              2,
+              2,
+              2
+            ]
+          },
+          "observed": {
+            "frames": [
+              {
+                "index": 0,
+                "margins_ltrb": [
+                  2,
+                  2,
+                  2,
+                  2
+                ]
+              }
+            ]
+          },
+          "reason": "Transparent margins use the bounding box of all alpha>0 pixels. Empty frames have no measurable bounds and fail a configured margin rule.",
+          "failing_frames": []
+        },
+        "bottom_anchor": {
+          "status": "PASS",
+          "expected": {
+            "padding": 2,
+            "tolerance": 0
+          },
+          "observed": {
+            "frames": [
+              {
+                "index": 0,
+                "bottom_padding": 2
+              }
+            ]
+          },
+          "reason": "Measures the lowest nontransparent pixel against the canvas bottom, not a semantic foot, pivot, or engine ground contact.",
+          "failing_frames": []
+        },
+        "animation_canvas_consistency": {
+          "status": "PASS",
+          "expected": true,
+          "observed": {
+            "decoded_frame_sizes": [
+              [
+                8,
+                8
+              ]
+            ],
+            "frame_count": 1
+          },
+          "reason": "Checks composited logical frames. GIF/WebP internal delta rectangles are not source sprite frame dimensions; PNG sequences are separate assets.",
+          "failing_frames": []
+        }
+      },
+      "frames": [
+        {
+          "index": 0,
+          "size": [
+            8,
+            8
+          ],
+          "duration_ms": 0,
+          "visible_bounds": [
+            2,
+            2,
+            6,
+            6
+          ],
+          "margins_ltrb": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "visible_pixels": 16,
+          "partial_alpha_pixels": 0,
+          "transparent_pixels": 48,
+          "rgb_color_count": 1,
+          "palette_distance": {
+            "worst_rgb_distance": 344.456,
+            "outside_pixels": 16,
+            "sample_outside_colors": [
+              {
+                "color": "#00FFFF",
+                "pixels": 16,
+                "distance": 344.456
+              }
+            ]
+          },
+          "grid": {
+            "misaligned_dimensions": false,
+            "unequal_blocks": 0,
+            "sample_blocks": []
+          }
+        }
+      ],
+      "union_rgb_colors": 1,
+      "top_visible_colors": [
+        {
+          "hex": "#00FFFF",
+          "pixels": 16
+        }
+      ]
+    },
+    {
+      "path": "../inputs/bad-size.png",
+      "relative_path": "bad-size.png",
+      "input_root": "../inputs",
+      "roles": [],
+      "matching_patterns": [],
+      "rules": {
+        "canvas_size": [
+          8,
+          8
+        ],
+        "size_multiple": [
+          2,
+          2
+        ],
+        "grid_scale": 2,
+        "alpha_policy": "binary",
+        "palette": {
+          "colors": [
+            "#DC6428"
+          ],
+          "max_distance": 0
+        },
+        "max_colors": 1,
+        "margins": {
+          "min": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "max": [
+            2,
+            2,
+            2,
+            2
+          ]
+        },
+        "bottom_anchor": {
+          "padding": 2,
+          "tolerance": 0
+        },
+        "animation_canvas_consistency": true
+      },
+      "sha256": "97869ac42a39ec19550a987ec8f21bbd732e91b35a1f8241e8f767955b023447",
+      "machine_status": "FAIL",
+      "coverage": {
+        "total_frames": 1,
+        "measured_frames": 1,
+        "measured_indices": [
+          0
+        ],
+        "complete": true
+      },
+      "checks": {
+        "canvas_size": {
+          "status": "FAIL",
+          "expected": [
+            8,
+            8
+          ],
+          "observed": {
+            "frame_sizes": [
+              [
+                10,
+                8
+              ]
+            ]
+          },
+          "reason": "Decoded logical frame canvas dimensions must match the contract.",
+          "failing_frames": [
+            0
+          ]
+        },
+        "size_multiple": {
+          "status": "PASS",
+          "expected": [
+            2,
+            2
+          ],
+          "observed": {
+            "frame_sizes": [
+              [
+                10,
+                8
+              ]
+            ]
+          },
+          "reason": "Canvas dimensions must be divisible by the configured x/y multiples.",
+          "failing_frames": []
+        },
+        "grid_scale": {
+          "status": "PASS",
+          "expected": 2,
+          "observed": {
+            "frames": [
+              {
+                "index": 0,
+                "misaligned_dimensions": false,
+                "unequal_blocks": 0,
+                "sample_blocks": []
+              }
+            ]
+          },
+          "reason": "Every origin-aligned NxN output block must repeat one RGBA pixel; fully transparent RGB is ignored. This does not infer artistic pixel quality.",
+          "failing_frames": []
+        },
+        "alpha_policy": {
+          "status": "PASS",
+          "expected": "binary",
+          "observed": {
+            "partial_alpha_pixels": 0,
+            "transparent_pixels": 64
+          },
+          "reason": "Partial alpha is allowed only according to the contract; this measure does not prove white halos or their absence.",
+          "failing_frames": []
+        },
+        "palette": {
+          "status": "PASS",
+          "expected": {
+            "colors": [
+              "#DC6428"
+            ],
+            "max_distance": 0
+          },
+          "observed": {
+            "frames": [
+              {
+                "index": 0,
+                "worst_rgb_distance": 0,
+                "outside_pixels": 0,
+                "sample_outside_colors": []
+              }
+            ]
+          },
+          "reason": "Visible RGB colors are compared to the explicit palette using Euclidean RGB distance, not perceptual color similarity.",
+          "failing_frames": []
+        },
+        "max_colors": {
+          "status": "PASS",
+          "expected": 1,
+          "observed": {
+            "max_colors_in_one_frame": 1,
+            "union_rgb_colors": 1
+          },
+          "reason": "Limit applies per decoded frame to visible RGB; union count is reported separately. Hidden RGB and alpha values are not separate colors.",
+          "failing_frames": []
+        },
+        "margins": {
+          "status": "FAIL",
+          "expected": {
+            "min": [
+              2,
+              2,
+              2,
+              2
+            ],
+            "max": [
+              2,
+              2,
+              2,
+              2
+            ]
+          },
+          "observed": {
+            "frames": [
+              {
+                "index": 0,
+                "margins_ltrb": [
+                  2,
+                  2,
+                  4,
+                  2
+                ]
+              }
+            ]
+          },
+          "reason": "Transparent margins use the bounding box of all alpha>0 pixels. Empty frames have no measurable bounds and fail a configured margin rule.",
+          "failing_frames": [
+            0
+          ]
+        },
+        "bottom_anchor": {
+          "status": "PASS",
+          "expected": {
+            "padding": 2,
+            "tolerance": 0
+          },
+          "observed": {
+            "frames": [
+              {
+                "index": 0,
+                "bottom_padding": 2
+              }
+            ]
+          },
+          "reason": "Measures the lowest nontransparent pixel against the canvas bottom, not a semantic foot, pivot, or engine ground contact.",
+          "failing_frames": []
+        },
+        "animation_canvas_consistency": {
+          "status": "PASS",
+          "expected": true,
+          "observed": {
+            "decoded_frame_sizes": [
+              [
+                10,
+                8
+              ]
+            ],
+            "frame_count": 1
+          },
+          "reason": "Checks composited logical frames. GIF/WebP internal delta rectangles are not source sprite frame dimensions; PNG sequences are separate assets.",
+          "failing_frames": []
+        }
+      },
+      "frames": [
+        {
+          "index": 0,
+          "size": [
+            10,
+            8
+          ],
+          "duration_ms": 0,
+          "visible_bounds": [
+            2,
+            2,
+            6,
+            6
+          ],
+          "margins_ltrb": [
+            2,
+            2,
+            4,
+            2
+          ],
+          "visible_pixels": 16,
+          "partial_alpha_pixels": 0,
+          "transparent_pixels": 64,
+          "rgb_color_count": 1,
+          "palette_distance": {
+            "worst_rgb_distance": 0,
+            "outside_pixels": 0,
+            "sample_outside_colors": []
+          },
+          "grid": {
+            "misaligned_dimensions": false,
+            "unequal_blocks": 0,
+            "sample_blocks": []
+          }
+        }
+      ],
+      "union_rgb_colors": 1,
+      "top_visible_colors": [
+        {
+          "hex": "#DC6428",
+          "pixels": 16
+        }
+      ]
+    },
+    {
+      "path": "../inputs/good.png",
+      "relative_path": "good.png",
+      "input_root": "../inputs",
+      "roles": [],
+      "matching_patterns": [],
+      "rules": {
+        "canvas_size": [
+          8,
+          8
+        ],
+        "size_multiple": [
+          2,
+          2
+        ],
+        "grid_scale": 2,
+        "alpha_policy": "binary",
+        "palette": {
+          "colors": [
+            "#DC6428"
+          ],
+          "max_distance": 0
+        },
+        "max_colors": 1,
+        "margins": {
+          "min": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "max": [
+            2,
+            2,
+            2,
+            2
+          ]
+        },
+        "bottom_anchor": {
+          "padding": 2,
+          "tolerance": 0
+        },
+        "animation_canvas_consistency": true
+      },
+      "sha256": "bcfcb6161e40f10d5bb1347b019cf6308c903563c48c5a3cc4f8b15c2d5210b5",
+      "machine_status": "PASS",
+      "coverage": {
+        "total_frames": 1,
+        "measured_frames": 1,
+        "measured_indices": [
+          0
+        ],
+        "complete": true
+      },
+      "checks": {
+        "canvas_size": {
+          "status": "PASS",
+          "expected": [
+            8,
+            8
+          ],
+          "observed": {
+            "frame_sizes": [
+              [
+                8,
+                8
+              ]
+            ]
+          },
+          "reason": "Decoded logical frame canvas dimensions must match the contract.",
+          "failing_frames": []
+        },
+        "size_multiple": {
+          "status": "PASS",
+          "expected": [
+            2,
+            2
+          ],
+          "observed": {
+            "frame_sizes": [
+              [
+                8,
+                8
+              ]
+            ]
+          },
+          "reason": "Canvas dimensions must be divisible by the configured x/y multiples.",
+          "failing_frames": []
+        },
+        "grid_scale": {
+          "status": "PASS",
+          "expected": 2,
+          "observed": {
+            "frames": [
+              {
+                "index": 0,
+                "misaligned_dimensions": false,
+                "unequal_blocks": 0,
+                "sample_blocks": []
+              }
+            ]
+          },
+          "reason": "Every origin-aligned NxN output block must repeat one RGBA pixel; fully transparent RGB is ignored. This does not infer artistic pixel quality.",
+          "failing_frames": []
+        },
+        "alpha_policy": {
+          "status": "PASS",
+          "expected": "binary",
+          "observed": {
+            "partial_alpha_pixels": 0,
+            "transparent_pixels": 48
+          },
+          "reason": "Partial alpha is allowed only according to the contract; this measure does not prove white halos or their absence.",
+          "failing_frames": []
+        },
+        "palette": {
+          "status": "PASS",
+          "expected": {
+            "colors": [
+              "#DC6428"
+            ],
+            "max_distance": 0
+          },
+          "observed": {
+            "frames": [
+              {
+                "index": 0,
+                "worst_rgb_distance": 0,
+                "outside_pixels": 0,
+                "sample_outside_colors": []
+              }
+            ]
+          },
+          "reason": "Visible RGB colors are compared to the explicit palette using Euclidean RGB distance, not perceptual color similarity.",
+          "failing_frames": []
+        },
+        "max_colors": {
+          "status": "PASS",
+          "expected": 1,
+          "observed": {
+            "max_colors_in_one_frame": 1,
+            "union_rgb_colors": 1
+          },
+          "reason": "Limit applies per decoded frame to visible RGB; union count is reported separately. Hidden RGB and alpha values are not separate colors.",
+          "failing_frames": []
+        },
+        "margins": {
+          "status": "PASS",
+          "expected": {
+            "min": [
+              2,
+              2,
+              2,
+              2
+            ],
+            "max": [
+              2,
+              2,
+              2,
+              2
+            ]
+          },
+          "observed": {
+            "frames": [
+              {
+                "index": 0,
+                "margins_ltrb": [
+                  2,
+                  2,
+                  2,
+                  2
+                ]
+              }
+            ]
+          },
+          "reason": "Transparent margins use the bounding box of all alpha>0 pixels. Empty frames have no measurable bounds and fail a configured margin rule.",
+          "failing_frames": []
+        },
+        "bottom_anchor": {
+          "status": "PASS",
+          "expected": {
+            "padding": 2,
+            "tolerance": 0
+          },
+          "observed": {
+            "frames": [
+              {
+                "index": 0,
+                "bottom_padding": 2
+              }
+            ]
+          },
+          "reason": "Measures the lowest nontransparent pixel against the canvas bottom, not a semantic foot, pivot, or engine ground contact.",
+          "failing_frames": []
+        },
+        "animation_canvas_consistency": {
+          "status": "PASS",
+          "expected": true,
+          "observed": {
+            "decoded_frame_sizes": [
+              [
+                8,
+                8
+              ]
+            ],
+            "frame_count": 1
+          },
+          "reason": "Checks composited logical frames. GIF/WebP internal delta rectangles are not source sprite frame dimensions; PNG sequences are separate assets.",
+          "failing_frames": []
+        }
+      },
+      "frames": [
+        {
+          "index": 0,
+          "size": [
+            8,
+            8
+          ],
+          "duration_ms": 0,
+          "visible_bounds": [
+            2,
+            2,
+            6,
+            6
+          ],
+          "margins_ltrb": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "visible_pixels": 16,
+          "partial_alpha_pixels": 0,
+          "transparent_pixels": 48,
+          "rgb_color_count": 1,
+          "palette_distance": {
+            "worst_rgb_distance": 0,
+            "outside_pixels": 0,
+            "sample_outside_colors": []
+          },
+          "grid": {
+            "misaligned_dimensions": false,
+            "unequal_blocks": 0,
+            "sample_blocks": []
+          }
+        }
+      ],
+      "union_rgb_colors": 1,
+      "top_visible_colors": [
+        {
+          "hex": "#DC6428",
+          "pixels": 16
+        }
+      ]
+    }
+  ],
+  "manual_review": [
+    {
+      "id": "perspective",
+      "status": "MANUAL_REVIEW",
+      "question": "视角、可见屋顶/墙面比例、脚底投影是否与项目参考一致"
+    },
+    {
+      "id": "lighting",
+      "status": "MANUAL_REVIEW",
+      "question": "主光方向、受光面、投影长度和环境光是否协调"
+    },
+    {
+      "id": "material",
+      "status": "MANUAL_REVIEW",
+      "question": "木材、岩石、金属和布料的明暗与纹理是否有统一尺度"
+    },
+    {
+      "id": "silhouette",
+      "status": "MANUAL_REVIEW",
+      "question": "轮廓节奏、细杆、必要透明孔洞和造型识别性是否保留"
+    },
+    {
+      "id": "style",
+      "status": "MANUAL_REVIEW",
+      "question": "色彩关系、细节密度和角色/场景/UI是否属于同一视觉体系"
+    },
+    {
+      "id": "animation",
+      "status": "MANUAL_REVIEW",
+      "question": "关键姿态、重心、节奏、脚部接触与循环接缝是否自然"
+    },
+    {
+      "id": "ui",
+      "status": "MANUAL_REVIEW",
+      "question": "真实显示尺寸下文字、状态、焦点、图标和输入热区是否可读可操作"
+    }
+  ],
+  "contact_sheets": [
+    "contact-sheet.png"
+  ]
+}

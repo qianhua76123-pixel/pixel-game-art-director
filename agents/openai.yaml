@@ -1,0 +1,4 @@
+interface:
+  display_name: "像素游戏美术与教程助手"
+  short_description: "按任务找教程与配图，统一像素美术和游戏UI风格，生成素材一致性检查报告"
+  default_prompt: "使用 $pixel-game-art-director 为当前像素游戏任务检索教程和配图，确定美术与UI规范并检查素材一致性。"

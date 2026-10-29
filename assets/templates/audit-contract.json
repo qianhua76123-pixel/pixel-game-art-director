@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "project": "Pixel asset contract example",
+  "notes": "Example only. Replace role dimensions, palette and anchor values with the project's accepted art specification. Omitted checks are NOT_CONFIGURED, not PASS.",
+  "defaults": {
+    "alpha_policy": "binary"
+  },
+  "roles": {
+    "character": {
+      "canvas_size": [32, 32],
+      "size_multiple": [16, 16],
+      "max_colors": 16,
+      "bottom_anchor": {"padding": 1, "tolerance": 1},
+      "animation_canvas_consistency": true
+    },
+    "terrain-tile": {
+      "canvas_size": [16, 16],
+      "alpha_policy": "opaque",
+      "max_colors": 12
+    },
+    "ui-frame": {
+      "size_multiple": [2, 2],
+      "alpha_policy": "binary",
+      "palette": {
+        "colors": ["#222034", "#45283C", "#8F563B", "#DFD7B1"],
+        "max_distance": 0
+      }
+    },
+    "translucent-effect": {
+      "alpha_policy": "allow_partial"
+    }
+  },
+  "assets": [
+    {"pattern": "characters/*", "role": "character"},
+    {"pattern": "tiles/*", "role": "terrain-tile"},
+    {"pattern": "ui/*", "role": "ui-frame"},
+    {"pattern": "effects/*", "role": "translucent-effect"},
+    {"pattern": "*preview-2x.png", "rules": {"grid_scale": 2}}
+  ]
+}

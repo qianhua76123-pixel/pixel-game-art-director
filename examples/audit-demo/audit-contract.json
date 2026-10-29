@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "defaults": {
+    "canvas_size": [
+      8,
+      8
+    ],
+    "size_multiple": [
+      2,
+      2
+    ],
+    "grid_scale": 2,
+    "alpha_policy": "binary",
+    "palette": {
+      "colors": [
+        "#DC6428"
+      ],
+      "max_distance": 0
+    },
+    "max_colors": 1,
+    "margins": {
+      "min": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "max": [
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    "bottom_anchor": {
+      "padding": 2,
+      "tolerance": 0
+    },
+    "animation_canvas_consistency": true
+  },
+  "project": "合成测试夹具：不是游戏成品美术",
+  "notes": "Deliberately incorrect synthetic fixtures demonstrate detectable technical differences. Not a visual style validation."
+}

@@ -1,0 +1,2466 @@
+[
+  {
+    "id": "ART-001",
+    "title": "像素簇、孤立像素与画面噪点",
+    "category": "drawing",
+    "path": "tutorials/drawing/ART-001-pixel-clusters.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Fundamentals.gif",
+    "source_title": "Fundamentals",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "beginner",
+    "tags": [
+      "像素基础",
+      "像素簇",
+      "噪点",
+      "轮廓",
+      "pixel-cluster"
+    ],
+    "summary": "通过连贯的像素簇组织形状，区分有信息价值的单像素细节与破坏阅读的杂点。",
+    "images": [
+      {
+        "path": "assets/drawing/ART-001/Fundamentals.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Fundamentals.gif",
+        "caption": "左上头发比较整片亮部；左中圈出孤立亮点。人物动画演示移动时簇的完整性；下半部的飞船、人物与小图案展示单像素的有效用途及重复节奏。",
+        "role": "original",
+        "derived": false,
+        "sha256": "df3b73e36b2c86afb41c3e6ba450044373fc21816822b3f0ee8d6454c51a2f0a",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-001/keyframes.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Fundamentals.gif",
+        "caption": "原GIF按总时长0%、33%、66%、99%抽取的四帧，按左上、右上、左下、右下阅读；图外标注帧号和时间。",
+        "role": "keyframes",
+        "derived": true,
+        "sha256": "e252b3c3da190f59cdf1b48f526d99b30bfba0e2772b081ff25b91998276bd51",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-001/preview.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Fundamentals.gif",
+        "caption": "原GIF首帧静态预览；分步骤教程的首帧可能尚未显示成品。",
+        "role": "preview",
+        "derived": true,
+        "sha256": "e284f1a7e99a85ebb7a8f3e83ac3ffb8eb2a90b09d4b05f4bc1d7320c8adeed8",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "git:ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "能够使用1像素铅笔和橡皮"
+    ],
+    "learning_objectives": [
+      "识别孤立像素与色块连接",
+      "减少噪点并保留识别性细节",
+      "在动画中保持像素簇连贯"
+    ],
+    "source_sha256": "df3b73e36b2c86afb41c3e6ba450044373fc21816822b3f0ee8d6454c51a2f0a",
+    "source_bytes": 1487809,
+    "original_animation": {
+      "original": "Fundamentals.gif",
+      "width": 512,
+      "height": 512,
+      "frames": 70,
+      "duration_ms": 9100,
+      "selected": [
+        {
+          "frame": 0,
+          "time_ms": 0
+        },
+        {
+          "frame": 23,
+          "time_ms": 2990
+        },
+        {
+          "frame": 46,
+          "time_ms": 5980
+        },
+        {
+          "frame": 69,
+          "time_ms": 8970
+        }
+      ],
+      "operation": "Extract original frames at 0/33/66/99 percent of duration; add labels outside frames; no interpolation or art recoloring."
+    },
+    "translation_scope": "Chinese explanatory paraphrase of the source image's main instructions, with original GIF retained; not an asserted complete OCR transcript.",
+    "editorial_additions": [
+      "practice exercise",
+      "acceptance checklist",
+      "scope and pitfalls",
+      "cross-references",
+      "static keyframe sheet"
+    ]
+  },
+  {
+    "id": "ART-002",
+    "title": "直线步长、曲线与意外方块",
+    "category": "drawing",
+    "path": "tutorials/drawing/ART-002-lines-curves-corners.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Fundamentals2.gif",
+    "source_title": "Fundamentals2",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "beginner",
+    "tags": [
+      "像素基础",
+      "线条",
+      "曲线",
+      "锯齿",
+      "banding"
+    ],
+    "summary": "用有规律的像素步长构造直线和曲线，清理意外加粗的角与局部方块。",
+    "images": [
+      {
+        "path": "assets/drawing/ART-002/Fundamentals2.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Fundamentals2.gif",
+        "caption": "上部依次展示规则直线、可用的不规则节奏和曲线；中部骷髅与圆形物体旁标出坏角。下部人物耳朵与小鸟的放大区说明像素相邻后可能形成意外正方形。",
+        "role": "original",
+        "derived": false,
+        "sha256": "4588d5c6f156f0e436eaaddb2316981779304201ea22bb400fe01ad067ac175d",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-002/keyframes.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Fundamentals2.gif",
+        "caption": "原GIF按总时长0%、33%、66%、99%抽取的四帧，按左上、右上、左下、右下阅读；图外标注帧号和时间。",
+        "role": "keyframes",
+        "derived": true,
+        "sha256": "4e61a25c424ff3806a0337310cdd8a5e5c8fdc602dbb1e4d1e2ef34301a05f20",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-002/preview.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Fundamentals2.gif",
+        "caption": "原GIF首帧静态预览；分步骤教程的首帧可能尚未显示成品。",
+        "role": "preview",
+        "derived": true,
+        "sha256": "2f6cedf2ed0280f0fe302b6ea588185dbd31228a0c5678eafd0a6445488ffb10",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "git:ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "ART-001"
+    ],
+    "learning_objectives": [
+      "用步长描述像素线",
+      "修整曲线拐角",
+      "识别由邻接像素造成的意外方块"
+    ],
+    "source_sha256": "4588d5c6f156f0e436eaaddb2316981779304201ea22bb400fe01ad067ac175d",
+    "source_bytes": 475642,
+    "original_animation": {
+      "original": "Fundamentals2.gif",
+      "width": 512,
+      "height": 512,
+      "frames": 20,
+      "duration_ms": 2800,
+      "selected": [
+        {
+          "frame": 0,
+          "time_ms": 0
+        },
+        {
+          "frame": 6,
+          "time_ms": 840
+        },
+        {
+          "frame": 13,
+          "time_ms": 1820
+        },
+        {
+          "frame": 19,
+          "time_ms": 2660
+        }
+      ],
+      "operation": "Extract original frames at 0/33/66/99 percent of duration; add labels outside frames; no interpolation or art recoloring."
+    },
+    "translation_scope": "Chinese explanatory paraphrase of the source image's main instructions, with original GIF retained; not an asserted complete OCR transcript.",
+    "editorial_additions": [
+      "practice exercise",
+      "acceptance checklist",
+      "scope and pitfalls",
+      "cross-references",
+      "static keyframe sheet"
+    ]
+  },
+  {
+    "id": "ART-003",
+    "title": "光影体积、色相偏移与受光面",
+    "category": "drawing",
+    "path": "tutorials/drawing/ART-003-shading-hue-shift.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Shading.gif",
+    "source_title": "Shading",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "beginner",
+    "tags": [
+      "光影",
+      "色相偏移",
+      "调色",
+      "体积",
+      "shading"
+    ],
+    "summary": "从固定光源和大受光面出发，用有限颜色表达体积、投影与反射光。",
+    "images": [
+      {
+        "path": "assets/drawing/ART-003/Shading.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Shading.gif",
+        "caption": "左上比较只改变亮度与加入色相变化的球；中部方柱说明纯色面。右中球体标出主光、高光、明暗交界和反射光；人物脸部区分投影硬边与自身阴影软边。",
+        "role": "original",
+        "derived": false,
+        "sha256": "9a5bd9bdcd32578452fe4b14049e66f0b001c290530a3a1fa8c1ecc0a66b4536",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-003/keyframes.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Shading.gif",
+        "caption": "原GIF按总时长0%、33%、66%、99%抽取的四帧，按左上、右上、左下、右下阅读；图外标注帧号和时间。",
+        "role": "keyframes",
+        "derived": true,
+        "sha256": "b76dbd4d796ca2ced8ca621120e03989461b4571ae984ef7d217d7945b2e5d52",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-003/preview.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Shading.gif",
+        "caption": "原GIF首帧静态预览；分步骤教程的首帧可能尚未显示成品。",
+        "role": "preview",
+        "derived": true,
+        "sha256": "e33673790c25b3ca9284058fb796af7ab108e4d576ee4fa9307f8ba8ed34badb",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "git:ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "ART-001"
+    ],
+    "learning_objectives": [
+      "建立亮部与暗部色阶",
+      "区分高光、明暗交界和投影",
+      "避免所有物体使用同一种柔和渐变"
+    ],
+    "source_sha256": "9a5bd9bdcd32578452fe4b14049e66f0b001c290530a3a1fa8c1ecc0a66b4536",
+    "source_bytes": 635171,
+    "original_animation": {
+      "original": "Shading.gif",
+      "width": 512,
+      "height": 512,
+      "frames": 27,
+      "duration_ms": 3240,
+      "selected": [
+        {
+          "frame": 0,
+          "time_ms": 0
+        },
+        {
+          "frame": 8,
+          "time_ms": 960
+        },
+        {
+          "frame": 17,
+          "time_ms": 2040
+        },
+        {
+          "frame": 26,
+          "time_ms": 3120
+        }
+      ],
+      "operation": "Extract original frames at 0/33/66/99 percent of duration; add labels outside frames; no interpolation or art recoloring."
+    },
+    "translation_scope": "Chinese explanatory paraphrase of the source image's main instructions, with original GIF retained; not an asserted complete OCR transcript.",
+    "editorial_additions": [
+      "practice exercise",
+      "acceptance checklist",
+      "scope and pitfalls",
+      "cross-references",
+      "static keyframe sheet"
+    ]
+  },
+  {
+    "id": "ART-004",
+    "title": "外轮廓、选择性描边与形状分离",
+    "category": "drawing",
+    "path": "tutorials/drawing/ART-004-outlines.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Outlines.gif",
+    "source_title": "Outlines",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "beginner",
+    "tags": [
+      "轮廓",
+      "描边",
+      "像素完美",
+      "可读性",
+      "outline"
+    ],
+    "summary": "在有限像素空间中决定哪些边需要描线，哪些边可以靠色块和明暗分开。",
+    "images": [
+      {
+        "path": "assets/drawing/ART-004/Outlines.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Outlines.gif",
+        "caption": "左侧圆球与生物示意内外边界，人物展示受光处减弱轮廓。右上鸟的例子给出清线过程，右下尖锐翅缘说明角不一定是错误。",
+        "role": "original",
+        "derived": false,
+        "sha256": "c6a74430b44f39c8af0462f8a30353bf4926a18cb73ca3f6f296382d2b8afd46",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-004/keyframes.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Outlines.gif",
+        "caption": "原GIF按总时长0%、33%、66%、99%抽取的四帧，按左上、右上、左下、右下阅读；图外标注帧号和时间。",
+        "role": "keyframes",
+        "derived": true,
+        "sha256": "8ade14993cd2af3bdd2999bec8af5f3ad1a3f52e4e29e13e3ad603be6b2edd60",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-004/preview.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Outlines.gif",
+        "caption": "原GIF首帧静态预览；分步骤教程的首帧可能尚未显示成品。",
+        "role": "preview",
+        "derived": true,
+        "sha256": "d81e0463b24f612c7e0ac0e251237a26551c61cf154af186c46362501f6344cc",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "git:ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "ART-002",
+      "ART-003"
+    ],
+    "learning_objectives": [
+      "区分外轮廓与内部边界",
+      "控制描边的颜色和粗细",
+      "保留有设计目的的锐角"
+    ],
+    "source_sha256": "c6a74430b44f39c8af0462f8a30353bf4926a18cb73ca3f6f296382d2b8afd46",
+    "source_bytes": 797832,
+    "original_animation": {
+      "original": "Outlines.gif",
+      "width": 512,
+      "height": 512,
+      "frames": 34,
+      "duration_ms": 4080,
+      "selected": [
+        {
+          "frame": 0,
+          "time_ms": 0
+        },
+        {
+          "frame": 11,
+          "time_ms": 1320
+        },
+        {
+          "frame": 22,
+          "time_ms": 2640
+        },
+        {
+          "frame": 33,
+          "time_ms": 3960
+        }
+      ],
+      "operation": "Extract original frames at 0/33/66/99 percent of duration; add labels outside frames; no interpolation or art recoloring."
+    },
+    "translation_scope": "Chinese explanatory paraphrase of the source image's main instructions, with original GIF retained; not an asserted complete OCR transcript.",
+    "editorial_additions": [
+      "practice exercise",
+      "acceptance checklist",
+      "scope and pitfalls",
+      "cross-references",
+      "static keyframe sheet"
+    ]
+  },
+  {
+    "id": "ART-005",
+    "title": "用剪影建立角色与道具识别性",
+    "category": "drawing",
+    "path": "tutorials/drawing/ART-005-silhouette-design.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Silhouette.gif",
+    "source_title": "Silhouette",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "beginner",
+    "tags": [
+      "剪影",
+      "角色设计",
+      "可读性",
+      "silhouette"
+    ],
+    "summary": "先让单色外形讲清楚对象的身份，再添加颜色、细节和动画。",
+    "images": [
+      {
+        "path": "assets/drawing/ART-005/Silhouette.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Silhouette.gif",
+        "caption": "上方战士通过剑和盔甲外形提示身份；中间触手怪展示长线与尖角；下方机器人标出平头与履带。动态示例说明识别要在运动中保持。",
+        "role": "original",
+        "derived": false,
+        "sha256": "8494ec087b7cdc85d6ab94da1710858b08692adcd371ab6cc08fe25de0064f3a",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-005/keyframes.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Silhouette.gif",
+        "caption": "原GIF按总时长0%、33%、66%、99%抽取的四帧，按左上、右上、左下、右下阅读；图外标注帧号和时间。",
+        "role": "keyframes",
+        "derived": true,
+        "sha256": "253a696b19bd940d92f04a770816d90ce1f0fa4294de63a68a2f2b3c11468e2e",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-005/preview.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Silhouette.gif",
+        "caption": "原GIF首帧静态预览；分步骤教程的首帧可能尚未显示成品。",
+        "role": "preview",
+        "derived": true,
+        "sha256": "bc6a69285aeab88ae0cc09a8bf26429879d5a72629f3af36dae96cf62aa096b3",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "git:ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "ART-001"
+    ],
+    "learning_objectives": [
+      "使用单色剪影检查识别性",
+      "以少数强形状表达身份",
+      "在动态姿势中保留清楚轮廓"
+    ],
+    "source_sha256": "8494ec087b7cdc85d6ab94da1710858b08692adcd371ab6cc08fe25de0064f3a",
+    "source_bytes": 1095572,
+    "original_animation": {
+      "original": "Silhouette.gif",
+      "width": 512,
+      "height": 512,
+      "frames": 63,
+      "duration_ms": 9400,
+      "selected": [
+        {
+          "frame": 0,
+          "time_ms": 0
+        },
+        {
+          "frame": 11,
+          "time_ms": 2800
+        },
+        {
+          "frame": 31,
+          "time_ms": 6200
+        },
+        {
+          "frame": 62,
+          "time_ms": 9300
+        }
+      ],
+      "operation": "Extract original frames at 0/33/66/99 percent of duration; add labels outside frames; no interpolation or art recoloring."
+    },
+    "translation_scope": "Chinese explanatory paraphrase of the source image's main instructions, with original GIF retained; not an asserted complete OCR transcript.",
+    "editorial_additions": [
+      "practice exercise",
+      "acceptance checklist",
+      "scope and pitfalls",
+      "cross-references",
+      "static keyframe sheet"
+    ]
+  },
+  {
+    "id": "ART-006",
+    "title": "改变逻辑分辨率后的重绘与修整",
+    "category": "drawing",
+    "path": "tutorials/drawing/ART-006-resizing-redrawing.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Resizing.gif",
+    "source_title": "Resizing",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "intermediate",
+    "tags": [
+      "缩放",
+      "分辨率",
+      "重绘",
+      "像素修整",
+      "resize"
+    ],
+    "summary": "区分展示用整数放大与真正改变像素资产尺寸；后者需要重新组织细节和轮廓。",
+    "images": [
+      {
+        "path": "assets/drawing/ART-006/Resizing.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Resizing.gif",
+        "caption": "上部概念图与小角色对照说明信息取舍；中部一排尺寸展示细节随分辨率减少；下部青蛙分成缩小与放大两条修整路径。",
+        "role": "original",
+        "derived": false,
+        "sha256": "74b1182d4a919cd5d9af2126d4e46a994f5ca73d3ac407bfc37b7760d3ea7a5c",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-006/keyframes.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Resizing.gif",
+        "caption": "原GIF按总时长0%、33%、66%、99%抽取的四帧，按左上、右上、左下、右下阅读；图外标注帧号和时间。",
+        "role": "keyframes",
+        "derived": true,
+        "sha256": "a0a85da0bdb50efc05d3b6dab9a2a2bbc2c96be172b67fa7788e819d6e47de06",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-006/preview.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Resizing.gif",
+        "caption": "原GIF首帧静态预览；分步骤教程的首帧可能尚未显示成品。",
+        "role": "preview",
+        "derived": true,
+        "sha256": "83ce04f1528c9be3688dda85b55d4476063a751ec557bf84500ba5781a400e08",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "git:ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "ART-001",
+      "ART-002"
+    ],
+    "learning_objectives": [
+      "决定低分辨率下必须保留的特征",
+      "识别自动缩放造成的断线和方块",
+      "按目标尺寸重整阴影和细节"
+    ],
+    "source_sha256": "74b1182d4a919cd5d9af2126d4e46a994f5ca73d3ac407bfc37b7760d3ea7a5c",
+    "source_bytes": 1998311,
+    "original_animation": {
+      "original": "Resizing.gif",
+      "width": 512,
+      "height": 512,
+      "frames": 78,
+      "duration_ms": 14040,
+      "selected": [
+        {
+          "frame": 0,
+          "time_ms": 0
+        },
+        {
+          "frame": 25,
+          "time_ms": 4500
+        },
+        {
+          "frame": 51,
+          "time_ms": 9180
+        },
+        {
+          "frame": 77,
+          "time_ms": 13860
+        }
+      ],
+      "operation": "Extract original frames at 0/33/66/99 percent of duration; add labels outside frames; no interpolation or art recoloring."
+    },
+    "translation_scope": "Chinese explanatory paraphrase of the source image's main instructions, with original GIF retained; not an asserted complete OCR transcript.",
+    "editorial_additions": [
+      "practice exercise",
+      "acceptance checklist",
+      "scope and pitfalls",
+      "cross-references",
+      "static keyframe sheet"
+    ]
+  },
+  {
+    "id": "ART-007",
+    "title": "无缝主图块、边缘块与变体",
+    "category": "drawing",
+    "path": "tutorials/drawing/ART-007-seamless-tiles.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Tiles.gif",
+    "source_title": "Tiles",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "intermediate",
+    "tags": [
+      "tileset",
+      "无缝纹理",
+      "地图",
+      "图块",
+      "tile"
+    ],
+    "summary": "先做能四边相接的主图块，再拆出边缘、连接和不破坏接缝的变体。",
+    "images": [
+      {
+        "path": "assets/drawing/ART-007/Tiles.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Tiles.gif",
+        "caption": "第一行演示半幅偏移修缝；第二行列出TOP/MID/BOT；第三行组合水平与垂直结构；底部以多个中心变化说明边缘保持一致。",
+        "role": "original",
+        "derived": false,
+        "sha256": "a0a1e439b8a99ec2b9aae13ea71f6fe33055e8b07ab1540ec53e050feeb37d33",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-007/keyframes.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Tiles.gif",
+        "caption": "原GIF按总时长0%、33%、66%、99%抽取的四帧，按左上、右上、左下、右下阅读；图外标注帧号和时间。",
+        "role": "keyframes",
+        "derived": true,
+        "sha256": "b63d39966b99d71fe02bc77580fc8c9a582deffd9965eeec81714f03a65ace6d",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-007/preview.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Tiles.gif",
+        "caption": "原GIF首帧静态预览；分步骤教程的首帧可能尚未显示成品。",
+        "role": "preview",
+        "derived": true,
+        "sha256": "b649897f138ebd6740ea27961c3df1486f4d6347e4e7a81afe1fde940d101cae",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "git:ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "ART-001",
+      "ART-003"
+    ],
+    "learning_objectives": [
+      "使用半幅偏移检查接缝",
+      "区分主块与边缘块",
+      "制作不改变边缘契约的变化"
+    ],
+    "source_sha256": "a0a1e439b8a99ec2b9aae13ea71f6fe33055e8b07ab1540ec53e050feeb37d33",
+    "source_bytes": 896412,
+    "original_animation": {
+      "original": "Tiles.gif",
+      "width": 512,
+      "height": 512,
+      "frames": 38,
+      "duration_ms": 15100,
+      "selected": [
+        {
+          "frame": 0,
+          "time_ms": 0
+        },
+        {
+          "frame": 21,
+          "time_ms": 4800
+        },
+        {
+          "frame": 31,
+          "time_ms": 9700
+        },
+        {
+          "frame": 37,
+          "time_ms": 13100
+        }
+      ],
+      "operation": "Extract original frames at 0/33/66/99 percent of duration; add labels outside frames; no interpolation or art recoloring."
+    },
+    "translation_scope": "Chinese explanatory paraphrase of the source image's main instructions, with original GIF retained; not an asserted complete OCR transcript.",
+    "editorial_additions": [
+      "practice exercise",
+      "acceptance checklist",
+      "scope and pitfalls",
+      "cross-references",
+      "static keyframe sheet"
+    ]
+  },
+  {
+    "id": "ART-008",
+    "title": "俯视斜视角房屋：从体块到屋顶材质",
+    "category": "drawing",
+    "path": "tutorials/drawing/ART-008-top-down-houses.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Top-Down-Houses-Compressed.gif",
+    "source_title": "Top-Down-Houses-Compressed",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "intermediate",
+    "tags": [
+      "俯视角",
+      "房屋",
+      "场景",
+      "屋顶",
+      "top-down"
+    ],
+    "summary": "从简单盒子建立屋顶和墙体，在统一视角下添加门窗、深度、光影与纹理。",
+    "images": [
+      {
+        "path": "assets/drawing/ART-008/Top-Down-Houses-Compressed.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Top-Down-Houses-Compressed.gif",
+        "caption": "这是逐步展开的GIF：首帧只有体块，后续出现屋顶线、门窗、基础颜色与纹理。关键帧表按原时间排列，可看到同一流程如何应用在矩形、折角和叠层建筑上。",
+        "role": "original",
+        "derived": false,
+        "sha256": "6163defa0cf6532583d70dd63f373a485070450965f640b67b41a51abb71b11e",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-008/keyframes.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Top-Down-Houses-Compressed.gif",
+        "caption": "原GIF按总时长0%、33%、66%、99%抽取的四帧，按左上、右上、左下、右下阅读；图外标注帧号和时间。",
+        "role": "keyframes",
+        "derived": true,
+        "sha256": "d63fafcea6e843d787d858b1ab1946abb95c50beb7c26cb4c481612722825a6a",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-008/preview.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Top-Down-Houses-Compressed.gif",
+        "caption": "原GIF首帧静态预览；分步骤教程的首帧可能尚未显示成品。",
+        "role": "preview",
+        "derived": true,
+        "sha256": "500591855b11f69494282e2e56a7af2b269b990a7f49ffa93763cc65f1e314d2",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "git:ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "ART-002",
+      "ART-003",
+      "ART-007"
+    ],
+    "learning_objectives": [
+      "按体块顺序绘制房屋",
+      "识别伪透视与正俯视的边界",
+      "用多种组合体块制作建筑变体"
+    ],
+    "source_sha256": "6163defa0cf6532583d70dd63f373a485070450965f640b67b41a51abb71b11e",
+    "source_bytes": 91375,
+    "original_animation": {
+      "original": "Top-Down-Houses-Compressed.gif",
+      "width": 512,
+      "height": 512,
+      "frames": 189,
+      "duration_ms": 22680,
+      "selected": [
+        {
+          "frame": 0,
+          "time_ms": 0
+        },
+        {
+          "frame": 62,
+          "time_ms": 7440
+        },
+        {
+          "frame": 124,
+          "time_ms": 14880
+        },
+        {
+          "frame": 187,
+          "time_ms": 22440
+        }
+      ],
+      "operation": "Extract original frames at 0/33/66/99 percent of duration; add labels outside frames; no interpolation or art recoloring."
+    },
+    "translation_scope": "Chinese explanatory paraphrase of the source image's main instructions, with original GIF retained; not an asserted complete OCR transcript.",
+    "editorial_additions": [
+      "practice exercise",
+      "acceptance checklist",
+      "scope and pitfalls",
+      "cross-references",
+      "static keyframe sheet"
+    ]
+  },
+  {
+    "id": "ART-009",
+    "title": "室内场景的层次、细节密度与气氛",
+    "category": "drawing",
+    "path": "tutorials/drawing/ART-009-indoor-environments.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/indoors.gif",
+    "source_title": "indoors",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "intermediate",
+    "tags": [
+      "室内",
+      "场景",
+      "对比",
+      "调色",
+      "环境叙事"
+    ],
+    "summary": "用背景低对比、前景重点、轻微变化与建筑小结构组织可读的室内场景。",
+    "images": [
+      {
+        "path": "assets/drawing/ART-009/indoors.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/indoors.gif",
+        "caption": "图上部用箭头指出灯光、墙上装饰、键盘、书桌和踢脚线；下半部比较背景墙面与绿色沙发等前景元素的色阶。动图中的微变化承担气氛作用。",
+        "role": "original",
+        "derived": false,
+        "sha256": "dcbe8e7d07b31f837b11e8292c7bac89d0089a643113931893f41ea8f64bbf27",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-009/keyframes.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/indoors.gif",
+        "caption": "原GIF按总时长0%、33%、66%、99%抽取的四帧，按左上、右上、左下、右下阅读；图外标注帧号和时间。",
+        "role": "keyframes",
+        "derived": true,
+        "sha256": "73bc9e30c96571423d560eeec7e34914680ad9d7a35763db6eb19c16a010dca5",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-009/preview.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/indoors.gif",
+        "caption": "原GIF首帧静态预览；分步骤教程的首帧可能尚未显示成品。",
+        "role": "preview",
+        "derived": true,
+        "sha256": "3bcfd414fbfc255f7eab4fe7db7d8ef99cf79bc5eb2759ffa248eb56cf08fb25",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "git:ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "ART-003",
+      "ART-004"
+    ],
+    "learning_objectives": [
+      "控制背景与前景的对比层级",
+      "为物件安排细节密度",
+      "用微动画营造氛围"
+    ],
+    "source_sha256": "dcbe8e7d07b31f837b11e8292c7bac89d0089a643113931893f41ea8f64bbf27",
+    "source_bytes": 1094869,
+    "original_animation": {
+      "original": "indoors.gif",
+      "width": 512,
+      "height": 512,
+      "frames": 40,
+      "duration_ms": 5600,
+      "selected": [
+        {
+          "frame": 0,
+          "time_ms": 0
+        },
+        {
+          "frame": 13,
+          "time_ms": 1820
+        },
+        {
+          "frame": 26,
+          "time_ms": 3640
+        },
+        {
+          "frame": 39,
+          "time_ms": 5460
+        }
+      ],
+      "operation": "Extract original frames at 0/33/66/99 percent of duration; add labels outside frames; no interpolation or art recoloring."
+    },
+    "translation_scope": "Chinese explanatory paraphrase of the source image's main instructions, with original GIF retained; not an asserted complete OCR transcript.",
+    "editorial_additions": [
+      "practice exercise",
+      "acceptance checklist",
+      "scope and pitfalls",
+      "cross-references",
+      "static keyframe sheet"
+    ]
+  },
+  {
+    "id": "ART-010",
+    "title": "俯视场景的脚底排序、复杂遮挡与碰撞投影",
+    "category": "drawing",
+    "path": "tutorials/drawing/ART-010-top-down-depth-sorting.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/TopDownTricks.gif",
+    "source_title": "TopDownTricks",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "intermediate",
+    "tags": [
+      "俯视角",
+      "Y排序",
+      "碰撞",
+      "图层",
+      "depth-sorting"
+    ],
+    "summary": "把绘制顺序锚定在物体接地处，并为复杂高结构拆分遮挡和碰撞。",
+    "images": [
+      {
+        "path": "assets/drawing/ART-010/TopDownTricks.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/TopDownTricks.gif",
+        "caption": "上部树、角色和气球说明接地排序基准；中部折角墙演示复杂形状拆分；下部透明区域显示碰撞投影与地面图层。",
+        "role": "original",
+        "derived": false,
+        "sha256": "83517e29fad45addbaabacb9023bb1c346e19bf9d590a64e05951bd97145c65d",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-010/keyframes.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/TopDownTricks.gif",
+        "caption": "原GIF按总时长0%、33%、66%、99%抽取的四帧，按左上、右上、左下、右下阅读；图外标注帧号和时间。",
+        "role": "keyframes",
+        "derived": true,
+        "sha256": "3e2d57cede7805c0c1ffea7d9da7843d42d82d45b765fed6670449d8f3f54ef9",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-010/preview.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/TopDownTricks.gif",
+        "caption": "原GIF首帧静态预览；分步骤教程的首帧可能尚未显示成品。",
+        "role": "preview",
+        "derived": true,
+        "sha256": "1ae283f48c16f17731e1bb65efca41e7ca5f8c993cd6fe4cdd3fdb4135fdde5e",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "git:ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "知道sprite、图层和碰撞体的区别"
+    ],
+    "learning_objectives": [
+      "选择与地面相关的排序基准",
+      "拆分跨越多个遮挡关系的形状",
+      "区分视觉边界与地面占地"
+    ],
+    "source_sha256": "83517e29fad45addbaabacb9023bb1c346e19bf9d590a64e05951bd97145c65d",
+    "source_bytes": 966912,
+    "original_animation": {
+      "original": "TopDownTricks.gif",
+      "width": 512,
+      "height": 512,
+      "frames": 42,
+      "duration_ms": 5040,
+      "selected": [
+        {
+          "frame": 0,
+          "time_ms": 0
+        },
+        {
+          "frame": 13,
+          "time_ms": 1560
+        },
+        {
+          "frame": 27,
+          "time_ms": 3240
+        },
+        {
+          "frame": 41,
+          "time_ms": 4920
+        }
+      ],
+      "operation": "Extract original frames at 0/33/66/99 percent of duration; add labels outside frames; no interpolation or art recoloring."
+    },
+    "translation_scope": "Chinese explanatory paraphrase of the source image's main instructions, with original GIF retained; not an asserted complete OCR transcript.",
+    "editorial_additions": [
+      "practice exercise",
+      "acceptance checklist",
+      "scope and pitfalls",
+      "cross-references",
+      "static keyframe sheet"
+    ]
+  },
+  {
+    "id": "ART-011",
+    "title": "树冠：剪影、体积与有节制的叶片纹理",
+    "category": "drawing",
+    "path": "tutorials/drawing/ART-011-vegetation-volume.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Vegetation.gif",
+    "source_title": "Vegetation",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "beginner",
+    "tags": [
+      "树木",
+      "植被",
+      "树冠",
+      "俯视角",
+      "色块"
+    ],
+    "summary": "按形状、受光、细节的顺序画树，用连续叶团表达体积并留下安静区域。",
+    "images": [
+      {
+        "path": "assets/drawing/ART-011/Vegetation.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Vegetation.gif",
+        "caption": "顶部三棵树展示剪影、体积和纹理三阶段；右侧色带标出暖光与冷影；左下叶片模块与右下叶团展示重复节奏、边缘细化和内部留白。",
+        "role": "original",
+        "derived": false,
+        "sha256": "f9c31ca5e51abc294a083f205b2aa6662783f5f25c5e12e31fda4fe768d679af",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-011/keyframes.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Vegetation.gif",
+        "caption": "原GIF按总时长0%、33%、66%、99%抽取的四帧，按左上、右上、左下、右下阅读；图外标注帧号和时间。",
+        "role": "keyframes",
+        "derived": true,
+        "sha256": "a99294a840ab17c9fe90a31541baa41cb384503fa42cfed06af8690effab40b4",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-011/preview.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Vegetation.gif",
+        "caption": "原GIF首帧静态预览；分步骤教程的首帧可能尚未显示成品。",
+        "role": "preview",
+        "derived": true,
+        "sha256": "8acf36e8dee4ac6d0b5a1f6f79a6d27fccd0f99b6aa2dc261b05e3feb4f768f5",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "git:ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "ART-001",
+      "ART-003"
+    ],
+    "learning_objectives": [
+      "从剪影建立树冠",
+      "让叶片细节服从整体体积",
+      "使用稳定的叶片模式与疏密关系"
+    ],
+    "source_sha256": "f9c31ca5e51abc294a083f205b2aa6662783f5f25c5e12e31fda4fe768d679af",
+    "source_bytes": 446081,
+    "original_animation": {
+      "original": "Vegetation.gif",
+      "width": 512,
+      "height": 512,
+      "frames": 16,
+      "duration_ms": 1920,
+      "selected": [
+        {
+          "frame": 0,
+          "time_ms": 0
+        },
+        {
+          "frame": 5,
+          "time_ms": 600
+        },
+        {
+          "frame": 10,
+          "time_ms": 1200
+        },
+        {
+          "frame": 15,
+          "time_ms": 1800
+        }
+      ],
+      "operation": "Extract original frames at 0/33/66/99 percent of duration; add labels outside frames; no interpolation or art recoloring."
+    },
+    "translation_scope": "Chinese explanatory paraphrase of the source image's main instructions, with original GIF retained; not an asserted complete OCR transcript.",
+    "editorial_additions": [
+      "practice exercise",
+      "acceptance checklist",
+      "scope and pitfalls",
+      "cross-references",
+      "static keyframe sheet"
+    ]
+  },
+  {
+    "id": "ART-012",
+    "title": "草地与土层：地面纹理的分层和疏密",
+    "category": "drawing",
+    "path": "tutorials/drawing/ART-012-vegetation-ground-layers.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Vegetation2.gif",
+    "source_title": "Vegetation2",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "intermediate",
+    "tags": [
+      "草地",
+      "土层",
+      "地面",
+      "图块",
+      "植被"
+    ],
+    "summary": "把草地拆成高光、草面、阴影与土层，控制纹理在边缘和大片地面的分布。",
+    "images": [
+      {
+        "path": "assets/drawing/ART-012/Vegetation2.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Vegetation2.gif",
+        "caption": "左上分层色块解释草缘厚度，右上角色脚边示意装饰前后层；中间整块地面展示稀疏叶片和空地的平衡，下方树根示例强调沟槽方向与低对比。",
+        "role": "original",
+        "derived": false,
+        "sha256": "4e324c3336f8b776ee08c95f1ffd2259e99bbabb51eebe73bf1699c292fc8cd0",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-012/keyframes.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Vegetation2.gif",
+        "caption": "原GIF按总时长0%、33%、66%、99%抽取的四帧，按左上、右上、左下、右下阅读；图外标注帧号和时间。",
+        "role": "keyframes",
+        "derived": true,
+        "sha256": "86a116a5cee2f48d166957e1f9322cfbdb38c1c46e9502172f469fc678f033d7",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-012/preview.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Vegetation2.gif",
+        "caption": "原GIF首帧静态预览；分步骤教程的首帧可能尚未显示成品。",
+        "role": "preview",
+        "derived": true,
+        "sha256": "2524041c7b0ba494d5c446020bef68cd5e498de24cd96d8f5ca4eb23f920e1d6",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "git:ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "ART-007",
+      "ART-011"
+    ],
+    "learning_objectives": [
+      "用层次表示草地厚度",
+      "为大地面设计疏密分布",
+      "协调装饰草和碰撞边界"
+    ],
+    "source_sha256": "4e324c3336f8b776ee08c95f1ffd2259e99bbabb51eebe73bf1699c292fc8cd0",
+    "source_bytes": 752112,
+    "original_animation": {
+      "original": "Vegetation2.gif",
+      "width": 512,
+      "height": 512,
+      "frames": 32,
+      "duration_ms": 3200,
+      "selected": [
+        {
+          "frame": 0,
+          "time_ms": 0
+        },
+        {
+          "frame": 10,
+          "time_ms": 1000
+        },
+        {
+          "frame": 21,
+          "time_ms": 2100
+        },
+        {
+          "frame": 31,
+          "time_ms": 3100
+        }
+      ],
+      "operation": "Extract original frames at 0/33/66/99 percent of duration; add labels outside frames; no interpolation or art recoloring."
+    },
+    "translation_scope": "Chinese explanatory paraphrase of the source image's main instructions, with original GIF retained; not an asserted complete OCR transcript.",
+    "editorial_additions": [
+      "practice exercise",
+      "acceptance checklist",
+      "scope and pitfalls",
+      "cross-references",
+      "static keyframe sheet"
+    ]
+  },
+  {
+    "id": "ART-013",
+    "title": "植物多样性：叶形、茎干与远近层次",
+    "category": "drawing",
+    "path": "tutorials/drawing/ART-013-vegetation-variety.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Vegetation3.gif",
+    "source_title": "Vegetation3",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "intermediate",
+    "tags": [
+      "植被",
+      "叶片",
+      "树干",
+      "背景",
+      "参考图"
+    ],
+    "summary": "观察真实植物的结构差异，把大叶、细茎和树干转化成可复用的像素形状规则。",
+    "images": [
+      {
+        "path": "assets/drawing/ART-013/Vegetation3.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Vegetation3.gif",
+        "caption": "中心棕榈展示叶片弧线与树干分层；右侧独立叶片先描轮廓再填亮暗；左侧细茎、螺旋和远处植物说明不同结构与空间层次。",
+        "role": "original",
+        "derived": false,
+        "sha256": "2c2587f4f01fadd2e5a030971b1ce100807ef2c154c49653c2d3a04f239744d6",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-013/keyframes.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Vegetation3.gif",
+        "caption": "原GIF按总时长0%、33%、66%、99%抽取的四帧，按左上、右上、左下、右下阅读；图外标注帧号和时间。",
+        "role": "keyframes",
+        "derived": true,
+        "sha256": "3089d502fd967fbee1ffc2e0882e7fbd73c48c408a5ba1b43b62d77630a0b3ad",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-013/preview.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Vegetation3.gif",
+        "caption": "原GIF首帧静态预览；分步骤教程的首帧可能尚未显示成品。",
+        "role": "preview",
+        "derived": true,
+        "sha256": "436d90aeb18023db83e5b57dfb4e45b5c8d26f54693f130a6fa6e258d27aea03",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "git:ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "ART-011",
+      "ART-014"
+    ],
+    "learning_objectives": [
+      "按植物类型选择轮廓与纹理",
+      "沿叶片三维形体安排明暗",
+      "降低远景植被的对比"
+    ],
+    "source_sha256": "2c2587f4f01fadd2e5a030971b1ce100807ef2c154c49653c2d3a04f239744d6",
+    "source_bytes": 878001,
+    "original_animation": {
+      "original": "Vegetation3.gif",
+      "width": 512,
+      "height": 512,
+      "frames": 32,
+      "duration_ms": 16000,
+      "selected": [
+        {
+          "frame": 0,
+          "time_ms": 0
+        },
+        {
+          "frame": 10,
+          "time_ms": 5000
+        },
+        {
+          "frame": 21,
+          "time_ms": 10500
+        },
+        {
+          "frame": 31,
+          "time_ms": 15500
+        }
+      ],
+      "operation": "Extract original frames at 0/33/66/99 percent of duration; add labels outside frames; no interpolation or art recoloring."
+    },
+    "translation_scope": "Chinese explanatory paraphrase of the source image's main instructions, with original GIF retained; not an asserted complete OCR transcript.",
+    "editorial_additions": [
+      "practice exercise",
+      "acceptance checklist",
+      "scope and pitfalls",
+      "cross-references",
+      "static keyframe sheet"
+    ]
+  },
+  {
+    "id": "ART-014",
+    "title": "木材：树桩、木板、年轮和木纹",
+    "category": "drawing",
+    "path": "tutorials/drawing/ART-014-wood-material.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Wood.gif",
+    "source_title": "Wood",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "intermediate",
+    "tags": [
+      "木材",
+      "材质",
+      "树桩",
+      "木板",
+      "乡村道具"
+    ],
+    "summary": "先确定木制物的体块与倒角，再用方向明确的年轮、树皮和裂纹说明材质。",
+    "images": [
+      {
+        "path": "assets/drawing/ART-014/Wood.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Wood.gif",
+        "caption": "动图左上逐步完成树桩，左中逐步完成木板。中间五个小窗分别展示木节、钉子、裂纹、树皮和苔藓；下方树枝对比不同照明和配色。",
+        "role": "original",
+        "derived": false,
+        "sha256": "26cbd8243340c661223fd9f12e111c928e9fe8a62150cb32dc0bb399664c8529",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-014/keyframes.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Wood.gif",
+        "caption": "原GIF按总时长0%、33%、66%、99%抽取的四帧，按左上、右上、左下、右下阅读；图外标注帧号和时间。",
+        "role": "keyframes",
+        "derived": true,
+        "sha256": "2321cd999c30200548d1a7b7c7362329fcb72f2c9834e1c5be6250e6517ca58d",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-014/preview.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Wood.gif",
+        "caption": "原GIF首帧静态预览；分步骤教程的首帧可能尚未显示成品。",
+        "role": "preview",
+        "derived": true,
+        "sha256": "45ebb61f4c947d9851137e7e761ddecd67977e0d77844c446fc583e1bb99bf9e",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "git:ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "ART-003"
+    ],
+    "learning_objectives": [
+      "区分自然木材与加工木板",
+      "让木纹遵循物体方向",
+      "控制木材高光和细节对比"
+    ],
+    "source_sha256": "26cbd8243340c661223fd9f12e111c928e9fe8a62150cb32dc0bb399664c8529",
+    "source_bytes": 959023,
+    "original_animation": {
+      "original": "Wood.gif",
+      "width": 512,
+      "height": 512,
+      "frames": 41,
+      "duration_ms": 9440,
+      "selected": [
+        {
+          "frame": 0,
+          "time_ms": 0
+        },
+        {
+          "frame": 14,
+          "time_ms": 3100
+        },
+        {
+          "frame": 27,
+          "time_ms": 6120
+        },
+        {
+          "frame": 39,
+          "time_ms": 9280
+        }
+      ],
+      "operation": "Extract original frames at 0/33/66/99 percent of duration; add labels outside frames; no interpolation or art recoloring."
+    },
+    "translation_scope": "Chinese explanatory paraphrase of the source image's main instructions, with original GIF retained; not an asserted complete OCR transcript.",
+    "editorial_additions": [
+      "practice exercise",
+      "acceptance checklist",
+      "scope and pitfalls",
+      "cross-references",
+      "static keyframe sheet"
+    ]
+  },
+  {
+    "id": "ART-015",
+    "title": "岩石：大面、层理与不同地质形状",
+    "category": "drawing",
+    "path": "tutorials/drawing/ART-015-rock-formations.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Rock.gif",
+    "source_title": "Rock",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "intermediate",
+    "tags": [
+      "岩石",
+      "材质",
+      "地形",
+      "石块",
+      "rock"
+    ],
+    "summary": "用不同的大形与断面语言区分岩石类型，避免用随机噪点代替结构。",
+    "images": [
+      {
+        "path": "assets/drawing/ART-015/Rock.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Rock.gif",
+        "caption": "左侧三种岩石以形状和高光宽度区分；右上黑色剪影对应逐步加明暗的流程；中央警示指出应控制孤立像素、噪点及颜色数量。",
+        "role": "original",
+        "derived": false,
+        "sha256": "0d4abadab75f8892fc61addd15446aa2c8bd321a1d61a7b193634307a276306f",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-015/keyframes.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Rock.gif",
+        "caption": "原GIF按总时长0%、33%、66%、99%抽取的四帧，按左上、右上、左下、右下阅读；图外标注帧号和时间。",
+        "role": "keyframes",
+        "derived": true,
+        "sha256": "79d9575f0cf019e66507a48758127593e68053a2c78ff3bc983d579cfad00e1e",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-015/preview.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Rock.gif",
+        "caption": "原GIF首帧静态预览；分步骤教程的首帧可能尚未显示成品。",
+        "role": "preview",
+        "derived": true,
+        "sha256": "276ed2bfdf576b359a01685919f225d8ed0651f3cea98744cee8547fc7c749dc",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "git:ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "ART-001",
+      "ART-003"
+    ],
+    "learning_objectives": [
+      "区分层理、块状断面与孔洞",
+      "按大面组织岩石光影",
+      "限制小碎点和无意义色阶"
+    ],
+    "source_sha256": "0d4abadab75f8892fc61addd15446aa2c8bd321a1d61a7b193634307a276306f",
+    "source_bytes": 987766,
+    "original_animation": {
+      "original": "Rock.gif",
+      "width": 512,
+      "height": 512,
+      "frames": 40,
+      "duration_ms": 4800,
+      "selected": [
+        {
+          "frame": 0,
+          "time_ms": 0
+        },
+        {
+          "frame": 13,
+          "time_ms": 1560
+        },
+        {
+          "frame": 26,
+          "time_ms": 3120
+        },
+        {
+          "frame": 39,
+          "time_ms": 4680
+        }
+      ],
+      "operation": "Extract original frames at 0/33/66/99 percent of duration; add labels outside frames; no interpolation or art recoloring."
+    },
+    "translation_scope": "Chinese explanatory paraphrase of the source image's main instructions, with original GIF retained; not an asserted complete OCR transcript.",
+    "editorial_additions": [
+      "practice exercise",
+      "acceptance checklist",
+      "scope and pitfalls",
+      "cross-references",
+      "static keyframe sheet"
+    ]
+  },
+  {
+    "id": "ART-016",
+    "title": "水面、波纹、瀑布和水下位移",
+    "category": "drawing",
+    "path": "tutorials/drawing/ART-016-water-surfaces.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Water.gif",
+    "source_title": "Water",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "intermediate",
+    "tags": [
+      "水",
+      "动画",
+      "波纹",
+      "瀑布",
+      "俯视角"
+    ],
+    "summary": "把水拆成缓慢底层、局部波纹与泡沫等运动，使用小幅变化维持像素连续性。",
+    "images": [
+      {
+        "path": "assets/drawing/ART-016/Water.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Water.gif",
+        "caption": "左上竖向框分别说明两层运动；右上和右中演示喷口与瀑布粒子；左下有波形与气泡示例，右下展示水下图案被波动扭动。",
+        "role": "original",
+        "derived": false,
+        "sha256": "33fe3548de8dc69709ddb28c1bc83352fe8565567d7c0f5c53f4bf45a6b89c00",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-016/keyframes.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Water.gif",
+        "caption": "原GIF按总时长0%、33%、66%、99%抽取的四帧，按左上、右上、左下、右下阅读；图外标注帧号和时间。",
+        "role": "keyframes",
+        "derived": true,
+        "sha256": "25b95118ab1b5661e60d6177d405782da2c87e2cdcd90ab75a8c170629767471",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-016/preview.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Water.gif",
+        "caption": "原GIF首帧静态预览；分步骤教程的首帧可能尚未显示成品。",
+        "role": "preview",
+        "derived": true,
+        "sha256": "8729bd883deaf3f4b19422dea26a049cb9867beaf0cbd99e9c9c9e7adcb36cb4",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "git:ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "ART-001",
+      "知道逐帧动画的基本操作"
+    ],
+    "learning_objectives": [
+      "分离水面不同运动层",
+      "用少量像素变化形成波动",
+      "区分瀑布、泡沫与水下折射"
+    ],
+    "source_sha256": "33fe3548de8dc69709ddb28c1bc83352fe8565567d7c0f5c53f4bf45a6b89c00",
+    "source_bytes": 736011,
+    "original_animation": {
+      "original": "Water.gif",
+      "width": 512,
+      "height": 512,
+      "frames": 32,
+      "duration_ms": 3200,
+      "selected": [
+        {
+          "frame": 0,
+          "time_ms": 0
+        },
+        {
+          "frame": 10,
+          "time_ms": 1000
+        },
+        {
+          "frame": 21,
+          "time_ms": 2100
+        },
+        {
+          "frame": 31,
+          "time_ms": 3100
+        }
+      ],
+      "operation": "Extract original frames at 0/33/66/99 percent of duration; add labels outside frames; no interpolation or art recoloring."
+    },
+    "translation_scope": "Chinese explanatory paraphrase of the source image's main instructions, with original GIF retained; not an asserted complete OCR transcript.",
+    "editorial_additions": [
+      "practice exercise",
+      "acceptance checklist",
+      "scope and pitfalls",
+      "cross-references",
+      "static keyframe sheet"
+    ]
+  },
+  {
+    "id": "ART-017",
+    "title": "沙地与沙丘：风向、固定光源和纹理尺度",
+    "category": "drawing",
+    "path": "tutorials/drawing/ART-017-sand-dunes.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Sand.gif",
+    "source_title": "Sand",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "intermediate",
+    "tags": [
+      "沙地",
+      "沙丘",
+      "地形",
+      "光影",
+      "纹理"
+    ],
+    "summary": "先建立受风影响的大沙丘形状，再添加有透视和尺度变化的细纹。",
+    "images": [
+      {
+        "path": "assets/drawing/ART-017/Sand.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Sand.gif",
+        "caption": "左上俯视示例从单条丘线展开；左中用风向箭头比较沙丘形状；底部大场景同时展示固定光源与近大远小纹理。沙漏是另一种沙的运动与聚集示例。",
+        "role": "original",
+        "derived": false,
+        "sha256": "dc0d90c87ddf7d9b8977537e2ff529ef0c9b5e697000e311427e4b8f53fc49d3",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-017/keyframes.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Sand.gif",
+        "caption": "原GIF按总时长0%、33%、66%、99%抽取的四帧，按左上、右上、左下、右下阅读；图外标注帧号和时间。",
+        "role": "keyframes",
+        "derived": true,
+        "sha256": "4402bd4b658d8615c5f6e9e681a96343d25c62dc5c0ac6720916b4ee37fd81b8",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-017/preview.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Sand.gif",
+        "caption": "原GIF首帧静态预览；分步骤教程的首帧可能尚未显示成品。",
+        "role": "preview",
+        "derived": true,
+        "sha256": "35c34eb77f6faffc9f0a6a173c89562df996b20cccf27d8b16e9a437e5dcef88",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "git:ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "ART-003",
+      "ART-007"
+    ],
+    "learning_objectives": [
+      "让沙丘形状体现风向",
+      "保持固定光源方向",
+      "区分远处大纹理与近处砂砾质感"
+    ],
+    "source_sha256": "dc0d90c87ddf7d9b8977537e2ff529ef0c9b5e697000e311427e4b8f53fc49d3",
+    "source_bytes": 911781,
+    "original_animation": {
+      "original": "Sand.gif",
+      "width": 512,
+      "height": 512,
+      "frames": 45,
+      "duration_ms": 5400,
+      "selected": [
+        {
+          "frame": 0,
+          "time_ms": 0
+        },
+        {
+          "frame": 14,
+          "time_ms": 1680
+        },
+        {
+          "frame": 29,
+          "time_ms": 3480
+        },
+        {
+          "frame": 44,
+          "time_ms": 5280
+        }
+      ],
+      "operation": "Extract original frames at 0/33/66/99 percent of duration; add labels outside frames; no interpolation or art recoloring."
+    },
+    "translation_scope": "Chinese explanatory paraphrase of the source image's main instructions, with original GIF retained; not an asserted complete OCR transcript.",
+    "editorial_additions": [
+      "practice exercise",
+      "acceptance checklist",
+      "scope and pitfalls",
+      "cross-references",
+      "static keyframe sheet"
+    ]
+  },
+  {
+    "id": "ART-018",
+    "title": "金属：强反差、高光与表面故事",
+    "category": "drawing",
+    "path": "tutorials/drawing/ART-018-metal-reflections.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Metal.gif",
+    "source_title": "Metal",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "intermediate",
+    "tags": [
+      "金属",
+      "反射",
+      "高光",
+      "工具",
+      "材质"
+    ],
+    "summary": "通过块面、高光和环境反射区分金属与塑料，并用磨损说明工具的使用状态。",
+    "images": [
+      {
+        "path": "assets/drawing/ART-018/Metal.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Metal.gif",
+        "caption": "上部用头盔、剑和红色护具展示不同反射；右上色阶对比金属和塑料；下方铠甲人物与转动表面说明关节和高光随角度变化。",
+        "role": "original",
+        "derived": false,
+        "sha256": "289a5fde0017b29eeff630f491f682523472677101897043aeef8e4a84402dff",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-018/keyframes.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Metal.gif",
+        "caption": "原GIF按总时长0%、33%、66%、99%抽取的四帧，按左上、右上、左下、右下阅读；图外标注帧号和时间。",
+        "role": "keyframes",
+        "derived": true,
+        "sha256": "5bdea3a2e8c6b6faa71b4f333a5ae621bace2cb9a37ef5c797a242d98d426329",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-018/preview.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Metal.gif",
+        "caption": "原GIF首帧静态预览；分步骤教程的首帧可能尚未显示成品。",
+        "role": "preview",
+        "derived": true,
+        "sha256": "a3bf6afa4d8ba909529f2d8fb884e185be7cc6bd8271f00a4602c105cf78db24",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "git:ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "ART-003"
+    ],
+    "learning_objectives": [
+      "使用强反差表达反光材质",
+      "让高光随角度与形体变化",
+      "有目的地放置划痕与磕碰"
+    ],
+    "source_sha256": "289a5fde0017b29eeff630f491f682523472677101897043aeef8e4a84402dff",
+    "source_bytes": 1226194,
+    "original_animation": {
+      "original": "Metal.gif",
+      "width": 512,
+      "height": 512,
+      "frames": 48,
+      "duration_ms": 4800,
+      "selected": [
+        {
+          "frame": 0,
+          "time_ms": 0
+        },
+        {
+          "frame": 15,
+          "time_ms": 1500
+        },
+        {
+          "frame": 31,
+          "time_ms": 3100
+        },
+        {
+          "frame": 47,
+          "time_ms": 4700
+        }
+      ],
+      "operation": "Extract original frames at 0/33/66/99 percent of duration; add labels outside frames; no interpolation or art recoloring."
+    },
+    "translation_scope": "Chinese explanatory paraphrase of the source image's main instructions, with original GIF retained; not an asserted complete OCR transcript.",
+    "editorial_additions": [
+      "practice exercise",
+      "acceptance checklist",
+      "scope and pitfalls",
+      "cross-references",
+      "static keyframe sheet"
+    ]
+  },
+  {
+    "id": "ART-019",
+    "title": "布料与旗帜：受力、褶皱和风中运动",
+    "category": "drawing",
+    "path": "tutorials/drawing/ART-019-fabric-folds-flags.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Fabric.gif",
+    "source_title": "Fabric",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "intermediate",
+    "tags": [
+      "布料",
+      "褶皱",
+      "旗帜",
+      "衣服",
+      "动画"
+    ],
+    "summary": "从固定点、拉力和压缩位置组织褶皱，让布面明暗随波动移动。",
+    "images": [
+      {
+        "path": "assets/drawing/ART-019/Fabric.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Fabric.gif",
+        "caption": "左上波形和右上旗帜对应风中变化；人物披风说明衣服仍需服从身体；中部袖子表现压缩点向外放射的褶皱；底部卷布示意自投影。",
+        "role": "original",
+        "derived": false,
+        "sha256": "3d03bc9cb4ca242125faba2be98ec4f41fd54fa8cc69d85ecb98ff2510f925f0",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-019/keyframes.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Fabric.gif",
+        "caption": "原GIF按总时长0%、33%、66%、99%抽取的四帧，按左上、右上、左下、右下阅读；图外标注帧号和时间。",
+        "role": "keyframes",
+        "derived": true,
+        "sha256": "49ce9fa3b9b0bd2f4cbf96fa8922e83b8e9f57df426ec3fa802049b4b6648e6b",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-019/preview.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Fabric.gif",
+        "caption": "原GIF首帧静态预览；分步骤教程的首帧可能尚未显示成品。",
+        "role": "preview",
+        "derived": true,
+        "sha256": "b091fe66c014b2c54db85bdda9eb319e9434303d4f93e760605417bc1c31fcef",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "git:ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "ART-003",
+      "知道动画帧与时间轴"
+    ],
+    "learning_objectives": [
+      "用线条规划风中布料",
+      "按张力和压缩产生褶皱",
+      "控制布纹密度和暗部细节"
+    ],
+    "source_sha256": "3d03bc9cb4ca242125faba2be98ec4f41fd54fa8cc69d85ecb98ff2510f925f0",
+    "source_bytes": 938204,
+    "original_animation": {
+      "original": "Fabric.gif",
+      "width": 512,
+      "height": 512,
+      "frames": 40,
+      "duration_ms": 4800,
+      "selected": [
+        {
+          "frame": 0,
+          "time_ms": 0
+        },
+        {
+          "frame": 13,
+          "time_ms": 1560
+        },
+        {
+          "frame": 26,
+          "time_ms": 3120
+        },
+        {
+          "frame": 39,
+          "time_ms": 4680
+        }
+      ],
+      "operation": "Extract original frames at 0/33/66/99 percent of duration; add labels outside frames; no interpolation or art recoloring."
+    },
+    "translation_scope": "Chinese explanatory paraphrase of the source image's main instructions, with original GIF retained; not an asserted complete OCR transcript.",
+    "editorial_additions": [
+      "practice exercise",
+      "acceptance checklist",
+      "scope and pitfalls",
+      "cross-references",
+      "static keyframe sheet"
+    ]
+  },
+  {
+    "id": "ART-020",
+    "title": "宝石：切面、色阶和闪光动画",
+    "category": "drawing",
+    "path": "tutorials/drawing/ART-020-gems-facets.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/gems.gif",
+    "source_title": "gems",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "intermediate",
+    "tags": [
+      "宝石",
+      "切面",
+      "图标",
+      "闪光",
+      "材质"
+    ],
+    "summary": "以清楚的切面和受光变化表现宝石，区分原石、预切形状和抛光成品。",
+    "images": [
+      {
+        "path": "assets/drawing/ART-020/gems.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/gems.gif",
+        "caption": "顶行比较原石、预成形与抛光宝石；中上列出brilliant、cushion和cabochon轮廓；左下切面结构命名帮助理解桌面、冠部、腰围和底部的关系；右侧是颜色层次。",
+        "role": "original",
+        "derived": false,
+        "sha256": "2aa9ecb01bc7497ab60b7f39795e7d5036ea3fd53c01cd8d8a45eb9066cdea2e",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-020/keyframes.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/gems.gif",
+        "caption": "原GIF按总时长0%、33%、66%、99%抽取的四帧，按左上、右上、左下、右下阅读；图外标注帧号和时间。",
+        "role": "keyframes",
+        "derived": true,
+        "sha256": "3976e345e1693ec99d8e0dc11d155fe1135f5a06a1ce831c6484fdc8328a3acd",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-020/preview.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/gems.gif",
+        "caption": "原GIF首帧静态预览；分步骤教程的首帧可能尚未显示成品。",
+        "role": "preview",
+        "derived": true,
+        "sha256": "c26a5d1fe02e7d11ca9f6099f8f0ae1accafee9fc85e13db735053cb3241e6fd",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "git:ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "ART-002",
+      "ART-003"
+    ],
+    "learning_objectives": [
+      "使用切面组织宝石明暗",
+      "区分透明感与表面高光",
+      "为闪光安排连续帧"
+    ],
+    "source_sha256": "2aa9ecb01bc7497ab60b7f39795e7d5036ea3fd53c01cd8d8a45eb9066cdea2e",
+    "source_bytes": 957600,
+    "original_animation": {
+      "original": "gems.gif",
+      "width": 512,
+      "height": 512,
+      "frames": 44,
+      "duration_ms": 4400,
+      "selected": [
+        {
+          "frame": 0,
+          "time_ms": 0
+        },
+        {
+          "frame": 14,
+          "time_ms": 1400
+        },
+        {
+          "frame": 29,
+          "time_ms": 2900
+        },
+        {
+          "frame": 43,
+          "time_ms": 4300
+        }
+      ],
+      "operation": "Extract original frames at 0/33/66/99 percent of duration; add labels outside frames; no interpolation or art recoloring."
+    },
+    "translation_scope": "Chinese explanatory paraphrase of the source image's main instructions, with original GIF retained; not an asserted complete OCR transcript.",
+    "editorial_additions": [
+      "practice exercise",
+      "acceptance checklist",
+      "scope and pitfalls",
+      "cross-references",
+      "static keyframe sheet"
+    ]
+  },
+  {
+    "id": "ART-021",
+    "title": "暗场景：保留信息、投影与有限亮点",
+    "category": "drawing",
+    "path": "tutorials/drawing/ART-021-dark-scenes.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Darkness.gif",
+    "source_title": "Darkness",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "intermediate",
+    "tags": [
+      "夜景",
+      "暗场景",
+      "阴影",
+      "可读性",
+      "光影"
+    ],
+    "summary": "让不重要暗面融入背景，保留少数有理由的亮点与轮廓，维持场景深度。",
+    "images": [
+      {
+        "path": "assets/drawing/ART-021/Darkness.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Darkness.gif",
+        "caption": "顶部怪物和披风角色用暗部融入背景；右侧门与墙上的影子说明空间深度；下方手、面具和建筑使用很少亮像素表达关键轮廓。",
+        "role": "original",
+        "derived": false,
+        "sha256": "a6d5bf291cd519c109c3aea327290d569164e36c5ebf3d43e612181d625d1ea1",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-021/keyframes.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Darkness.gif",
+        "caption": "原GIF按总时长0%、33%、66%、99%抽取的四帧，按左上、右上、左下、右下阅读；图外标注帧号和时间。",
+        "role": "keyframes",
+        "derived": true,
+        "sha256": "fc3e518574bf227f5571992958560a9b15700c0c6f05a471367da9c4ab39f464",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-021/preview.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Darkness.gif",
+        "caption": "原GIF首帧静态预览；分步骤教程的首帧可能尚未显示成品。",
+        "role": "preview",
+        "derived": true,
+        "sha256": "d2af625f6e58c6c04f9f40e957d11b7c798c210c74f7949ccb772211d198172e",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "git:ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "ART-003",
+      "ART-005"
+    ],
+    "learning_objectives": [
+      "用缺省信息制造暗部",
+      "让投影解释深度",
+      "限制暗场景中的细节和高光"
+    ],
+    "source_sha256": "a6d5bf291cd519c109c3aea327290d569164e36c5ebf3d43e612181d625d1ea1",
+    "source_bytes": 1311397,
+    "original_animation": {
+      "original": "Darkness.gif",
+      "width": 512,
+      "height": 512,
+      "frames": 60,
+      "duration_ms": 7200,
+      "selected": [
+        {
+          "frame": 0,
+          "time_ms": 0
+        },
+        {
+          "frame": 19,
+          "time_ms": 2280
+        },
+        {
+          "frame": 39,
+          "time_ms": 4680
+        },
+        {
+          "frame": 59,
+          "time_ms": 7080
+        }
+      ],
+      "operation": "Extract original frames at 0/33/66/99 percent of duration; add labels outside frames; no interpolation or art recoloring."
+    },
+    "translation_scope": "Chinese explanatory paraphrase of the source image's main instructions, with original GIF retained; not an asserted complete OCR transcript.",
+    "editorial_additions": [
+      "practice exercise",
+      "acceptance checklist",
+      "scope and pitfalls",
+      "cross-references",
+      "static keyframe sheet"
+    ]
+  },
+  {
+    "id": "ART-022",
+    "title": "像素光照方案：主光、补光、轮廓光与逆光",
+    "category": "drawing",
+    "path": "tutorials/drawing/ART-022-lighting-setups.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/IlluminationTechniques.gif",
+    "source_title": "IlluminationTechniques",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "intermediate",
+    "tags": [
+      "光照",
+      "三点布光",
+      "逆光",
+      "氛围",
+      "体积光"
+    ],
+    "summary": "为不同情绪选择清楚的照明结构，并通过背景对比强化主体。",
+    "images": [
+      {
+        "path": "assets/drawing/ART-022/IlluminationTechniques.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/IlluminationTechniques.gif",
+        "caption": "左上以苹果与三盏灯解释三点照明；右上强背光制造剪影；左中绿色下照明改变面部感受；底部光束与背景反差示例解释环境参与照明。",
+        "role": "original",
+        "derived": false,
+        "sha256": "863a7f0ffffaf7be2109eaaa06145c43ee35585b4da2e92a9f1769385ec1768c",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-022/keyframes.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/IlluminationTechniques.gif",
+        "caption": "原GIF按总时长0%、33%、66%、99%抽取的四帧，按左上、右上、左下、右下阅读；图外标注帧号和时间。",
+        "role": "keyframes",
+        "derived": true,
+        "sha256": "f9684d00e97f3b58dd588e2761734d465d5f7e2636d170a6e94ea33ead06b409",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-022/preview.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/IlluminationTechniques.gif",
+        "caption": "原GIF首帧静态预览；分步骤教程的首帧可能尚未显示成品。",
+        "role": "preview",
+        "derived": true,
+        "sha256": "115e44fba70fc85b49ffaedb83d969e69305551c3b9b1ab998151991cdf4ebdc",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "git:ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "ART-003",
+      "ART-021"
+    ],
+    "learning_objectives": [
+      "区分主光、补光和轮廓光",
+      "用背景反差分离主体",
+      "理解逆光、下照明和体积光的视觉作用"
+    ],
+    "source_sha256": "863a7f0ffffaf7be2109eaaa06145c43ee35585b4da2e92a9f1769385ec1768c",
+    "source_bytes": 1877513,
+    "original_animation": {
+      "original": "IlluminationTechniques.gif",
+      "width": 512,
+      "height": 512,
+      "frames": 70,
+      "duration_ms": 8400,
+      "selected": [
+        {
+          "frame": 0,
+          "time_ms": 0
+        },
+        {
+          "frame": 23,
+          "time_ms": 2760
+        },
+        {
+          "frame": 46,
+          "time_ms": 5520
+        },
+        {
+          "frame": 69,
+          "time_ms": 8280
+        }
+      ],
+      "operation": "Extract original frames at 0/33/66/99 percent of duration; add labels outside frames; no interpolation or art recoloring."
+    },
+    "translation_scope": "Chinese explanatory paraphrase of the source image's main instructions, with original GIF retained; not an asserted complete OCR transcript.",
+    "editorial_additions": [
+      "practice exercise",
+      "acceptance checklist",
+      "scope and pitfalls",
+      "cross-references",
+      "static keyframe sheet"
+    ]
+  },
+  {
+    "id": "ART-023",
+    "title": "云朵：球团结构、逆光边缘与远近层次",
+    "category": "drawing",
+    "path": "tutorials/drawing/ART-023-clouds-depth.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/CLouds.gif",
+    "source_title": "CLouds",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "beginner",
+    "tags": [
+      "云",
+      "天空",
+      "背景",
+      "空气透视",
+      "光影"
+    ],
+    "summary": "把云视为带平底的球团组合，先安排大明暗和远近关系，再丰富轮廓。",
+    "images": [
+      {
+        "path": "assets/drawing/ART-023/CLouds.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/CLouds.gif",
+        "caption": "上方动画从球形草图发展为一团云；右中有太阳在后时亮边的对错对比；下方场景从远云逐层向前展开，最后出现整体流动方向提示。",
+        "role": "original",
+        "derived": false,
+        "sha256": "1076d0fa0db7fc0c48bd89b94622fbb991293f641d034d73143ee4374812ea94",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-023/keyframes.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/CLouds.gif",
+        "caption": "原GIF按总时长0%、33%、66%、99%抽取的四帧，按左上、右上、左下、右下阅读；图外标注帧号和时间。",
+        "role": "keyframes",
+        "derived": true,
+        "sha256": "ebe5653facb1169027b036d7feb8fce17e5cf2162d68f7af62de1cad1a3fe504",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-023/preview.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/CLouds.gif",
+        "caption": "原GIF首帧静态预览；分步骤教程的首帧可能尚未显示成品。",
+        "role": "preview",
+        "derived": true,
+        "sha256": "d30f68ed2512925807952d4c6008a37ab5a9eb44774180f505b896a827e08802",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "git:ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "ART-003"
+    ],
+    "learning_objectives": [
+      "以大球团组织云形",
+      "保持云的低对比与有限色块",
+      "通过颜色和尺度安排前后层次"
+    ],
+    "source_sha256": "1076d0fa0db7fc0c48bd89b94622fbb991293f641d034d73143ee4374812ea94",
+    "source_bytes": 789364,
+    "original_animation": {
+      "original": "CLouds.gif",
+      "width": 512,
+      "height": 512,
+      "frames": 50,
+      "duration_ms": 5000,
+      "selected": [
+        {
+          "frame": 0,
+          "time_ms": 0
+        },
+        {
+          "frame": 16,
+          "time_ms": 1600
+        },
+        {
+          "frame": 33,
+          "time_ms": 3300
+        },
+        {
+          "frame": 49,
+          "time_ms": 4900
+        }
+      ],
+      "operation": "Extract original frames at 0/33/66/99 percent of duration; add labels outside frames; no interpolation or art recoloring."
+    },
+    "translation_scope": "Chinese explanatory paraphrase of the source image's main instructions, with original GIF retained; not an asserted complete OCR transcript.",
+    "editorial_additions": [
+      "practice exercise",
+      "acceptance checklist",
+      "scope and pitfalls",
+      "cross-references",
+      "static keyframe sheet"
+    ]
+  },
+  {
+    "id": "ART-024",
+    "title": "2:1像素等距风格网格与立体造型",
+    "category": "drawing",
+    "path": "tutorials/drawing/ART-024-isometric-grid.md",
+    "source_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Isometric.gif",
+    "source_title": "Isometric",
+    "author": "Pedro Medeiros (Saint11)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_evidence_url": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/README.md",
+    "retrieved_at": "2026-10-29",
+    "language": "zh-CN",
+    "source_language": "en",
+    "level": "intermediate",
+    "tags": [
+      "等距",
+      "2比1",
+      "网格",
+      "透视",
+      "isometric"
+    ],
+    "summary": "用常见2:1像素斜线建立等距风格网格，通过切削盒体和明暗完成立体对象。",
+    "images": [
+      {
+        "path": "assets/drawing/ART-024/Isometric.gif",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Isometric.gif",
+        "caption": "上部网格与2:1阶梯说明像素步长；中部从长方体切掉一角形成新形体；下部骷髅平面图与转换后版本展示贴到斜面上的思路。",
+        "role": "original",
+        "derived": false,
+        "sha256": "197d5ba62996529abf9c42be117c0080480579978a955e8ab6be6a67dfd45861",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-024/keyframes.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Isometric.gif",
+        "caption": "原GIF按总时长0%、33%、66%、99%抽取的四帧，按左上、右上、左下、右下阅读；图外标注帧号和时间。",
+        "role": "keyframes",
+        "derived": true,
+        "sha256": "3e2e4523a7851e51e57aaa85d0d807b5e9138776cd86b9be9b6ee08fdcb4569d",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      },
+      {
+        "path": "assets/drawing/ART-024/preview.png",
+        "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Isometric.gif",
+        "caption": "原GIF首帧静态预览；分步骤教程的首帧可能尚未显示成品。",
+        "role": "preview",
+        "derived": true,
+        "sha256": "116bf3b016fca9a42edf31485b825198f932e89a0a1a36ebbded1673897b3424",
+        "license": "CC-BY-4.0",
+        "author": "Pedro Medeiros (Saint11)"
+      }
+    ],
+    "content_mode": "translated-image-tutorial",
+    "version": "git:ce1393eb2c46441d917134a9fd52e15575ee10a7",
+    "prerequisites": [
+      "ART-002",
+      "ART-003"
+    ],
+    "learning_objectives": [
+      "遵循统一2:1像素步长",
+      "从立方体组合或切削出物体",
+      "避免把等距投影混入普通俯视资产"
+    ],
+    "source_sha256": "197d5ba62996529abf9c42be117c0080480579978a955e8ab6be6a67dfd45861",
+    "source_bytes": 748397,
+    "original_animation": {
+      "original": "Isometric.gif",
+      "width": 512,
+      "height": 512,
+      "frames": 38,
+      "duration_ms": 9500,
+      "selected": [
+        {
+          "frame": 0,
+          "time_ms": 0
+        },
+        {
+          "frame": 12,
+          "time_ms": 3000
+        },
+        {
+          "frame": 25,
+          "time_ms": 6250
+        },
+        {
+          "frame": 37,
+          "time_ms": 9250
+        }
+      ],
+      "operation": "Extract original frames at 0/33/66/99 percent of duration; add labels outside frames; no interpolation or art recoloring."
+    },
+    "translation_scope": "Chinese explanatory paraphrase of the source image's main instructions, with original GIF retained; not an asserted complete OCR transcript.",
+    "editorial_additions": [
+      "practice exercise",
+      "acceptance checklist",
+      "scope and pitfalls",
+      "cross-references",
+      "static keyframe sheet"
+    ]
+  }
+]

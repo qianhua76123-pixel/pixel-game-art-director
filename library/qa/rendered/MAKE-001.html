@@ -1,0 +1,238 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>像素素材、平铺纹理与索引色工作流</title><style>body{margin:0;background:#faf8f2;color:#182126;font:17px/1.8 -apple-system,BlinkMacSystemFont,"PingFang SC",sans-serif}main{max-width:980px;margin:30px auto;padding:32px 48px;background:white;border:1px solid #ddd}h1{font-size:30px;line-height:1.4}h2{font-size:24px;margin-top:40px}img{max-width:100%;height:auto;display:block;margin:18px 0}pre{white-space:pre;overflow:auto;background:#f1f3f4;padding:20px;font-size:14px}code{font-family:ui-monospace,monospace}table{border-collapse:collapse}td,th{border:1px solid #ddd;padding:8px}a{color:#176b7d}blockquote{margin-left:0;padding:8px 18px;background:#edf5f4;border-left:4px solid #328b8b}</style><main><p>教程库抽样渲染 · MAKE-001</p><h1 id="_1">像素素材、平铺纹理与索引色工作流</h1>
+<blockquote>
+<p><strong>内容边界</strong>：下方“授权原文”是官方主内容的 Markdown 转换；中文操作路线、练习与验收由整理者编写，不是作者逐句翻译，也不代表已在本机运行软件验证。</p>
+</blockquote>
+<h2 id="_2">中文任务导读</h2>
+<p>在同一制作流程里区分构图草稿、平涂、无缝纹理和索引色效果。重点阅读原文 Preparing Tiles and Textures 与 Creating Pixel Art。</p>
+<p><strong>前提</strong>：能够新建、保存和打开 Krita 文档；先确定目标像素尺寸、色板与透明度要求。</p>
+<h3 id="_3">操作路线</h3>
+<ol>
+<li>建立独立原稿与导出副本，先决定目标画布尺寸、色板和光源。</li>
+<li>制作地表纹理时开启 View → Wrap Around Mode；在边缘落笔并观察相邻副本的接缝。</li>
+<li>需要灰度映射工作流时，在绘画层上方添加 Index Color 滤镜层，指定各明度对应的颜色。</li>
+<li>按原文图层示意将抖色图案放在绘画层上方、索引色层下方；最后在原始尺寸检查轮廓与碎点。</li>
+</ol>
+<h3 id="_4">配图怎么读</h3>
+<p><img alt="像素素材、平铺纹理与索引色工作流：官方示意图" src="../../assets/asset-production/MAKE-001/Layer-docker-pixelart.png" /></p>
+<p>图层堆叠展示索引色、抖色图案与底稿的相对位置；重点看每一层负责改变颜色还是改变画面本身。 图内界面与作品保留原貌；示例转用于像素素材时仍按本篇验收条件检查。</p>
+<h3 id="_5">练习与验收（整理者补充）</h3>
+<p>用 32×32 画布做一块草地，连续平铺 3×3 观察边界；再制作一个保持相同色板的泥地变体。</p>
+<ul>
+<li>[ ] 四边连续平铺无突然断纹。</li>
+<li>[ ] 缩回 100% 时主要形状仍可读。</li>
+<li>[ ] 交付尺寸、色板与透明边界有记录。</li>
+</ul>
+<h3 id="_6">版本与适用边界</h3>
+<p>原文的高分辨率像素效果方法不等于逐像素精修；自动索引和抖色后仍需检查边缘、细杆和孔洞。</p>
+<p>抓取时页面标题标注 <strong>Krita Manual 5.3.0</strong>；这是文档快照版本，不构成已发布软件版本或本机功能的验证。原文中保留的 <code>Added/Changed/Deprecated in version</code> 是兼容性依据。</p>
+<h2 id="_7">来源、许可与修改记录</h2>
+<ul>
+<li>原文：<a href="https://docs.krita.org/en/tutorials/common_workflows.html">Common Workflows</a></li>
+<li>作者：Wolthera van Hövell tot Westerflier；Vancemoss；Raghavendra Kamath</li>
+<li>页内作者与许可原始声明：<a href="../../sources/asset-production/MAKE-001/original.rst">RST 源文件</a>；<a href="https://docs.krita.org/en/_sources/tutorials/common_workflows.rst.txt">线上原始声明</a>。</li>
+<li>许可：<a href="https://www.gnu.org/licenses/fdl-1.3.html">GNU Free Documentation License 1.3 or later</a>；<a href="../../licenses/krita-GFDL-1.3.txt">本地许可证全文</a>。各图若有独立作者或许可，沿用原文紧邻图像的署名，不把作品许可自动泛化为文档许可。</li>
+<li>修改历史：2026-10-29，Codex 为本教程库新增中文导读、练习和验收；将官方 HTML 主内容转换为 Markdown，去除导航与页脚，将控制图标转为文字、将教学图像存为本地文件。正文、步骤、代码、表格与图像说明保留。</li>
+<li>本修改版沿用 GFDL 1.3 或更新版本。保留作者声明和上游链接；未添加 Invariant Sections、Front-Cover Texts 或 Back-Cover Texts。外链视频、安装包和关联页面没有自动下载或转录。</li>
+</ul>
+<h2 id="_8">授权原文（英语，完整主内容转换）</h2>
+<p><a id="common-workflows"></a></p>
+<p><a id="common-wokflows"></a></p>
+<h2 id="common-workflows">Common Workflows</h2>
+<p>Krita’s main goal is to help artists create a digital painting from scratch. Krita is used by comic artists, matte painters, texture artists, and illustrators around the world. This section explains some common workflow that artists use in Krita. When you open a new document in Krita for the first time, you can start painting instantly. The brush tool is selected by default and you just have to paint on the canvas. However, let us look at what artists do in Krita. Below are some of the common workflows used in Krita:</p>
+<p><a id="speed-painting-and-conceptualizing"></a></p>
+<h3 id="speed-painting-and-conceptualizing">Speed Painting and Conceptualizing</h3>
+<p>Some artists work only on the digital medium, sketching and visualizing concepts in Krita from scratch. As the name suggests a technique of painting done within a matter of hours to quickly visualize the basic scene, character, look and feel of the environment or to denote the general mood and overall concept is called a <strong>speed painting</strong>. Finishing and finer details are not the main goals of this type of painting, but the representation of form value and layout is the main goal.</p>
+<p>Some artists set a time limit to complete the painting while some paint casually. Speed painting then can be taken forward by adding finer details and polish to create a final piece. Generally, artists first block in the composition by adding patches and blobs of flat colors, defining the silhouette, etc. Krita has some efficient brushes for this situation, for example, the brushes under <strong>Block Tag</strong> like Block fuzzy, Block basic, layout_block, etc.</p>
+<p>After the composition and a basic layout has been laid out the artists add as many details as possible in the given limited time, this requires a decent knowledge of forms, value perspective and proportions of the objects. Below is an example of speed paint done by <a href="https://www.davidrevoy.com/">David Revoy</a> in an hours time.</p>
+<p><a href="../../assets/asset-production/MAKE-001/Pepper-speedpaint-deevad.jpg"><img alt="Figure 1: Speedpaint of Pepper &amp; Carrot by deevad (David Revoy)." src="../../assets/asset-production/MAKE-001/Pepper-speedpaint-deevad.jpg" /></a></p>
+<p>Artwork by David Revoy, license : <a href="https://creativecommons.org/licenses/by/3.0/">CC-BY</a></p>
+<p>You can view the recorded speed painting demo for the above image <a href="https://www.youtube.com/watch?v=93lMLEuxSLk">on Youtube</a>.</p>
+<p><a id="colorizing-line-art"></a></p>
+<h3 id="colorizing-line-art">Colorizing Line Art</h3>
+<p>Often an artist, for example a comic book colorist, will need to take a pencil sketch or other line art of some sort and use Krita to paint underneath it. This can be either an image created digitally or something that was done outside the computer and has been scanned.</p>
+<p><a id="preparing-the-line-art"></a></p>
+<h4 id="preparing-the-line-art">Preparing the line art</h4>
+<p>If your images have a white or other single-tone background, you can use either of the following methods to prepare the art for coloring:</p>
+<p>Place the line art at the top of the layer stack and set its layer blending mode to Multiply.</p>
+<p>If you want to clean the line art a bit you can press the <code>Ctrl + L</code> shortcut or go to Filters ‣ Adjust ‣ Levels.</p>
+<p><img alt="Figure 2: Level filter dialog." src="../../assets/asset-production/MAKE-001/Levels-filter.png" /></p>
+<p>You can clean the unwanted grays by moving the white triangle in the input levels section to left and darken the black by moving the black triangle to right.</p>
+<p>If you draw in blue pencils and then ink your line art you may need to remove the blue lines first to do that go to Filters ‣ Adjust ‣ Color adjustment curves or press the <code>Ctrl + M</code> shortcut.</p>
+<p><img alt="Figure 3: Remove blue lines from image step 1." src="../../assets/asset-production/MAKE-001/Color-adjustment-cw.png" /></p>
+<p>Now select <strong>Red</strong> from the drop-down, click on the top right node on the graph and slide it all the way down. Or you can click on the top right node and enter <strong>0</strong> in the input field. Repeat this step for <strong>Green</strong> too.</p>
+<p><img alt="Figure 4: Removing blue lines from scan step 2." src="../../assets/asset-production/MAKE-001/Color-adjustment-02.png" /></p>
+<p>Now the whole drawing will have a blue overlay, zoom in and check if the blue pencil lines are still visible slightly. If you still see them, then go to <strong>Blue</strong> Channel in the color adjustment and shift the top right node towards left a bit, Or enter a value around 190 (one that removes the remaining rough lines) in the input box.</p>
+<p><img alt="Figure 5: Remove blue lines from scans step 3." src="../../assets/asset-production/MAKE-001/Color-adjustment-03.png" /></p>
+<p>Now apply the color adjustment filter, yes we still have lots of blue on the artwork. Be patient and move on to the next step. Go to Filters ‣ Adjust ‣ Desaturate or press the <code>Ctrl + Shift + U</code> shortcut. Now select Max from the list.</p>
+<p><img alt="Figure 6: Remove blue lines from scans step 4." src="../../assets/asset-production/MAKE-001/Color-adjustment-04.png" /></p>
+<p>Hint</p>
+<p>It is good to use non-photo-blue pencils to create the blue lines as those are easy to remove. If you are drawing digitally in blue lines use #A4DDED color as this is closer to non-photo-blue color.</p>
+<p>You can learn more about doing a sketch from blue sketch to digital painting <a href="https://www.davidrevoy.com/article239/clean-blue-sketch-traditional-line-art-to-color-it-digital-with-in-krita">here in a tutorial by David Revoy</a>.</p>
+<p>After you have a clean black and white line art you may need to erase the white color and keep only black line art, to achieve that go to Filters ‣ Colors ‣ Color to Alpha… menu item. Use the dialog box to turn all the white areas of the image transparent. The Color Selector is set to White by default. If you have imported scanned art and need to select another color for the paper color then you would do it here.</p>
+<p><img alt="Figure 7: Color to alpha dialog box." src="../../assets/asset-production/MAKE-001/Color-to-alpha.png" /></p>
+<p>This will convert the white color in your line art to alpha i.e. it will make the white transparent leaving only the line art. Your line art can be in grayscale color space, this is a unique feature in Krita which allows you to keep a layer in a color-space independent from the image.</p>
+<p><a id="laying-in-flat-colors"></a></p>
+<h4 id="laying-in-flat-colors">Laying in Flat Colors</h4>
+<p>There are many ways to color a line art in Krita, but generally, these three are common among the artists.</p>
+<ol>
+<li>Paint blocks of color directly with block brushes.</li>
+<li>Fill with Flood Fill Tool.</li>
+<li>Use a Colorize Mask.</li>
+</ol>
+<p><a id="blocking-with-brush"></a></p>
+<h5 id="blocking-with-brush">Blocking with brush</h5>
+<p>The first is the more traditional method of taking a shape brush or using the geometric tools to lay in color. This would be similar to using an analog marker or brush on paper. There are various block brushes in Krita, you can select <strong>Block</strong> Tag from the drop-down in the brush presets docker and use the brushes listed there.</p>
+<p>Add a layer underneath your line art layer and start painting with the brush. If you want to correct any area you can press the <code>E</code> key and convert the same brush into an eraser. You can also use a layer each for different colors for more flexibility.</p>
+<p><a id="filling-with-flood-fill-tool"></a></p>
+<h5 id="filling-with-flood-fill-tool">Filling with Flood Fill tool</h5>
+<p>The second method is to use the Flood fill tool to fill large parts of your line art quickly. This method generally requires closed gaps in the line art. To begin with this method place your line art on a separate layer. Then activate the flood fill tool and set the Grow selection to 2px, uncheck Limit to current layer if previously checked.</p>
+<p><img alt="Figure 8: Flood fill in krita." src="../../assets/asset-production/MAKE-001/Floodfill-krita.png" /></p>
+<p>Choose a color from color selector and just click on the area you want to fill the color. As we have expanded the fill with grow selection the color will be filled slightly underneath the line art thus giving us a clean fill.</p>
+<p><a id="colorize-mask"></a></p>
+<h5 id="colorize-mask">Colorize Mask</h5>
+<p>The third method is to take advantage of the built-in <a href="https://docs.krita.org/en/reference_manual/tools/colorize_mask.html#colorize-mask">Colorize Mask</a>. This is a powerful tool that can dramatically improve your workflow and cut you down on your production time. To begin coloring with the Colorize Mask, select your line art layer and click the Colorize Mask Editing Tool icon in the toolbar.</p>
+<p><a href="../../assets/asset-production/MAKE-001/krita-colorize-mask-01.png"><img alt="Figure 9: Colorize Mask Editing Tool in the toolbar." src="../../assets/asset-production/MAKE-001/krita-colorize-mask-01.png" /></a></p>
+<p>With the Colorize Mask Editing Tool enabled, click on the canvas—this will add a Colorize Mask layer to your document and make your lineart look a little blurry. You can now lay down solid brush strokes to indicate which areas should be colored in what colors:</p>
+<p><img alt="Figure 10: Colorize Mask with brush strokes" src="../../assets/asset-production/MAKE-001/krita-colorize-mask-02.png" /></p>
+<p>Whenever you press the Update button in the Tool Options, you will see which colors will fill which areas. You can continue to edit your brush strokes until you are happy with the result. To get a clean look of your painting, disable the “Edit key strokes” checkbox:</p>
+<p><img alt="Figure 11: Colorize Mask result" src="../../assets/asset-production/MAKE-001/krita-colorize-mask-03.png" /></p>
+<p>Once you are done, you can convert the Colorize Mask layer into a paint layer in the Layers docker. Have a look at the <a href="https://docs.krita.org/en/reference_manual/tools/colorize_mask.html#colorize-mask">Colorize Mask</a> manual to learn more about this tool.</p>
+<p><a id="changing-line-art-color"></a></p>
+<h4 id="changing-line-art-color">Changing Line Art Color</h4>
+<p>To change the color of your line art, you can use the Alpha Lock feature. In the layer docker, click on the rightmost icon of your line art layer. It’s the icon that looks like a little checker board:</p>
+<p><a href="../../assets/asset-production/MAKE-001/layer-alpha-lock.png"><img alt="Figure 12: Alpha lock button" src="../../assets/asset-production/MAKE-001/layer-alpha-lock.png" /></a></p>
+<p>When Alpha Lock is enabled, you can only change the <em>color</em> of the pixels, not their opacity—meaning that everything you paint will only change the colors of your existing lines, not add new lines.</p>
+<p>If you want to change the color of your line art to one solid color, you can now use the bucket fill tool and it will only apply to your existing lines. Or if you want to apply several different colors to specific areas of your line art, you can quickly paint over your line art with a broad brush:</p>
+<p><img alt="Figure 13: Changing Line Art Color" src="../../assets/asset-production/MAKE-001/color-lineart.png" /></p>
+<p><a id="painting"></a></p>
+<h3 id="painting">Painting</h3>
+<p><a id="starting-from-chaos"></a></p>
+<h4 id="starting-from-chaos">Starting from chaos</h4>
+<p>Here, you start by making a mess through random shapes and texture, then taking inspirations from the resulting chaos you can form various concepts. It is kind of like making things from clouds or finding recognizable shapes of things in abstract and random textures. Many concept artists work with this technique.</p>
+<p>You can use brushes like the shape brush, or the spray brush to paint a lot of different shapes, and from the resulting noise, you let your brain pick out shapes and compositions.</p>
+<p><img alt="Figure 14: Starting a painting from chaotic sketch." src="../../assets/asset-production/MAKE-001/Chaos2.jpg" /></p>
+<p>You then refine these shapes to look more like shapes you think they look, and paint them over with a normal paintbrush. This method is best done in a painting environment.</p>
+<p><a id="starting-from-a-value-based-underground"></a></p>
+<h4 id="starting-from-a-value-based-underground">Starting from a value based underground</h4>
+<p>This method finds its origins in old oil-painting practice: You first make an under-painting and then paint over it with color, having the dark underground shine through.</p>
+<p>With Krita you can use blending modes for this purpose. Choosing the color blending mode on a layer on top allows you to change the colors of the image without changing the relative luminosity. This is useful, because humans are much more sensitive to tonal differences than the difference in saturation and hue. This’ll allow you to work in grayscale before going into color for the polishing phase.</p>
+<p>You can find more about this technique <a href="https://www.davidrevoy.com/article185/tutorial-getting-started-with-krita-1-3-bw-portrait">here</a>.</p>
+<p><a id="preparing-tiles-and-textures"></a></p>
+<h3 id="preparing-tiles-and-textures">Preparing Tiles and Textures</h3>
+<p>Many artists use Krita to create textures for 3d assets used for games animation, etc. Krita has many texture templates for you to choose and get started with creating textures. These templates have common sizes, bit depth and color profiles that are used for texturing workflow.</p>
+<p>Krita also has a real-time seamless tile mode to help texture artist prepare tiles and texture easily and check if it is seamless on the fly. The tiled mode is called wrap-around mode, to activate this mode got to View ‣ Wrap Around Mode. Now when you paint the canvas is tiled in real-time allowing you to create seamless pattern and texture, it is also easy to prepare interlocking patterns and motifs in this mode.</p>
+<p><a id="creating-pixel-art"></a></p>
+<h3 id="creating-pixel-art">Creating Pixel Art</h3>
+<p>Krita can also be used to create a high definition pixel painting. The pixel art look can be achieved by using Index color filter layer and overlaying dithering patterns. The general layer stack arrangement is as shown below.</p>
+<p><img alt="Figure 15: Layer stack setup for pixel art." src="../../assets/asset-production/MAKE-001/Layer-docker-pixelart.png" /></p>
+<p>The index color filter maps specific user-selected colors to the grayscale value of the artwork. You can see the example below, the strip below the black and white gradient has an index color applied to it so that the black and white gradient gets the color selected to different values.</p>
+<p><img alt="Figure 16: Color mapping in index color to grayscale." src="../../assets/asset-production/MAKE-001/Gradient-pixelart.png" /></p>
+<p>You can choose the required colors and ramps in the index color filter dialog as shown below.</p>
+<p><img alt="Figure 17: Index color filter dialog." src="../../assets/asset-production/MAKE-001/Index-color-filter1.png" /></p>
+<p>Dithering can be used to enhance the look of the art and to ease the banding occurred by the index color filter. Krita has a variety of dithering patterns by default, these can be found in pattern docker. You can use these patterns as fill layer, then set the blend mode to <strong>overlay</strong> and adjust the opacity according to your liking. Generally, an opacity range of 10% - 25% is ideal.</p>
+<p>Paint the artwork in grayscale and add an index color filter layer at the top then add the dithering pattern fill layer below the index color filter but above the artwork layer, as shown in the layer stack arrangement above. You can paint or adjust the artwork at any stage as we have added the index color filter as a filter layer.</p>
+<p>You can add different groups for different colors and add different dithering patterns for each group.</p>
+<p>Below is an example painted with this layer arrangement.</p>
+<p><img alt="Figure 18: Pixel art done in Krita." src="../../assets/asset-production/MAKE-001/Kiki-pixel-art.png" /></p>
+<h2 id="_9">本地配图清单</h2>
+<table>
+<thead>
+<tr>
+<th>图</th>
+<th>本地文件</th>
+<th>原始来源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><a href="../../assets/asset-production/MAKE-001/Pepper-speedpaint-deevad.jpg">Figure 1: Speedpaint of Pepper &amp; Carrot by deevad (David Revoy).</a></td>
+<td><a href="https://docs.krita.org/en/_images/Pepper-speedpaint-deevad.jpg">原图</a></td>
+</tr>
+<tr>
+<td>2</td>
+<td><a href="../../assets/asset-production/MAKE-001/Levels-filter.png">Figure 2: Level filter dialog.</a></td>
+<td><a href="https://docs.krita.org/en/_images/Levels-filter.png">原图</a></td>
+</tr>
+<tr>
+<td>3</td>
+<td><a href="../../assets/asset-production/MAKE-001/Color-adjustment-cw.png">Figure 3: Remove blue lines from image step 1.</a></td>
+<td><a href="https://docs.krita.org/en/_images/Color-adjustment-cw.png">原图</a></td>
+</tr>
+<tr>
+<td>4</td>
+<td><a href="../../assets/asset-production/MAKE-001/Color-adjustment-02.png">Figure 4: Removing blue lines from scan step 2.</a></td>
+<td><a href="https://docs.krita.org/en/_images/Color-adjustment-02.png">原图</a></td>
+</tr>
+<tr>
+<td>5</td>
+<td><a href="../../assets/asset-production/MAKE-001/Color-adjustment-03.png">Figure 5: Remove blue lines from scans step 3.</a></td>
+<td><a href="https://docs.krita.org/en/_images/Color-adjustment-03.png">原图</a></td>
+</tr>
+<tr>
+<td>6</td>
+<td><a href="../../assets/asset-production/MAKE-001/Color-adjustment-04.png">Figure 6: Remove blue lines from scans step 4.</a></td>
+<td><a href="https://docs.krita.org/en/_images/Color-adjustment-04.png">原图</a></td>
+</tr>
+<tr>
+<td>7</td>
+<td><a href="../../assets/asset-production/MAKE-001/Color-to-alpha.png">Figure 7: Color to alpha dialog box.</a></td>
+<td><a href="https://docs.krita.org/en/_images/Color-to-alpha.png">原图</a></td>
+</tr>
+<tr>
+<td>8</td>
+<td><a href="../../assets/asset-production/MAKE-001/Floodfill-krita.png">Figure 8: Flood fill in krita.</a></td>
+<td><a href="https://docs.krita.org/en/_images/Floodfill-krita.png">原图</a></td>
+</tr>
+<tr>
+<td>9</td>
+<td><a href="../../assets/asset-production/MAKE-001/krita-colorize-mask-01.png">Figure 9: Colorize Mask Editing Tool in the toolbar.</a></td>
+<td><a href="https://docs.krita.org/en/_images/krita-colorize-mask-01.png">原图</a></td>
+</tr>
+<tr>
+<td>10</td>
+<td><a href="../../assets/asset-production/MAKE-001/krita-colorize-mask-02.png">Figure 10: Colorize Mask with brush strokes</a></td>
+<td><a href="https://docs.krita.org/en/_images/krita-colorize-mask-02.png">原图</a></td>
+</tr>
+<tr>
+<td>11</td>
+<td><a href="../../assets/asset-production/MAKE-001/krita-colorize-mask-03.png">Figure 11: Colorize Mask result</a></td>
+<td><a href="https://docs.krita.org/en/_images/krita-colorize-mask-03.png">原图</a></td>
+</tr>
+<tr>
+<td>12</td>
+<td><a href="../../assets/asset-production/MAKE-001/layer-alpha-lock.png">Figure 12: Alpha lock button</a></td>
+<td><a href="https://docs.krita.org/en/_images/layer-alpha-lock.png">原图</a></td>
+</tr>
+<tr>
+<td>13</td>
+<td><a href="../../assets/asset-production/MAKE-001/color-lineart.png">Figure 13: Changing Line Art Color</a></td>
+<td><a href="https://docs.krita.org/en/_images/color-lineart.png">原图</a></td>
+</tr>
+<tr>
+<td>14</td>
+<td><a href="../../assets/asset-production/MAKE-001/Chaos2.jpg">Figure 14: Starting a painting from chaotic sketch.</a></td>
+<td><a href="https://docs.krita.org/en/_images/Chaos2.jpg">原图</a></td>
+</tr>
+<tr>
+<td>15</td>
+<td><a href="../../assets/asset-production/MAKE-001/Layer-docker-pixelart.png">Figure 15: Layer stack setup for pixel art.</a></td>
+<td><a href="https://docs.krita.org/en/_images/Layer-docker-pixelart.png">原图</a></td>
+</tr>
+<tr>
+<td>16</td>
+<td><a href="../../assets/asset-production/MAKE-001/Gradient-pixelart.png">Figure 16: Color mapping in index color to grayscale.</a></td>
+<td><a href="https://docs.krita.org/en/_images/Gradient-pixelart.png">原图</a></td>
+</tr>
+<tr>
+<td>17</td>
+<td><a href="../../assets/asset-production/MAKE-001/Index-color-filter1.png">Figure 17: Index color filter dialog.</a></td>
+<td><a href="https://docs.krita.org/en/_images/Index-color-filter1.png">原图</a></td>
+</tr>
+<tr>
+<td>18</td>
+<td><a href="../../assets/asset-production/MAKE-001/Kiki-pixel-art.png">Figure 18: Pixel art done in Krita.</a></td>
+<td><a href="https://docs.krita.org/en/_images/Kiki-pixel-art.png">原图</a></td>
+</tr>
+</tbody>
+</table></main></html>

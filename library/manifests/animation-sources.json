@@ -1,0 +1,410 @@
+[
+  {
+    "id": "ANIM-001",
+    "file": "Walk.gif",
+    "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Walk.gif",
+    "source_page": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Walk.gif",
+    "path": "assets/animation/ANIM-001/Walk.gif",
+    "width": 512,
+    "height": 512,
+    "frames": 12,
+    "duration_ms": 1200,
+    "sha256": "f465b4f9281c1cd2e2faa9753fddcf96b4d6d3a9c54575950043272149eb820d",
+    "keyframes": [
+      {
+        "path": "assets/animation/ANIM-001/frame-000.png",
+        "frame": 0,
+        "time_ms": 0
+      },
+      {
+        "path": "assets/animation/ANIM-001/frame-003.png",
+        "frame": 3,
+        "time_ms": 300
+      },
+      {
+        "path": "assets/animation/ANIM-001/frame-006.png",
+        "frame": 6,
+        "time_ms": 600
+      },
+      {
+        "path": "assets/animation/ANIM-001/frame-009.png",
+        "frame": 9,
+        "time_ms": 900
+      }
+    ]
+  },
+  {
+    "id": "ANIM-002",
+    "file": "RunCycleSimple.gif",
+    "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/RunCycleSimple.gif",
+    "source_page": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/RunCycleSimple.gif",
+    "path": "assets/animation/ANIM-002/RunCycleSimple.gif",
+    "width": 512,
+    "height": 512,
+    "frames": 32,
+    "duration_ms": 2560,
+    "sha256": "f7a1b449bb6880149620e8fe30cbb2ed21088091323b28195ae87c65b11f4909",
+    "keyframes": [
+      {
+        "path": "assets/animation/ANIM-002/frame-000.png",
+        "frame": 0,
+        "time_ms": 0
+      },
+      {
+        "path": "assets/animation/ANIM-002/frame-008.png",
+        "frame": 8,
+        "time_ms": 640
+      },
+      {
+        "path": "assets/animation/ANIM-002/frame-016.png",
+        "frame": 16,
+        "time_ms": 1280
+      },
+      {
+        "path": "assets/animation/ANIM-002/frame-024.png",
+        "frame": 24,
+        "time_ms": 1920
+      }
+    ]
+  },
+  {
+    "id": "ANIM-003",
+    "file": "TopDownWalkCycle.gif",
+    "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/TopDownWalkCycle.gif",
+    "source_page": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/TopDownWalkCycle.gif",
+    "path": "assets/animation/ANIM-003/TopDownWalkCycle.gif",
+    "width": 512,
+    "height": 512,
+    "frames": 12,
+    "duration_ms": 1200,
+    "sha256": "b21c27c41e4b91976b2198517bd6a9f6aeac7ce29e9b6bfdbf65e275ed6d7738",
+    "keyframes": [
+      {
+        "path": "assets/animation/ANIM-003/frame-000.png",
+        "frame": 0,
+        "time_ms": 0
+      },
+      {
+        "path": "assets/animation/ANIM-003/frame-003.png",
+        "frame": 3,
+        "time_ms": 300
+      },
+      {
+        "path": "assets/animation/ANIM-003/frame-006.png",
+        "frame": 6,
+        "time_ms": 600
+      },
+      {
+        "path": "assets/animation/ANIM-003/frame-009.png",
+        "frame": 9,
+        "time_ms": 900
+      }
+    ]
+  },
+  {
+    "id": "ANIM-004",
+    "file": "TopDownRun.gif",
+    "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/TopDownRun.gif",
+    "source_page": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/TopDownRun.gif",
+    "path": "assets/animation/ANIM-004/TopDownRun.gif",
+    "width": 512,
+    "height": 512,
+    "frames": 10,
+    "duration_ms": 1000,
+    "sha256": "0cd238fc69d8c8c3df759960d3c2c5eb9f13d900b6e06d0c1a3a8256ba9f40c0",
+    "keyframes": [
+      {
+        "path": "assets/animation/ANIM-004/frame-000.png",
+        "frame": 0,
+        "time_ms": 0
+      },
+      {
+        "path": "assets/animation/ANIM-004/frame-002.png",
+        "frame": 2,
+        "time_ms": 200
+      },
+      {
+        "path": "assets/animation/ANIM-004/frame-005.png",
+        "frame": 5,
+        "time_ms": 500
+      },
+      {
+        "path": "assets/animation/ANIM-004/frame-007.png",
+        "frame": 7,
+        "time_ms": 700
+      }
+    ]
+  },
+  {
+    "id": "ANIM-005",
+    "file": "TopDownAttack.gif",
+    "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/TopDownAttack.gif",
+    "source_page": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/TopDownAttack.gif",
+    "path": "assets/animation/ANIM-005/TopDownAttack.gif",
+    "width": 512,
+    "height": 512,
+    "frames": 11,
+    "duration_ms": 920,
+    "sha256": "a9ba14c6bfd58ccf7c73a072cf810eae320aee608b3a68ec4c53c0c7c08e508d",
+    "keyframes": [
+      {
+        "path": "assets/animation/ANIM-005/frame-000.png",
+        "frame": 0,
+        "time_ms": 0
+      },
+      {
+        "path": "assets/animation/ANIM-005/frame-002.png",
+        "frame": 2,
+        "time_ms": 160
+      },
+      {
+        "path": "assets/animation/ANIM-005/frame-005.png",
+        "frame": 5,
+        "time_ms": 400
+      },
+      {
+        "path": "assets/animation/ANIM-005/frame-008.png",
+        "frame": 8,
+        "time_ms": 680
+      }
+    ]
+  },
+  {
+    "id": "ANIM-006",
+    "file": "characterIdle.gif",
+    "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/characterIdle.gif",
+    "source_page": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/characterIdle.gif",
+    "path": "assets/animation/ANIM-006/characterIdle.gif",
+    "width": 512,
+    "height": 512,
+    "frames": 60,
+    "duration_ms": 6000,
+    "sha256": "f9c9cb05273ae16327d45f8ccd39d506c3e7dff52321b5bfae2558b15f9831d4",
+    "keyframes": [
+      {
+        "path": "assets/animation/ANIM-006/frame-000.png",
+        "frame": 0,
+        "time_ms": 0
+      },
+      {
+        "path": "assets/animation/ANIM-006/frame-015.png",
+        "frame": 15,
+        "time_ms": 1500
+      },
+      {
+        "path": "assets/animation/ANIM-006/frame-030.png",
+        "frame": 30,
+        "time_ms": 3000
+      },
+      {
+        "path": "assets/animation/ANIM-006/frame-045.png",
+        "frame": 45,
+        "time_ms": 4500
+      }
+    ]
+  },
+  {
+    "id": "ANIM-007",
+    "file": "Jump.gif",
+    "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Jump.gif",
+    "source_page": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Jump.gif",
+    "path": "assets/animation/ANIM-007/Jump.gif",
+    "width": 512,
+    "height": 512,
+    "frames": 24,
+    "duration_ms": 1920,
+    "sha256": "2f77444610d7fdbba9c4be049c2b2f731c34f0865ff660a28b38d21c61a52690",
+    "keyframes": [
+      {
+        "path": "assets/animation/ANIM-007/frame-000.png",
+        "frame": 0,
+        "time_ms": 0
+      },
+      {
+        "path": "assets/animation/ANIM-007/frame-006.png",
+        "frame": 6,
+        "time_ms": 480
+      },
+      {
+        "path": "assets/animation/ANIM-007/frame-012.png",
+        "frame": 12,
+        "time_ms": 960
+      },
+      {
+        "path": "assets/animation/ANIM-007/frame-018.png",
+        "frame": 18,
+        "time_ms": 1440
+      }
+    ]
+  },
+  {
+    "id": "ANIM-008",
+    "file": "Easings.gif",
+    "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Easings.gif",
+    "source_page": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Easings.gif",
+    "path": "assets/animation/ANIM-008/Easings.gif",
+    "width": 512,
+    "height": 512,
+    "frames": 23,
+    "duration_ms": 1840,
+    "sha256": "c210d363be3511752bb1401df905f59b359cda0b6bd5d724930483d43755ac30",
+    "keyframes": [
+      {
+        "path": "assets/animation/ANIM-008/frame-000.png",
+        "frame": 0,
+        "time_ms": 0
+      },
+      {
+        "path": "assets/animation/ANIM-008/frame-005.png",
+        "frame": 5,
+        "time_ms": 400
+      },
+      {
+        "path": "assets/animation/ANIM-008/frame-011.png",
+        "frame": 11,
+        "time_ms": 880
+      },
+      {
+        "path": "assets/animation/ANIM-008/frame-017.png",
+        "frame": 17,
+        "time_ms": 1360
+      }
+    ]
+  },
+  {
+    "id": "ANIM-009",
+    "file": "loop.gif",
+    "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/loop.gif",
+    "source_page": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/loop.gif",
+    "path": "assets/animation/ANIM-009/loop.gif",
+    "width": 512,
+    "height": 512,
+    "frames": 16,
+    "duration_ms": 1600,
+    "sha256": "6f702df42bfd40d528bcd12d4356f41d3fd9ecb80b05debdc60b7768f5d0d7aa",
+    "keyframes": [
+      {
+        "path": "assets/animation/ANIM-009/frame-000.png",
+        "frame": 0,
+        "time_ms": 0
+      },
+      {
+        "path": "assets/animation/ANIM-009/frame-004.png",
+        "frame": 4,
+        "time_ms": 400
+      },
+      {
+        "path": "assets/animation/ANIM-009/frame-008.png",
+        "frame": 8,
+        "time_ms": 800
+      },
+      {
+        "path": "assets/animation/ANIM-009/frame-012.png",
+        "frame": 12,
+        "time_ms": 1200
+      }
+    ]
+  },
+  {
+    "id": "ANIM-010",
+    "file": "Squash.gif",
+    "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Squash.gif",
+    "source_page": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Squash.gif",
+    "path": "assets/animation/ANIM-010/Squash.gif",
+    "width": 512,
+    "height": 512,
+    "frames": 19,
+    "duration_ms": 1520,
+    "sha256": "67aa9b80a30b5716b11c78540d76c1efd512efd857b15a8305b3e5ce47704f6b",
+    "keyframes": [
+      {
+        "path": "assets/animation/ANIM-010/frame-000.png",
+        "frame": 0,
+        "time_ms": 0
+      },
+      {
+        "path": "assets/animation/ANIM-010/frame-004.png",
+        "frame": 4,
+        "time_ms": 320
+      },
+      {
+        "path": "assets/animation/ANIM-010/frame-009.png",
+        "frame": 9,
+        "time_ms": 720
+      },
+      {
+        "path": "assets/animation/ANIM-010/frame-014.png",
+        "frame": 14,
+        "time_ms": 1120
+      }
+    ]
+  },
+  {
+    "id": "ANIM-011",
+    "file": "Subpixel.gif",
+    "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/Subpixel.gif",
+    "source_page": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/Subpixel.gif",
+    "path": "assets/animation/ANIM-011/Subpixel.gif",
+    "width": 512,
+    "height": 512,
+    "frames": 17,
+    "duration_ms": 1700,
+    "sha256": "91ecf5e66b7ce0737dea9dbf48e7d9c0ded662c5c8ca4b960c166be687421183",
+    "keyframes": [
+      {
+        "path": "assets/animation/ANIM-011/frame-000.png",
+        "frame": 0,
+        "time_ms": 0
+      },
+      {
+        "path": "assets/animation/ANIM-011/frame-004.png",
+        "frame": 4,
+        "time_ms": 400
+      },
+      {
+        "path": "assets/animation/ANIM-011/frame-008.png",
+        "frame": 8,
+        "time_ms": 800
+      },
+      {
+        "path": "assets/animation/ANIM-011/frame-012.png",
+        "frame": 12,
+        "time_ms": 1200
+      }
+    ]
+  },
+  {
+    "id": "ANIM-012",
+    "file": "MotionBlur.gif",
+    "source_url": "https://raw.githubusercontent.com/saint11/Saint11Tutorials/ce1393eb2c46441d917134a9fd52e15575ee10a7/MotionBlur.gif",
+    "source_page": "https://github.com/saint11/Saint11Tutorials/blob/ce1393eb2c46441d917134a9fd52e15575ee10a7/MotionBlur.gif",
+    "path": "assets/animation/ANIM-012/MotionBlur.gif",
+    "width": 512,
+    "height": 512,
+    "frames": 32,
+    "duration_ms": 2560,
+    "sha256": "a94b0e13e62623b36fa8e01823fb52e8a731345762eac5b11d5d66b34cca597d",
+    "keyframes": [
+      {
+        "path": "assets/animation/ANIM-012/frame-000.png",
+        "frame": 0,
+        "time_ms": 0
+      },
+      {
+        "path": "assets/animation/ANIM-012/frame-008.png",
+        "frame": 8,
+        "time_ms": 640
+      },
+      {
+        "path": "assets/animation/ANIM-012/frame-016.png",
+        "frame": 16,
+        "time_ms": 1280
+      },
+      {
+        "path": "assets/animation/ANIM-012/frame-024.png",
+        "frame": 24,
+        "time_ms": 1920
+      }
+    ]
+  }
+]
