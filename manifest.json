@@ -1,6 +1,6 @@
 {
   "name": "pixel-game-art-director",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "built_at": "2026-10-29",
   "tutorial_count": 92,
   "local_image_count": 661,
@@ -14,7 +14,12 @@
   },
   "license_notes": "Bundled tutorials retain per-source licenses in library/LICENSES.md; editorial profiles are suggestions, not author style categories.",
   "machine_audit_boundary": "Configured technical checks only; visual review remains required.",
-  "ui_case_count": 6,
-  "ui_case_image_reference_count": 12,
-  "ui_case_image_policy": "Official screenshot links and original analysis only; screenshot binaries are not bundled."
+  "ui_case_count": 14,
+  "ui_case_image_reference_count": 28,
+  "ui_case_image_policy": "Official screenshot, developer mockup and official guide links with original analysis; commercial image binaries are not bundled.",
+  "ui_design_axis_count": 8,
+  "ui_design_axis_value_count": 27,
+  "ui_system_pattern_count": 16,
+  "ui_unique_method_source_count": 22,
+  "ui_framework_boundary": "Editorial working framework grounded in scoped sources; not an exhaustive academic taxonomy or user-tested UI kit."
 }

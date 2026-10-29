@@ -42,13 +42,13 @@ python3 scripts/task_bundle.py --task '制作四方向行走和待机角色' --s
 
 ## 游戏UI设计
 
-读取 [UI设计与验证](references/ui-design.md)，把界面材质与世界风格绑定，再明确任务、内容和交互。
+读取 [UI设计与验证](references/ui-design.md)。先确定玩家要做的决定和系统规则，检索 [16类系统模式](references/ui-system-patterns.md)，整理必须同时看见的对象、成本、条件、效果与后果，再组织界面。可运行 `python3 scripts/search.py --task '乡村商店，比较种子并选择购买数量' --kind system --details --json`。
 
-需要真实界面参考时，运行 `python3 scripts/search.py --task '背包和商店UI' --kind case --json`，或读取 [6个游戏案例](references/ui-case-studies.md)。案例包含官方截图链接、可见事实、设计评析与局限；脚本不下载商业截图，`--copy-figures` 仅复制原教程的配图。必须打开所选截图再判断。风格关联只是借鉴维度，不意味着该游戏完整匹配配方；[内容审核](references/ui-content-audit.md)列明未覆盖的风格与验证缺口。
+需要选择或比较设计方向时，读 [设计基础与八个维度](references/ui-design-foundations.md)：分别决定视觉语言、虚构世界关系、空间位置、信息表征、注意需求、出现方式、世界时间与输入。六套旧UI配方只是视觉主题；木框不自动等于世界内UI，拟物也不决定系统内容。用 [UI设计合同](assets/templates/ui-design-contract.json)记录本次选择、真实内容、状态、输入和失败恢复；[乡村商店示例](examples/ui-design-reasoning.md)展示怎样比较方案。
 
-先用真实最长中文标签、价格/数量、图标与状态验证布局；文字应留在可变内容层，避免烘焙进装饰背景。九宫格需保留角部与像素网格；按钮、焦点、选中、禁用、空态和错误应有一致且可辨认的表示。复杂背包/商店信息确实需要时再增加面板结构，不把所有游戏UI套成网页仪表盘。
+需要真实界面参考时，运行 `python3 scripts/search.py --task '背包和商店UI' --kind case --json`，或读取 [14个游戏案例与28张官方配图链接](references/ui-case-studies.md)。打开所选截图，分别记录画面事实、设计评析与未验证项；风格关联不表示整套游戏同款。脚本不下载商业截图，`--copy-figures` 仅复制教学配图，案例图不能直接当作游戏素材；覆盖范围见 [内容审核](references/ui-content-audit.md)。
 
-需要可运行UI时，交付并操作真实界面，检查键盘/手柄焦点、不同显示尺寸与关闭动作。仅有静态稿时明确它尚未验证交互。
+先用最长真实中文、数值和边界状态验证布局，再制作装饰；文字保留为可变内容层，九宫格保留角部与像素网格。按 [UI审查协议](references/ui-evaluation-method.md)分别检查任务、信息、交互、视觉与技术证据。可运行UI实际走完打开、选择、执行/取消、恢复路径；静态稿不能证明焦点、可用性或沉浸感，未测项目保留 `UNDETERMINED`。
 
 ## 一致性检查
 
