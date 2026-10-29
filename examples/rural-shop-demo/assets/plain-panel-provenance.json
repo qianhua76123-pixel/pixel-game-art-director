@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-29",
+  "generator": "Built-in image_gen tool",
+  "generation_count": 1,
+  "source_kind": "AI-generated original example raster artwork; not a third-party tutorial image or commercial game screenshot.",
+  "reuse": "Offered as a repository example under the root MIT license to the extent rights are held; no claim of exclusive authorship, uniqueness or independent copyright protection.",
+  "prompt_file": "plain-panel-prompt.md",
+  "file": "plain-paper-panel.png",
+  "sha256": "01c0fbbca4a26b10ed46fba3d2b8f7cfd09c63ab433a8e3c3844d3892f0a2168",
+  "bytes": 1047320,
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "mode": "RGB",
+  "processing": "Original generated PNG copied unchanged; no image editing, resampling, palette conversion or regeneration.",
+  "visual_inspection": {
+    "observed": "Complete front-facing rectangular cream paper panel with narrow plain brown frame; no gemstones, corner ornaments, text, lines, icons, buttons or props. Plain center has very faint warm color variation rather than noisy fibers.",
+    "measured_mid_edge_transition": "At the midpoint of each edge, wood continues approximately 21-22 source pixels inward before the pale paper begins.",
+    "calm_center_source_box_xyxy": [
+      24,
+      24,
+      1512,
+      1000
+    ],
+    "departure_from_prompt": "Visible frame is about 22 source pixels, thicker than the requested approximately 14. The quiet center is roughly 93% of area, not the requested 96%; generated colors are not a strictly quantized two-shade palette.",
+    "production_status": "NOT_CERTIFIED: source image visually inspected and dimensions/hash read; logical pixel grid, exact palette, native-pixel export and rendered UI still require separate review."
+  },
+  "nine_slice_recommendation": {
+    "coordinate_space": "Original 1536 x 1024 image; slices measured inward from edges.",
+    "source_slice_top_right_bottom_left": [
+      24,
+      24,
+      24,
+      24
+    ],
+    "x_cut_coordinates": [
+      24,
+      1512
+    ],
+    "y_cut_coordinates": [
+      24,
+      1000
+    ],
+    "css_candidate": "border: 8px solid transparent; border-image: url('assets/plain-paper-panel.png') 24 fill / 8px / 0 stretch;",
+    "intended_destination_width": 884,
+    "notes": "Using a 24px source slice and an 8px displayed border keeps the plain corner joins and makes the visible wood about 7px. Test the actual DOM composition. Scaling the entire bitmap proportionally to 884px instead would make the wood about 12.7px and does not meet the intended 8px frame."
+  }
+}
