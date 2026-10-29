@@ -16,6 +16,7 @@ def build(task,out,limit=8,style=None,ui_style=None,copy_figures=False,library_r
     style_candidates=[x for x in result['results'] if x['kind']=='style']
     ui_candidates=[x for x in result['results'] if x['kind']=='ui']
     cases=[x for x in result['results'] if x['kind']=='case']
+    visual_cases=[x for x in result['results'] if x['kind']=='visual-case']
     systems=[x for x in result['results'] if x['kind']=='system']
     axes=[x for x in result['results'] if x['kind']=='axis']
     matched=lib.match_routes(task)
@@ -23,6 +24,23 @@ def build(task,out,limit=8,style=None,ui_style=None,copy_figures=False,library_r
     # Keep UI or audit work primary when it explicitly occurs in the request.
     if selected_routes and selected_routes[0]['id'] in ['game-ui','consistency-audit','asset-cleanup']:
         selected_routes=selected_routes[:1]
+    theme_cohesion={
+        'project_contract_status':'NOT_LOADED',
+        'reference_path':'references/theme-cohesion-contract.md',
+        'absolute_reference_path':str(lib.root/'references/theme-cohesion-contract.md'),
+        'template_path':'assets/templates/theme-contract.json',
+        'absolute_template_path':str(lib.root/'assets/templates/theme-contract.json'),
+        'application_order':[
+            '先加载项目已有主题合同，确认主题 ID、版本和证据；本简报没有读取或验证项目合同。',
+            '核对本次资产所属 role、role 覆盖和跨用途关系；未覆盖的字段继承项目主题。',
+            '偏离父级规则时记录带理由的例外、适用范围、证据和复验条件，不能用单资产选择静默重定义主题。',
+            '最后才应用下方单资产风格候选中兼容的制作方法；已有项目不为每个 asset 重新选择主题。'],
+        'role_override_fields':['field','value','reason','evidence','review_status'],
+        'exception_requirements':['id','scope','reason','evidence','overrides','review_status','production_limit'],
+        'exception_revalidation':'在例外的限制和审阅记录中写明何时复验；旧资产哈希或构建变化后重新检查。',
+        'validation_command':'python3 scripts/validate_theme_contract.py /path/to/project/theme-contract.json --json',
+        'command_working_directory':str(lib.root),
+        'validation_boundary':'只校验合同结构、继承引用与已记录证据；不自动鉴定主题语义、画面美感、光源或材质一致性。'}
     out=Path(out).expanduser().resolve()
     if out==lib.root or lib.root in out.parents:raise ValueError('Choose --out outside the installed skill folder to keep the knowledge package unchanged.')
     out.mkdir(parents=True,exist_ok=True)
@@ -51,7 +69,7 @@ def build(task,out,limit=8,style=None,ui_style=None,copy_figures=False,library_r
             'style_selection_state':'selected' if style else ('candidates-only' if style_candidates else 'unspecified'),
             'ui_style_selection_state':'selected' if ui_style else ('candidates-only' if ui_candidates else 'unspecified'),
             'tutorials':tutorials,'style_candidates':style_candidates,'ui_style_candidates':ui_candidates,
-            'ui_case_references':cases,
+            'ui_case_references':cases,'visual_game_references':visual_cases,'theme_cohesion':theme_cohesion,
             'ui_system_patterns':systems,'ui_design_axes':axes,
             'workflow':[{'route_id':r['id'],'name':r['name'],'steps':r['steps'],'acceptance':r['acceptance']} for r in selected_routes],
             'review_requirements':{'machine':'Run scripts/audit_assets.py against a configured contract when assets exist. Unconfigured checks do not imply PASS.',
@@ -79,7 +97,15 @@ def build(task,out,limit=8,style=None,ui_style=None,copy_figures=False,library_r
             lines+=['依据来源ID：'+', '.join(s['source_ids'])+'；'+file_link('来源清单',lib.root/'references/ui-system-sources.json'),'']
         if axes:
             lines+=['相关设计维度：'+'；'.join(a['title']+'（'+a['id']+'）' for a in axes)+'。读取理论中的定义、取舍与反例后再选值。','']
-    lines+=['## 风格约定','']
+    lines+=['## 项目主题继承入口','',
+            file_link('主题一致性合同说明',theme_cohesion['absolute_reference_path'])+' · '+
+            file_link('主题合同模板',theme_cohesion['absolute_template_path']),'',
+            '状态：`NOT_LOADED`。本简报仅提供执行入口，未读取项目的主题合同，不能据此声称一致性已经通过。','']
+    lines += [f'{i}. {step}' for i,step in enumerate(theme_cohesion['application_order'],1)]
+    lines += ['', 'role 覆盖需要字段、值、理由、证据和审阅状态；例外还要限定范围与复验条件。候选配方服从现有项目合同。','',
+              '读取并维护实际项目合同后，在技能根目录运行：','',
+              '```bash',theme_cohesion['validation_command'],'```','',theme_cohesion['validation_boundary'],'',
+              '## 风格约定','']
     if not style_candidates and not ui_candidates:
         lines+=['本次任务没有足够线索选择风格。沿用项目已有规范；若没有，先明确视角、逻辑像素、调色板、主光、轮廓和材质，再制作。','']
     for title,profiles,explicit in [('美术风格',style_candidates,style),('UI风格',ui_candidates,ui_style)]:
@@ -112,6 +138,23 @@ def build(task,out,limit=8,style=None,ui_style=None,copy_figures=False,library_r
                     '局限：'+'；'.join(c['limitations']),'']
             for figure in c['figures']:
                 lines+=['['+figure.get('evidence_type','reference')+'：'+figure['caption']+']('+figure['url']+')','']
+    if visual_cases:
+        lines+=['## 真实游戏画面与一致性研究','',
+                '这些记录独立于 UI 案例和教程计数。商业原图只提供官方来源链接，不随 --copy-figures 复制，也不能裁切、描摹或提取为游戏素材。观察事实、设计推断与迁移规则分别读取；静态图不代表交互或中文表现已验证。','']
+        for c in visual_cases:
+            lines+=['### '+c['id']+' · '+c['title'],'',
+                    '[官方来源]('+c['source_url']+') · '+file_link('完整分析',c['absolute_path'])+' · '+file_link('原始记录',c['absolute_registry_path']),'',
+                    '视角：'+str(c['viewpoint']),'',
+                    '**原图观察**','']
+            for observation in c['observed']:
+                lines+=['- '+observation['aspect']+'：'+observation['text']+'（证据：'+', '.join(observation['evidence'])+'）']
+            lines+=['','**设计推断（整理者判断）**','']+['- '+item for item in c['design_inferences']]+['', '**可迁移规则与复验**','']
+            for rule in c['cohesion_rules']:
+                lines+=['- '+rule['rule']+' 复验：'+rule['verification']]
+            lines+=['','**例外与证据边界**','']+['- '+item for item in c['exceptions_and_limits']]+['', '**来源图（仅远程链接）**','']
+            for figure in c['figures']:
+                lines+=['- ['+figure['id']+' · '+figure['caption']+']('+figure['url']+') · '+figure['evidence_type']+' · [来源页]('+figure['source_page']+')']
+            lines+=['',c['rights']['license_status'],c['rights']['permitted_library_use'],'']
     lines+=['## 制作路线（整理者编排）','']
     if not selected_routes:
         lines+=['未匹配到已有制作路线。请读取命中的教程并据项目约束拟定步骤，不把一般流程冒充当前任务的已验证方案。','']
@@ -128,6 +171,7 @@ def build(task,out,limit=8,style=None,ui_style=None,copy_figures=False,library_r
     (out/'task-brief.md').write_text('\n'.join(lines)+'\n')
     return {'status':bundle['status'],'task':task,'tutorials':len(tutorials),'style_candidates':len(style_candidates),
             'ui_style_candidates':len(ui_candidates),'copied_figures':len(copied),
+            'visual_game_references':len(visual_cases),
             'markdown':str(out/'task-brief.md'),'json':str(out/'task-brief.json')}
 
 def main(argv=None):

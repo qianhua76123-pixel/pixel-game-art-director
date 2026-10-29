@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
-"""Offline task-aware tutorial, style and figure retrieval. Standard library only."""
+"""Offline task-aware tutorial, style, visual study and figure retrieval."""
 from pathlib import Path
 import argparse, json, re, sys
 
 ROOT = Path(__file__).resolve().parents[1]
+VISUAL_RESEARCH_INTENTS = ('案例','拆解','画面分析','风格参考','一致性研究')
+# Match these terms only when present in the actual case tags/focus. Generic
+# requests such as "像素游戏案例" are not enough to recommend every game.
+VISUAL_FOCUS_TERMS = ('几何','母题','纹理','角色身份','肖像','色彩','强调色','拟物',
+                      '经营','餐厅','材质','轮廓','符文','层级','字体','对白','对话',
+                      '战斗','图标','HUD','俯视','侧视','小游戏')
 SYSTEM_GENERIC_TERMS={'制作','任务','教程','提示','帮助','教学','材料','物品','地图','建筑','位置','目标','技能','时间','失败','奖励','继续','保存','状态','status','build','help','skill','map','target','load'}
 PROFILE_HINTS = {
     'cozy-rural': ['乡村','村庄','农舍','田园','温馨','cozy','rural'],
@@ -51,6 +57,8 @@ class Library:
         self.by_id={x['id']:x for x in self.entries}
         case_file=self.root/'references/ui-case-studies.json'
         self.ui_cases=json.loads(case_file.read_text(encoding='utf-8')).get('cases',[]) if case_file.is_file() else []
+        visual_file=self.root/'references/visual-game-studies.json'
+        self.visual_cases=json.loads(visual_file.read_text(encoding='utf-8')).get('cases',[]) if visual_file.is_file() else []
         systems_file=self.root/'references/ui-system-patterns.json'
         self.ui_systems=json.loads(systems_file.read_text(encoding='utf-8')).get('patterns',[]) if systems_file.is_file() else []
         taxonomy_file=self.root/'references/ui-taxonomy.json'
@@ -187,6 +195,8 @@ class Library:
         if ident in self.by_id:return self.compact_tutorial(self.by_id[ident],100,['按ID直接读取'],image_limit)
         for c in self.ui_cases:
             if c['id']==ident:return self.compact_case(c,100,['按ID直接读取'],image_limit)
+        for c in self.visual_cases:
+            if c['id']==ident:return self.compact_visual_case(c,100,['按ID直接读取'],image_limit)
         for p in self.ui_systems:
             if p['id']==ident:return self.compact_system(p,100,['按ID直接读取'],details)
         for a in self.ui_axes:
@@ -194,7 +204,7 @@ class Library:
         for kind,profiles in self.profiles.items():
             for p in profiles:
                 if p['id']==ident:return self.compact_profile(p,kind,100,['按ID直接读取'],image_limit,details)
-        raise ValueError('Unknown tutorial/style/UI/case/system/axis ID: '+ident)
+        raise ValueError('Unknown tutorial/style/UI/case/visual-case/system/axis ID: '+ident)
 
     def compact_system(self,p,score,reasons,details=False):
         rel='references/ui-system-patterns.md'
@@ -272,6 +282,42 @@ class Library:
             if score:rows.append(self.compact_case(c,score,list(dict.fromkeys(reasons))[:6],image_limit))
         return sorted(rows,key=lambda c:(-c['score'],c['id']))[:limit]
 
+    def compact_visual_case(self,c,score=0,reasons=None,image_limit=2):
+        relative=c.get('reference_path','references/visual-game-studies.md')
+        registry='references/visual-game-studies.json'
+        row={'kind':'visual-case','id':c['id'],'title':c['game']+' · '+c['focus'],
+             'summary':c['focus'],'focus':c['focus'],'game':c['game'],'developer':c['developer'],
+             'score':score,'reasons':reasons or ['按ID直接读取'],
+             'path':relative,'reference_path':relative,'absolute_path':str(safe_path(self.root,relative)),
+             'registry_path':registry,'absolute_registry_path':str(self.root/registry),
+             'anchor':c.get('anchor'),'source_url':c['source_url'],
+             'tags':c.get('tags',[]),'rights':c['rights'],
+             'figures':[dict(im,source_url=im['url'],source_page=im['source_url'],remote_only=True,
+                             author=c['developer'],license=c['rights']['license_status'],rights=c['rights'],
+                             usage='商业游戏官方画面仅保留来源链接；不复制、不提取为项目素材，不属于本库开放许可。')
+                        for im in c.get('images',[])[:max(0,image_limit)]],
+             'editorial_notice':'静态原图观察、整理者设计推断与可迁移规则分别记录；不是完整交互验证或自动审美结论。'}
+        for key in ['viewpoint','observed','design_inferences','cohesion_rules','exceptions_and_limits',
+                    'quality_basis','transfer_to_rural_game','evidence_status','reviewed_on']:
+            row[key]=c.get(key)
+        return row
+
+    def visual_case_search(self,task,limit=6,image_limit=2):
+        rows=[]
+        for c in self.visual_cases:
+            names=[c['id'],c['game'],c.get('slug','')]
+            if any(name and is_negated(task,name) for name in names):continue
+            explicit=[name for name in names if contains(task,name)]
+            metadata=flat([c.get('tags',[]),c.get('focus','')])
+            terms=c.get('tags',[])+[c.get('focus','')]+[t for t in VISUAL_FOCUS_TERMS if contains(metadata,t)]
+            hits=list(dict.fromkeys(t for t in terms if t and contains(task,t) and not is_negated(task,t)))
+            if not explicit and not hits:continue
+            score=(100 if explicit else 0)+sum(min(len(t),12)+8 for t in hits)
+            reasons=(['明确指定游戏或案例：'+'、'.join(explicit)] if explicit else [])
+            if hits:reasons.append('画面研究关键词：'+'、'.join(hits))
+            rows.append(self.compact_visual_case(c,score,reasons,image_limit))
+        return sorted(rows,key=lambda c:(-c['score'],c['id']))[:limit]
+
     def search(self,task,kind='tutorial',limit=6,image_limit=2,style=None,ui_style=None,fulltext=False,details=False):
         self.validate_profile('style',style);self.validate_profile('ui',ui_style)
         results=[]
@@ -285,17 +331,20 @@ class Library:
             results+=self.profile_search('ui',task,min(limit,2) if kind=='all' else limit,image_limit,ui_style,details)
         if kind=='case' or (kind=='all' and ui_request):
             results+=self.case_search(task,min(limit,3) if kind=='all' else limit,image_limit,style,ui_style)
+        visual_request=any(contains(task,t) and not is_negated(task,t) for t in VISUAL_RESEARCH_INTENTS)
+        if kind=='visual-case' or (kind=='all' and visual_request):
+            results+=self.visual_case_search(task,min(limit,3) if kind=='all' else limit,image_limit)
         return {'status':'ok' if results else 'no_match','task':task,'kind':kind,
                 'skill_root':str(self.root),'results':results,
                 'matched_routes':[{'id':r['id'],'name':r['name'],'matched_keywords':r['matched_keywords']} for r in self.match_routes(task)[:3]],
-                'note':'基于本地主题词、任务路线和元数据排序；不是向量模型，也不表示已执行教程或审美检验。' if results else '没有与本地知识库匹配的教程或风格；请缩小任务或补充来源。'}
+                'note':'基于本地主题词、任务路线和元数据排序；不是向量模型，也不表示已执行教程或审美检验。' if results else '没有与本地知识库匹配的教程、风格或案例；请缩小任务或补充来源。'}
 
 def parser():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('query',nargs='?',default='');p.add_argument('--task')
-    p.add_argument('--kind',choices=['tutorial','style','ui','case','system','axis','all'],default='tutorial')
+    p.add_argument('--kind',choices=['tutorial','style','ui','case','visual-case','system','axis','all'],default='tutorial')
     p.add_argument('--style');p.add_argument('--ui-style');p.add_argument('--id')
-    p.add_argument('--list',choices=['styles','ui-styles','cases','systems','ui-axes','routes'],help='List available profiles/cases/systems/axes/routes without retrieving figures')
+    p.add_argument('--list',choices=['styles','ui-styles','cases','visual-cases','systems','ui-axes','routes'],help='List available profiles/cases/systems/axes/routes without retrieving figures')
     p.add_argument('--limit',type=int,default=6);p.add_argument('--images',type=int,default=2)
     p.add_argument('--fulltext',action='store_true');p.add_argument('--details',action='store_true');p.add_argument('--json',action='store_true')
     return p
@@ -310,6 +359,8 @@ def main(argv=None):
         if a.list:
             if a.list=='cases':
                 rows=[lib.compact_case(c,0,['可用真实游戏案例'],0) for c in lib.ui_cases]
+            elif a.list=='visual-cases':
+                rows=[lib.compact_visual_case(c,0,['可用画面一致性研究'],0) for c in lib.visual_cases]
             elif a.list=='systems':
                 rows=[lib.compact_system(q,0,['可用系统模式'],a.details) for q in lib.ui_systems]
             elif a.list=='ui-axes':
