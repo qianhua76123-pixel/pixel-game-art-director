@@ -4,17 +4,22 @@
 
 优先服务俯视角像素游戏，也覆盖动画、素材工作流、Godot 集成和游戏 UI。**本库提供知识与检查工具；检索到教程、通过技术检查，都不等于已经做完游戏美术或验证了 UI。**
 
+v1.3.0 新增可操作的乡村商店三方案、四组游戏视觉研究和全局主题合同。教程库的 92 篇教程、661 个教学图像文件与既有 14 例 UI 案例保持独立统计。
+
 ## 内容与范围
 
 | 内容 | 数量 | 实际包含 |
 |---|---:|---|
 | 独立来源教程 | 92 篇 | 25 绘画、12 动画、27 素材制作、24 游戏开发、4 UI 专题 |
-| 本地图像文件 | 661 个 | 原始教程图/GIF、截图和辅助抽帧；不等于 661 件可用游戏素材 |
+| 教程本地图像文件 | 661 个 | 原始教程图/GIF、截图和辅助抽帧；不等于 661 件可用游戏素材 |
 | 美术风格配方 | 8 套 | 乡村、限色掌机、双色、街机、低饱和幻想、哥特、等距、霓虹 |
 | UI 视觉主题配方 | 6 套 | 木框纸面、紧凑掌机、醒目街机、幻想装饰、暗石铁器、全息终端 |
 | UI 设计维度 | 8 个轴 / 27 个可组合值 | 视觉表现、世界关系、空间位置、信息编码、密度、出现时机、时间策略、输入导航 |
 | UI 系统模式 | 16 类 | 玩家决策、内容字段、结构、状态、输入、异常恢复和验收 |
 | 真实游戏 UI 案例 | 14 例 / 28 个图像链接 | 分别标记官方截图、开发者设计稿、官方指南；商业图不打包为开放素材 |
+| UI 与世界／素材一致性研究 | 4 例 / 8 个官方图像链接 | HLD、Children of Morta、Chained Echoes、DAVE THE DIVER；逐图观察、设计推论、迁移规则分开记录 |
+| 乡村商店交互小样 | 3 个界面方案 | 共用中文商品、购买数量、余额、库存和背包数据；可切换正常、钱不足、满包和售罄状态 |
+| 小样图像与字体 | 4 个 AI 示例 PNG / 1 个字体文件 | 共享场景、木框、账本、商品图集；Fusion Pixel 简体中文 WOFF2；与教程图像分开统计 |
 | 设计研究与规范 | 22 个不同来源 | 原始研究、设计理论、平台指南、评估方法；保留适用范围与局限 |
 | 任务路由 | 11 类 | 从场景、角色与动画，到 UI、引擎和已有素材审查 |
 
@@ -26,6 +31,8 @@
 - [UI 研究图谱（HTML）](review/ui-design-atlas/index.html) · [设计基础与分类](references/ui-design-foundations.md) · [16 类系统模式](references/ui-system-patterns.md)
 - [UI 评估方法](references/ui-evaluation-method.md) · [设计合同模板](assets/templates/ui-design-contract.json) · [乡村商店推演示例](examples/ui-design-reasoning.md)
 - [真实游戏 UI 案例](references/ui-case-studies.md) · [UI 内容审核与缺口](references/ui-content-audit.md)
+- [四组视觉一致性研究](references/visual-game-studies.md) · [结构化案例](references/visual-game-studies.json)
+- [乡村商店可操作小样](examples/rural-shop-demo/README.md) · [小样主题合同](examples/rural-shop-demo/theme-contract.json)
 - [一致性检查方法](references/consistency-review.md) · [技术检查输出示例](examples/audit-demo/EXAMPLE.md)
 - [来源与许可](THIRD_PARTY_NOTICES.md)：代码和第三方内容不是同一许可证。
 
@@ -36,6 +43,36 @@
 例如，乡村商店可以使用纸质账本，也可以使用平面商品列表；两者都需要明确价格、数量、总价、余额与背包接收。详见 [同一个商店任务的三种表达](examples/ui-design-reasoning.md)。拟物不自动等于世界内界面，也不自动提升沉浸或可用性。
 
 HTML 图谱可在下载后用浏览器打开；公开版本从原站加载参考图，完整分析和来源同时保存在 Markdown / JSON 中，agent 不依赖网页运行。
+
+## 对比三个实际商店界面
+
+[青禾种子铺](examples/rural-shop-demo/README.md) 使用真实中文文案与四张本地生成图像，可以选商品、修改数量、购买并检查余额、库存和行囊变化。三种表达共享交易数据，便于比较界面本身：
+
+| 方案 | 组织方式 | 小样截图 |
+|---|---|---|
+| 木框纸面 | 商品列表与详情同屏，使用木框和浅纸面 | [查看](examples/rural-shop-demo/screenshots/01-wood.jpg) |
+| 柜台账本 | 双页账本承载货架与交易内容 | [查看](examples/rural-shop-demo/screenshots/02-ledger.jpg) |
+| 世界与轻面板 | 保留店铺世界，使用较轻的交易面板与店主入口 | [查看](examples/rural-shop-demo/screenshots/03-world.jpg) |
+
+![青禾种子铺：木框纸面](examples/rural-shop-demo/screenshots/01-wood.jpg)
+
+![青禾种子铺：柜台账本](examples/rural-shop-demo/screenshots/02-ledger.jpg)
+
+![青禾种子铺：世界与轻面板](examples/rural-shop-demo/screenshots/03-world.jpg)
+
+小样由 HTML、CSS 与 ES modules 构成，需要本地 HTTP 服务。在仓库根目录运行：
+
+```bash
+python3 -m http.server 8000 --bind 127.0.0.1
+```
+
+然后打开 <http://127.0.0.1:8000/examples/rural-shop-demo/>。这是商店交互对比原型，尚不是可漫游的完整游戏。四张示例图属于像素风视觉小样：商品图集的**硬 alpha 检查失败**，统一逻辑网格仍待确定，不能称为通过生产验收的像素成品。来源、提示词与实测数据见 [图像记录](examples/rural-shop-demo/assets/asset-provenance.json)。
+
+## 保持世界、素材和 UI 一致
+
+全局 `theme_contract` 先规定项目身份、视角、光照、颜色职责、像素策略和字体，再由角色、道具、场景与 UI 继承。**禁止每件资产另选一套画风。** 不同任务可以使用不同面板家族，但例外必须记录理由、适用范围、继承关系和审阅证据；不能用例外豁免硬 alpha 等生产门槛。
+
+[四组视觉研究](references/visual-game-studies.md) 提供可迁移的组织方法，不提供可直接使用的商业游戏素材。`validate_theme_contract.py` 检查合同结构、引用、资产绑定和已记录证据；它不会自动看图判断美术是否统一。结构通过不等于视觉通过，待定与已失败事项必须继续保留。
 
 ## 看看现有教学图
 
@@ -72,10 +109,12 @@ python3 scripts/search.py --task '俯视农舍、树木和草地' --limit 6 --js
 python3 scripts/search.py --task '暗黑背包UI' --kind all --style dark-gothic --ui-style dark-stone --json
 python3 scripts/search.py --id ART-008 --json
 python3 scripts/search.py --task '背包和商店UI' --kind case --json
+python3 scripts/search.py --task '经营餐厅 拟物小游戏 一致性研究' --kind visual-case --json
 python3 scripts/search.py --task '制作配方界面' --kind system --json
 python3 scripts/search.py --task '拟物化菜单' --kind axis --json
 python3 scripts/search.py --id shop-trade --json
 python3 scripts/search.py --list ui-axes --json
+python3 scripts/search.py --list visual-cases --json
 python3 scripts/task_bundle.py --task '乡村地图的房屋和植被' --style cozy-rural --out ../pixel-output/village-brief --copy-figures
 python3 scripts/init_art_bible.py --style cozy-rural --ui-style wood-paper --out ./outputs/village-art-bible
 ```
@@ -91,6 +130,14 @@ python3 scripts/audit_assets.py /path/to/project/assets --contract /path/to/audi
 
 检查器只读取输入图片，输出报告和最近邻联系表。没有配置的规则显示 `NOT_CONFIGURED`；缺少完整技术证据时显示 `INCOMPLETE`。机器结果无论通过与否，整体都仍标记 `NEEDS_VISUAL_REVIEW`，因为视角、光源、材质、轮廓节奏与场景融合需要看图判断。
 
+检查示例主题合同：
+
+```bash
+python3 scripts/validate_theme_contract.py examples/rural-shop-demo/theme-contract.json --json
+```
+
+退出码 `0` 表示记录完整且没有失败项，`1` 表示结构错误或已记录的硬门槛失败，`2` 表示决策／证据未完成。当前小样包含明确的生产失败，不能把非零退出码改写为总体美术通过。
+
 ## 验证与维护
 
 ```bash
@@ -100,12 +147,14 @@ python3 scripts/test_ui_cases.py
 python3 scripts/test_ui_design.py
 ```
 
-发布前已检查本地链接、图像解码和哈希，并运行任务检索、资料包署名、搬迁路径与检查器行为测试。v1.2.0 的设计研究与脚本验证见 [版本验证报告](validation/UI-DESIGN-V1.2.md)；既有教程与素材检查见 [验证报告](validation/FINAL.md)。这些检查不代表逐篇运行过原教程，也不代表已经验证某个游戏的真实 UI 交互。
+既有资料发布时检查了本地链接、图像解码和哈希，并运行任务检索、资料包署名、搬迁路径与检查器行为测试。v1.3.0 的小样、主题合同和视觉研究证据见 [本版验证报告](validation/SHOP-COHESION-V1.3.md)；v1.2.0 的设计研究与脚本验证见 [此前版本报告](validation/UI-DESIGN-V1.2.md)；既有教程与素材检查见 [验证报告](validation/FINAL.md)。这些检查不代表逐篇运行过原教程，也不把结构验证、静态截图与真实运行验证混为同一结论。
 
 [资料库维护说明](library/MAINTENANCE.md)介绍索引重建与采集。Godot 内容固定到 4.5 分支，Saint11 图源固定到提交 `ce1393eb2c46441d917134a9fd52e15575ee10a7`；版本快照不代表最新软件行为。
 
 ## 许可
 
 原创脚本、技能编排、独立风格配方和测试夹具采用 [MIT](LICENSE)。第三方教程及其改编保留 **CC BY 4.0、CC BY 3.0、GFDL 1.3 或更新版本**等原许可。图片上的商标、游戏角色或署名截图不会因汇编进入此库而成为本项目原创资产。
+
+商店的四张 AI 示例图仅在项目实际持有权利的范围内按 MIT 提供，不保证独占性、唯一性或独立版权保护。Fusion Pixel 字体仍采用 **SIL OFL 1.1**，保留字体本身和上游组件的原始声明；字体不随示例代码改为 MIT。视觉研究的商业原图仅引用官方远程链接，不纳入本库开放许可或离线素材包。
 
 再分发或改编资料时，保留对应作者、来源、许可和修改说明。详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) 与 [library/LICENSES.md](library/LICENSES.md)。

@@ -17,17 +17,21 @@ description: 按任务检索本地图文教程和配图，用于像素游戏、�
 python3 scripts/search.py --task '俯视乡村地图，需要农舍、树木和水岸' --limit 6 --json
 python3 scripts/search.py --task '暗黑背包UI，九宫格边框和手柄焦点' --kind all --style dark-gothic --ui-style dark-stone --json
 python3 scripts/search.py --id ART-008 --json
+python3 scripts/search.py --task '世界场景与UI的材质和图标一致性' --kind visual-case --json
 python3 scripts/task_bundle.py --task '制作四方向行走和待机角色' --style cozy-rural --out /tmp/pixel-task-brief
 ```
 
 结果包含匹配原因、教程文件、原图/关键帧路径和授权。先读命中的中文任务导读，再读取需要的原文小节；打开实际配图核对，不能仅凭标题猜内容。资料包是工作输入，不是完成游戏或美术的证据。更多选项与数据格式见 [检索说明](references/retrieval.md)。
 
-## 选择风格并固定项目规范
+## 先继承项目主题，再选择制作方法
 
-- 新项目或用户要求换风格：读取 [风格设计](references/style-design.md)，按任务选择配方；配置见 [美术风格](references/style-profiles.json) 与 [UI风格](references/ui-profiles.json)。这些是可调起点，不是硬件史事实、特定作者风格分类或统一适用的尺寸。
+- 先读 [主题继承规则](references/theme-cohesion-contract.md)，加载项目的主题 ID、版本、参考资产与 [主题合同](assets/templates/theme-contract.json)。继承顺序是项目主题 → `world/character/item-icon/UI/typography` 用途规则 → 有理由和证据的单资产例外；不能为每张素材重新选择色板、光源、投影或画风。
+- 新项目或用户要求换风格：读取 [风格设计](references/style-design.md)，先为整个项目比较候选，再确定用途差异；配置见 [美术风格](references/style-profiles.json) 与 [UI风格](references/ui-profiles.json)。这些是可调起点，不是硬件史事实、特定作者风格分类或统一适用的尺寸。
 - 已有项目：先观察参考图与已有资产，记录实际的视角、光源、轮廓、色阶、像素密度和UI材质，再借用相符的教程。保留用户指定的风格。
 - 用 [美术规范模板](assets/templates/art-bible.json) 固定共同规则和可接受的例外。场景规范应在批量角色/道具之前确定；同组素材不能各自改变视角、光源、锚点或像素倍率。
 - 如需脚手架，运行 `python3 scripts/init_art_bible.py --style cozy-rural --ui-style wood-paper --out /tmp/pixel-art-bible`。它生成的是待项目化的方案，不会把未确定的参数伪装成已确认规格。
+
+需要跨场景、角色、图标与UI的实际画面依据时，检索 `--kind visual-case` 或读 [4组视觉研究与8张官方远程图](references/visual-game-studies.md)。分别阅读可见事实、设计推论和迁移规则；相同身份与状态语义可以跨尺度保留，不要求所有用途同尺寸、同细节密度。图像仅作研究，不是可分发素材。
 
 只按当前任务读取相关参考；不要把所有教程和所有风格JSON装入上下文。
 
@@ -44,7 +48,7 @@ python3 scripts/task_bundle.py --task '制作四方向行走和待机角色' --s
 
 读取 [UI设计与验证](references/ui-design.md)。先确定玩家要做的决定和系统规则，检索 [16类系统模式](references/ui-system-patterns.md)，整理必须同时看见的对象、成本、条件、效果与后果，再组织界面。可运行 `python3 scripts/search.py --task '乡村商店，比较种子并选择购买数量' --kind system --details --json`。
 
-需要选择或比较设计方向时，读 [设计基础与八个维度](references/ui-design-foundations.md)：分别决定视觉语言、虚构世界关系、空间位置、信息表征、注意需求、出现方式、世界时间与输入。六套旧UI配方只是视觉主题；木框不自动等于世界内UI，拟物也不决定系统内容。用 [UI设计合同](assets/templates/ui-design-contract.json)记录本次选择、真实内容、状态、输入和失败恢复；[乡村商店示例](examples/ui-design-reasoning.md)展示怎样比较方案。
+需要选择或比较设计方向时，读 [设计基础与八个维度](references/ui-design-foundations.md)：分别决定视觉语言、虚构世界关系、空间位置、信息表征、注意需求、出现方式、世界时间与输入。六套旧UI配方只是视觉主题；木框不自动等于世界内UI，拟物也不决定系统内容。用 [UI设计合同](assets/templates/ui-design-contract.json)记录本次选择、真实内容、状态、输入和失败恢复；[乡村商店推演](examples/ui-design-reasoning.md)说明取舍，[三个可运行小样](examples/rural-shop-demo/README.md)用相同中文商品、图集与交易数据比较结构。
 
 需要真实界面参考时，运行 `python3 scripts/search.py --task '背包和商店UI' --kind case --json`，或读取 [14个游戏案例与28张官方配图链接](references/ui-case-studies.md)。打开所选截图，分别记录画面事实、设计评析与未验证项；风格关联不表示整套游戏同款。脚本不下载商业截图，`--copy-figures` 仅复制教学配图，案例图不能直接当作游戏素材；覆盖范围见 [内容审核](references/ui-content-audit.md)。
 
@@ -52,13 +56,14 @@ python3 scripts/task_bundle.py --task '制作四方向行走和待机角色' --s
 
 ## 一致性检查
 
-先读 [检查方法与边界](references/consistency-review.md)，使用项目的明确规格配置 [机器检查合同](assets/templates/audit-contract.json)，按角色/文件覆盖不同尺寸要求。
+先读 [检查方法与边界](references/consistency-review.md)。先验证主题合同的继承与引用，再使用项目的明确规格配置 [机器检查合同](assets/templates/audit-contract.json)，按角色/文件覆盖不同尺寸要求。这是两种合同，不能互换。
 
 ```bash
+python3 scripts/validate_theme_contract.py /path/to/project/theme-contract.json --json
 python3 scripts/audit_assets.py /path/to/project/assets --contract /path/to/audit-contract.json --out /tmp/pixel-art-review
 ```
 
-审查脚本依赖Pillow，其余检索与资料包脚本仅依赖Python标准库。需要时安装本skill的 `requirements.txt`。脚本只读取输入图片，输出测量报告和最近邻联系表，不自动修图。
+`validate_theme_contract.py` 只核对结构、主题/role引用、来源及已记录证据，未定关键参数保留 `INCOMPLETE`，不自动鉴定画风。`audit_assets.py` 依赖Pillow，检索、资料包和主题验证器仅依赖Python标准库。需要时安装本skill的 `requirements.txt`；图片审查只读取源图，不自动修图。
 
 必须分别报告：
 
@@ -67,6 +72,8 @@ python3 scripts/audit_assets.py /path/to/project/assets --contract /path/to/audi
 - **问题与修正**：指出具体文件、局部区域、严重度和修复建议。修后用同样尺度对比，再复查受影响项。
 
 机器通过不能替代美术通过。脚本的 `overall_status=NEEDS_VISUAL_REVIEW` 是明确边界，不把颜色数量相近或透明像素比例当成风格一致性证明。
+
+商店小样的4张AI生成PNG可用于界面比较，但没有因此通过严格原生像素生产验收：商品图集存在软alpha，硬alpha规则为失败，逻辑像素网格仍待确定。角色例外和样张可用不能豁免这些门槛，详见 [小样主题合同](examples/rural-shop-demo/theme-contract.json)。
 
 ## 交付给用户或下游agent
 

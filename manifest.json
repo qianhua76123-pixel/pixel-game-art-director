@@ -1,18 +1,21 @@
 {
   "name": "pixel-game-art-director",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "built_at": "2026-10-29",
   "tutorial_count": 92,
   "local_image_count": 661,
+  "local_image_count_scope": "Tutorial-library image files only; excludes demo artwork, font files and runtime screenshots.",
   "art_profile_count": 8,
   "ui_profile_count": 6,
   "entrypoint": "SKILL.md",
   "library_root": "library",
   "runtime_dependencies": {
     "retrieval": "Python 3.9+ standard library",
-    "image_audit": "Python 3.9+ and Pillow"
+    "image_audit": "Python 3.9+ and Pillow",
+    "theme_contract_validation": "Python 3.9+ standard library; validates recorded structure and evidence, not visual quality",
+    "rural_shop_demo": "Browser with ES modules; serve HTML, CSS, JavaScript and local assets over HTTP"
   },
-  "license_notes": "Bundled tutorials retain per-source licenses in library/LICENSES.md; editorial profiles are suggestions, not author style categories.",
+  "license_notes": "Bundled tutorials retain per-source licenses in library/LICENSES.md. Fusion Pixel and upstream font notices remain SIL OFL 1.1. Four AI demo images are offered under MIT only to the extent rights are held, with no guarantee of exclusivity or independent copyright. Commercial game reference images are remote links, not bundled open assets. Editorial profiles are suggestions, not author style categories.",
   "machine_audit_boundary": "Configured technical checks only; visual review remains required.",
   "ui_case_count": 14,
   "ui_case_image_reference_count": 28,
@@ -21,5 +24,32 @@
   "ui_design_axis_value_count": 27,
   "ui_system_pattern_count": 16,
   "ui_unique_method_source_count": 22,
-  "ui_framework_boundary": "Editorial working framework grounded in scoped sources; not an exhaustive academic taxonomy or user-tested UI kit."
+  "ui_framework_boundary": "Editorial working framework grounded in scoped sources; not an exhaustive academic taxonomy or user-tested UI kit.",
+  "visual_case_count": 4,
+  "visual_case_image_reference_count": 8,
+  "visual_case_index": "references/visual-game-studies.json",
+  "visual_case_image_policy": "Official Steam screenshots reviewed individually; observations and design inferences separated; commercial image binaries are not bundled. Counted separately from the existing 14 UI cases and 28 image references.",
+  "rural_shop_demo": {
+    "readme": "examples/rural-shop-demo/README.md",
+    "entrypoint": "examples/rural-shop-demo/index.html",
+    "variant_count": 3,
+    "variants": ["wood", "ledger", "world"],
+    "shared_content": "Chinese products, purchase quantities, balance, stock and bag state",
+    "scenario_ids": ["normal", "low-money", "full-bag", "sold-out"],
+    "local_artwork_image_count": 4,
+    "local_font_file_count": 1,
+    "asset_provenance": "examples/rural-shop-demo/assets/asset-provenance.json",
+    "font_provenance": "examples/rural-shop-demo/assets/font/font-source.json",
+    "theme_contract": "examples/rural-shop-demo/theme-contract.json",
+    "screenshots": [
+      "examples/rural-shop-demo/screenshots/01-wood.jpg",
+      "examples/rural-shop-demo/screenshots/02-ledger.jpg",
+      "examples/rural-shop-demo/screenshots/03-world.jpg"
+    ],
+    "runtime_scope": "Operable shop-interface comparison prototype over local HTTP; not a complete roamable game.",
+    "production_boundary": "Hard-alpha gate failed for item-atlas.png; a unified logical pixel grid remains undetermined. These are pixel-style prototype assets, not certified production pixel sprites."
+  },
+  "theme_contract_policy": "All assets inherit one project theme; per-asset independent style selection is prohibited. Role-level exceptions require rationale, bounded scope and recorded review evidence; exceptions do not waive production gates.",
+  "theme_contract_validator_boundary": "Checks structure, inheritance, file bindings and recorded evidence only. Structure PASS is not an automated visual-cohesion judgment.",
+  "release_validation": "validation/SHOP-COHESION-V1.3.md"
 }
