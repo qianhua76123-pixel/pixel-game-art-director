@@ -1,6 +1,6 @@
 # Third-party notices / 第三方内容说明
 
-本仓库是原创工具、案例评论与第三方教程的汇编，并不使用单一许可证覆盖全部文件。根目录 [LICENSE](LICENSE) 的 MIT 许可涵盖原创脚本、技能编排、独立配方、模板、案例评论与测试夹具；AI 示例图的范围见下文。任何第三方图像、字体、正文、源快照及其中文改编仍受对应来源许可约束。以下声明随 v1.3.0 补充。
+本仓库是原创工具、案例评论与第三方教程的汇编，并不使用单一许可证覆盖全部文件。根目录 [LICENSE](LICENSE) 的 MIT 许可涵盖原创脚本、技能编排、独立配方、模板、案例评论与测试夹具；AI 示例图的范围见下文。任何第三方图像、字体、正文、源快照及其中文改编仍受对应来源许可约束。以下声明随 v1.3.1 补充。
 
 ## 逐项定位
 
@@ -26,9 +26,11 @@
 
 ## 商店 AI 示例图与运行截图
 
-`examples/rural-shop-demo/assets/` 中的 `village-shop.png`、`wood-panel.png`、`counter-ledger.png`、`item-atlas.png` 由本项目通过图像生成工具制作，是界面小样的本地图像，未使用本库商业案例截图作为成品素材。提示词、源文件哈希和观察记录保存在 [prompt-set.md](examples/rural-shop-demo/assets/prompt-set.md) 与 [asset-provenance.json](examples/rural-shop-demo/assets/asset-provenance.json)。
+`examples/rural-shop-demo/assets/` 中保留五张由本项目通过内置图像生成工具制作的 PNG，未使用本库商业案例截图作为成品素材。原四图 `village-shop.png`、`wood-panel.png`、`counter-ledger.png`、`item-atlas.png` 的提示词、源文件哈希和观察记录保存在 [prompt-set.md](examples/rural-shop-demo/assets/prompt-set.md) 与 [asset-provenance.json](examples/rural-shop-demo/assets/asset-provenance.json)。旧 `wood-panel.png` 已退出当前界面，仍作为历史源图保留。
 
-这四张图仅在项目实际持有权利的范围内按根目录 MIT 许可提供（to the extent rights are held）。本项目不保证 AI 输出的独占性、唯一性、手绘作者身份或独立版权保护。运行截图展示本项目代码、AI 示例图与所附字体；截图不会改变各组成部分的许可。
+v1.3.1 新增 `plain-paper-panel.png`，经一次独立的内置 `image_gen` 调用生成，原 PNG 未重绘、裁切、重采样或重新量化。完整提示词见 [plain-panel-prompt.md](examples/rural-shop-demo/assets/plain-panel-prompt.md)，原图哈希、尺寸、观察结果及九宫格切片记录见 [plain-panel-provenance.json](examples/rural-shop-demo/assets/plain-panel-provenance.json)。界面的 CSS 九宫格显示不改变所保存的源文件。
+
+这五张图仅在项目实际持有权利的范围内按根目录 MIT 许可提供（to the extent rights are held）。本项目不保证 AI 输出的独占性、唯一性、手绘作者身份或独立版权保护。运行截图展示本项目代码、AI 示例图与所附字体；截图不会改变各组成部分的许可。
 
 这些图是像素风原型示例。商品图集存在半透明像素，硬 alpha 门槛已失败；统一逻辑网格仍待确定。可分发与技术上可进入生产是不同判断，不能因为随代码公开便称为通过验收的像素成品。
 
