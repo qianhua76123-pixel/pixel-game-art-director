@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>商店界面对照 · 青禾种子铺</title>
+  <style>
+    :root { color-scheme:light; --ink:#26352f; --muted:#65716a; --line:#d4dcd5; --paper:#fbfcf8; --accent:#306650; --soft:#eef3ec; }
+    * { box-sizing:border-box; }
+    body { margin:0; color:var(--ink); background:#f2f4ee; font:16px/1.65 -apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; }
+    a { color:var(--accent); text-underline-offset:3px; }
+    button,select { font:inherit; }
+    a:focus-visible,select:focus-visible,summary:focus-visible { outline:3px solid #b77a32; outline-offset:4px; }
+    .wrap { max-width:1740px; margin:auto; padding:32px 28px 60px; }
+    header { display:flex; justify-content:space-between; gap:32px; align-items:flex-start; padding-bottom:24px; border-bottom:1px solid var(--line); }
+    .eyebrow { margin:0 0 6px; font-size:13px; font-weight:650; letter-spacing:.08em; color:var(--accent); }
+    h1 { margin:0; font-size:clamp(27px,3vw,40px); line-height:1.3; letter-spacing:-.03em; }
+    header p { max-width:820px; margin:12px 0 0; color:var(--muted); }
+    .actions { flex-shrink:0; display:flex; flex-wrap:wrap; gap:10px; padding-top:6px; }
+    .actions a { padding:8px 12px; border:1px solid var(--line); background:var(--paper); border-radius:4px; text-decoration:none; font-size:14px; }
+    .notice { margin:24px 0; padding:16px 20px; border-left:3px solid var(--accent); background:var(--soft); font-size:14px; }
+    section { margin-top:32px; }
+    h2 { margin:0 0 8px; font-size:24px; line-height:1.4; }
+    .section-note { margin:0 0 18px; color:var(--muted); font-size:14px; }
+    .scroll-board { overflow-x:auto; padding-bottom:10px; }
+    .board { display:grid; grid-template-columns:repeat(3,minmax(310px,1fr)); gap:18px; min-width:1010px; }
+    .board.four { grid-template-columns:repeat(4,minmax(310px,1fr)); min-width:1350px; }
+    .result-board { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; min-width:680px; }
+    .result-board .card-head { min-height:88px; }
+    article { min-width:0; }
+    .card { background:var(--paper); border:1px solid var(--line); border-radius:6px; overflow:hidden; }
+    .card-head { padding:18px 18px 14px; }
+    .card h3 { margin:0; font-size:19px; line-height:1.4; }
+    .role { margin:6px 0 0; color:var(--muted); font-size:13px; }
+    figure { margin:0; }
+    .full-frame { position:relative; width:100%; aspect-ratio:16/9; background:#19241e; }
+    .full-frame img { display:block; width:100%; height:100%; object-fit:contain; }
+    .image-error { display:grid; place-content:center; padding:20px; color:#fff; font-size:14px; text-align:center; }
+    .meta { padding:10px 18px; display:flex; justify-content:space-between; gap:14px; font-size:12px; color:var(--muted); border-bottom:1px solid var(--line); }
+    .card-body { padding:15px 18px 18px; font-size:14px; }
+    .card-body p { margin:0 0 12px; }
+    .card-body strong { font-weight:650; }
+    ul { padding-left:1.25em; margin:8px 0 14px; }
+    li { margin:5px 0; }
+    details { border-top:1px solid var(--line); margin-top:14px; padding-top:10px; }
+    summary { cursor:pointer; color:var(--accent); font-weight:600; }
+    .source-row { display:flex; flex-wrap:wrap; gap:6px 14px; margin-top:12px; }
+    .controlbar { display:flex; flex-wrap:wrap; align-items:center; gap:12px; padding:14px 18px; border:1px solid var(--line); background:var(--paper); border-radius:6px; margin-bottom:16px; }
+    .controlbar label { font-weight:650; }
+    select { min-height:42px; padding:6px 36px 6px 12px; color:var(--ink); background:white; border:1px solid #96a99c; border-radius:4px; }
+    .controlbar span { color:var(--muted); font-size:13px; }
+    .inspection { height:286px; overflow:auto; background:#e3e8df; border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding:18px; }
+    .crop-window { position:relative; overflow:hidden; flex-shrink:0; background:#19241e; }
+    .crop-window img { position:absolute; max-width:none; image-rendering:pixelated; image-rendering:crisp-edges; }
+    .crop-note { padding:12px 18px 16px; font-size:13px; min-height:102px; }
+    .crop-note p { margin:0 0 6px; }
+    .coords { font-family:ui-monospace,SFMono-Regular,monospace; font-size:11px; color:var(--muted); }
+    .finding { padding:20px 22px; margin-top:16px; background:var(--paper); border:1px solid var(--line); border-radius:6px; }
+    .finding h3 { margin:0 0 16px; font-size:20px; }
+    .finding-grid { display:grid; grid-template-columns:1fr 1.4fr 1fr; gap:28px; font-size:14px; }
+    .finding h4 { margin:0 0 8px; color:var(--accent); font-size:14px; }
+    .finding p { margin:0; }
+    .finding ul { margin:0; }
+    .sequence { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; list-style:none; padding:0; counter-reset:step; }
+    .sequence li { counter-increment:step; padding:18px; border-top:2px solid #9bad9e; background:var(--soft); font-size:14px; }
+    .sequence li::before { content:counter(step,decimal-leading-zero); display:block; margin-bottom:8px; font-size:20px; color:var(--accent); }
+    footer { margin-top:36px; padding-top:20px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; }
+    #load-error { color:#883e29; }
+    @media(max-width:1000px) { header { display:block; } .actions { margin-top:18px; } .finding-grid { grid-template-columns:1fr; gap:18px; } .sequence { grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:600px) { .wrap { padding:22px 16px 40px; } h2 { font-size:21px; } .sequence { grid-template-columns:1fr; } .notice { padding:14px; } }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <div>
+        <p class="eyebrow">青禾种子铺 / 实图研究 / 2026-10-29</p>
+        <h1>先看真实商店，再统一重做</h1>
+        <p>真正的商店参考、冻结的 v1.3.1 历史基线，以及本轮单一柜台重做结果。并排观察构图、字体、素材和颗粒，记录共同规范与证据范围。</p>
+      </div>
+      <nav class="actions" aria-label="相关文件"><a href="#result">看重做结果 ↓</a><a href="../../examples/rural-shop-demo/">打开交互小样 ↗</a><a href="benchmark.json">读取结构化记录</a></nav>
+    </header>
+    <p class="notice"><strong>证据范围：</strong>这是一页实际截图对照与重做依据。官方参考保留远程来源，项目基线独立冻结；没有审美总分，也不把静态图当作完整操作验证。</p>
+    <p id="load-error" role="alert" hidden></p>
+    <noscript><p>此页面需要 JavaScript 加载对照记录。可直接阅读 <a href="README.md">中文报告</a> 或 <a href="benchmark.json">结构化记录</a>。</p></noscript>
+
+    <section id="result" aria-labelledby="result-title">
+      <h2 id="result-title">重做结果并排</h2>
+      <p class="section-note">左边切换真实商店参考，右边固定为新版实际截图：640×360 逻辑画布、2× 整屏显示，240 钱 / 背包 9 格 / 数量 3。两列各半宽，完整 16:9；这一区看构图，细节请查看下方 2× 局部。</p>
+      <div class="controlbar"><label for="result-reference">左侧参考</label><select id="result-reference"><option value="moonlighter">Moonlighter · 药水商人服务</option><option value="stardew">Stardew Valley · Pierre 买种子</option></select><span>保持右侧新稿与历史基线不变</span></div>
+      <div class="scroll-board"><div id="result-board" class="result-board"></div></div>
+      <p class="section-note">新版体现本轮共同制作选择；严格生成源图的原生网格 / alpha 仍未通过，不能把整数渲染采样称为源图认证。</p>
+    </section>
+
+    <section aria-labelledby="overview-title">
+      <h2 id="overview-title">01 · 全图：看人、货与交易空间</h2>
+      <p class="section-note">三个画面按同样的 16:9 宽度展示，仅用于比较构图和信息组织。它们是缩略预览，不能作为像素颗粒证据。窄窗口可横向滚动并排区。</p>
+      <div class="scroll-board"><div id="full-board" class="board"></div></div>
+    </section>
+
+    <section aria-labelledby="detail-title">
+      <h2 id="detail-title">02 · 局部：截图像素 2× 近邻查看</h2>
+      <p class="section-note">参考、旧稿和新版四列可横向滚动。每个截图像素按 2 个 CSS 像素显示，不为排成一行再次缩小；局部超出窗口也可滚动。建议浏览器缩放保持 100%。截图像素 ≠ 游戏逻辑像素，不能由此推断原生分辨率或原始素材网格。</p>
+      <div class="controlbar">
+        <label for="crop-kind">查看部位</label>
+        <select id="crop-kind"><option value="font">字体与正文</option><option value="icon">商品图标与选中状态</option><option value="frame">纸面与框体</option><option value="world">场景颗粒</option></select>
+        <span>固定 2× · 原图坐标 · 不生成或修改商业图片</span>
+      </div>
+      <div class="scroll-board"><div id="crop-board" class="board four"></div></div>
+    </section>
+
+    <section aria-labelledby="gap-title">
+      <h2 id="gap-title">03 · 具体差距 → 共同规范 → 验证方式</h2>
+      <p class="section-note">下面是针对冻结旧稿的设计判断，以及本轮已确定的单一 640×360 柜台方案。参考游戏提供方法和取舍，不提供可直接拼进项目的资产。</p>
+      <div id="findings"></div>
+    </section>
+
+    <section aria-labelledby="next-title">
+      <h2 id="next-title">04 · 统一为单一柜台选货界面</h2>
+      <ol id="sequence" class="sequence"></ol>
+      <p class="section-note">本轮采用 640×360 逻辑画布、整屏 1× / 2× / 3× 整数显示与 12 逻辑像素 FusionPixel 中文。旧 A / B / C 仅作历史参考。新稿另存截图；严格源图网格 / alpha 验收仍未通过，渲染采样正确不能替代源图认证。</p>
+    </section>
+    <footer><p id="rights"></p><p>本页只在浏览器中显示远程原图和局部窗口。商业原图文件未放入公开仓库；图源不可用时显示失效提示，并保留原始链接。</p></footer>
+  </main>
+  <script>
+    'use strict';
+    const escapeHtml = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    const list = rows => '<ul>' + rows.map(x => '<li>' + escapeHtml(x) + '</li>').join('') + '</ul>';
+    let records = [], newResult = null;
+    function bindImageFailures(root) {
+      root.querySelectorAll('img').forEach(img => {
+        img.addEventListener('error', () => {
+          const holder = img.parentElement;
+          holder.classList.add('image-error');
+          holder.textContent = '原图未能加载。请打开下方原图链接核验，当前空白不能作为比较证据。';
+        }, { once:true });
+      });
+    }
+    function renderFull() {
+      const board = document.getElementById('full-board');
+      board.innerHTML = records.map(c => `<article class="card">
+        <div class="card-head"><h3>${escapeHtml(c.title)}</h3><p class="role">${escapeHtml(c.role)}</p></div>
+        <figure><div class="full-frame"><img src="${escapeHtml(c.image_url)}" alt="${escapeHtml(c.title + '，' + c.role)}" referrerpolicy="no-referrer"></div><figcaption class="meta"><span>${c.dimensions[0]} × ${c.dimensions[1]} 截图</span><span>${c.remote_only ? '官方远程图' : '已冻结项目基线'}</span></figcaption></figure>
+        <div class="card-body"><p>${escapeHtml(c.purpose)}</p><strong>画面中实际可见</strong>${list(c.visible_fields)}
+          <div class="source-row"><a href="${escapeHtml(c.image_url)}" target="_blank" rel="noopener">打开完整原图 ↗</a><a href="${escapeHtml(c.source_url)}" target="_blank" rel="noopener">${escapeHtml(c.source_label)} ↗</a></div>
+          <details><summary>观察、来源核验与局限</summary><p>${escapeHtml(c.verification)}</p>${list(Object.values(c.observations))}<strong>不能由这张图证明</strong>${list(c.limitations)}</details>
+        </div></article>`).join('');
+      bindImageFailures(board);
+    }
+    function renderResult() {
+      const referenceId = document.getElementById('result-reference').value;
+      const left = records.find(c => c.id === referenceId);
+      const board = document.getElementById('result-board');
+      board.innerHTML = [left,newResult].map(c => `<article class="card"><div class="card-head"><h3>${escapeHtml(c.title)}</h3><p class="role">${escapeHtml(c.role)}</p></div>
+        <figure><div class="full-frame"><img src="${escapeHtml(c.image_url)}" alt="${escapeHtml(c.title + '，' + c.role)}" referrerpolicy="no-referrer"></div><figcaption class="meta"><span>${c.dimensions[0]} × ${c.dimensions[1]} 截图</span><span>${c.remote_only ? '官方远程图' : '本轮实际重做'}</span></figcaption></figure>
+        <div class="card-body"><p>${escapeHtml(c.purpose)}</p><div class="source-row"><a href="${escapeHtml(c.image_url)}" target="_blank" rel="noopener">打开完整原图 ↗</a><a href="${escapeHtml(c.source_url)}" target="_blank" rel="noopener">${escapeHtml(c.source_label)} ↗</a></div><details><summary>这张图的证据边界</summary>${list(c.limitations)}</details></div></article>`).join('');
+      bindImageFailures(board);
+    }
+    function renderCrops() {
+      const topic = document.getElementById('crop-kind').value;
+      const board = document.getElementById('crop-board');
+      board.innerHTML = records.concat(newResult).map(c => {
+        const crop = c.crops[topic];
+        const [x,y,w,h] = crop.rect;
+        return `<article class="card"><div class="card-head"><h3>${escapeHtml(c.title)}</h3></div>
+          <div class="inspection" tabindex="0" aria-label="${escapeHtml(c.title)}的 2 倍局部，可滚动">
+            <div class="crop-window" style="width:${w*2}px;height:${h*2}px"><img src="${escapeHtml(c.image_url)}" alt="${escapeHtml(crop.note)}" referrerpolicy="no-referrer" style="width:${c.dimensions[0]*2}px;height:${c.dimensions[1]*2}px;left:${-x*2}px;top:${-y*2}px"></div>
+          </div><div class="crop-note"><p>${escapeHtml(crop.note)}</p><p class="coords">源图 x=${x}, y=${y}, w=${w}, h=${h} → ${w*2}×${h*2} CSS px</p><a href="${escapeHtml(c.image_url)}" target="_blank" rel="noopener">核对完整原图 ↗</a></div></article>`;
+      }).join('');
+      bindImageFailures(board);
+    }
+    async function init() {
+      try {
+        const response = await fetch('benchmark.json');
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+        const data = await response.json();
+        records = data.cases; newResult = data.result;
+        renderFull(); renderResult(); renderCrops();
+        document.getElementById('result-reference').addEventListener('change',renderResult);
+        document.getElementById('crop-kind').addEventListener('change',renderCrops);
+        document.getElementById('findings').innerHTML = data.comparison.map(row => `<article class="finding"><h3>${escapeHtml(row.label)}</h3><div class="finding-grid"><div><h4>旧稿的具体差距</h4><p>${escapeHtml(row.gap)}</p></div><div><h4>本轮共同规范</h4>${list(row.common_rules)}</div><div><h4>怎样验证</h4><p>${escapeHtml(row.verification)}</p></div></div></article>`).join('');
+        document.getElementById('sequence').innerHTML = data.iteration_contract.sequence.map(x => '<li>'+escapeHtml(x)+'</li>').join('');
+        document.getElementById('rights').textContent = data.rights;
+      } catch (error) {
+        const notice = document.getElementById('load-error');
+        notice.hidden = false;
+        notice.textContent = '对照记录未加载：'+error.message+'。请通过 HTTP 服务打开本页，或直接阅读 README.md / benchmark.json。';
+      }
+    }
+    init();
+  </script>
+</body>
+</html>

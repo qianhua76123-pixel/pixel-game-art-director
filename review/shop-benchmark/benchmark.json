@@ -1,0 +1,405 @@
+{
+  "schema_version": 1,
+  "title": "商店界面对照与重做依据",
+  "reviewed_on": "2026-10-29",
+  "baseline_version": "v1.3.1",
+  "evidence_boundary": "两张官方商业截图已联网核验并实际查看；基线已冻结。全图用于构图，局部 2× 只放大截图像素。截图像素不等于逻辑像素，不能推断原生分辨率、完整交互或中文表现。",
+  "rights": "商业参考仅远程引用，版权归各权利人；不纳入本仓库开放许可，不随素材包复制，不提取为游戏成品素材。仅本项目基线截图保存在本目录。",
+  "case_count": 3,
+  "cases": [
+    {
+      "id": "moonlighter",
+      "title": "Moonlighter · The Wooden Hat",
+      "role": "商人服务：药水配方与兑换",
+      "kind": "official-store-screenshot",
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/606150/ss_99f46056bb1d647adf3ea8f044bf016a8a3da428.1920x1080.jpg",
+      "source_url": "https://store.steampowered.com/app/606150/Moonlighter/",
+      "source_label": "开发商发布的 Steam 商店截图",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "sha256": "0b91bb9b4d2e36ece87a40fbe30d6a893a843816e580ff20b6ed5f93f9175e01",
+      "remote_only": true,
+      "author": "Digital Sun / 11 bit studios",
+      "reviewed_on": "2026-10-29",
+      "verification": "联网读取官方 Steam 商店 HTML，确认该截图文件名存在；下载原图到仓库外并用 view_image 查看。",
+      "visible_fields": [
+        "药水商品网格与选中角标",
+        "HP Potion II、持有 0、治疗比例说明",
+        "配方费用 205 金币",
+        "两项材料的需要数、持有数，以及勾 / 叉",
+        "底部 Grab / Back / Close 手柄提示"
+      ],
+      "purpose": "观察有 NPC 身份的商品选择、效果说明、费用与材料条件如何组合。它是商人服务中的材料加金币换药 / 制作界面。",
+      "limitations": [
+        "不是普通种子纯金币购买，不应照搬材料配方区。",
+        "英文静态截图，未证明中文换行、数量调整或成交后的反馈。",
+        "未读取原生资产，不能由截图推断逻辑画布或所有层的像素倍率。"
+      ],
+      "observations": {
+        "composition": "商人立绘在左，商品纸页居中，效果与材料条件在右；人物身份有明确独立空间。",
+        "typography": "标题、商品名称、条件标签与数值使用有台阶感的字形；条件分组靠位置、分隔和勾叉，不只依赖字号。",
+        "materials": "纸页边缘、绿布招牌、立绘服装与图标都以较大的色块组织；纸面承载信息，纹理集中在边角。",
+        "grain": "人物、药水小图与纸框用途不同，但形状简化、台阶和明暗块之间可见亲缘关系；背景处于压暗状态。"
+      },
+      "crops": {
+        "font": {
+          "rect": [
+            637,
+            194,
+            220,
+            80
+          ],
+          "note": "Potion List 标题与分隔线；按截图像素放大。"
+        },
+        "icon": {
+          "rect": [
+            852,
+            284,
+            112,
+            112
+          ],
+          "note": "当前药水图标与绿色选中角标。"
+        },
+        "frame": {
+          "rect": [
+            1120,
+            175,
+            112,
+            128
+          ],
+          "note": "商品纸页右上角、边界与内容静区。"
+        },
+        "world": {
+          "rect": [
+            350,
+            140,
+            160,
+            128
+          ],
+          "note": "被界面压暗的木建筑背景；亮度不能当作原始材质色值。"
+        }
+      }
+    },
+    {
+      "id": "stardew",
+      "title": "Stardew Valley · Pierre",
+      "role": "购买种子：商品清单与玩家背包",
+      "kind": "official-store-screenshot",
+      "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/413150/ss_5e4780b155a2e56f32ebeca67e102fea6ddd9bf7.1920x1080.jpg",
+      "source_url": "https://store.steampowered.com/app/413150/Stardew_Valley/?l=german",
+      "source_label": "ConcernedApe 发布的 Steam 德语商店截图",
+      "dimensions": [
+        1920,
+        1080
+      ],
+      "sha256": "69302932fe3cca8f708cf5576a1a4739f1992cbe22cefcc75f1801bbb2d55383",
+      "remote_only": true,
+      "author": "ConcernedApe",
+      "reviewed_on": "2026-10-29",
+      "verification": "联网读取 Steam 德语页面 HTML，确认该截图文件名存在；英文页面未发现同一文件名，因此保留准确的德语来源页。原图已下载到仓库外并用 view_image 查看。",
+      "visible_fields": [
+        "左侧 Pierre 肖像与欢迎语",
+        "防风草、豆类、花椰菜、土豆四行种子商品",
+        "各行单价 20 / 60 / 80 / 50 和货币图标",
+        "余额 500",
+        "玩家背包、种子持有数量 15、滚动条和关闭控件"
+      ],
+      "purpose": "直接对应种子购买任务：身份、浏览货目、比较价格、查看持有物与余额。下方背包是交易上下文的一部分，整图并非背包菜单。",
+      "limitations": [
+        "这是德语截图；不证明中文像素字体或本地化排版已经可用。",
+        "当前帧没有展开商品说明，不能据此要求我们的种植信息也全部消失。",
+        "没有单独购买确认按钮；静帧不能推断点击、连购、撤销和控制器操作的完整规则。"
+      ],
+      "observations": {
+        "composition": "左边商人身份、右边四行货目、下方背包与余额，视觉空间直接对应交易中的人、货和持有物。",
+        "typography": "货名和价格拥有较大的屏幕面积，价格对齐；欢迎语较小。重复行结构降低比较成本。",
+        "materials": "暖木边、纸色底、商品框、货币与背包格的颜色和轮廓有共同规则；装饰贴合边界而不遍布正文。",
+        "grain": "货物图标、肖像轮廓与木框有清楚色块和阶梯边缘；肖像较大但仍保留可辨的像素构形。"
+      },
+      "crops": {
+        "font": {
+          "rect": [
+            636,
+            238,
+            220,
+            80
+          ],
+          "note": "第一行货名字形和纸底。"
+        },
+        "icon": {
+          "rect": [
+            548,
+            233,
+            104,
+            104
+          ],
+          "note": "种子包、图标底框与附近文字。"
+        },
+        "frame": {
+          "rect": [
+            522,
+            199,
+            128,
+            128
+          ],
+          "note": "货目面板左上木框与内层纸边。"
+        },
+        "world": {
+          "rect": [
+            840,
+            24,
+            160,
+            128
+          ],
+          "note": "交易弹层背后的压暗木墙；只比较边缘组织，不直接比较亮度。"
+        }
+      }
+    },
+    {
+      "id": "baseline",
+      "title": "青禾种子铺 · v1.3.1 基线",
+      "role": "购买种子：本项目已冻结旧稿",
+      "kind": "project-runtime-screenshot",
+      "image_url": "screenshots/v1.3.1-world.jpg",
+      "source_url": "../../examples/rural-shop-demo/",
+      "source_label": "打开当前交互小样",
+      "dimensions": [
+        1280,
+        720
+      ],
+      "sha256": "1170ec94df739f416e38ac578b74b5936b6ee2b20b52f0931b108d79bd0a0b4c",
+      "remote_only": false,
+      "author": "本项目界面与 AI 生成示例素材",
+      "reviewed_on": "2026-10-29",
+      "verification": "从当时的 examples/rural-shop-demo/screenshots/03-world.jpg 原样复制；本页不会随后续新稿截图自动变化。已实际查看冻结文件。",
+      "visible_fields": [
+        "六种货品、价格与蓝莓售罄状态",
+        "商品名称、说明、成长时间、适种季节",
+        "购买数量、花费、购买后余额",
+        "钱包、背包用量与购买动作"
+      ],
+      "purpose": "冻结本轮重做前的共同基线。功能字段已经存在，用来审视其构图、素材角色和视觉表达是否形成同一套游戏语言。",
+      "limitations": [
+        "这张图只记录一个桌面、正常库存场景，不代表全部状态和窗口尺寸。",
+        "场景与商品来自高分辨率 AI 像素风源图；尚不能当作已固定逻辑网格的生产像素素材。",
+        "不由这张静态图给功能或美术打总分。"
+      ],
+      "observations": {
+        "composition": "底部面板保留店主和部分店面；但商人身份主要靠背景里的小人物，货目与说明更像通用表单，缺少明确的交易人物区域。",
+        "typography": "中文可读，层级比初稿收敛；普通正文与细碎源图、商品图标尚缺一套有记录的字体和像素角色关系。",
+        "materials": "纸底平静，窄框克制；图标带细密高光和明暗，背景纹理密度更高，框体却近乎纯色，三者尚未形成统一的简化规则。",
+        "grain": "文字的抗锯齿、图标缩小后的细节和场景的高频颗粒属于不同表现；用同一棕绿色系无法替代像素策略。"
+      },
+      "crops": {
+        "font": {
+          "rect": [
+            584,
+            343,
+            220,
+            80
+          ],
+          "note": "商品标题、持有信息和中文正文，已冻结旧稿。"
+        },
+        "icon": {
+          "rect": [
+            250,
+            343,
+            112,
+            112
+          ],
+          "note": "种子商品格；观察包体细节与图标实际占地。"
+        },
+        "frame": {
+          "rect": [
+            203,
+            251,
+            128,
+            128
+          ],
+          "note": "新朴素窄木边与纸底，仍是重做前基线。"
+        },
+        "world": {
+          "rect": [
+            530,
+            52,
+            160,
+            128
+          ],
+          "note": "店铺瓦顶与立面；其纹理频率明显高于空白界面层。"
+        }
+      }
+    }
+  ],
+  "comparison": [
+    {
+      "id": "composition",
+      "label": "构图：先安排人、货与交易结果",
+      "gap": "旧稿把现有字段排进大纸面，店主身份依靠背景小人物；商店作为一个交易场景的组织弱于参考。",
+      "common_rules": [
+        "本轮统一为单一 640×360 逻辑画布的柜台选货界面；原 A / B / C 三种布局仅作历史参考，不继续并行制作。",
+        "店主保留完整身份表现，等比 contain 到 140×216 逻辑像素区域；六件商品采用 32×32 逻辑像素图标。",
+        "同一界面安排店主、货目、当前商品与费用 / 购买区域；整屏只按 1×、2×、3× 整数倍率显示，不单独拉伸某一栏。"
+      ],
+      "verification": "在 640×360、1280×720、1920×1080 三个整数显示尺寸检查同一柜台界面。使用相同商品、数量和库存定位人物、货物、价格、当前选择和购买后果；不把本轮表述为完成三套布局。"
+    },
+    {
+      "id": "typography",
+      "label": "字体：中文真实内容先于装饰",
+      "gap": "旧稿的中文已经能读，但字体作为游戏美术的一部分尚未定义；小字、商品贴图与场景颗粒各行其是。",
+      "common_rules": [
+        "本轮中文主体固定为 FusionPixel，字号 12 逻辑像素；整屏 2× 显示时等于 24 屏幕像素。",
+        "不使用原先 16 / 14 屏幕像素系统字的例外方案。标题、正文、数值依同一逻辑网格组织，以位置、留白和颜色职责形成层级。",
+        "保留字体来源与许可，等待 FusionPixel 字体加载后检查实际中文与数字；缺字或未加载不能用另一套字体静默冒充已验证结果。"
+      ],
+      "verification": "在字体加载完成后，用最长商品名、三行说明、最大数量与余额核验字形、行距、换行和数字对齐；检查 1× / 2× / 3× 的完整界面。2× 截图局部只辅助看边缘，不能推断字体或资产原生分辨率。"
+    },
+    {
+      "id": "materials",
+      "label": "素材：角色、商品和框体使用共同规则",
+      "gap": "旧稿场景细碎、图标精细、纸框平坦。色系接近，但木、纸、布袋与叶子的明暗、轮廓及纹理密度没有共同规格。",
+      "common_rules": [
+        "店主与六件商品来自同一张新光栅母版，保持人物、包装、布袋和植物的共同色彩、轮廓与材质规则。",
+        "另用母版作为参考生成两张新光栅资产：商店室内背景与纸木框；继承共同角色 / 材质语言，不拼接旧场景和另一套商品图。",
+        "Canvas drawImage 只把新光栅图搬运、裁取并合成到逻辑网格，不用代码绘制游戏素材。纸框沿原图 source 72 像素切边，对应最终 4 逻辑像素边框。"
+      ],
+      "verification": "查看母版和两张参考生成图的原图及来源记录，再在实际界面核对店主 contain、六个 32×32 图标、室内背景与 source 72→4 的纸框角部。比较同物品身份、轮廓、材质和光照，不把同提示词或同模型当作一致性证据。"
+    },
+    {
+      "id": "grain",
+      "label": "颗粒：先约定逻辑像素，再整套制作",
+      "gap": "旧稿高分辨率插画像素风、缩小图标和 DOM 字体没有共同的逻辑像素基准；统一滤镜或 CSS pixelated 不会解决这一点。",
+      "common_rules": [
+        "640×360 是本轮渲染逻辑网格。整屏只能按 1× / 2× / 3× 整数倍率显示，并在 Canvas 光栅合成时采用最近邻采样。",
+        "32 逻辑像素商品图、140×216 逻辑像素店主区域、4 逻辑像素纸框和 12 逻辑像素 FusionPixel 字体都属于同一渲染约定。",
+        "严格源图原生网格与 alpha 验收仍未通过。Canvas 逻辑网格、drawImage 合成或整数显示正确，不等于高分辨率生成源图被认证为原生像素资产。"
+      ],
+      "verification": "分开记录：渲染检查验证画布尺寸、采样方式和整屏整数倍率；源素材检查验证实际网格、alpha、轮廓台阶和细节。源图未通过项继续保留，不以最终截图的像素化外观覆盖。"
+    }
+  ],
+  "iteration_contract": {
+    "status": "DECIDED_FOR_CURRENT_REBUILD",
+    "note": "以下为本轮已确定的共同制作与渲染选择；它们不表示新稿已完成，也不构成源图严格像素生产认证。",
+    "logical_canvas": [
+      640,
+      360
+    ],
+    "whole_screen_integer_scales": [
+      1,
+      2,
+      3
+    ],
+    "layout": "single-counter-shop",
+    "historic_layouts": [
+      "wood",
+      "ledger",
+      "world"
+    ],
+    "typography": {
+      "family": "FusionPixel",
+      "body_size_logical_px": 12,
+      "at_2x_screen_px": 24,
+      "system_font_16_14_exception": false
+    },
+    "assets": {
+      "shared_master": "shopkeeper plus six products in one new raster master",
+      "reference_generated_images": [
+        "shop interior background",
+        "paper-and-wood panel"
+      ],
+      "item_icon_logical_px": [
+        32,
+        32
+      ],
+      "shopkeeper_contain_logical_px": [
+        140,
+        216
+      ],
+      "panel_source_slice_px": 72,
+      "panel_display_border_logical_px": 4
+    },
+    "rendering_boundary": "Canvas drawImage transports and composites newly generated raster assets on the logical grid; it does not procedurally draw game artwork.",
+    "strict_source_native_grid_status": "NOT_PASSED",
+    "strict_source_alpha_status": "NOT_PASSED",
+    "sequence": [
+      "确定同图店主与六件商品的共同母版",
+      "引用母版生成室内背景和纸木框",
+      "在单一 640×360 柜台界面合成并使用 12 逻辑像素 FusionPixel",
+      "分别验证整屏整数显示、真实交易状态和仍未通过的源图生产项"
+    ]
+  },
+  "result": {
+    "id": "v2-counter",
+    "title": "青禾种子铺 · v2 柜台重做",
+    "role": "单一 640×360 柜台选货 · 2× 实际截图",
+    "kind": "project-runtime-screenshot",
+    "image_url": "../../examples/rural-shop-demo/screenshots/v2-counter.jpg",
+    "source_url": "../../examples/rural-shop-demo/",
+    "source_label": "打开当前交互小样",
+    "dimensions": [
+      1280,
+      720
+    ],
+    "sha256": "4be1fa266c598abc51b2f0e9f163282b5d1a1ca53a76ad8378d01e644c51fa8c",
+    "remote_only": false,
+    "reviewed_on": "2026-10-29",
+    "state": {
+      "balance": 240,
+      "bag_used": 9,
+      "bag_capacity": 24,
+      "quantity": 3,
+      "unit_price": 12,
+      "total": 36
+    },
+    "purpose": "展示本轮统一重做的实际运行结果，与官方参考按同样 16:9 宽度并排；左侧参考可切换，原三张历史对照保留。",
+    "visible_fields": [
+      "店主与姓名、柜台货目、六种商品及库存",
+      "选中商品名称、价格、持有量与种植说明",
+      "余额 240、背包 9 / 24、购买数量 3、合计 36",
+      "蓝莓售罄、买后余额和背包用量、购买按钮"
+    ],
+    "limitations": [
+      "本图仅为当前交易状态的 1280×720 静态截图，不证明所有交互或屏幕尺寸。",
+      "640×360 逻辑合成与整屏 2× 显示不认证生成源图的原生网格或 alpha；严格源图生产项仍未通过。"
+    ],
+    "crops": {
+      "font": {
+        "rect": [
+          876,
+          228,
+          220,
+          80
+        ],
+        "note": "新版 FusionPixel 商品名称；截图为 2× 逻辑画布，本窗口再放大截图像素 2×。"
+      },
+      "icon": {
+        "rect": [
+          392,
+          182,
+          112,
+          112
+        ],
+        "note": "新版同母版青菜商品图与选中区；当前只观察实际合成。"
+      },
+      "frame": {
+        "rect": [
+          334,
+          100,
+          128,
+          128
+        ],
+        "note": "新版纸框左上角、货架标题和内容静区。"
+      },
+      "world": {
+        "rect": [
+          834,
+          0,
+          160,
+          96
+        ],
+        "note": "新版室内背景的袋装货物与木材；不要由这张截图推断源图逻辑网格。"
+      }
+    }
+  }
+}
