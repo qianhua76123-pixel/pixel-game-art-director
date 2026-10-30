@@ -1,0 +1,444 @@
+{
+  "schema_version": 1,
+  "kind": "theme-cohesion-contract",
+  "status": "WORKING_V2_REBUILD",
+  "notice": "按真实商店并排后的统一重做。当前合同绑定v2实际资源；旧theme-contract.json属于历史版本。逻辑舞台/整数显示通过记录不等于源图原生网格或硬alpha通过。",
+  "path_base": "contract-directory",
+  "project_theme": {
+    "id": "qinghe-counter-v2",
+    "revision": "2.0",
+    "scope": [
+      "counter-shop",
+      "shop-v2.mjs",
+      "shop-v2.css",
+      "assets/v2/"
+    ],
+    "decision_basis": "用户要求真实优秀像素游戏商店并排拆差距，再按同一风格连同素材与颗粒重做。原始素材母版生成店主与六商品，背景和纸框引用该原创母版续作。",
+    "reference_assets": [
+      {
+        "path": "assets/v2/merchant-and-goods-source.png",
+        "sha256": "555554a7eed200c5a31c3d9fc4e61099575980b97e1dbf9b7fbec03d763e28e2",
+        "scope": "original master for merchant and all six goods"
+      },
+      {
+        "path": "assets/v2/environment.png",
+        "sha256": "ce7e965ddbd50a5ee3ec218f7f3dc8db5d46e1fb8c8ed28821c40ea904000f4b",
+        "scope": "same-master-reference interior"
+      },
+      {
+        "path": "assets/v2/panel.png",
+        "sha256": "fdb845669b6195cf3679f32c292e2b8a9c64ca525e43d3884d30f37b872de384",
+        "scope": "same-master-reference paper/wood UI"
+      },
+      {
+        "path": "assets/v2/atlas.json",
+        "sha256": "5e023eedf1e26908e6c637fcac66e94f09a45125c62206566df870c6fc51e3af",
+        "scope": "read-only visible-subject bounds"
+      }
+    ],
+    "style_identity": "暖纸、黛绿与褐木；中年乡村女店主；清楚色簇和深综合色轮廓；一个完整柜台选货界面。",
+    "color_roles": {
+      "world_palette": null,
+      "palette_scope": "art-direction-v2.md的色值是共同意图，源PNG未量化为严格色板。",
+      "ui_tokens": {
+        "paper": "#f5e7bb",
+        "cream": "#fff4d2",
+        "shadow": "#d7bd84",
+        "ink": "#2e3b32",
+        "deep": "#1e2b28",
+        "green": "#537d53",
+        "teal": "#3c7b75",
+        "risk": "#b65349",
+        "gold": "#c99b42"
+      },
+      "rules": [
+        "原始素材只用同一原创母版作为共同风格来源，不按每件资产重选风格。",
+        "黛绿作为店主围裙/店名/购买动作的联系；锈红配文字表达售罄/风险。",
+        "背景对比低于人物、商品与纸面；数字、选择与焦点用布局及轮廓共同表达。"
+      ]
+    },
+    "lighting": {
+      "key_direction": "左上为生成共同意图；逐物件投影未认证",
+      "ambient_relation": "暖褐室内与低对比窗光；场景在运行时压暗，人物及纸面保持清楚",
+      "shadow_rule": "人物为UI商人立绘，不伪装成已绑定地形的世界角色。"
+    },
+    "projection": {
+      "world": "正面柜台近景，可见台面；不采用旧村落远景",
+      "reference_scale": "UI商人、32×32图标与背景按用途分配尺度；共享颜色/明暗/轮廓母题。"
+    },
+    "material_grammar": {
+      "paper": "低纹理浅暖纸，窄褐木边与一级阶梯角；source切72→4逻辑像素九宫格。",
+      "wood": "母版对应的褐木与深综合色边；背景低对比。",
+      "cloth": "黛绿围裙、米袖、暖褐衣；麻袋为同一套色簇明暗。",
+      "plants": "纸包蔬菜图案/蓝莓苗身份固定，不换为另一套插画。"
+    },
+    "edge_and_detail": {
+      "outer_contour": "深综合色线，生成源仍有半透明边；不声明硬边通过。",
+      "inner_contour": "少量材质色簇；原图细节数量并非严格色阶认证。",
+      "detail_frequency": "重做后的三图源保持同一引用链；运行采样按统一640×360舞台，不在每个区域另设不相关屏幕颗粒。"
+    },
+    "pixel_strategy": {
+      "source_image_class": "Three unprocessed AI-generated raster PNGs; atlas regions measured read-only",
+      "logical_grid": null,
+      "export_scale": null,
+      "render_logical_canvas": [
+        640,
+        360
+      ],
+      "display_sampling": "Canvas drawImage samples original PNGs with imageSmoothingEnabled=false; canvas/DOM share stage origin; whole stage integer 1x/2x/3x. This is runtime rendering, not a native source export.",
+      "alpha_policy_by_role": {
+        "world": "opaque source",
+        "UI": "opaque source",
+        "character-item-atlas": "strict production target binary; current source fails",
+        "typography": "FusionPixel 12 logical px; separate licensed font role"
+      }
+    },
+    "ui_content_layer": {
+      "variable_fields": [
+        "六商品短名/完整名",
+        "单价",
+        "库存/售罄",
+        "持有量",
+        "真实种植/使用条件",
+        "钱袋与容量",
+        "数量",
+        "总价",
+        "买后资源",
+        "成功/失败原因"
+      ],
+      "quiet_regions": {
+        "merchant": "left portrait/name/quote",
+        "catalog": "center3×2 goods",
+        "detail": "right full name/conditions",
+        "settlement": "bottom single quantity/cost/action"
+      },
+      "state_semantics": {
+        "selected": "黛绿角标/底面",
+        "focus": "独立金色或虚线轮廓",
+        "sold_out": "格中保留价格并显示售罄",
+        "success": "保留本次回执直到下一次选货/改数量",
+        "blocker": "下一笔报价原因与禁购动作；不覆盖刚成交的回执"
+      },
+      "mechanics_source": "shop-model.mjs"
+    },
+    "typography": {
+      "font_sources": [
+        {
+          "family": "FusionPixel 12px zh-Hans",
+          "file": "assets/font/fusion-pixel-12px-proportional-zh_hans.otf.woff2",
+          "sha256": "b67eb7aa592622e5bc1152b800d32404bb887a1e3a2e669b0c2a873d388590d6",
+          "version": "2026.10.25",
+          "source": "https://github.com/TakWolf/fusion-pixel-font/releases/tag/2026.10.25",
+          "license": "SIL OFL 1.1",
+          "license_file": "assets/font/OFL.txt"
+        }
+      ],
+      "roles": {
+        "game_text": "Chinese body, identity and numerals at12 logical px/16 line height; hierarchy by region/colour/space, not arbitrary fractional font scaling",
+        "review_tools": "outside game stage, system font10px; not art evidence"
+      },
+      "final_screen_checks": [
+        {
+          "path": "runtime-review-v2.json",
+          "sha256": "ecb48f0b5113ba25b176bfe0d7637f37c7376eede11da7189dc6a535b07523f8",
+          "scope": "Current v2 evidence; source changes require review"
+        }
+      ]
+    }
+  },
+  "inheritance": {
+    "precedence": [
+      "project_theme",
+      "role.overrides",
+      "asset.exception_ids"
+    ],
+    "resolution": "未列出的字段继承父级；overrides 是显式记录，不是自动合并。未知 null 不能禁用父级规则。",
+    "no_per_asset_reselection": [
+      "style_identity",
+      "color_roles",
+      "lighting",
+      "projection",
+      "material_grammar",
+      "edge_and_detail",
+      "pixel_strategy",
+      "ui_content_layer.state_semantics"
+    ],
+    "override_requires": [
+      "field",
+      "value",
+      "reason",
+      "evidence",
+      "review_status"
+    ],
+    "project_revision_required_for": "改变整个项目的共同画风、色彩语义、主光、世界投影或像素策略时更新主题版本并复查影响范围；单个例外不可隐式改变父级。",
+    "conflict_policy": "用户确认要求和项目约定优先。矛盾条目保留UNDETERMINED并说明，不自动采用最新生成图的风格。"
+  },
+  "roles": {
+    "world": {
+      "inherits": "project_theme",
+      "purpose": "场景、建筑、地形与地点关系",
+      "overrides": []
+    },
+    "character": {
+      "inherits": "project_theme",
+      "purpose": "人物身份、比例、动作与落地关系",
+      "overrides": []
+    },
+    "item-icon": {
+      "inherits": "project_theme",
+      "purpose": "物品识别与比较；允许为可读性调整尺度和抽象程度",
+      "overrides": []
+    },
+    "UI": {
+      "inherits": "project_theme",
+      "purpose": "框体与控件；保留主题，按任务组织内容",
+      "overrides": []
+    },
+    "typography": {
+      "inherits": "project_theme",
+      "purpose": "可变文字、字形覆盖、层级与实际屏幕可读性",
+      "overrides": []
+    },
+    "character-item-atlas": {
+      "inherits": "project_theme",
+      "purpose": "同一源图内的UI店主与六商品，由atlas.json各区域分配到character/item-icon角色，不能分别重选画风。",
+      "overrides": []
+    }
+  },
+  "assets": [
+    {
+      "file": "assets/v2/environment.png",
+      "theme_id": "qinghe-counter-v2",
+      "role_id": "world",
+      "sha256": "ce7e965ddbd50a5ee3ec218f7f3dc8db5d46e1fb8c8ed28821c40ea904000f4b",
+      "exception_ids": [],
+      "source_kind": "Unmodified original generated PNG"
+    },
+    {
+      "file": "assets/v2/merchant-and-goods-source.png",
+      "theme_id": "qinghe-counter-v2",
+      "role_id": "character-item-atlas",
+      "sha256": "555554a7eed200c5a31c3d9fc4e61099575980b97e1dbf9b7fbec03d763e28e2",
+      "exception_ids": [],
+      "source_kind": "Unmodified original generated PNG"
+    },
+    {
+      "file": "assets/v2/panel.png",
+      "theme_id": "qinghe-counter-v2",
+      "role_id": "UI",
+      "sha256": "fdb845669b6195cf3679f32c292e2b8a9c64ca525e43d3884d30f37b872de384",
+      "exception_ids": [],
+      "source_kind": "Unmodified original generated PNG"
+    },
+    {
+      "file": "assets/font/fusion-pixel-12px-proportional-zh_hans.otf.woff2",
+      "theme_id": "qinghe-counter-v2",
+      "role_id": "typography",
+      "sha256": "b67eb7aa592622e5bc1152b800d32404bb887a1e3a2e669b0c2a873d388590d6",
+      "exception_ids": [],
+      "source_kind": "Unmodified upstream font"
+    }
+  ],
+  "exceptions": [],
+  "technical_audit_bridge": {
+    "theme_contract_is_audit_input": false,
+    "actual_audit_contract": null,
+    "allowed_existing_rule_fields": [
+      "canvas_size",
+      "size_multiple",
+      "grid_scale",
+      "alpha_policy",
+      "palette",
+      "max_colors",
+      "margins",
+      "bottom_anchor",
+      "animation_canvas_consistency"
+    ],
+    "procedure": "只将已确定的技术值人工映射到独立 audit 合同；未定义的逻辑网格、色板等不得猜值。",
+    "strict_pixel_production_status": "OBSERVED_FAIL"
+  },
+  "review_matrix": [
+    {
+      "id": "V2-01",
+      "category": "source-inspection",
+      "subject": "共同素材引用链",
+      "method": "检查三个来源记录与原始PNG及母版引用SHA。",
+      "expected": "人物/6商品同图，背景与纸框引用同一原创母版。",
+      "observed": "三张原图各1次生成；背景/面板引用母版；商业截图没有参与素材生成。",
+      "status": "OBSERVED_PASS",
+      "evidence": [
+        {
+          "path": "assets/v2/merchant-and-goods-provenance.json",
+          "sha256": "cea2d9c2087a6fba84fb903252d3d573ddca7783b02370e2a6a3254c52f648c4",
+          "scope": "Current source/evidence; changed content requires review"
+        },
+        {
+          "path": "assets/v2/environment-provenance.json",
+          "sha256": "b2dea2188a0fc4ffe0bd1fa9421167cd3356a56acc2681b9d9576740c57df1f2",
+          "scope": "Current source/evidence; changed content requires review"
+        },
+        {
+          "path": "assets/v2/panel-provenance.json",
+          "sha256": "2c5962ce6c070893f4ce74368c309fefce23b6d443ae2c22772a61f99563039a",
+          "scope": "Current source/evidence; changed content requires review"
+        }
+      ],
+      "exception": null
+    },
+    {
+      "id": "V2-02",
+      "category": "strict-pixel-production",
+      "subject": "母版硬alpha",
+      "method": "读取原始RGBA alpha分布，不改像素。",
+      "expected": "严格生产alpha只0/255。",
+      "observed": "实际alpha范围(0, 254)，604227/1572864为部分透明；不能把运行时采样当成修复。",
+      "status": "OBSERVED_FAIL",
+      "evidence": [
+        {
+          "path": "assets/v2/merchant-and-goods-source.png",
+          "sha256": "555554a7eed200c5a31c3d9fc4e61099575980b97e1dbf9b7fbec03d763e28e2",
+          "scope": "Current source/evidence; changed content requires review"
+        },
+        {
+          "path": "assets/v2/merchant-and-goods-provenance.json",
+          "sha256": "cea2d9c2087a6fba84fb903252d3d573ddca7783b02370e2a6a3254c52f648c4",
+          "scope": "Current source/evidence; changed content requires review"
+        }
+      ],
+      "exception": null
+    },
+    {
+      "id": "V2-03",
+      "category": "strict-pixel-production",
+      "subject": "源图逻辑网格与有限色板",
+      "method": "核对生成源与制作/导出记录。",
+      "expected": "源图若称生产原生像素应有明确导出证据。",
+      "observed": "原图未经处理，无统一原生PNG导出或严格量化记录；仅已定义运行逻辑画布。",
+      "status": "UNDETERMINED",
+      "evidence": [
+        {
+          "path": "assets/v2/environment-provenance.json",
+          "sha256": "b2dea2188a0fc4ffe0bd1fa9421167cd3356a56acc2681b9d9576740c57df1f2",
+          "scope": "Current source/evidence; changed content requires review"
+        },
+        {
+          "path": "assets/v2/panel-provenance.json",
+          "sha256": "2c5962ce6c070893f4ce74368c309fefce23b6d443ae2c22772a61f99563039a",
+          "scope": "Current source/evidence; changed content requires review"
+        }
+      ],
+      "exception": null
+    },
+    {
+      "id": "V2-04",
+      "category": "runtime",
+      "subject": "640逻辑舞台与整数显示",
+      "method": "读取Canvas尺寸/舞台实际边界，查看1x和2x截图，并核验3x几何。",
+      "expected": "相同逻辑原点和整数倍；不把窄屏非整数缩小。",
+      "observed": "640×360→1x，1280×720→2x，1920×1080→3x；390宽保持640并可横向查看；主体字号12逻辑像素。",
+      "status": "OBSERVED_PASS",
+      "evidence": [
+        {
+          "path": "runtime-review-v2.json",
+          "sha256": "ecb48f0b5113ba25b176bfe0d7637f37c7376eede11da7189dc6a535b07523f8",
+          "scope": "Current v2 evidence; source changes require review"
+        },
+        {
+          "path": "shop-v2.css",
+          "sha256": "f251ece3f6a048f20943594059195724cbfdfbd4a3d696265847b84c11c37194",
+          "scope": "Current v2 evidence; source changes require review"
+        },
+        {
+          "path": "shop-v2.mjs",
+          "sha256": "2934e23caabe2584409b515c56ecf4299ad0a93088c1b029220b1ab3a9c0b740",
+          "scope": "Current v2 evidence; source changes require review"
+        }
+      ],
+      "exception": null
+    },
+    {
+      "id": "V2-05",
+      "category": "visual",
+      "subject": "人物/货架/详情/结算共同构图",
+      "method": "全图并排与原尺寸截图实际查看；局部核验字体与图标边缘。",
+      "expected": "店主身份清楚，商品可辨认，面板与人物共享暖纸/黛绿/褐木，阅读不被纹理压过。",
+      "observed": "新店主与六商品同图，柜台/纸框同引用链；场景压低对比，货架与详情分工、底部唯一结算。12逻辑字与光栅共舞台。此项只记录本轮画面关系，不代替用户审美接受。",
+      "status": "OBSERVED_PASS",
+      "evidence": [
+        {
+          "path": "screenshots/v2-counter.jpg",
+          "sha256": "4be1fa266c598abc51b2f0e9f163282b5d1a1ca53a76ad8378d01e644c51fa8c",
+          "scope": "Current v2 evidence; source changes require review"
+        },
+        {
+          "path": "screenshots/v2-sold-out.jpg",
+          "sha256": "6ca52b61f9556e71a831abc25133f9c48028c0ab03975eca406efab1a8a3ff34",
+          "scope": "Current v2 evidence; source changes require review"
+        },
+        {
+          "path": "art-direction-v2.md",
+          "sha256": "0421611250981b2b224f842aafa7ea2159f2156d9b82931ce92c0ff462ce6e88",
+          "scope": "Current v2 evidence; source changes require review"
+        }
+      ],
+      "exception": null
+    },
+    {
+      "id": "V2-06",
+      "category": "runtime",
+      "subject": "真实内容、条件与交易结果",
+      "method": "正常/缺款/满包/售罄/非法数量/买尽资金库存，方向键/关闭返回走查。",
+      "expected": "模型数据和可见状态一致；本次成交回执不被下一笔失败覆盖；真实种植条件同屏。",
+      "observed": "运行记录中的购买、状态、长名和焦点路径符合预期；修正了成功回执覆盖及窄屏负偏移。",
+      "status": "OBSERVED_PASS",
+      "evidence": [
+        {
+          "path": "runtime-review-v2.json",
+          "sha256": "ecb48f0b5113ba25b176bfe0d7637f37c7376eede11da7189dc6a535b07523f8",
+          "scope": "Current v2 evidence; source changes require review"
+        },
+        {
+          "path": "shop-model.mjs",
+          "sha256": "3b391d7e3c69090e1c6571ac542fde1130f6ae543ee4a74d7cda173f2de37344",
+          "scope": "Current v2 evidence; source changes require review"
+        },
+        {
+          "path": "shop-v2.mjs",
+          "sha256": "2934e23caabe2584409b515c56ecf4299ad0a93088c1b029220b1ab3a9c0b740",
+          "scope": "Current v2 evidence; source changes require review"
+        }
+      ],
+      "exception": null
+    }
+  ],
+  "overall": {
+    "technical_status": "SOURCE_FILES_BOUND_WITH_PRODUCTION_FAILURE",
+    "visual_status": "UNDETERMINED",
+    "runtime_status": "OBSERVED_PASS",
+    "scope_and_limits": [
+      "新原图关系、运行像素尺度与界面已实际查看；不是用户审美接受的代理。",
+      "源alpha失败、源网格与量化未知保留；角色/图标是原始母版区域，不是独立生产精灵导出。",
+      "图像只由drawImage搬运/采样，商品和场景没有用程序绘制。"
+    ]
+  },
+  "related_documents": [
+    "art-direction-v2.md",
+    "../../review/shop-benchmark/README.md",
+    "../../validation/SHOP-BENCHMARK-V1.4.md"
+  ],
+  "open_decisions": [
+    "严格生产源网格/量化/硬alpha导出尚未完成；用户对新视觉的接受不由工具代办。"
+  ],
+  "declared_roles": [
+    "world",
+    "character",
+    "item-icon",
+    "character-item-atlas",
+    "UI",
+    "typography"
+  ],
+  "validator": {
+    "script": "../../scripts/validate_theme_contract.py",
+    "checks": "结构、继承引用、证据文件与声明状态；不自动分析画风。"
+  }
+}

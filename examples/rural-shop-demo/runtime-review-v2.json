@@ -1,0 +1,121 @@
+{
+  "revision": "1.4.0",
+  "reviewed_on": "2026-10-29",
+  "method": "Native in-app-browser screenshots/interactions; DOM geometry checks; independent source and screenshot review",
+  "visual_acceptance": "Not assumed; official references, observed rendering, model correctness and user judgment are distinct",
+  "source_files": {
+    "index.html": "00b76c8e907958a5095cb81462e19231ce33e998c7118de35c6895932fdf4057",
+    "shop-v2.css": "f251ece3f6a048f20943594059195724cbfdfbd4a3d696265847b84c11c37194",
+    "shop-v2.mjs": "2934e23caabe2584409b515c56ecf4299ad0a93088c1b029220b1ab3a9c0b740",
+    "shop-model.mjs": "3b391d7e3c69090e1c6571ac542fde1130f6ae543ee4a74d7cda173f2de37344",
+    "assets/v2/atlas.json": "5e023eedf1e26908e6c637fcac66e94f09a45125c62206566df870c6fc51e3af"
+  },
+  "rendering": {
+    "canvas": [
+      640,
+      360
+    ],
+    "main_font_logical_px": 12,
+    "raster_smoothing": false,
+    "device_pixel_ratio_at_main_review": 1,
+    "art_drawing_calls": "drawImage copies imported PNGs; no procedural scene/sprite painting"
+  },
+  "viewport_checks": [
+    {
+      "size": [
+        640,
+        360
+      ],
+      "scale": 1,
+      "stage": [
+        640,
+        360
+      ],
+      "scope": "geometry and native screenshot inspected"
+    },
+    {
+      "size": [
+        1280,
+        720
+      ],
+      "scale": 2,
+      "stage": [
+        1280,
+        720
+      ],
+      "scope": "main and long-title/sold-out screenshots; all transaction checks"
+    },
+    {
+      "size": [
+        1920,
+        1080
+      ],
+      "scale": 3,
+      "stage": [
+        1920,
+        1080
+      ],
+      "scope": "geometry checked; not a complete repeated interaction test"
+    },
+    {
+      "size": [
+        390,
+        844
+      ],
+      "scale": 1,
+      "stage_width": 640,
+      "stage_left": 0,
+      "horizontal_scroll_width": 640,
+      "scope": "native width retained, horizontal viewing/orientation notice; not full portrait usability certification"
+    }
+  ],
+  "observations": [
+    "3 cabbage preview36, projected204 money and12/24 slots.",
+    "Actual purchase3:240→204 money,9→12/24 slots, receipt visible.",
+    "Blueberry full name wraps to2 lines; actual screen title bottom286 and owned text top308, no overlap; sold-out price48 remains in shelf.",
+    "ArrowDown from focused cabbage selected chili even while a different item had been selected.",
+    "Invalid1.5 quantity disables purchase and shows integer1–99 reason.",
+    "12-money fixture can purchase1 cabbage to0; success receipt remains while next purchase is disabled.",
+    "Full-bag fixture has24 occupied bars and explicit reason; cannot buy.",
+    "Buy remaining12 cabbage: balance96, stock0 and clear successful12-unit receipt; next purchase unavailable.",
+    "Escape closes and returns shop-entry focus;E reopens and focuses selected goods.",
+    "Final captured console warnings/errors:0."
+  ],
+  "model_tests": {
+    "command": "node --test examples/rural-shop-demo/shop-model.test.mjs",
+    "passed": 10,
+    "scope": "shared transaction rules; no aesthetic conclusion"
+  },
+  "screenshots": [
+    {
+      "path": "screenshots/v2-counter.jpg",
+      "sha256": "4be1fa266c598abc51b2f0e9f163282b5d1a1ca53a76ad8378d01e644c51fa8c",
+      "dimensions": [
+        1280,
+        720
+      ]
+    },
+    {
+      "path": "screenshots/v2-sold-out.jpg",
+      "sha256": "6ca52b61f9556e71a831abc25133f9c48028c0ab03975eca406efab1a8a3ff34",
+      "dimensions": [
+        1280,
+        720
+      ]
+    }
+  ],
+  "benchmark": {
+    "path": "../../review/shop-benchmark/benchmark.json",
+    "official_remote_reference_count": 2,
+    "baseline": "../../review/shop-benchmark/screenshots/v1.3.1-world.jpg",
+    "verified": "Official images decoded; result reference dropdown switched to Pierre; whole-frame and2x crop views inspected.",
+    "commercial_binary_policy": "Not included in public skill or source asset generation"
+  },
+  "limits": [
+    "Master source binary alpha fails; source logical grid/quantized palette not certified.",
+    "Runtime native sampling is not a production source export.",
+    "No player experiment, physical touch/controller or screen-reader testing.",
+    "No full portrait-layout usability claim, roaming gameplay, production save or character animation.",
+    "OS reduced-motion preference switching was not tested; interface has no animation loop."
+  ]
+}
