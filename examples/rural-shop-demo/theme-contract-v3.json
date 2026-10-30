@@ -1,0 +1,259 @@
+{
+  "schema_version": 1,
+  "kind": "theme-cohesion-contract",
+  "status": "WORKING_V3_PENDING_USER_REVIEW",
+  "notice": "本版绑定新人物场景与六商品。v2已被用户否定；本版只记录实际成图与运行观察，视觉接受待用户审核。",
+  "path_base": "contract-directory",
+  "project_theme": {
+    "id": "qinghe-counter-v3",
+    "revision": "3.0",
+    "scope": [
+      "shop-v3.html",
+      "shop-v3.css",
+      "shop-v3.mjs",
+      "assets/v3/"
+    ],
+    "style_identity": "暖纸、栗褐木、草绿；柜台后半身店主与清楚包装标识；一张选货账板。",
+    "color_roles": {
+      "world_palette": null,
+      "rules": [
+        "草绿连接围裙、叶片、选中与购买。",
+        "纸面低纹理，材质细节主要留在人物、物件和环境。",
+        "库存降为次要色；售罄红褐文字并保留价格。"
+      ]
+    },
+    "lighting": {
+      "key_direction": "左上窗光，暖室内；生成意图与实际画面观察，不代表逐物理投影认证。"
+    },
+    "projection": {
+      "world": "正面柜台近景，半身店主与手臂接触；不是可漫游场景素材。"
+    },
+    "pixel_strategy": {
+      "logical_grid": null,
+      "export_scale": null,
+      "render_logical_canvas": [
+        640,
+        360
+      ],
+      "goods_icon_logical_size": [
+        42,
+        42
+      ],
+      "source_policy": "Two unchanged generated PNG sources; runtime drawImage sampling, no code-painted art.",
+      "production_boundary": "Source-native pixel grid and hard alpha not certified."
+    },
+    "material_grammar": {
+      "cloth": "草绿围裙、赭红衣、米袖；大折面。",
+      "paper": "奶油纸与深色包装轮廓，种子纸袋共享形状。",
+      "wood": "栗褐、赭红框体与柜台；接触和遮挡在同图内。"
+    },
+    "typography": {
+      "font_sources": [
+        {
+          "file": "assets/font/fusion-pixel-12px-proportional-zh_hans.otf.woff2",
+          "license": "SIL OFL 1.1",
+          "sha256": "b67eb7aa592622e5bc1152b800d32404bb887a1e3a2e669b0c2a873d388590d6"
+        }
+      ],
+      "game_text": "FusionPixel12logicalpx, most text line-height16; final screenshot1280x720.",
+      "final_screen_checks": [
+        {
+          "path": "runtime-review-v3.json",
+          "sha256": "286002adf0abd12f8ea2bed1a6287049cefd5c076f84f97833df927cbffa2e34"
+        }
+      ]
+    },
+    "reference_assets": [
+      {
+        "path": "assets/v3/shop-scene.png",
+        "sha256": "9410c384a1f489d20c38217f8a07464b09e73fbc6d8eb4265cf41e9057158e52"
+      },
+      {
+        "path": "assets/v3/goods-source.png",
+        "sha256": "97d879ba2536e7d9a0739ce57dc92de98b92aa7c3876c05f949d292bcbe5562b"
+      },
+      {
+        "path": "assets/v3/atlas.json",
+        "sha256": "f2b31c1ca3ad4579745d80c8b31cb978a790f39ffc4a05751e78d94d2f94b988"
+      }
+    ],
+    "ui_content_layer": {
+      "mechanics_source": "shop-model.mjs",
+      "rule": "种植摘要保留季节/成熟/空耕地限制，完整条件作为提示；不改价格库存与容量。",
+      "flow": "选货→名称条件→数量总价→购买→店主回执。"
+    }
+  },
+  "inheritance": {
+    "precedence": [
+      "project_theme",
+      "role.overrides",
+      "asset.exception_ids"
+    ],
+    "resolution": "未列出的字段继承父级；overrides 是显式记录，不是自动合并。未知 null 不能禁用父级规则。",
+    "no_per_asset_reselection": [
+      "style_identity",
+      "color_roles",
+      "lighting",
+      "projection",
+      "material_grammar",
+      "edge_and_detail",
+      "pixel_strategy",
+      "ui_content_layer.state_semantics"
+    ],
+    "override_requires": [
+      "field",
+      "value",
+      "reason",
+      "evidence",
+      "review_status"
+    ],
+    "project_revision_required_for": "改变整个项目的共同画风、色彩语义、主光、世界投影或像素策略时更新主题版本并复查影响范围；单个例外不可隐式改变父级。",
+    "conflict_policy": "用户确认要求和项目约定优先。矛盾条目保留UNDETERMINED并说明，不自动采用最新生成图的风格。"
+  },
+  "roles": {
+    "world": {
+      "inherits": "project_theme",
+      "purpose": "场景、建筑、地形与地点关系",
+      "overrides": []
+    },
+    "character": {
+      "inherits": "project_theme",
+      "purpose": "人物身份、比例、动作与落地关系",
+      "overrides": []
+    },
+    "item-icon": {
+      "inherits": "project_theme",
+      "purpose": "物品识别与比较；允许为可读性调整尺度和抽象程度",
+      "overrides": []
+    },
+    "UI": {
+      "inherits": "project_theme",
+      "purpose": "框体与控件；保留主题，按任务组织内容",
+      "overrides": []
+    },
+    "typography": {
+      "inherits": "project_theme",
+      "purpose": "可变文字、字形覆盖、层级与实际屏幕可读性",
+      "overrides": []
+    },
+    "character-item-atlas": {
+      "inherits": "project_theme",
+      "purpose": "同一源图内的UI店主与六商品，由atlas.json各区域分配到character/item-icon角色，不能分别重选画风。",
+      "overrides": []
+    },
+    "integrated-shop": {
+      "inherits": "project_theme",
+      "purpose": "同图店主、柜台、环境与UI框体，接触关系作为整体审核。",
+      "overrides": []
+    }
+  },
+  "assets": [
+    {
+      "file": "assets/v3/shop-scene.png",
+      "theme_id": "qinghe-counter-v3",
+      "role_id": "integrated-shop",
+      "sha256": "9410c384a1f489d20c38217f8a07464b09e73fbc6d8eb4265cf41e9057158e52",
+      "exception_ids": [],
+      "source_kind": "Unmodified generated raster"
+    },
+    {
+      "file": "assets/v3/goods-source.png",
+      "theme_id": "qinghe-counter-v3",
+      "role_id": "item-icon",
+      "sha256": "97d879ba2536e7d9a0739ce57dc92de98b92aa7c3876c05f949d292bcbe5562b",
+      "exception_ids": [],
+      "source_kind": "Unmodified generated raster atlas"
+    },
+    {
+      "file": "assets/font/fusion-pixel-12px-proportional-zh_hans.otf.woff2",
+      "theme_id": "qinghe-counter-v3",
+      "role_id": "typography",
+      "sha256": "b67eb7aa592622e5bc1152b800d32404bb887a1e3a2e669b0c2a873d388590d6",
+      "exception_ids": [],
+      "source_kind": "Unmodified OFL font"
+    }
+  ],
+  "exceptions": [],
+  "technical_audit_bridge": {
+    "theme_contract_is_audit_input": false,
+    "actual_audit_contract": null,
+    "allowed_existing_rule_fields": [
+      "canvas_size",
+      "size_multiple",
+      "grid_scale",
+      "alpha_policy",
+      "palette",
+      "max_colors",
+      "margins",
+      "bottom_anchor",
+      "animation_canvas_consistency"
+    ],
+    "procedure": "只将已确定的技术值人工映射到独立 audit 合同；未定义的逻辑网格、色板等不得猜值。",
+    "strict_pixel_production_status": "UNDETERMINED"
+  },
+  "review_matrix": [
+    {
+      "id": "V3-RUNTIME",
+      "category": "runtime",
+      "subject": "真实购买与反馈",
+      "method": "实际浏览器点击选货、购买和失败状态，读取可见状态并截图。",
+      "expected": "费用、库存、行囊和回执同模型一致。",
+      "observed": "3包购买240→204、行囊9→12；售罄、1.5、满包、恰好用尽钱、焦点返回已走查。",
+      "status": "OBSERVED_PASS",
+      "evidence": [
+        {
+          "path": "runtime-review-v3.json",
+          "sha256": "286002adf0abd12f8ea2bed1a6287049cefd5c076f84f97833df927cbffa2e34"
+        }
+      ],
+      "exception": null
+    },
+    {
+      "id": "V3-VISUAL",
+      "category": "visual",
+      "subject": "人物、商品与UI整体效果",
+      "method": "最终1280×720截图及官方商店并排审阅。",
+      "expected": "看实际成图判断完成度，由用户审核。",
+      "observed": "已重做人物/商品/账板；修正字被书签挡住和结算出纸面，增加选中；环境/头发仍较密。用户尚未接受。",
+      "status": "UNDETERMINED",
+      "evidence": [
+        {
+          "path": "screenshots/v3-counter.jpg",
+          "sha256": "d1e84e3c7685d3e8aa62f9d8aea5053e2c5611eeb9df12ae301c281e44078399"
+        },
+        {
+          "path": "screenshots/v3-sold-out.jpg",
+          "sha256": "d3cc5e5d7ea04d0a2178a92c8299881a72e8ecc4dba1b906e6226632130e222f"
+        }
+      ],
+      "exception": null
+    }
+  ],
+  "overall": {
+    "technical_status": "SOURCE_FILES_BOUND; PRODUCTION_NOT_CERTIFIED",
+    "visual_status": "UNDETERMINED",
+    "runtime_status": "OBSERVED_PASS"
+  },
+  "related_documents": [
+    "art-direction-v3.md",
+    "runtime-review-v3.json",
+    "assets/v3/provenance.json"
+  ],
+  "open_decisions": [
+    "用户视觉审核未完成。",
+    "高分辨率生成源未认证为原生像素生产资产。"
+  ],
+  "declared_roles": [
+    "world",
+    "character",
+    "item-icon",
+    "UI",
+    "typography",
+    "character-item-atlas",
+    "integrated-shop"
+  ],
+  "validator": {
+    "script": "../../scripts/validate_theme_contract.py",
+    "checks": "结构、继承引用、证据文件与声明状态；不自动分析画风。"
+  }
+}

@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#32251f"><title>青禾种子铺 · 春日柜台</title>
+<link rel="stylesheet" href="shop-v3.css">
+<link rel="preload" as="font" href="assets/font/fusion-pixel-12px-proportional-zh_hans.otf.woff2" type="font/woff2" crossorigin>
+</head>
+<body>
+<details class="review-dock"><summary>对照与演示</summary><div class="review-menu"><a href="../../review/shop-benchmark/#result">与优秀商店并排看</a><label for="scenario">演示场景</label><select id="scenario"><option value="normal">正常营业 · 240钱</option><option value="low-money">只剩12钱</option><option value="full-bag">行囊已满</option><option value="sold-out">今日全部售罄</option></select><button id="reset" type="button">恢复初始状态</button><p>演示数据；每份货品占一格，刷新重置。</p></div></details>
+<div class="orientation-note">横屏可看完整柜台，也可向右滑动查看。</div>
+<main id="viewport" aria-label="青禾种子铺界面小样"><div id="stage-wrap"><div id="stage">
+<canvas id="raster-plane" width="640" height="360" aria-hidden="true"></canvas>
+<div id="loading" role="status">正在摆好今日货品…</div>
+<div class="merchant-name">店主阿禾 · 春四日</div>
+<p id="feedback" role="status" aria-live="polite"></p>
+<button id="shop-entry" type="button" hidden>再挑些种子 · E</button>
+<section id="shop" aria-label="购买种子与农资">
+<header class="shop-header"><h1>青禾种子铺</h1><p class="wallet"><span>钱袋</span> <strong id="balance">240</strong> 钱</p></header>
+<button id="close-shop" type="button" aria-label="收起商店，回到店主">×</button>
+<div id="product-list" role="group" aria-label="六种商品"></div>
+<section class="item-detail" aria-labelledby="item-name"><h2 id="item-name">春秋早熟小青菜种子</h2><p class="item-meta"><span id="item-owned"></span><span id="item-stock"></span></p><p id="conditions"></p></section>
+<section class="settlement" aria-label="本次结算"><label for="quantity">数量</label><div class="stepper"><button id="minus" type="button" aria-label="减少购买数量">−</button><input id="quantity" type="number" inputmode="numeric" min="1" max="99" step="1" value="1" aria-label="购买数量"><button id="plus" type="button" aria-label="增加购买数量">+</button></div><p id="calculation"></p><button id="buy" type="button"><span id="buy-label">买下1包</span></button></section>
+<div class="shop-footer"><span id="bag">行囊9 / 24格</span><span id="after-purchase"></span><span class="key-hint">Esc 离开</span></div>
+</section>
+</div></div></main>
+<script type="module" src="shop-v3.mjs"></script>
+</body></html>

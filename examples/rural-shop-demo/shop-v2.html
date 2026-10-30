@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#1e2b28"><title>青禾种子铺 · 柜台选货</title>
+<link rel="stylesheet" href="shop-v2.css">
+<link rel="preload" as="font" href="assets/font/fusion-pixel-12px-proportional-zh_hans.otf.woff2" type="font/woff2" crossorigin>
+</head>
+<body>
+<div class="review-dock"><a href="../../review/shop-benchmark/" id="benchmark-link">原图并排对照</a><details><summary>审核状态</summary><div class="review-menu"><label for="scenario">演示场景</label><select id="scenario"><option value="normal">正常 · 240钱</option><option value="low-money">缺款 · 12钱</option><option value="full-bag">行囊已满</option><option value="sold-out">全部售罄</option></select><button id="reset">恢复初始状态</button><p>独立演示数据。每份商品占一格，刷新重置。</p></div></details></div>
+<div class="orientation-note">横屏可查看完整商店；当前保持文字原尺寸，可横向查看。</div>
+<main id="viewport" aria-label="青禾种子铺界面小样"><div id="stage-wrap"><div id="stage">
+<canvas id="raster-plane" width="640" height="360" aria-hidden="true"></canvas>
+<div id="loading" role="status">正在摆好今日货架…</div>
+<div class="shop-title">青禾种子铺</div><div class="shop-season">春 · 四日</div><div class="wallet">钱袋 <strong id="balance">240</strong> 钱</div>
+<section class="merchant" aria-label="店主阿禾婶"><span class="merchant-name">阿禾婶</span><p class="merchant-words">春种要赶早。<br>慢慢挑，别误了时节。</p></section>
+<button id="shop-entry" hidden>和阿禾婶买种 · E</button>
+<section id="shop" aria-label="购买种子与农资">
+<button id="close-shop" aria-label="收起商店，回到店主">×</button>
+<section class="catalog" aria-labelledby="catalog-heading"><h1 id="catalog-heading">今日货架</h1><span class="catalog-caption">种子 · 苗木 · 农资</span><div id="product-list" role="group" aria-label="六种商品"></div></section>
+<section class="item-ticket" aria-labelledby="item-name"><p class="ticket-label">这件货品</p><h2 id="item-name">春秋早熟小青菜种子</h2><p id="item-owned"></p><p id="item-stock"></p><p id="conditions"></p><p id="unit-price"></p><details id="flavor"><summary>用途详情</summary><p id="description"></p></details></section>
+<section class="bag-section" aria-label="行囊容量"><div class="bag-label"><span>行囊</span><span id="bag">9 / 24 格</span></div><div id="bag-meter" aria-hidden="true"></div></section>
+<p id="after-purchase" class="after-purchase"></p>
+<section class="settlement" aria-label="本次结算"><label for="quantity">数量</label><div class="stepper"><button id="minus" aria-label="减少购买数量">−</button><input id="quantity" type="number" inputmode="numeric" min="1" max="99" step="1" value="1" aria-label="购买数量"><button id="plus" aria-label="增加购买数量">+</button></div><div id="calculation"></div><button id="buy"><span id="buy-label">买下1包</span></button></section>
+<p id="feedback" role="status" aria-live="polite"></p>
+</section>
+</div></div></main>
+<script type="module" src="shop-v2.mjs"></script>
+</body></html>

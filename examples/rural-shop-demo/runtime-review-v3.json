@@ -1,0 +1,117 @@
+{
+  "revision": "1.5.0",
+  "visual_status": "PENDING_USER_VISUAL_REVIEW",
+  "actual_viewport": [
+    1280,
+    720
+  ],
+  "screenshots": [
+    {
+      "path": "screenshots/v3-counter.jpg",
+      "sha256": "d1e84e3c7685d3e8aa62f9d8aea5053e2c5611eeb9df12ae301c281e44078399"
+    },
+    {
+      "path": "screenshots/v3-receipt.jpg",
+      "sha256": "272b115a66f5d36d8406867e4b03728fa8c8fa77f7568de868d66bc022a1a31a"
+    },
+    {
+      "path": "screenshots/v3-sold-out.jpg",
+      "sha256": "d3cc5e5d7ea04d0a2178a92c8299881a72e8ecc4dba1b906e6226632130e222f"
+    }
+  ],
+  "observed_flows": [
+    {
+      "case": "buy3cabbage",
+      "balance": [
+        240,
+        204
+      ],
+      "bag_used": [
+        9,
+        12
+      ],
+      "owned": [
+        2,
+        5
+      ],
+      "stock": [
+        12,
+        9
+      ],
+      "receipt_retained": true
+    },
+    {
+      "case": "exact12money",
+      "balance_after": 0,
+      "receipt_retained": true,
+      "next_buy_disabled": true
+    },
+    {
+      "case": "blueberry",
+      "full_title_visible": true,
+      "price_visible": 48,
+      "sold_out_label_visible": true,
+      "buy_disabled": true
+    },
+    {
+      "case": "invalid1.5",
+      "buy_disabled": true,
+      "integer_message_visible": true
+    },
+    {
+      "case": "full-bag",
+      "used": 24,
+      "capacity": 24,
+      "balance": 240,
+      "buy_disabled": true
+    },
+    {
+      "case": "close/reopen",
+      "escape_focus": "shop-entry",
+      "e_focus": "cabbage",
+      "receipt_retained": true
+    },
+    {
+      "case": "ArrowDown",
+      "focus_from": "cabbage",
+      "focus_to": "chili",
+      "selection_to": "chili"
+    }
+  ],
+  "console_warnings_errors_observed": [],
+  "shared_model_tests": {
+    "passed": 10,
+    "command": "node --test examples/rural-shop-demo/shop-model.test.mjs"
+  },
+  "benchmark": {
+    "references": [
+      "Stardew Valley Pierre shop",
+      "Moonlighter potion merchant"
+    ],
+    "each_final_mode_frame_css_size": [
+      1280,
+      720
+    ],
+    "reference_sources": [
+      1920,
+      1080
+    ],
+    "current_source": [
+      1280,
+      720
+    ],
+    "all_images_loaded": true
+  },
+  "visual_observations": [
+    "人物改为柜台后半身，手与台面存在明确接触；不再单独贴全身立绘。",
+    "六件商品为新图集，42逻辑像素中能区别包装、植物、稻谷、陶盆和布袋。",
+    "右侧一张账板；姓名、种植条件、数量和购买没有叠压，蓝莓长标题可见。",
+    "选中有浅绿底与角标；售罄保留48钱与红褐文字；成交在左对话框保留回执。",
+    "环境和头发仍保留较多插画纹理。"
+  ],
+  "limits": [
+    "User visual acceptance pending; no beauty score or claim of matching reference polish.",
+    "Source-native pixel exports, hard alpha and limited palettes not certified.",
+    "No animation, full roamable world, controller/touch or player study claim."
+  ]
+}

@@ -1,67 +1,50 @@
-# 青禾种子铺 v2：柜台选货界面
+# 青禾种子铺 v3：春日柜台
 
-v1.4.0 当前入口是一套 640×360 逻辑舞台上的柜台界面：店主、货架、当前商品签、行囊和结算台共同组织画面。六商品的原 ID、价格、库存、持有量与交易模型保留，真实种植／使用条件同屏呈现。旧 A/B/C 三方案不再作为当前运行模式，代码、源图、截图与报告保留为历史。
+v1.5.0 将人物、商品与 UI 一起重做。店主以半身姿态靠在柜台后，脸、双手和种子包有共同的场景关系；六件商品重做包装与轮廓，右侧用一张纸木账板容纳选货、说明和结算。v1.4.0 的 v2 视觉稿已被用户否定，保留为历史。**本版供看图审核，用户尚未接受视觉效果。**
 
-本轮先查看真实商店原图，再整体重做。[并排对照板](../../review/shop-benchmark/index.html) 包含 Moonlighter 商人服务、Stardew Valley 种子购买两张官方远程图、冻结的旧 v1.3.1 截图，以及新稿；[证据说明](../../review/shop-benchmark/README.md) 区分真实任务、可见事实和设计迁移。商业原图没有用作生成输入或项目成品素材。
+![当前柜台画面](screenshots/v3-counter.jpg)
 
-![当前柜台选货界面](screenshots/v2-counter.jpg)
+[并排对照板](../../review/shop-benchmark/index.html) 使用 Moonlighter 商人服务与 Stardew Valley 买种菜单的官方远程截图。参考用于比较人物、商品、文字和框体的关系，没有被提取为项目素材或用于本轮生成。
 
-这张截图用于审阅当前构图；数量、余额等状态以截图及对应报告为准，不把一张正常状态图当作全部交互验证。
+## 运行与操作
 
-## 运行
-
-在仓库根目录运行：
+在仓库根目录执行：
 
 ```bash
 python3 scripts/preview_shop.py
 ```
 
-打开 <http://127.0.0.1:8775/>。预览服务的根路径自动跳转到 `/examples/rural-shop-demo/`，同时服务仓库根目录，页面里的“原图并排对照”链接可正常到达 `/review/shop-benchmark/`。可用 `--port 8780` 更换端口。
+打开 <http://127.0.0.1:8775/>。当前入口 [index.html](index.html) 加载 [shop-v3.css](shop-v3.css) 与 [shop-v3.mjs](shop-v3.mjs)，也可直接访问 [shop-v3.html](shop-v3.html)。ES modules 需要 HTTP；两张当前图与字体均从本地加载，对照板的商业参考图需要联网。
 
-当前入口为 [index.html](index.html)，加载 [shop-v2.css](shop-v2.css) 和 [shop-v2.mjs](shop-v2.mjs)。ES modules 需要 HTTP，不要直接双击 `file:` 页面。商店运行只使用本地三张新图和本地字体；对照板上的两张商业参考图仍需联网从官方来源加载。
+- 点击六件商品，或用方向键、`Home`／`End` 选择；数量可输入 1–99 整数，或用加减按钮调整。
+- 商品格显示名称、价格和当前余量，售罄仍保留价格。选中货品的完整名称、已有量和种植／使用条件紧邻结算。
+- 条件采用不改变机制的简短表述，完整原文保留在该行悬停提示。季节说明不会额外禁止本例购买。
+- 数量、计算式和唯一购买按钮同处账板底部。原 `quote()`／`purchase()` 负责购买；每份商品占一格，行囊容量 24 是演示规则。
+- 成功更新余额、库存、持有量和行囊，并保留店主的成交反馈。缺款、满包、售罄或非法数量时不扣款。
+- `Esc` 收起商店并回到入口，`E` 重新打开。“对照与演示”中可切换审核状态和恢复初始数据。
 
-## 当前信息结构与操作
+刷新重置内存数据。小样没有游戏存档、漫游、种植或出售系统；数据范围见 [原数据合同](data-contract.json)。
 
-- 左侧店主承担人物身份，中央 3×2 货架比较六件商品及价格／余量；右侧商品签保留完整名称、已有量、余量、真实种植／使用条件和单价，长用途说明可展开。
-- 行囊区域显示当前容量；结算台集中购买数量、计算式、买后余钱与容量、唯一购买动作。每份商品占一格、容量 24 是演示规则，见 [数据合同](data-contract.json)。
-- 点击商品或使用方向键、`Home`／`End` 选择；数量框接收 1–99 整数，或用加减按钮调整。真实条件来自原商品数据，季节说明不额外禁止本例购买。
-- 购买继续调用原 `quote()` 与 `purchase()`。成功同步更新余额、库存、持有量和容量；失败不扣款。短暂忙碌状态阻止同次快速重复激活。
-- `Esc` 先关闭展开的用途详情，再收起商店并把焦点还给店主入口；`E` 重新打开。上方“审核状态”提供正常、缺款、满包、全部售罄及重置，属于审阅工具。
-- 刷新重置演示数据，没有游戏存档、漫游、种植系统或新增出售系统。代码行为与本版实际走查结论分开记录。
+## 本轮制作
 
-## 同一逻辑舞台，而非逐件换画风
+[美术方向](art-direction-v3.md) 说明构图和素材取舍。当前只使用两张新源图：
 
-[本轮美术方向](art-direction-v2.md) 和 [v2 主题合同](theme-contract-v2.json) 固定共同颜色职责、材质、视角和光照。店主与六件商品来自同一张原创母版；背景和纸木面板引用这张母版作风格与配色参考。它们不分别从商业游戏取样，也不为每件资产另选画风。
+| 当前源图 | 用途 |
+|---|---|
+| [shop-scene.png](assets/v3/shop-scene.png) | 半身店主、柜台、环境、空白纸框合为一张场景；不烘焙商品价格与操作文字 |
+| [goods-source.png](assets/v3/goods-source.png) | 六商品图集；[atlas.json](assets/v3/atlas.json) 只记录主体范围，源 PNG 保持原样 |
 
-运行方式有三个不同层次：
+来源与全部提示词见 [provenance.json](assets/v3/provenance.json)、[prompts.md](assets/v3/prompts.md)。四次成功的内置 `image_gen` 调用包含初始场景、构图修改、商品图集、像素简化修改；当前分发的最终图像为上表两张。商品图集使用本项目原创场景作配色和画法参考，商业截图未作为生成输入。
 
-1. 三张生成 PNG 保持原样；[atlas.json](assets/v2/atlas.json) 只记录母版主体边界，没有修改或导出裁切图。主框按 `alpha > 8` 加少量留白测量；也保留原始非零 alpha 范围，不能将主体框冒充完全无损的透明边界。
-2. Canvas `drawImage` 将背景、店主、商品及面板九宫格采样到 640×360 逻辑画布，关闭图像平滑。商品图等比容纳在 32×32 逻辑区域，店主等比容纳在 140×216 区域；面板源切片为 72px，显示边框为 4 逻辑像素。渲染器搬运真实光栅，不用代码绘画这些素材。
-3. 画布、DOM 文字与交互控件共享逻辑舞台，再整体按 1×／2×／3× 等整数倍率显示。主体中文为 12 逻辑像素 Fusion Pixel，2× 时为 24 屏幕像素；层级主要通过区域、颜色、对齐和留白表达。审阅工具位于舞台外，使用系统字。
+运行时将整合场景取样到 640×360 逻辑舞台；商品分别复制到 42×42 逻辑画布，关闭图像平滑。Canvas 只搬运光栅素材，未用代码绘画店主、商品或环境。动态中文、数量、库存和按钮由 DOM 层负责。主中文为 12 逻辑像素 Fusion Pixel，1280×720 显示时为 24 屏幕像素。
 
-640px 以下不把整个界面非整数缩小：保持 1× 原尺寸，提供横向查看和横屏提示。不能把这种适配称为已解决完整竖屏可用性，也不能把整数显示等同于原始 PNG 已有统一原生网格。
+640px 以下保留原尺寸并提供横向查看与横屏提示，尚未完成独立的竖屏布局。源图的严格原生网格、硬 alpha 和生产导出未获认证；运行显示约定不能替代最终画面的判断，也不能把本小样称为生产级像素素材包。
 
-## 新源图、历史与许可
+## 看图与历史
 
-本轮共三次内置 `image_gen` 调用，每张保留原图、完整提示词和来源；后两张以本项目原创母版为参考：
+- [正常选货](screenshots/v3-counter.jpg)、[成交反馈](screenshots/v3-receipt.jpg)、[售罄状态](screenshots/v3-sold-out.jpg) 用于看当前实际画面；单张截图不证明全部操作。
+- 本版实际走查见 [v1.5 审阅记录](../../validation/SHOP-REDESIGN-V1.5.md)。交易测试或结构记录不会自动产生视觉通过结论。
+- [shop-v2.html](shop-v2.html)、v2 CSS／JS、三张 v2 源图和 [v1.4 记录](../../validation/SHOP-BENCHMARK-V1.4.md) 作为用户已否定的历史视觉稿保留。
+- 旧 A/B/C 页面代码、五张旧图及 [v1.3.1](../../validation/UI-REVISION-V1.3.1.md)、[v1.3](../../validation/SHOP-COHESION-V1.3.md) 记录继续保留。新图不为旧版作验收证据。
 
-| 当前源图 | 内容 | 记录 |
-|---|---|---|
-| [merchant-and-goods-source.png](assets/v2/merchant-and-goods-source.png) | 店主与六商品，一张透明母版 | [提示词](assets/v2/merchant-and-goods-prompt.md) · [来源／限制](assets/v2/merchant-and-goods-provenance.json) |
-| [environment.png](assets/v2/environment.png) | 无文字和人物的室内柜台背景 | [提示词](assets/v2/environment-prompt.md) · [来源／限制](assets/v2/environment-provenance.json) |
-| [panel.png](assets/v2/panel.png) | 同家族纸木面板 | [提示词](assets/v2/panel-prompt.md) · [来源／切片](assets/v2/panel-provenance.json) |
-
-仓库共保留 8 张 AI 源 PNG：旧 5 张加新 3 张，当前运行只引用新 3 张与原 [Fusion Pixel 字体](assets/font/font-source.json)。旧 [shop.css](shop.css)、[shop.mjs](shop.mjs)、[theme-contract.json](theme-contract.json) 和 `01-wood.jpg`／`02-ledger.jpg`／`03-world.jpg` 属于此前方案，不代表当前入口；[冻结的旧稿基线](../../review/shop-benchmark/screenshots/v1.3.1-world.jpg) 不随后续截图变化。
-
-八张 AI 图仅在实际持有权利的范围内按根 MIT 提供，不保证独占性或独立版权保护。字体保持 SIL OFL 1.1 与所有上游声明，商业参考图不纳入开放素材许可，详见 [第三方声明](../../THIRD_PARTY_NOTICES.md)。
-
-## 生产边界与验证
-
-这仍是交互与美术原型。新母版有真实透明空隙，但可见区域包含部分 alpha，硬 alpha 尚未通过；三张源图的统一原生网格、严格材质色阶和调色量化也未完成验收。Canvas 采样与整数显示只说明运行渲染约定，不代表完成了一套合格的原生像素 PNG 导出。背景也不是可复用地形图块，店主没有动画序列。
-
-```bash
-node --test examples/rural-shop-demo/shop-model.test.mjs
-python3 scripts/validate_theme_contract.py examples/rural-shop-demo/theme-contract-v2.json --json
-```
-
-交易测试检查模型行为，合同验证检查结构、绑定与记录；两者都不能证明画面好看。当前截图、运行走查、源图失败及未完成项见 [v1.4 验证报告](../../validation/SHOP-BENCHMARK-V1.4.md)。[v1.3.1 报告](../../validation/UI-REVISION-V1.3.1.md) 和 [v1.3 报告](../../validation/SHOP-COHESION-V1.3.md) 仅保留历史，不作为新版自动通过证据。用户尚未接受视觉效果时，不宣称视觉问题已解决。
+仓库共保留十张 AI 源 PNG，当前使用两张；字体及上游声明保持 SIL OFL 1.1。AI 图仅在项目实际持有权利的范围内按根 MIT 提供，不保证独占性或独立版权保护。商业参考图仍归原权利人，详见 [第三方声明](../../THIRD_PARTY_NOTICES.md)。
