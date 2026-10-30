@@ -52,6 +52,8 @@ python3 scripts/task_bundle.py --task '制作四方向行走和待机角色' --s
 
 需要真实界面参考时，运行 `python3 scripts/search.py --task '背包和商店UI' --kind case --json`，或读取 [14个游戏案例与28张官方配图链接](references/ui-case-studies.md)。打开所选截图，分别记录画面事实、设计评析与未验证项；风格关联不表示整套游戏同款。脚本不下载商业截图，`--copy-figures` 仅复制教学配图，案例图不能直接当作游戏素材；覆盖范围见 [内容审核](references/ui-content-audit.md)。
 
+商店任务优先看 [真实商店并排与原图局部](review/shop-benchmark/README.md)：Pierre 的买种菜单和 Moonlighter 的药水商人服务，不能把对白或背包截图当成商店证据。按构图、文字、素材、可见像素簇逐项比较；缩略全图只评布局，颗粒看原尺寸局部。随后为整套资产固定一种方向，重做共同母版与实际界面；[v2实例](examples/rural-shop-demo/art-direction-v2.md)使用同母版的店主与六商品、续作柜台与面板，以及统一逻辑舞台。渲染网格统一和源素材原生网格合格是两个结论。
+
 先用最长真实中文、数值和边界状态验证布局，再制作装饰；文字保留为可变内容层，九宫格保留角部与像素网格。按 [UI审查协议](references/ui-evaluation-method.md)分别检查任务、信息、交互、视觉与技术证据。可运行UI实际走完打开、选择、执行/取消、恢复路径；静态稿不能证明焦点、可用性或沉浸感，未测项目保留 `UNDETERMINED`。
 
 检查实际成图的主次：装饰不得压过商品/角色，像素字体不承担所有文字层级，框体和图标应共享可解释的抽象程度。拟物账本要按货目与购入记录组织信息；轻界面要实际减少遮挡和常驻内容。视觉不合格时重做构图与层级，不能用真实文案、生成图、功能测试或合同完整来宣布视觉完成；未售商品在格子层也须有可见状态。
@@ -75,7 +77,7 @@ python3 scripts/audit_assets.py /path/to/project/assets --contract /path/to/audi
 
 机器通过不能替代美术通过。脚本的 `overall_status=NEEDS_VISUAL_REVIEW` 是明确边界，不把颜色数量相近或透明像素比例当成风格一致性证明。
 
-商店小样的4张AI生成PNG可用于界面比较，但没有因此通过严格原生像素生产验收：商品图集存在软alpha，硬alpha规则为失败，逻辑像素网格仍待确定。角色例外和样张可用不能豁免这些门槛，详见 [小样主题合同](examples/rural-shop-demo/theme-contract.json)。
+当前商店小样改用三张同源风格的新PNG，详见 [v2主题合同](examples/rural-shop-demo/theme-contract-v2.json)。原始母版仍有部分透明像素，源图原生网格与严格有限色板尚未通过；640×360逻辑采样和整数显示不改写这些源素材结论。历史五张PNG与旧合同保留为旧版证据，不能当作当前图像或以新截图背书。
 
 ## 交付给用户或下游agent
 

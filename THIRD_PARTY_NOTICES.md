@@ -1,6 +1,6 @@
 # Third-party notices / 第三方内容说明
 
-本仓库是原创工具、案例评论与第三方教程的汇编，并不使用单一许可证覆盖全部文件。根目录 [LICENSE](LICENSE) 的 MIT 许可涵盖原创脚本、技能编排、独立配方、模板、案例评论与测试夹具；AI 示例图的范围见下文。任何第三方图像、字体、正文、源快照及其中文改编仍受对应来源许可约束。以下声明随 v1.3.1 补充。
+本仓库是原创工具、案例评论与第三方教程的汇编，并不使用单一许可证覆盖全部文件。根目录 [LICENSE](LICENSE) 的 MIT 许可涵盖原创脚本、技能编排、独立配方、模板、案例评论与测试夹具；AI 示例图的范围见下文。任何第三方图像、字体、正文、源快照及其中文改编仍受对应来源许可约束。以下声明随 v1.4.0 补充。
 
 ## 逐项定位
 
@@ -15,24 +15,33 @@
 | UI-002 中 Tank Kings “Gear Up!” 截图 | Winterpixel Games | Godot 原文署名 “courtesy of Winterpixel Games”；随所在文档保留，其来源记录见 [UI-002](library/tutorials/game-development/UI-002-gui-theme-system.md) | 作为主题系统说明图引用；不能把文档许可记录解释成作者向本项目另行提供游戏素材包 |
 | 商店示例中的 Fusion Pixel 12px Proportional zh-Hans 字体 | TakWolf 及上游字体贡献者 | [官方 2026.10.25 发行版](https://github.com/TakWolf/fusion-pixel-font/releases/tag/2026.10.25)、[OFL 全文](examples/rural-shop-demo/assets/font/OFL.txt)、[来源与哈希](examples/rural-shop-demo/assets/font/font-source.json) | 官方 WOFF2 原文件，未子集化或转换；保留 Fusion Pixel 与上游组件声明 |
 | 四组视觉一致性研究的 8 张官方截图 | Heart Machine、Dead Mage／11 bit studios、Umami Tiger／发行商、MINTROCKET 及各自权利人 | [逐图原始来源与哈希](references/visual-game-studies.json)；未发现开放再分发许可 | 仅保存官方图像链接和原创评论，商业图像二进制不打包 |
+| 商店并排对照的 2 张官方截图 | Moonlighter：Digital Sun／11 bit studios；Stardew Valley：ConcernedApe | [原始来源与证据](review/shop-benchmark/benchmark.json)；未发现开放素材再分发许可 | 远程引用，附原创观察；不作为生成输入或项目成品素材 |
 
 关于各图的范围：本库按所在获许可文档保存教学说明图；若图旁列出不同作者、来源或独立许可，以该项声明为准。文档所示软件、游戏、商标和角色仍归各自权利人；本库不声称作者认可本项目。把截图中的角色、图标或界面裁出用于游戏，不能只靠此汇编的 MIT 许可。
 
 ## 商业游戏案例的链接与评论
 
-原有 [14 例 UI 案例](references/ui-case-studies.md) 共 28 个参考图像链接；新增 [4 例视觉一致性研究](references/visual-game-studies.md) 共 8 个官方图像链接。两组独立统计，均不把商业游戏截图加入开放素材包。Markdown 及审核页面可从原站显示图像；远程显示不授予素材再利用权。
+原有 [14 例 UI 案例](references/ui-case-studies.md) 共 28 个参考图像链接；新增 [4 例视觉一致性研究](references/visual-game-studies.md) 共 8 个官方图像链接。另有 [商店并排对照](review/shop-benchmark/README.md) 的 2 张官方参考图，分别为 Moonlighter 商人服务与 Stardew Valley 种子购买；它们独立计数，不增加教程数，也不把商业游戏截图加入开放素材包。Markdown 及审核页面可从原站显示图像；远程显示不授予素材再利用权。
 
 游戏名称、商标、角色、场景、界面与截图归对应权利人。新增研究区分可见事实与原创设计推论，供学习和审阅；不得从原图裁切、描摹或提取人物、图标、纹样或地图用于游戏生产。截图中的宣传叠字也不能未经区分地当成游戏内 UI 证据。若原站链接失效，不应以未经授权的转载副本补入分发包。
 
 ## 商店 AI 示例图与运行截图
 
-`examples/rural-shop-demo/assets/` 中保留五张由本项目通过内置图像生成工具制作的 PNG，未使用本库商业案例截图作为成品素材。原四图 `village-shop.png`、`wood-panel.png`、`counter-ledger.png`、`item-atlas.png` 的提示词、源文件哈希和观察记录保存在 [prompt-set.md](examples/rural-shop-demo/assets/prompt-set.md) 与 [asset-provenance.json](examples/rural-shop-demo/assets/asset-provenance.json)。旧 `wood-panel.png` 已退出当前界面，仍作为历史源图保留。
+`examples/rural-shop-demo/assets/` 及其 `v2/` 子目录共保留八张由本项目通过内置图像生成工具制作的源 PNG；当前界面使用新三张，旧五张保留为历史。未使用本库商业案例截图作为成品素材。原四图 `village-shop.png`、`wood-panel.png`、`counter-ledger.png`、`item-atlas.png` 的提示词、源文件哈希和观察记录保存在 [prompt-set.md](examples/rural-shop-demo/assets/prompt-set.md) 与 [asset-provenance.json](examples/rural-shop-demo/assets/asset-provenance.json)。旧 `wood-panel.png` 已退出当前界面，仍作为历史源图保留。
 
-v1.3.1 新增 `plain-paper-panel.png`，经一次独立的内置 `image_gen` 调用生成，原 PNG 未重绘、裁切、重采样或重新量化。完整提示词见 [plain-panel-prompt.md](examples/rural-shop-demo/assets/plain-panel-prompt.md)，原图哈希、尺寸、观察结果及九宫格切片记录见 [plain-panel-provenance.json](examples/rural-shop-demo/assets/plain-panel-provenance.json)。界面的 CSS 九宫格显示不改变所保存的源文件。
+v1.3.1 新增 `plain-paper-panel.png`，经一次独立的内置 `image_gen` 调用生成，原 PNG 未重绘、裁切、重采样或重新量化。完整提示词见 [plain-panel-prompt.md](examples/rural-shop-demo/assets/plain-panel-prompt.md)，原图哈希、尺寸、观察结果及九宫格切片记录见 [plain-panel-provenance.json](examples/rural-shop-demo/assets/plain-panel-provenance.json)。该历史界面的 CSS 九宫格显示不改变所保存的源文件。
 
-这五张图仅在项目实际持有权利的范围内按根目录 MIT 许可提供（to the extent rights are held）。本项目不保证 AI 输出的独占性、唯一性、手绘作者身份或独立版权保护。运行截图展示本项目代码、AI 示例图与所附字体；截图不会改变各组成部分的许可。
+v1.4.0 新增三张原 PNG，共三次内置 `image_gen` 调用：
 
-这些图是像素风原型示例。商品图集存在半透明像素，硬 alpha 门槛已失败；统一逻辑网格仍待确定。可分发与技术上可进入生产是不同判断，不能因为随代码公开便称为通过验收的像素成品。
+- `assets/v2/merchant-and-goods-source.png`：原创店主与六商品母版，[提示词](examples/rural-shop-demo/assets/v2/merchant-and-goods-prompt.md)、[来源与限制](examples/rural-shop-demo/assets/v2/merchant-and-goods-provenance.json)。
+- `assets/v2/environment.png`：引用原创母版作配色／画法参考的室内背景，[提示词](examples/rural-shop-demo/assets/v2/environment-prompt.md)、[来源](examples/rural-shop-demo/assets/v2/environment-provenance.json)。
+- `assets/v2/panel.png`：引用原创母版作风格参考的纸木面板，[提示词](examples/rural-shop-demo/assets/v2/panel-prompt.md)、[来源与切片](examples/rural-shop-demo/assets/v2/panel-provenance.json)。
+
+三张图均保留生成原文件，商业截图没有用于这三次生成。`atlas.json` 只记录主体范围；Canvas `drawImage` 在运行时采样、取图与九宫格合成，不修改源图，也不代表已导出通过验收的原生像素 PNG。
+
+这八张图仅在项目实际持有权利的范围内按根目录 MIT 许可提供（to the extent rights are held）。本项目不保证 AI 输出的独占性、唯一性、手绘作者身份或独立版权保护。运行截图展示本项目代码、AI 示例图与所附字体；截图不会改变各组成部分的许可。
+
+这些图是像素风原型示例。旧商品图集与新母版都存在半透明像素；新源图的硬 alpha、统一原生网格和严格调色量化尚未通过生产验收。运行时的 640×360 逻辑画布和整数显示不能改变该结论。可分发与技术上可进入生产是不同判断。对照页中的冻结旧稿与当前运行截图属于项目记录，不授予其中任何第三方成分额外权利。
 
 ## Fusion Pixel 字体及上游声明
 

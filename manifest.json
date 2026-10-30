@@ -1,6 +1,6 @@
 {
   "name": "pixel-game-art-director",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "built_at": "2026-10-29",
   "tutorial_count": 92,
   "local_image_count": 661,
@@ -15,7 +15,7 @@
     "theme_contract_validation": "Python 3.9+ standard library; validates recorded structure and evidence, not visual quality",
     "rural_shop_demo": "Browser with ES modules; serve HTML, CSS, JavaScript and local assets over HTTP"
   },
-  "license_notes": "Bundled tutorials retain per-source licenses in library/LICENSES.md. Fusion Pixel and upstream font notices remain SIL OFL 1.1. Five AI demo images are offered under MIT only to the extent rights are held, with no guarantee of exclusivity or independent copyright. Commercial game reference images are remote links, not bundled open assets. Editorial profiles are suggestions, not author style categories.",
+  "license_notes": "Bundled tutorials retain per-source licenses in library/LICENSES.md. Fusion Pixel and upstream font notices remain SIL OFL 1.1. Eight AI source images are offered under MIT only to the extent rights are held, with no guarantee of exclusivity or independent copyright. Commercial game reference images are remote links, not bundled open assets. Editorial profiles are suggestions, not author style categories.",
   "machine_audit_boundary": "Configured technical checks only; visual review remains required.",
   "ui_case_count": 14,
   "ui_case_image_reference_count": 28,
@@ -32,35 +32,108 @@
   "rural_shop_demo": {
     "readme": "examples/rural-shop-demo/README.md",
     "entrypoint": "examples/rural-shop-demo/index.html",
-    "variant_count": 3,
-    "variants": ["wood", "ledger", "world"],
-    "shared_content": "Chinese products, purchase quantities, balance, stock and bag state",
-    "scenario_ids": ["normal", "low-money", "full-bag", "sold-out"],
-    "local_artwork_image_count": 5,
-    "active_artwork_image_count": 4,
-    "historical_artwork_files": ["examples/rural-shop-demo/assets/wood-panel.png"],
-    "local_font_file_count": 1,
-    "asset_provenance": "examples/rural-shop-demo/assets/asset-provenance.json",
-    "additional_asset_provenance": ["examples/rural-shop-demo/assets/plain-panel-provenance.json"],
-    "font_provenance": "examples/rural-shop-demo/assets/font/font-source.json",
-    "theme_contract": "examples/rural-shop-demo/theme-contract.json",
-    "screenshots": [
-      "examples/rural-shop-demo/screenshots/01-wood.jpg",
-      "examples/rural-shop-demo/screenshots/02-ledger.jpg",
-      "examples/rural-shop-demo/screenshots/03-world.jpg"
+    "stylesheet": "examples/rural-shop-demo/shop-v2.css",
+    "script": "examples/rural-shop-demo/shop-v2.mjs",
+    "layout_count": 1,
+    "layout": "single-counter-selection",
+    "historical_layouts": [
+      "wood",
+      "ledger",
+      "world"
     ],
-    "runtime_scope": "Operable shop-interface comparison prototype over local HTTP; not a complete roamable game.",
-    "revision_scope": "Visual rework after explicit user rejection of v1.3.0: restrained paper border, reading hierarchy, transaction-led ledger and bottom world trade window. Functional test counts do not establish visual acceptance.",
-    "typography_primary_roles_px": {"identity": 24, "decision": 18, "reading": 14, "support": 12},
-    "typography_scope": "Fusion Pixel identity headings; system Chinese for most product and transaction text; 14px Songti fallback ledger note. Comparison-tool text may be 10-12px. This records primary roles, not proof of every rendered control or visual acceptance.",
-    "panel_rendering": {"source": "examples/rural-shop-demo/assets/plain-paper-panel.png", "source_slice_px": 24, "display_border_px": 8, "method": "CSS border-image nine-slice"},
-    "world_variant": {"desktop_max_width_px": 870, "placement": "bottom", "product_grid": {"columns": 3, "rows": 2}, "label_policy": "Chinese short names in product cells; full names retained in details and accessible labels"},
-    "ledger_variant": "Right page presents current-purchase accounting; planting tutorial fields hidden, underlying product and transaction data retained.",
-    "review_viewports": {"desktop": [1280, 720], "narrow": [390, 844]},
-    "production_boundary": "Hard-alpha gate failed for item-atlas.png; a unified logical pixel grid remains undetermined. These are pixel-style prototype assets, not certified production pixel sprites."
+    "shared_content": "Original six product IDs, prices, stock, owned quantities, balance, capacity and transaction model; real planting/use conditions visible with selected product.",
+    "scenario_ids": [
+      "normal",
+      "low-money",
+      "full-bag",
+      "sold-out"
+    ],
+    "local_artwork_image_count": 8,
+    "active_artwork_image_count": 3,
+    "local_font_file_count": 1,
+    "active_artwork_files": [
+      "examples/rural-shop-demo/assets/v2/merchant-and-goods-source.png",
+      "examples/rural-shop-demo/assets/v2/environment.png",
+      "examples/rural-shop-demo/assets/v2/panel.png"
+    ],
+    "historical_artwork_files": [
+      "examples/rural-shop-demo/assets/village-shop.png",
+      "examples/rural-shop-demo/assets/wood-panel.png",
+      "examples/rural-shop-demo/assets/counter-ledger.png",
+      "examples/rural-shop-demo/assets/item-atlas.png",
+      "examples/rural-shop-demo/assets/plain-paper-panel.png"
+    ],
+    "generation_calls_in_this_revision": 3,
+    "generation_reference_policy": "Original merchant-and-goods master generated without input references; environment and panel reference that original master only, never commercial screenshots.",
+    "asset_provenance": "examples/rural-shop-demo/assets/v2/merchant-and-goods-provenance.json",
+    "historical_asset_provenance": [
+      "examples/rural-shop-demo/assets/asset-provenance.json",
+      "examples/rural-shop-demo/assets/plain-panel-provenance.json"
+    ],
+    "atlas": "examples/rural-shop-demo/assets/v2/atlas.json",
+    "font_provenance": "examples/rural-shop-demo/assets/font/font-source.json",
+    "theme_contract": "examples/rural-shop-demo/theme-contract-v2.json",
+    "historical_theme_contract": "examples/rural-shop-demo/theme-contract.json",
+    "screenshots": [
+      "examples/rural-shop-demo/screenshots/v2-counter.jpg"
+    ],
+    "preview_command": "python3 scripts/preview_shop.py",
+    "preview_url": "http://127.0.0.1:8775/",
+    "preview_scope": "Serves repository root; / redirects to /examples/rural-shop-demo/ so the benchmark relative link remains reachable.",
+    "runtime_scope": "Operable single shop interface over local HTTP; not a complete roamable game or exported native-pixel asset pack.",
+    "logical_stage": [
+      640,
+      360
+    ],
+    "display_scale_examples": [
+      1,
+      2,
+      3
+    ],
+    "display_policy": "Positive integer overall scale with a minimum of 1; under 640px width retain original stage size, horizontal viewing and orientation guidance.",
+    "typography": {
+      "main_font": "Fusion Pixel",
+      "logical_size_px": 12,
+      "screen_size_at_2x_px": 24,
+      "hierarchy": "Position, spacing, alignment and color within shared stage; system font only for out-of-stage review tools."
+    },
+    "rendering": {
+      "method": "Canvas drawImage with smoothing disabled samples imported raster images into the 640x360 logical stage; DOM text and controls scale with it.",
+      "item_contain_box": [
+        32,
+        32
+      ],
+      "merchant_contain_box": [
+        140,
+        216
+      ],
+      "panel_source_slice_px": 72,
+      "panel_destination_border_logical_px": 4,
+      "boundary": "Runtime sampling/copying of generated raster art, not code-painted art or certified native-pixel PNG export."
+    },
+    "production_boundary": "Original master contains partial alpha; hard-alpha, original native grid and strict palette quantization have not passed production acceptance. Integer runtime sampling does not certify source assets.",
+    "visual_acceptance_boundary": "Official screenshot comparison, functional testing, rendered-stage inspection and user visual acceptance are distinct evidence layers; test counts do not prove visual quality.",
+    "additional_asset_provenance": [
+      "examples/rural-shop-demo/assets/v2/environment-provenance.json",
+      "examples/rural-shop-demo/assets/v2/panel-provenance.json"
+    ]
   },
   "theme_contract_policy": "All assets inherit one project theme; per-asset independent style selection is prohibited. Role-level exceptions require rationale, bounded scope and recorded review evidence; exceptions do not waive production gates.",
   "theme_contract_validator_boundary": "Checks structure, inheritance, file bindings and recorded evidence only. Structure PASS is not an automated visual-cohesion judgment.",
-  "release_validation": "validation/UI-REVISION-V1.3.1.md",
-  "historical_validation": ["validation/SHOP-COHESION-V1.3.md"]
+  "release_validation": "validation/SHOP-BENCHMARK-V1.4.md",
+  "historical_validation": [
+    "validation/UI-REVISION-V1.3.1.md",
+    "validation/SHOP-COHESION-V1.3.md"
+  ],
+  "benchmark_official_image_reference_count": 2,
+  "shop_benchmark": {
+    "entrypoint": "review/shop-benchmark/index.html",
+    "readme": "review/shop-benchmark/README.md",
+    "index": "review/shop-benchmark/benchmark.json",
+    "official_image_reference_count": 2,
+    "official_image_policy": "Remote official Moonlighter merchant-service and Stardew Valley seed-purchase images, with original analysis; commercial binaries are not bundled or used as generation inputs.",
+    "frozen_baseline": "review/shop-benchmark/screenshots/v1.3.1-world.jpg",
+    "current_result": "examples/rural-shop-demo/screenshots/v2-counter.jpg",
+    "counting_scope": "Separate benchmark references; do not add to tutorial counts, existing UI case counts or visual-case counts."
+  }
 }

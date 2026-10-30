@@ -4,7 +4,7 @@
 
 优先服务俯视角像素游戏，也覆盖动画、素材工作流、Godot 集成和游戏 UI。**本库提供知识与检查工具；检索到教程、通过技术检查，都不等于已经做完游戏美术或验证了 UI。**
 
-v1.3.1 重做乡村商店三方案的字体、边框和内容结构：上一版的视觉效果被用户明确否定，交互测试通过没有解决这个问题。本版保留 v1.3 的历史证据，重新提供界面审阅。教程库的 92 篇教程、661 个教学图像文件、既有 14 例 UI 案例，以及新增 4 例视觉一致性研究仍独立统计。
+v1.4.0 先把真实商店画面与冻结的旧稿并排，再统一重做店主、商品、背景、框体和文字。当前入口是单一 640×360 逻辑舞台的柜台选货界面，旧 A/B/C 三方案保留为历史。教程库的 92 篇教程、661 个教学图像文件、14 例 UI 案例／28 图、4 例视觉一致性研究／8 图均不变；本轮 2 张官方商店对照图另计，不增加教程数量。
 
 ## 内容与范围
 
@@ -18,8 +18,9 @@ v1.3.1 重做乡村商店三方案的字体、边框和内容结构：上一版�
 | UI 系统模式 | 16 类 | 玩家决策、内容字段、结构、状态、输入、异常恢复和验收 |
 | 真实游戏 UI 案例 | 14 例 / 28 个图像链接 | 分别标记官方截图、开发者设计稿、官方指南；商业图不打包为开放素材 |
 | UI 与世界／素材一致性研究 | 4 例 / 8 个官方图像链接 | HLD、Children of Morta、Chained Echoes、DAVE THE DIVER；逐图观察、设计推论、迁移规则分开记录 |
-| 乡村商店交互小样 | 3 个界面方案 | 共用中文商品、购买数量、余额、库存和背包数据；可切换正常、钱不足、满包和售罄状态 |
-| 小样图像与字体 | 5 个 AI 示例 PNG / 1 个字体文件 | 共享场景、账本、商品图集、新朴素纸木面板及保留的旧框源图；Fusion Pixel 简体中文 WOFF2；与教程图像分开统计 |
+| 真实商店并排对照 | 2 张官方远程图 | Moonlighter 商人服务、Stardew Valley 买种；并列冻结旧稿与当前新稿，注明任务差异 |
+| 乡村商店交互小样 | 1 个当前柜台界面 / 3 个历史方案 | 640×360 逻辑舞台，中文商品、真实使用条件、购买数量、余额、库存与行囊 |
+| 小样图像与字体 | 8 个 AI 源 PNG / 1 个字体文件 | 旧 5 图保留；当前只使用新母版、室内背景、纸木面板 3 图与 Fusion Pixel 字体 |
 | 设计研究与规范 | 22 个不同来源 | 原始研究、设计理论、平台指南、评估方法；保留适用范围与局限 |
 | 任务路由 | 11 类 | 从场景、角色与动画，到 UI、引擎和已有素材审查 |
 
@@ -32,7 +33,8 @@ v1.3.1 重做乡村商店三方案的字体、边框和内容结构：上一版�
 - [UI 评估方法](references/ui-evaluation-method.md) · [设计合同模板](assets/templates/ui-design-contract.json) · [乡村商店推演示例](examples/ui-design-reasoning.md)
 - [真实游戏 UI 案例](references/ui-case-studies.md) · [UI 内容审核与缺口](references/ui-content-audit.md)
 - [四组视觉一致性研究](references/visual-game-studies.md) · [结构化案例](references/visual-game-studies.json)
-- [乡村商店可操作小样](examples/rural-shop-demo/README.md) · [小样主题合同](examples/rural-shop-demo/theme-contract.json)
+- [当前柜台小样](examples/rural-shop-demo/README.md) · [v2 主题合同](examples/rural-shop-demo/theme-contract-v2.json)
+- [真实商店并排对照](review/shop-benchmark/index.html) · [对照说明与原图来源](review/shop-benchmark/README.md)
 - [一致性检查方法](references/consistency-review.md) · [技术检查输出示例](examples/audit-demo/EXAMPLE.md)
 - [来源与许可](THIRD_PARTY_NOTICES.md)：代码和第三方内容不是同一许可证。
 
@@ -40,35 +42,31 @@ v1.3.1 重做乡村商店三方案的字体、边框和内容结构：上一版�
 
 先说明玩家在当前情境要做的决定，再从系统模式提取真实内容字段与操作路径。随后独立选择拟物/平面等视觉表现、世界归属、屏幕或空间位置等维度，补齐成功、空、禁用、错误和恢复状态。最后按 [评估方法](references/ui-evaluation-method.md) 做静态检查、原型走查或用户任务观察，并记录证据等级。
 
-例如，乡村商店可以使用纸质账本，也可以使用平面商品列表；两者都需要明确价格、数量、总价、余额与背包接收。详见 [同一个商店任务的三种表达](examples/ui-design-reasoning.md)。拟物不自动等于世界内界面，也不自动提升沉浸或可用性。
+例如，乡村商店可以使用纸质账本，也可以使用平面商品列表；两者都需要明确价格、数量、总价、余额与背包接收。历史方案推演见 [同一个商店任务的三种表达](examples/ui-design-reasoning.md)，当前实现见下方柜台小样。拟物不自动等于世界内界面，也不自动提升沉浸或可用性。
 
 HTML 图谱可在下载后用浏览器打开；公开版本从原站加载参考图，完整分析和来源同时保存在 Markdown / JSON 中，agent 不依赖网页运行。
 
-## 对比三个实际商店界面
+## 先对照真实商店，再看当前小样
 
-[青禾种子铺](examples/rural-shop-demo/README.md) 使用真实中文文案与本地图像，可以选商品、修改数量、购买并检查余额、库存和行囊变化。三种表达共享交易数据；本版调整各方案的内容组织，不再只给同一张表单换底图：
+[并排对照板](review/shop-benchmark/index.html) 展示两张官方原图、独立冻结的 v1.3.1 旧稿，以及本轮新结果。Moonlighter 参考是金币加材料换药的商人服务；Stardew Valley 参考是种子购买。它们用于观察人物、货物、条件、费用和文字的组织，不把不同机制当成同一种交易，也不从商业截图提取成品素材。
 
-| 方案 | 组织方式 | 小样截图 |
-|---|---|---|
-| 木框纸面 | 列表与详情同屏，使用朴素纸面与窄木边，取消原金色宝石角框 | [查看](examples/rural-shop-demo/screenshots/01-wood.jpg) |
-| 柜台账本 | 左页选货，右页组织“本次购入”账目，将种植/使用条件改为精简真实摘要 | [查看](examples/rural-shop-demo/screenshots/02-ledger.jpg) |
-| 世界与轻面板 | 店主入口配底部短交易窗；桌面最大宽 870px，3×2 商品格 | [查看](examples/rural-shop-demo/screenshots/03-world.jpg) |
+[当前青禾种子铺](examples/rural-shop-demo/README.md) 将店主、货架、当前商品签和结算台安排在同一个柜台界面中。六商品的 ID、价格、库存、持有量及购买模型保留；真实种植／使用条件与当前商品同屏，长用途说明可展开。它不再并行展示三份表单。
 
-![青禾种子铺：木框纸面](examples/rural-shop-demo/screenshots/01-wood.jpg)
+![青禾种子铺 v2：统一柜台选货界面](examples/rural-shop-demo/screenshots/v2-counter.jpg)
 
-![青禾种子铺：柜台账本](examples/rural-shop-demo/screenshots/02-ledger.jpg)
-
-![青禾种子铺：世界与轻面板](examples/rural-shop-demo/screenshots/03-world.jpg)
-
-主阅读层级收敛为身份标题 24px、决策重点 18px、正文 14px、辅助信息 12px。Fusion Pixel 用于店名等身份标题，商品、数值和说明主要采用系统中文字体；底部比较工具的个别文字为 10–12px，不属于游戏主阅读区。短名商品格保留完整可访问名称，详情继续显示商品全名。桌面预览按原生 1280×720 输出，窄屏审阅尺寸为 390×844；本次截图与运行证据见 [v1.3.1 审阅记录](validation/UI-REVISION-V1.3.1.md)。
-
-小样由 HTML、CSS 与 ES modules 构成，需要本地 HTTP 服务。在仓库根目录运行：
+运行方式：
 
 ```bash
-python3 -m http.server 8000 --bind 127.0.0.1
+python3 scripts/preview_shop.py
 ```
 
-然后打开 <http://127.0.0.1:8000/examples/rural-shop-demo/>。这是商店交互对比原型，尚不是可漫游的完整游戏。仓库共保留五张 AI 示例图，旧 `wood-panel.png` 已退出当前界面；新 `plain-paper-panel.png` 使用源图 24px 切片与 8px 显示边框做九宫格。商品图集的**硬 alpha 检查仍失败**，统一逻辑网格仍待确定，重做 UI 没有使这些源图自动成为生产像素成品。来源、提示词与实测数据见 [原四图记录](examples/rural-shop-demo/assets/asset-provenance.json) 和 [新面板记录](examples/rural-shop-demo/assets/plain-panel-provenance.json)。
+打开 <http://127.0.0.1:8775/>，根路径会自动跳到实际小样目录；同一服务也能打开 [对照板](review/shop-benchmark/index.html) 的相对链接。需要其他端口可加 `--port 8780`。这仍是 HTML、CSS、ES modules 的本地交互小样，尚不是可漫游的完整游戏。
+
+本轮新生成三张原始 PNG：一张店主与六商品的共同母版、一张室内背景、一张纸木面板，共三次内置 `image_gen` 调用。后两张只引用本项目原创母版作为颜色和画法参考；商业商店截图没有用于图像生成。当前入口使用 `shop-v2.css`／`shop-v2.mjs`，旧文件、五张旧源图和旧截图仅作历史。
+
+渲染器通过 Canvas `drawImage` 取用新光栅图，采样到 640×360 逻辑画布，再随文字和控件以 1×／2×／3× 等整数倍率显示。它搬运已有图像，不用代码绘画店主、商品或场景；也没有导出一套已验收的原生像素 PNG。主体中文统一使用 12 逻辑像素 Fusion Pixel，2× 时显示为 24 屏幕像素。可用宽度小于 640px 时保留原尺寸，允许横向查看并提示横屏，不缩小字体后声称窄屏可读。
+
+源图的硬 alpha、原生网格和颜色量化仍未通过完整生产验收；统一运行网格不能覆盖这些限制。来源见 [母版](examples/rural-shop-demo/assets/v2/merchant-and-goods-provenance.json)、[背景](examples/rural-shop-demo/assets/v2/environment-provenance.json)、[面板](examples/rural-shop-demo/assets/v2/panel-provenance.json)。本版实际截图、运行检查与未完成项见 [v1.4 验证报告](validation/SHOP-BENCHMARK-V1.4.md)，不以功能测试数量证明画面已经好看或被用户接受。
 
 ## 保持世界、素材和 UI 一致
 
@@ -135,7 +133,7 @@ python3 scripts/audit_assets.py /path/to/project/assets --contract /path/to/audi
 检查示例主题合同：
 
 ```bash
-python3 scripts/validate_theme_contract.py examples/rural-shop-demo/theme-contract.json --json
+python3 scripts/validate_theme_contract.py examples/rural-shop-demo/theme-contract-v2.json --json
 ```
 
 退出码 `0` 表示记录完整且没有失败项，`1` 表示结构错误或已记录的硬门槛失败，`2` 表示决策／证据未完成。当前小样包含明确的生产失败，不能把非零退出码改写为总体美术通过。
@@ -149,7 +147,7 @@ python3 scripts/test_ui_cases.py
 python3 scripts/test_ui_design.py
 ```
 
-本次字体、布局与边框重做的证据和未完成项见 [v1.3.1 审阅记录](validation/UI-REVISION-V1.3.1.md)。[v1.3.0 历史报告](validation/SHOP-COHESION-V1.3.md) 继续保留，不能把其测试结果当作重做版的审阅证据，也不能用测试通过数量证明美术质量。v1.2.0 的设计研究与脚本验证见 [此前版本报告](validation/UI-DESIGN-V1.2.md)；既有教程与素材检查见 [验证报告](validation/FINAL.md)。结构校验、交易测试、实际运行截图和用户视觉反馈分别记录。
+当前柜台、原图并排对照、整屏整数显示及生产限制见 [v1.4 验证报告](validation/SHOP-BENCHMARK-V1.4.md)。[v1.3.1 审阅记录](validation/UI-REVISION-V1.3.1.md) 与 [v1.3.0 历史报告](validation/SHOP-COHESION-V1.3.md) 保留为旧版证据，不能代替本版审阅。v1.2.0 的设计研究与脚本验证见 [此前版本报告](validation/UI-DESIGN-V1.2.md)；既有教程与素材检查见 [验证报告](validation/FINAL.md)。结构校验、交易测试、实际运行截图和用户视觉反馈分别记录，功能测试数量不证明美术质量。
 
 [资料库维护说明](library/MAINTENANCE.md)介绍索引重建与采集。Godot 内容固定到 4.5 分支，Saint11 图源固定到提交 `ce1393eb2c46441d917134a9fd52e15575ee10a7`；版本快照不代表最新软件行为。
 
@@ -157,6 +155,6 @@ python3 scripts/test_ui_design.py
 
 原创脚本、技能编排、独立风格配方和测试夹具采用 [MIT](LICENSE)。第三方教程及其改编保留 **CC BY 4.0、CC BY 3.0、GFDL 1.3 或更新版本**等原许可。图片上的商标、游戏角色或署名截图不会因汇编进入此库而成为本项目原创资产。
 
-商店的五张 AI 示例图仅在项目实际持有权利的范围内按 MIT 提供，不保证独占性、唯一性或独立版权保护。Fusion Pixel 字体仍采用 **SIL OFL 1.1**，保留字体本身和上游组件的原始声明；字体不随示例代码改为 MIT。视觉研究的商业原图仅引用官方远程链接，不纳入本库开放许可或离线素材包。
+商店保留的八张 AI 源图仅在项目实际持有权利的范围内按 MIT 提供，不保证独占性、唯一性或独立版权保护。Fusion Pixel 字体仍采用 **SIL OFL 1.1**，保留字体本身和上游组件的原始声明；字体不随示例代码改为 MIT。视觉研究的商业原图仅引用官方远程链接，不纳入本库开放许可或离线素材包。
 
 再分发或改编资料时，保留对应作者、来源、许可和修改说明。详见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) 与 [library/LICENSES.md](library/LICENSES.md)。
