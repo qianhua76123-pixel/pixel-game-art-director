@@ -113,5 +113,16 @@
     "User visual acceptance pending; no beauty score or claim of matching reference polish.",
     "Source-native pixel exports, hard alpha and limited palettes not certified.",
     "No animation, full roamable world, controller/touch or player study claim."
-  ]
+  ],
+  "additional_actual_window": {
+    "viewport": [
+      1253,
+      860
+    ],
+    "stage": [
+      1253,
+      704.8125
+    ],
+    "observed": "Whole composition fits available width instead of shrinking to half-size. Screenshot visually reviewed."
+  }
 }

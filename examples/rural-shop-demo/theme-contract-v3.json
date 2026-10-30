@@ -40,7 +40,8 @@
         42
       ],
       "source_policy": "Two unchanged generated PNG sources; runtime drawImage sampling, no code-painted art.",
-      "production_boundary": "Source-native pixel grid and hard alpha not certified."
+      "production_boundary": "Source-native pixel grid and hard alpha not certified.",
+      "display_policy": "Fit whole composition to window; exact2x at1280x720; minimum1x and horizontalviewing below640width."
     },
     "material_grammar": {
       "cloth": "草绿围裙、赭红衣、米袖；大折面。",
@@ -59,7 +60,7 @@
       "final_screen_checks": [
         {
           "path": "runtime-review-v3.json",
-          "sha256": "286002adf0abd12f8ea2bed1a6287049cefd5c076f84f97833df927cbffa2e34"
+          "sha256": "d478f14e2bac5a96b3c63f566f1819b1fbe2acecaa8038e83ec86df44f51b21a"
         }
       ]
     },
@@ -203,7 +204,7 @@
       "evidence": [
         {
           "path": "runtime-review-v3.json",
-          "sha256": "286002adf0abd12f8ea2bed1a6287049cefd5c076f84f97833df927cbffa2e34"
+          "sha256": "d478f14e2bac5a96b3c63f566f1819b1fbe2acecaa8038e83ec86df44f51b21a"
         }
       ],
       "exception": null
