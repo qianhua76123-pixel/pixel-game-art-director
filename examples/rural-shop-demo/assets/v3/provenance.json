@@ -1,0 +1,63 @@
+{
+  "revision": "1.5.0",
+  "tool": "built-in image_gen",
+  "successful_exports": 4,
+  "network_failures_without_export": 2,
+  "prompt_file": "prompts.md",
+  "assets": [
+    {
+      "file": "shop-scene.png",
+      "role": "integrated merchant, environment, frame and empty speech paper",
+      "dimensions": [
+        1672,
+        941
+      ],
+      "mode": "RGB",
+      "sha256": "9410c384a1f489d20c38217f8a07464b09e73fbc6d8eb4265cf41e9057158e52",
+      "generated_filename": "exec-c903ffac-c6f1-44e6-94ab-de6e713cc259.png",
+      "source_modified": false
+    },
+    {
+      "file": "goods-source.png",
+      "role": "six original inventory goods",
+      "dimensions": [
+        1536,
+        1024
+      ],
+      "mode": "RGBA",
+      "sha256": "97d879ba2536e7d9a0739ce57dc92de98b92aa7c3876c05f949d292bcbe5562b",
+      "generated_filename": "exec-dea71b5d-4c27-4a44-8454-089b02d253b6.png",
+      "source_modified": false
+    }
+  ],
+  "source_chain": [
+    {
+      "step": "scene_initial",
+      "input": "text only",
+      "export": "exec-8a37b7fe-a690-4583-9fb0-b970cff6667a.png",
+      "status": "intermediate; preserved outside public package"
+    },
+    {
+      "step": "scene_composition",
+      "input": "scene_initial",
+      "export": "exec-aad8148e-79ac-4d20-a021-e055fd07a262.png",
+      "status": "intermediate; preserved outside public package"
+    },
+    {
+      "step": "goods",
+      "input": "scene_composition as palette/material reference",
+      "export": "exec-dea71b5d-4c27-4a44-8454-089b02d253b6.png"
+    },
+    {
+      "step": "scene_pixel_refinement",
+      "input": "scene_composition",
+      "export": "exec-c903ffac-c6f1-44e6-94ab-de6e713cc259.png"
+    }
+  ],
+  "commercial_reference_policy": "Official screenshots displayed as remote review references only, never generator inputs or bundled assets.",
+  "atlas_policy": "No editing or extraction of source PNG. Read-only alpha>8 per-cell subject bounds with4sourcepixelpadding; browser drawImage draws selected regions.",
+  "visual_status": "PENDING_USER_VISUAL_REVIEW",
+  "remaining_visual_difference": "Environment and hair retain denser illustration texture than the commercial references.",
+  "production_boundary": "Generated source resolution, alpha and source-native pixel grid have not been certified as engine-ready hand-pixel assets. Runtime sampling is separate.",
+  "rights": "Original generated images offered under MIT only to the extent rights held; no exclusivity or independent copyright guaranteed."
+}
