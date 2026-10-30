@@ -97,7 +97,7 @@
       2,
       3
     ],
-    "display_policy": "Positive integer overall scale with a minimum of 1; under 640px width retain original stage size, horizontal viewing and orientation guidance.",
+    "display_policy": "Fit the whole composition to available width/height, minimum1x. Exact2x at1280x720; below640px keep originalstagewidth, horizontalviewing and orientationguidance. Do not drop to a half-size stage when the window is just under1280px.",
     "typography": {
       "main_font": "Fusion Pixel",
       "logical_size_px": 12,
