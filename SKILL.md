@@ -48,11 +48,11 @@ python3 scripts/task_bundle.py --task '制作四方向行走和待机角色' --s
 
 读取 [UI设计与验证](references/ui-design.md)。先确定玩家要做的决定和系统规则，检索 [16类系统模式](references/ui-system-patterns.md)，整理必须同时看见的对象、成本、条件、效果与后果，再组织界面。可运行 `python3 scripts/search.py --task '乡村商店，比较种子并选择购买数量' --kind system --details --json`。
 
-需要选择或比较设计方向时，读 [设计基础与八个维度](references/ui-design-foundations.md)：分别决定视觉语言、虚构世界关系、空间位置、信息表征、注意需求、出现方式、世界时间与输入。六套旧UI配方只是视觉主题；木框不自动等于世界内UI，拟物也不决定系统内容。用 [UI设计合同](assets/templates/ui-design-contract.json)记录本次选择、真实内容、状态、输入和失败恢复；[乡村商店推演](examples/ui-design-reasoning.md)说明取舍，[三个可运行小样](examples/rural-shop-demo/README.md)用相同中文商品、图集与交易数据比较结构。
+需要选择或比较设计方向时，读 [设计基础与八个维度](references/ui-design-foundations.md)：分别决定视觉语言、虚构世界关系、空间位置、信息表征、注意需求、出现方式、世界时间与输入。六套旧UI配方只是视觉主题；木框不自动等于世界内UI，拟物也不决定系统内容。用 [UI设计合同](assets/templates/ui-design-contract.json)记录本次选择、真实内容、状态、输入和失败恢复；[乡村商店推演](examples/ui-design-reasoning.md)说明取舍，[商店小样及历史方案](examples/rural-shop-demo/README.md)使用同一组商品和交易规则比较结构。
 
 需要真实界面参考时，运行 `python3 scripts/search.py --task '背包和商店UI' --kind case --json`，或读取 [14个游戏案例与28张官方配图链接](references/ui-case-studies.md)。打开所选截图，分别记录画面事实、设计评析与未验证项；风格关联不表示整套游戏同款。脚本不下载商业截图，`--copy-figures` 仅复制教学配图，案例图不能直接当作游戏素材；覆盖范围见 [内容审核](references/ui-content-audit.md)。
 
-商店任务优先看 [真实商店并排与原图局部](review/shop-benchmark/README.md)：Pierre 的买种菜单和 Moonlighter 的药水商人服务，不能把对白或背包截图当成商店证据。按构图、文字、素材、可见像素簇逐项比较；缩略全图只评布局，颗粒看原尺寸局部。随后为整套资产固定一种方向，重做共同母版与实际界面；[v2实例](examples/rural-shop-demo/art-direction-v2.md)使用同母版的店主与六商品、续作柜台与面板，以及统一逻辑舞台。渲染网格统一和源素材原生网格合格是两个结论。
+商店任务优先看 [真实商店并排与原图局部](review/shop-benchmark/README.md)：Pierre 的买种菜单和 Moonlighter 的药水商人服务，不能把对白或背包截图当成商店证据。按构图、文字、素材、可见像素簇逐项比较；缩略全图只评布局，颗粒看原尺寸局部。随后把人物、商品和 UI 当作同一张画面设计，在最终显示尺寸审查轮廓、材质、细节取舍、文字和状态。[v3实例](examples/rural-shop-demo/art-direction-v3.md)将半身店主、柜台、环境和纸框整合，再配同家族的六商品图集；它仍待用户视觉审核。v2 已被用户否定，不能将同母版、统一网格或通过测试当作画面完成证据。
 
 先用最长真实中文、数值和边界状态验证布局，再制作装饰；文字保留为可变内容层，九宫格保留角部与像素网格。按 [UI审查协议](references/ui-evaluation-method.md)分别检查任务、信息、交互、视觉与技术证据。可运行UI实际走完打开、选择、执行/取消、恢复路径；静态稿不能证明焦点、可用性或沉浸感，未测项目保留 `UNDETERMINED`。
 
@@ -77,7 +77,7 @@ python3 scripts/audit_assets.py /path/to/project/assets --contract /path/to/audi
 
 机器通过不能替代美术通过。脚本的 `overall_status=NEEDS_VISUAL_REVIEW` 是明确边界，不把颜色数量相近或透明像素比例当成风格一致性证明。
 
-当前商店小样改用三张同源风格的新PNG，详见 [v2主题合同](examples/rural-shop-demo/theme-contract-v2.json)。原始母版仍有部分透明像素，源图原生网格与严格有限色板尚未通过；640×360逻辑采样和整数显示不改写这些源素材结论。历史五张PNG与旧合同保留为旧版证据，不能当作当前图像或以新截图背书。
+当前商店小样使用整合场景与六商品图集两张新 PNG，详见 [v3美术方向](examples/rural-shop-demo/art-direction-v3.md) 与 [生成记录](examples/rural-shop-demo/assets/v3/provenance.json)。源图原生网格、硬 alpha 与生产导出没有据此获认证；最终显示尺寸的画面审查和用户接受程度单独记录。历史八张 PNG、旧页面与旧合同保留，不以新截图为旧稿背书。
 
 ## 交付给用户或下游agent
 

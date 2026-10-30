@@ -1,6 +1,6 @@
 # Third-party notices / 第三方内容说明
 
-本仓库是原创工具、案例评论与第三方教程的汇编，并不使用单一许可证覆盖全部文件。根目录 [LICENSE](LICENSE) 的 MIT 许可涵盖原创脚本、技能编排、独立配方、模板、案例评论与测试夹具；AI 示例图的范围见下文。任何第三方图像、字体、正文、源快照及其中文改编仍受对应来源许可约束。以下声明随 v1.4.0 补充。
+本仓库是原创工具、案例评论与第三方教程的汇编，并不使用单一许可证覆盖全部文件。根目录 [LICENSE](LICENSE) 的 MIT 许可涵盖原创脚本、技能编排、独立配方、模板、案例评论与测试夹具；AI 示例图的范围见下文。任何第三方图像、字体、正文、源快照及其中文改编仍受对应来源许可约束。以下声明随 v1.5.0 补充。
 
 ## 逐项定位
 
@@ -27,7 +27,7 @@
 
 ## 商店 AI 示例图与运行截图
 
-`examples/rural-shop-demo/assets/` 及其 `v2/` 子目录共保留八张由本项目通过内置图像生成工具制作的源 PNG；当前界面使用新三张，旧五张保留为历史。未使用本库商业案例截图作为成品素材。原四图 `village-shop.png`、`wood-panel.png`、`counter-ledger.png`、`item-atlas.png` 的提示词、源文件哈希和观察记录保存在 [prompt-set.md](examples/rural-shop-demo/assets/prompt-set.md) 与 [asset-provenance.json](examples/rural-shop-demo/assets/asset-provenance.json)。旧 `wood-panel.png` 已退出当前界面，仍作为历史源图保留。
+`examples/rural-shop-demo/assets/` 及其 `v2/`、`v3/` 子目录共保留十张由本项目通过内置图像生成工具制作的源 PNG；当前界面使用 v3 两张，历史八张保留。未使用本库商业案例截图作为成品素材。原四图 `village-shop.png`、`wood-panel.png`、`counter-ledger.png`、`item-atlas.png` 的提示词、源文件哈希和观察记录保存在 [prompt-set.md](examples/rural-shop-demo/assets/prompt-set.md) 与 [asset-provenance.json](examples/rural-shop-demo/assets/asset-provenance.json)。旧 `wood-panel.png` 已退出当前界面，仍作为历史源图保留。
 
 v1.3.1 新增 `plain-paper-panel.png`，经一次独立的内置 `image_gen` 调用生成，原 PNG 未重绘、裁切、重采样或重新量化。完整提示词见 [plain-panel-prompt.md](examples/rural-shop-demo/assets/plain-panel-prompt.md)，原图哈希、尺寸、观察结果及九宫格切片记录见 [plain-panel-provenance.json](examples/rural-shop-demo/assets/plain-panel-provenance.json)。该历史界面的 CSS 九宫格显示不改变所保存的源文件。
 
@@ -37,11 +37,13 @@ v1.4.0 新增三张原 PNG，共三次内置 `image_gen` 调用：
 - `assets/v2/environment.png`：引用原创母版作配色／画法参考的室内背景，[提示词](examples/rural-shop-demo/assets/v2/environment-prompt.md)、[来源](examples/rural-shop-demo/assets/v2/environment-provenance.json)。
 - `assets/v2/panel.png`：引用原创母版作风格参考的纸木面板，[提示词](examples/rural-shop-demo/assets/v2/panel-prompt.md)、[来源与切片](examples/rural-shop-demo/assets/v2/panel-provenance.json)。
 
-三张图均保留生成原文件，商业截图没有用于这三次生成。`atlas.json` 只记录主体范围；Canvas `drawImage` 在运行时采样、取图与九宫格合成，不修改源图，也不代表已导出通过验收的原生像素 PNG。
+这三张历史图均保留生成原文件，商业截图没有用于这三次生成。`atlas.json` 只记录主体范围；Canvas `drawImage` 在运行时采样、取图与九宫格合成，不修改源图，也不代表已导出通过验收的原生像素 PNG。
 
-这八张图仅在项目实际持有权利的范围内按根目录 MIT 许可提供（to the extent rights are held）。本项目不保证 AI 输出的独占性、唯一性、手绘作者身份或独立版权保护。运行截图展示本项目代码、AI 示例图与所附字体；截图不会改变各组成部分的许可。
+v1.5.0 新增两张最终源 PNG：[shop-scene.png](examples/rural-shop-demo/assets/v3/shop-scene.png) 与 [goods-source.png](examples/rural-shop-demo/assets/v3/goods-source.png)。本轮四次成功的内置 `image_gen` 调用分别完成初始场景、构图修改、商品图集和像素简化修改，当前分发的是两张最终图；来源与提示词见 [provenance.json](examples/rural-shop-demo/assets/v3/provenance.json)、[prompts.md](examples/rural-shop-demo/assets/v3/prompts.md)。商品图集与修改只引用本项目原创场景，商业参考没有用于生成。v3 的 [atlas.json](examples/rural-shop-demo/assets/v3/atlas.json) 只记录主体范围，源 PNG 未改写。
 
-这些图是像素风原型示例。旧商品图集与新母版都存在半透明像素；新源图的硬 alpha、统一原生网格和严格调色量化尚未通过生产验收。运行时的 640×360 逻辑画布和整数显示不能改变该结论。可分发与技术上可进入生产是不同判断。对照页中的冻结旧稿与当前运行截图属于项目记录，不授予其中任何第三方成分额外权利。
+这十张图仅在项目实际持有权利的范围内按根目录 MIT 许可提供（to the extent rights are held）。本项目不保证 AI 输出的独占性、唯一性、手绘作者身份或独立版权保护。运行截图展示本项目代码、AI 示例图与所附字体；截图不会改变各组成部分的许可。
+
+这些图是像素风原型示例，严格原生网格、硬 alpha 与生产导出尚未完成验收。运行时采样不使源图获得生产认证，商业参考的许可也不会因并排显示而改变。v2 是用户已否定的历史视觉稿；v3 仍待用户看图审核。
 
 ## Fusion Pixel 字体及上游声明
 
