@@ -125,7 +125,15 @@
     "historical_visual_status": {
       "v2": "REJECTED_BY_USER"
     },
-    "historical_theme_contract": "examples/rural-shop-demo/theme-contract.json"
+    "historical_theme_contract": "examples/rural-shop-demo/theme-contract.json",
+    "current_user_visual_verdict": "REJECTED_BY_USER",
+    "current_review_plan": {
+      "html": "review/shop-rethink/index.html",
+      "markdown": "review/shop-rethink/plan.md",
+      "agent_tasks": "review/shop-rethink/plan.json",
+      "status": "PROPOSED",
+      "live_artwork_changed": false
+    }
   },
   "theme_contract_policy": "All assets inherit one project theme; per-asset independent style selection is prohibited. Role-level exceptions require rationale, bounded scope and recorded review evidence; exceptions do not waive production gates.",
   "theme_contract_validator_boundary": "Checks structure, inheritance, file bindings and recorded evidence only. Structure PASS is not an automated visual-cohesion judgment.",

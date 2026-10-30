@@ -4,7 +4,7 @@
 
 优先服务俯视角像素游戏，也覆盖动画、素材工作流、Godot 集成和游戏 UI。**本库提供知识与检查工具；检索到教程、通过技术检查，都不等于已经做完游戏美术或验证了 UI。**
 
-v1.5.0 重做乡村商店这一屏：店主改为靠在柜台后的半身人物，六件商品重新制作，右侧用一张纸木账板容纳选货、条件与结算。v1.4.0 的 v2 视觉稿已被用户否定，保留为历史；v3 当前等待用户看图审核，不以运行检查代替审美验收。教程库的 92 篇教程、661 个教学图像文件、14 例 UI 案例／28 图、4 例视觉一致性研究／8 图均不变；2 张官方商店对照图另计。
+v1.5.0 重做乡村商店这一屏：店主改为靠在柜台后的半身人物，六件商品重新制作，右侧用一张纸木账板容纳选货、条件与结算。v1.4.0 的 v2 视觉稿已被用户否定，保留为历史；v3 整体效果也已被用户否定，当前转入整套审视与制作规划，不以运行检查代替审美验收。教程库的 92 篇教程、661 个教学图像文件、14 例 UI 案例／28 图、4 例视觉一致性研究／8 图均不变；2 张官方商店对照图另计。
 
 ## 内容与范围
 
@@ -34,6 +34,7 @@ v1.5.0 重做乡村商店这一屏：店主改为靠在柜台后的半身人物�
 - [真实游戏 UI 案例](references/ui-case-studies.md) · [UI 内容审核与缺口](references/ui-content-audit.md)
 - [四组视觉一致性研究](references/visual-game-studies.md) · [结构化案例](references/visual-game-studies.json)
 - [当前柜台小样](examples/rural-shop-demo/README.md) · [v3 美术方向](examples/rural-shop-demo/art-direction-v3.md)
+- [整套审视与制作规划](review/shop-rethink/index.html) · [MD方案](review/shop-rethink/plan.md) · [Agent任务JSON](review/shop-rethink/plan.json)
 - [真实商店并排对照](review/shop-benchmark/index.html) · [对照说明与原图来源](review/shop-benchmark/README.md)
 - [一致性检查方法](references/consistency-review.md) · [技术检查输出示例](examples/audit-demo/EXAMPLE.md)
 - [来源与许可](THIRD_PARTY_NOTICES.md)：代码和第三方内容不是同一许可证。
