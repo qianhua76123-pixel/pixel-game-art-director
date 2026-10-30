@@ -27,7 +27,10 @@
     .board { display:grid; grid-template-columns:repeat(3,minmax(310px,1fr)); gap:18px; min-width:1010px; }
     .board.four { grid-template-columns:repeat(4,minmax(310px,1fr)); min-width:1350px; }
     .result-board { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; min-width:680px; }
-    .result-board .card-head { min-height:88px; }
+    .result-board .card-head { min-height:75px; }
+    .result-board.native { width:2582px; grid-template-columns:1282px 1282px; }
+    .result-board.native .full-frame { width:1280px; height:720px; aspect-ratio:auto; }
+    .result-board .full-frame img { image-rendering:pixelated; }
     article { min-width:0; }
     .card { background:var(--paper); border:1px solid var(--line); border-radius:6px; overflow:hidden; }
     .card-head { padding:18px 18px 14px; }
@@ -76,21 +79,21 @@
     <header>
       <div>
         <p class="eyebrow">青禾种子铺 / 实图研究 / 2026-10-29</p>
-        <h1>先看真实商店，再统一重做</h1>
-        <p>真正的商店参考、冻结的 v1.3.1 历史基线，以及本轮单一柜台重做结果。并排观察构图、字体、素材和颗粒，记录共同规范与证据范围。</p>
+        <h1>新稿与真实商店并排看</h1>
+        <p>人物、商品与界面一起重做。切换参考和界面状态，直接比较构图、材质、文字与操作效果。</p>
       </div>
       <nav class="actions" aria-label="相关文件"><a href="#result">看重做结果 ↓</a><a href="../../examples/rural-shop-demo/">打开交互小样 ↗</a><a href="benchmark.json">读取结构化记录</a></nav>
     </header>
-    <p class="notice"><strong>证据范围：</strong>这是一页实际截图对照与重做依据。官方参考保留远程来源，项目基线独立冻结；没有审美总分，也不把静态图当作完整操作验证。</p>
+
     <p id="load-error" role="alert" hidden></p>
     <noscript><p>此页面需要 JavaScript 加载对照记录。可直接阅读 <a href="README.md">中文报告</a> 或 <a href="benchmark.json">结构化记录</a>。</p></noscript>
 
     <section id="result" aria-labelledby="result-title">
       <h2 id="result-title">重做结果并排</h2>
-      <p class="section-note">左边切换真实商店参考，右边固定为新版实际截图：640×360 逻辑画布、2× 整屏显示，240 钱 / 背包 9 格 / 数量 3。两列各半宽，完整 16:9；这一区看构图，细节请查看下方 2× 局部。</p>
-      <div class="controlbar"><label for="result-reference">左侧参考</label><select id="result-reference"><option value="moonlighter">Moonlighter · 药水商人服务</option><option value="stardew">Stardew Valley · Pierre 买种子</option></select><span>保持右侧新稿与历史基线不变</span></div>
+      <p class="section-note">右侧为实际运行的新稿。可看正常选货、售罄与成交效果；原尺寸档两栏各 1280×720，窄窗口横向滚动。</p>
+      <div class="controlbar"><label for="result-reference">参考</label><select id="result-reference"><option value="stardew">Stardew Valley · Pierre 买种子</option><option value="moonlighter">Moonlighter · 药水商人服务</option></select><label for="result-state">新稿</label><select id="result-state"><option value="counter">正常选货</option><option value="sold-out">蓝莓售罄</option><option value="receipt">购买后回执</option></select><label for="result-size">显示</label><select id="result-size"><option value="overview">并排概览</option><option value="native">最终尺寸 · 每栏1280×720</option></select></div>
       <div class="scroll-board"><div id="result-board" class="result-board"></div></div>
-      <p class="section-note">新版体现本轮共同制作选择；严格生成源图的原生网格 / alpha 仍未通过，不能把整数渲染采样称为源图认证。</p>
+      <p class="section-note">概览便于同屏比较；请切到最终尺寸检查商品、字体和人物。参考原始截图为1920×1080，在此统一显示为1280×720。</p>
     </section>
 
     <section aria-labelledby="overview-title">
@@ -112,14 +115,14 @@
 
     <section aria-labelledby="gap-title">
       <h2 id="gap-title">03 · 具体差距 → 共同规范 → 验证方式</h2>
-      <p class="section-note">下面是针对冻结旧稿的设计判断，以及本轮已确定的单一 640×360 柜台方案。参考游戏提供方法和取舍，不提供可直接拼进项目的资产。</p>
+      <p class="section-note">本轮具体改动与仍可见的差距。参考游戏提供观察依据，不提取其美术资产。</p>
       <div id="findings"></div>
     </section>
 
     <section aria-labelledby="next-title">
       <h2 id="next-title">04 · 统一为单一柜台选货界面</h2>
       <ol id="sequence" class="sequence"></ol>
-      <p class="section-note">本轮采用 640×360 逻辑画布、整屏 1× / 2× / 3× 整数显示与 12 逻辑像素 FusionPixel 中文。旧 A / B / C 仅作历史参考。新稿另存截图；严格源图网格 / alpha 验收仍未通过，渲染采样正确不能替代源图认证。</p>
+      <p class="section-note">本轮仍待用户视觉审核。源图、运行界面和官方参考分别保留；环境与头发的纹理密度仍高于参考。</p>
     </section>
     <footer><p id="rights"></p><p>本页只在浏览器中显示远程原图和局部窗口。商业原图文件未放入公开仓库；图源不可用时显示失效提示，并保留原始链接。</p></footer>
   </main>
@@ -151,8 +154,11 @@
     function renderResult() {
       const referenceId = document.getElementById('result-reference').value;
       const left = records.find(c => c.id === referenceId);
+      const state = document.getElementById('result-state').value;
+      const right = {...newResult, image_url: '../../examples/rural-shop-demo/screenshots/v3-'+state+'.jpg', role: {counter:'正常选货 · 240钱 / 行囊9格', 'sold-out':'蓝莓售罄 · 保留价格与购买限制',receipt:'买入3包青菜种子 · 余额204钱 / 行囊12格'}[state]};
       const board = document.getElementById('result-board');
-      board.innerHTML = [left,newResult].map(c => `<article class="card"><div class="card-head"><h3>${escapeHtml(c.title)}</h3><p class="role">${escapeHtml(c.role)}</p></div>
+      board.classList.toggle('native',document.getElementById('result-size').value==='native');
+      board.innerHTML = [left,right].map(c => `<article class="card"><div class="card-head"><h3>${escapeHtml(c.title)}</h3><p class="role">${escapeHtml(c.role)}</p></div>
         <figure><div class="full-frame"><img src="${escapeHtml(c.image_url)}" alt="${escapeHtml(c.title + '，' + c.role)}" referrerpolicy="no-referrer"></div><figcaption class="meta"><span>${c.dimensions[0]} × ${c.dimensions[1]} 截图</span><span>${c.remote_only ? '官方远程图' : '本轮实际重做'}</span></figcaption></figure>
         <div class="card-body"><p>${escapeHtml(c.purpose)}</p><div class="source-row"><a href="${escapeHtml(c.image_url)}" target="_blank" rel="noopener">打开完整原图 ↗</a><a href="${escapeHtml(c.source_url)}" target="_blank" rel="noopener">${escapeHtml(c.source_label)} ↗</a></div><details><summary>这张图的证据边界</summary>${list(c.limitations)}</details></div></article>`).join('');
       bindImageFailures(board);
@@ -177,7 +183,7 @@
         const data = await response.json();
         records = data.cases; newResult = data.result;
         renderFull(); renderResult(); renderCrops();
-        document.getElementById('result-reference').addEventListener('change',renderResult);
+        for(const id of ['result-reference','result-state','result-size'])document.getElementById(id).addEventListener('change',renderResult);
         document.getElementById('crop-kind').addEventListener('change',renderCrops);
         document.getElementById('findings').innerHTML = data.comparison.map(row => `<article class="finding"><h3>${escapeHtml(row.label)}</h3><div class="finding-grid"><div><h4>旧稿的具体差距</h4><p>${escapeHtml(row.gap)}</p></div><div><h4>本轮共同规范</h4>${list(row.common_rules)}</div><div><h4>怎样验证</h4><p>${escapeHtml(row.verification)}</p></div></div></article>`).join('');
         document.getElementById('sequence').innerHTML = data.iteration_contract.sequence.map(x => '<li>'+escapeHtml(x)+'</li>').join('');
