@@ -1,0 +1,195 @@
+{
+  "schema_version": 1,
+  "title": "青禾种子铺整屏审视与制作规划",
+  "status": "PROPOSED",
+  "scope": "One shop screen and a minimum reusable art/UI kit; no full-game UI expansion or new animation.",
+  "baseline": {
+    "commit": "2e1c6ffd75c525f4933ef4eb1a4ffa0414e97d84",
+    "visual_verdict": "REJECTED_BY_USER",
+    "screenshot": "../../examples/rural-shop-demo/screenshots/v3-counter.jpg",
+    "related_screenshots": [
+      "../../examples/rural-shop-demo/screenshots/v3-sold-out.jpg",
+      "../../examples/rural-shop-demo/screenshots/v3-receipt.jpg"
+    ],
+    "canvas": [1280, 720],
+    "region_format": "[x, y, width, height] in baseline screenshot pixels",
+    "live_screen_policy": "This plan does not replace or regenerate the current live shop."
+  },
+  "evidence_boundary": {
+    "method": "Visual inspection of the actual normal, sold-out and receipt screenshots, with the existing transaction model.",
+    "empirical_player_study": false,
+    "automatic_aesthetic_pass": false,
+    "reference_index": "../shop-benchmark/benchmark.json",
+    "commercial_reference_policy": "Observation only; do not extract or regenerate commercial assets as project deliverables."
+  },
+  "issues": [
+    {
+      "id": "focus",
+      "title": "场景与交易争夺焦点",
+      "region": [0, 0, 444, 580],
+      "severity": "FOUNDATIONAL",
+      "visible": "窗户、面孔、货架纹理与木框都有强视觉重量；六件商品分散在大纸面上。",
+      "design_inference": "整屏像人物插画配目录，当前商品和交易尚未成为主要决定对象。",
+      "proposal": "场景作为安静的身份与氛围层，商品判断和交易作为前景；先审整屏主次，再做环境细节。",
+      "review_by_appearance": "在完整最终尺寸下检查第一眼的焦点、人物身份空间、当前商品与购买的位置关系。"
+    },
+    {
+      "id": "grammar",
+      "title": "造型、材质与简化程度缺少整体锚点",
+      "region": [170, 160, 250, 410],
+      "severity": "FOUNDATIONAL",
+      "visible": "脸、头发、手和衣褶有较密插画细节；商品与控件采用另一种取舍。",
+      "design_inference": "共享颜色并不足以建立同一套美术语言。",
+      "proposal": "整屏先定一个项目风格锚点，统一形状语言、材质、轮廓和色彩职责；按用途允许尺度差异，禁止逐资产重选画风。",
+      "review_by_appearance": "把人物头/手、纸袋、布袋、陶盆及UI同时实装，检查是否有外来贴图感。"
+    },
+    {
+      "id": "catalog",
+      "title": "浏览与选中判断没有形成主次",
+      "region": [500, 130, 715, 320],
+      "severity": "FOUNDATIONAL",
+      "visible": "六件货等权散开；选中主要改变底色和角标，没有充分展示当前货品的区域。",
+      "design_inference": "界面能列出货品，但未为当前购买判断提供足够的视觉焦点。",
+      "proposal": "左侧六条货目利于比较，右侧展示当前货品大图、全名、已有量、季节、成熟时间与关键限制。",
+      "review_by_appearance": "确认纸袋、布袋、陶盆和植物符号在实际显示尺寸可辨认，选中商品具有明确主次。"
+    },
+    {
+      "id": "type",
+      "title": "文字角色与关键信息层级偏平",
+      "region": [500, 463, 704, 82],
+      "severity": "FOUNDATIONAL",
+      "visible": "名称、余量、条件和结算字形重量相近；水田、夏播、空耕地等限制混在通读文本里。",
+      "design_inference": "读者需要逐字搜索，界面未主动突出决定购买和使用的条件。",
+      "proposal": "名称、价格、限制、次要余量通过位置、留白和字形层级分工；关键条件采用短标签与正文共同表达。",
+      "review_by_appearance": "用蓝莓最长品名、水稻水田条件、辣椒夏播和堆肥空耕地限制检查真实内容。"
+    },
+    {
+      "id": "receipt",
+      "title": "成交与下一笔预测跨屏混杂",
+      "region": [450, 550, 795, 170],
+      "severity": "FOUNDATIONAL",
+      "visible": "成交后钱包204在右上、已有5包在右中、回执在左下，同时右下显示下一笔买后余168。",
+      "design_inference": "当前资源、本笔结果与下一笔预测的时间关系不够清楚。",
+      "proposal": "在购买位置保留本笔回执；继续购买明确写再买，预测明确标为下一笔。店主对白不承担唯一数字凭据。",
+      "review_by_appearance": "实际完成购买3包小青菜，直接辨认花费36、当前余204与下一笔预测168分别属于哪件事。"
+    }
+  ],
+  "recommended_layout": {
+    "status": "PROPOSED",
+    "direction": "Quiet world and merchant identity beside one unified foreground transaction menu.",
+    "parts": [
+      {
+        "id": "identity",
+        "content": "店主、地点与简短对白",
+        "purpose": "建立世界身份，支持交易前景，不与其争夺同等视觉重量。"
+      },
+      {
+        "id": "browse",
+        "content": "左侧六条横向货目：图标、短名、价格、余量",
+        "purpose": "方便比较六件货；不增加无内容的分类导航。"
+      },
+      {
+        "id": "selected",
+        "content": "右侧当前商品大图、全名、已有量、季节、成熟时间、关键种植或使用条件",
+        "purpose": "支持当前购买决定，与浏览列表形成主次。"
+      },
+      {
+        "id": "checkout",
+        "content": "选中详情下方的数量、总价、钱与行囊变化、购买、本笔回执",
+        "purpose": "把成本、限制、行动和结果放在同一阅读组。"
+      }
+    ],
+    "receipt_example": {
+      "before": {"balance": 240, "bag_used": 9, "owned_cabbage": 2, "stock_cabbage": 12},
+      "purchase": {"product_id": "cabbage", "quantity": 3, "unit_price": 12, "total": 36},
+      "after": {"balance": 204, "bag_used": 12, "owned_cabbage": 5, "stock_cabbage": 9},
+      "current_receipt": "已购3包，花费36钱，现余204钱。",
+      "repeat_action": "再买3包",
+      "next_purchase_balance_if_repeated": 168,
+      "rule": "168 is a possible next purchase forecast, never the just-completed transaction balance."
+    }
+  },
+  "art_rules": {
+    "project_anchor_first": "Choose one whole-screen project style anchor before detailed background production.",
+    "no_per_asset_style_reselection": true,
+    "production_layers": ["scene", "portrait", "counter-front-occlusion", "goods", "UI"],
+    "joint_review_required": true,
+    "avoid": "Do not bake a giant blank menu board permanently into the background and then fit content into it.",
+    "cross_representation_identity": {
+      "contexts": ["held-package", "world-prop", "inventory-icon", "selected-hero"],
+      "stable_features": ["package silhouette", "plant symbol", "closure", "material", "recognition colors"],
+      "allowed_variation": "Detail and scale may vary by use while item identity remains stable.",
+      "held_package_rule": "A fixed merchant-held bag must be generic packaging; if it represents the selected item, it must match selection."
+    },
+    "first_sampler": ["character-head", "character-hands", "paper-seed-bag", "burlap-sack", "terracotta-pot", "UI-frame-corner", "currency-glyph", "Chinese-type", "selection", "buy-button"],
+    "sampler_view": "One final-display-size contact sheet plus one joint implementation, never large isolated masters alone."
+  },
+  "minimum_state_family": [
+    {"id": "normal", "requirement": "六件货与当前选择、成本、已有量可理解。"},
+    {"id": "hover-focus-selected", "requirement": "焦点、悬停和已选中职责清楚，不能以颜色作为唯一信号。"},
+    {"id": "quantity-editing", "requirement": "正常整数、空输入、1.5及超量的反馈贴近数量与行动。"},
+    {"id": "insufficient-stock", "requirement": "保留选择与数量，说明余量与减少数量的恢复办法。"},
+    {"id": "insufficient-money", "requirement": "缺款理由与费用在同一交易组。"},
+    {"id": "full-bag", "requirement": "容量限制与本次占用清楚，购买不扣钱。"},
+    {"id": "sold-out", "requirement": "保留价格与资料，可浏览但不可购买。"},
+    {"id": "submitting-success", "requirement": "防重复提交，本笔成交信息在购买处保留，下一笔意图明确。"},
+    {"id": "close-return", "requirement": "离开、返回及焦点恢复使用同一视觉语言与原交易状态。"}
+  ],
+  "decisions": {
+    "reuse": ["shop-model.mjs", "six product IDs and all prices/rules", "existing model tests", "Fusion Pixel font and OFL notices", "official reference evidence", "historical screenshots"],
+    "rebuild_after_sampler": ["core character artwork", "goods art family", "UI family and hierarchy", "scene and foreground occlusion assets", "browse-selected-checkout-receipt composition"],
+    "stop_carry_forward": ["current raster explorations as an approved master", "large menu board baked into background", "detailed background first and content fitted later", "independent style selection per asset", "technical tests as proof of aesthetic completion"],
+    "history_policy": "Retain old files as history; stopping an approach does not mean deleting evidence.",
+    "unknown_inventory_policy": "Existing unnamed occupied slots stay unknown; do not invent contents or change capacity mechanics."
+  },
+  "tasks": [
+    {
+      "id": "P1",
+      "title": "整屏风格锚点与构图粗稿",
+      "status": "PENDING",
+      "depends_on": [],
+      "gate": "G1",
+      "deliverables": ["whole-screen style anchor", "composition roughs with real Chinese and transaction data", "foreground/background hierarchy rationale"]
+    },
+    {
+      "id": "P2",
+      "title": "最终尺寸同屏美术小样",
+      "status": "PENDING",
+      "depends_on": ["P1"],
+      "gate": "G2",
+      "deliverables": ["joint character/material/UI contact sheet", "final-size integrated sampler", "shared shape/material/detail rules"]
+    },
+    {
+      "id": "P3",
+      "title": "一件商品与完整状态族",
+      "status": "PENDING",
+      "depends_on": ["P2"],
+      "gate": "G3",
+      "deliverables": ["one real product implemented through all state families", "local cost/action/receipt composition", "normal and blocked state screenshots"]
+    },
+    {
+      "id": "P4",
+      "title": "扩展六件货与内容边界",
+      "status": "PENDING",
+      "depends_on": ["P3"],
+      "gate": "G4",
+      "deliverables": ["six-item small and hero asset family", "long-name and condition variants", "sold-out, money, capacity and stock state sheet"]
+    },
+    {
+      "id": "P5",
+      "title": "环境整合与最后打磨",
+      "status": "PENDING",
+      "depends_on": ["P4"],
+      "gate": "G5",
+      "deliverables": ["scene-character-counter-UI joint implementation", "normal, purchase and blocker actual screenshots", "same-display-size comparison with reference", "minimum reusable shop art/UI kit"]
+    }
+  ],
+  "gates": [
+    {"id": "G1", "status": "PENDING", "appearance_question": "当前商品和购买是否清楚，场景与人物是否有身份空间，整屏是否依赖装饰框撑主次？"},
+    {"id": "G2", "status": "PENDING", "appearance_question": "人物、三种材质和UI是否具有亲缘关系，缩到实际尺寸是否清楚，是否出现外来贴图？"},
+    {"id": "G3", "status": "PENDING", "appearance_question": "成本、限制、动作和结果是否属于同一视觉流，本笔与下一笔是否可区分？"},
+    {"id": "G4", "status": "PENDING", "appearance_question": "六件货是否成组协调，长内容与异常状态是否破坏主次？"},
+    {"id": "G5", "status": "PENDING", "appearance_question": "环境是否支持交易前景，光照接触遮挡是否成立，进入操作离开是否保持同一语言？"}
+  ],
+  "gate_policy": "These are production dependencies assessed through actual images and operations, not automatic beauty scores or mandatory user authorization at every step."
+}
