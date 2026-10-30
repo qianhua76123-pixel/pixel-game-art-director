@@ -1,0 +1,22 @@
+{
+  "generator": "Built-in image_gen",
+  "generated_on": "2026-10-29",
+  "generation_count": 1,
+  "file": "environment.png",
+  "sha256": "ce7e965ddbd50a5ee3ec218f7f3dc8db5d46e1fb8c8ed28821c40ea904000f4b",
+  "dimensions": [
+    1672,
+    941
+  ],
+  "mode": "RGB",
+  "reference": {
+    "file": "merchant-and-goods-source.png",
+    "sha256": "555554a7eed200c5a31c3d9fc4e61099575980b97e1dbf9b7fbec03d763e28e2",
+    "role": "Original project style/palette reference; no commercial screenshot used for generation"
+  },
+  "processing": "Source PNG copied unchanged; no image editing or resampling export. Runtime samples it into a 640x360 canvas with smoothing disabled.",
+  "visual_observation": "Front-facing seed-shop counter; warm wood, low-contrast walls, jars and baskets near margins; no baked text, UI or characters. Same warm wood and muted teal family as original master. The source still has richer wood shading than the simple palette target.",
+  "rights": "AI-generated original example, offered under root MIT to extent rights are held; no exclusivity or independent copyright guarantee.",
+  "production_status": "Source native grid and palette not certified. Runtime logical sampling is a separate measured display property.",
+  "prompt_file": "environment-prompt.md"
+}

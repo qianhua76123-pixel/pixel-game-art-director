@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-29",
+  "generator": "Built-in image_gen tool",
+  "generation_count": 1,
+  "transparent_background_requested": false,
+  "source_kind": "AI-generated original raster UI surface, using the original project merchant/items master only as a color and pixel-cluster style reference.",
+  "file": "panel.png",
+  "prompt_file": "panel-prompt.md",
+  "art_direction": "../../art-direction-v2.md",
+  "reference_images": [
+    {
+      "file": "merchant-and-goods-source.png",
+      "sha256": "555554a7eed200c5a31c3d9fc4e61099575980b97e1dbf9b7fbec03d763e28e2",
+      "role": "Style and color reference only; do not copy merchant or goods."
+    }
+  ],
+  "sha256": "fdb845669b6195cf3679f32c292e2b8a9c64ca525e43d3884d30f37b872de384",
+  "bytes": 1110292,
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "mode": "RGB",
+  "processing": "Original generated RGB PNG copied unchanged. Pillow used only to inspect dimensions, RGB samples and edge transitions. No image edits, crops, resampling, quantization or regeneration.",
+  "reuse": "Offered as a repository example under the root MIT license only to the extent rights are held; no guarantee of exclusive authorship, uniqueness or independent copyright protection.",
+  "visual_review": {
+    "method": "Generated output and saved original actually viewed at full composition size.",
+    "observed": [
+      "Complete front-facing cream rectangular panel with continuous dark/brown border and small stepped corners.",
+      "Center is empty and visually quiet; no text, line grid, buttons, goods, people, gems or metal decoration.",
+      "The cream/brown family and colored dark outline are related to the merchant/items master.",
+      "Corners have small block-like reinforced-looking joins and the wood has several tonal bands; these are more modeled than the requested simplest two-shade frame."
+    ],
+    "limits": [
+      "Border is about 32–38 source pixels at edge midpoints, not the requested approximately 16.",
+      "Corner detail extends farther inward than the straight border, so source slices must contain the full step.",
+      "Center is nearly uniform but not mathematically one RGB color; sample points differ by roughly one or two channel values.",
+      "Exact two-shade wood, strict palette membership, uniform logical pixel grid and final 4px rendering quality are not certified.",
+      "No rendered application screenshot or final nine-slice join test is claimed by this source inspection."
+    ]
+  },
+  "measurements": {
+    "coordinate_space": "Original 1536x1024 source pixels",
+    "paper_classifier": "First pixel inward with R>=210, G>=185, B>=135; a task-local measurement heuristic, not a material classifier.",
+    "edge_midpoint_paper_start_px": {
+      "top": 38,
+      "right": 32,
+      "bottom": 38,
+      "left": 33
+    },
+    "corner_observations": "Near left corner, first paper x is 55 at y=40; near right corner, first paper y is 65 at x=1503. Straight-edge paper starts settle by approximately 64 source pixels from corners.",
+    "center_rgb": [
+      253,
+      238,
+      196
+    ],
+    "interior_samples_rgb": [
+      {
+        "xy": [
+          100,
+          100
+        ],
+        "rgb": [
+          252,
+          237,
+          195
+        ]
+      },
+      {
+        "xy": [
+          1435,
+          100
+        ],
+        "rgb": [
+          252,
+          237,
+          195
+        ]
+      },
+      {
+        "xy": [
+          100,
+          923
+        ],
+        "rgb": [
+          252,
+          237,
+          196
+        ]
+      },
+      {
+        "xy": [
+          1435,
+          923
+        ],
+        "rgb": [
+          252,
+          237,
+          196
+        ]
+      }
+    ]
+  },
+  "nine_slice_recommendation": {
+    "source_slice_top_right_bottom_left": [
+      72,
+      72,
+      72,
+      72
+    ],
+    "source_x_cuts": [
+      72,
+      1464
+    ],
+    "source_y_cuts": [
+      72,
+      952
+    ],
+    "destination_border_logical_px": 4,
+    "center_source_rect": {
+      "x": 72,
+      "y": 72,
+      "w": 1392,
+      "h": 880
+    },
+    "reason": "72px contains the measured stepped corner transitions with a small margin. A 4px destination strip includes both wood and a narrow cream inner area; straight visible wood is approximately 2 logical pixels, not a guaranteed solid 4px wood band.",
+    "rendering_note": "Use the source nine regions in the application; preserve the original file. This is a measured candidate and still needs native-stage visual inspection for seams and corner readability."
+  },
+  "production_status": "SOURCE_INSPECTED_RENDER_REVIEW_PENDING: quiet original UI panel source; exact native-grid/palette and rendered joins unverified."
+}

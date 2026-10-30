@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-10-29",
+  "generator": "Built-in image_gen tool",
+  "generation_count": 1,
+  "transparent_background_requested": true,
+  "source_kind": "AI-generated original reference/master artwork, with no input reference images; not a tutorial image or commercial-game asset.",
+  "file": "merchant-and-goods-source.png",
+  "prompt_file": "merchant-and-goods-prompt.md",
+  "art_direction": "../../art-direction-v2.md",
+  "atlas": "atlas.json",
+  "sha256": "555554a7eed200c5a31c3d9fc4e61099575980b97e1dbf9b7fbec03d763e28e2",
+  "bytes": 1486445,
+  "dimensions": [
+    1536,
+    1024
+  ],
+  "mode": "RGBA",
+  "processing": "Original generated PNG copied unchanged. Pillow used only to read size, alpha statistics and per-cell bounds. No resampling, palette conversion, removal of pixels, image editing or crop exports.",
+  "reuse": "Offered as repository example artwork under the root MIT license only to the extent rights are held; no assertion of exclusive authorship, uniqueness, hand drawing or independent copyright protection.",
+  "layout": {
+    "intended": "Landscape 3:2; full-body merchant in left third; six same-family goods in right two-thirds, two columns by three rows.",
+    "observed": "Complete full-body woman at left, six distinct goods at right in the requested row-major order, separated by transparent gutters. Character reaches slightly past x=512 (one-third); inspection split uses x=600.",
+    "row_major_items": [
+      "cabbage",
+      "radish",
+      "rice",
+      "chili",
+      "blueberry",
+      "compost"
+    ]
+  },
+  "alpha_measurement": {
+    "min": 0,
+    "max": 254,
+    "zero_pixels": 968637,
+    "opaque_255_pixels": 0,
+    "partial_pixels": 604227,
+    "partial_fraction": 0.3841571807861328,
+    "fully_transparent_fraction": 0.6158428192138672,
+    "corners": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "gap_samples": {
+      "600,512": 0,
+      "1050,512": 0,
+      "1050,850": 0
+    }
+  },
+  "visual_review": {
+    "method": "Actual generated output and saved original viewed; observations refer to this single image.",
+    "composition_status": "CREDIBLE_AS_SHARED_STYLE_REFERENCE_WITH_LIMITS",
+    "observed": [
+      "One complete woman, grey-black bun, cream sleeves, warm brown blouse, dark teal apron, dark lower garments and shoes; she holds a small tied seed pouch.",
+      "Six distinct goods are present in two columns and three rows: bok choy packet, radish packet, rice sack, chili packet, blueberry pot, compost sack. The packets use pictorial vegetables without text.",
+      "Dark colored outlines, stepped silhouettes and warm paper / teal / brown color families connect the portrait and objects. No UI frame, labels, ground plane or painted shop background is present.",
+      "The visible item faces are readable and their lighting broadly agrees with an upper-left light; portrait and bags nonetheless have softer tonal variation and more internal detail than the intended two-to-three-shade material rule."
+    ],
+    "limits": [
+      "Character reads as a kindly adult, but a clearly middle-aged identity is not strongly guaranteed by facial features.",
+      "The requested common 4x logical grid and native 32x32 item / approximately 96x176 portrait construction were not achieved or verified. Actual source subject bounds are recorded in atlas.json.",
+      "Goods are not exactly equal silhouette sizes: the compost sack is wider and the seedling is taller; fit proportionally into the intended logical boxes.",
+      "Real transparent gaps are present, but faint low-alpha tails extend into gutters and the output has soft-edge/halo appearance. Hard alpha fails: max alpha 254, no pixels at 255.",
+      "Exact RGB palette membership and per-material two-to-three-shade counts have not passed; visual color-family resemblance must not be reported as quantized palette conformance.",
+      "The rice icon includes a few small loose grains belonging to the icon; the image should not be described as a perfectly minimal native sprite sheet."
+    ]
+  },
+  "production_status": "NOT_CERTIFIED: suitable for original style/composition reference; hard-alpha failure and unresolved native-grid/palette requirements remain.",
+  "follow_up_boundary": "No second generation or automatic image cleanup performed. Later backgrounds/panels may use this original as a visual reference; do not silently treat the source as already production-ready."
+}

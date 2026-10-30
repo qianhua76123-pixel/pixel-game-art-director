@@ -1,0 +1,273 @@
+{
+  "schema_version": 1,
+  "source": "merchant-and-goods-source.png",
+  "width": 1536,
+  "height": 1024,
+  "merchant": {
+    "x": 157,
+    "y": 31,
+    "w": 392,
+    "h": 978
+  },
+  "items": {
+    "cabbage": {
+      "x": 747,
+      "y": 105,
+      "w": 236,
+      "h": 269
+    },
+    "radish": {
+      "x": 1105,
+      "y": 105,
+      "w": 240,
+      "h": 272
+    },
+    "rice": {
+      "x": 713,
+      "y": 403,
+      "w": 295,
+      "h": 261
+    },
+    "chili": {
+      "x": 1105,
+      "y": 405,
+      "w": 240,
+      "h": 270
+    },
+    "blueberry": {
+      "x": 736,
+      "y": 680,
+      "w": 248,
+      "h": 302
+    },
+    "compost": {
+      "x": 1078,
+      "y": 694,
+      "w": 312,
+      "h": 288
+    }
+  },
+  "coordinate_space": "Original source pixel coordinates; x/y inclusive, w/h lengths; equivalent right/bottom are exclusive.",
+  "bounds_policy": {
+    "threshold": "alpha > 8",
+    "padding_source_px": 8,
+    "method": "Read-only per-cell alpha measurement; no pixel editing or cropped image exports.",
+    "reason": "Alpha > 0 has extremely faint tails spanning cell gutters. Alpha > 8 and alpha > 32 subject bounds differ by at most a few source pixels. The main boxes deliberately describe visible subjects, not all nonzero alpha."
+  },
+  "measurements": {
+    "merchant": {
+      "inspection_cell_xyxy": [
+        0,
+        0,
+        600,
+        1024
+      ],
+      "alpha_gt_0_bbox_xyxy": [
+        0,
+        20,
+        600,
+        1024
+      ],
+      "alpha_gt_8_bbox_xyxy": [
+        165,
+        39,
+        541,
+        1001
+      ],
+      "alpha_gt_32_bbox_xyxy": [
+        166,
+        39,
+        539,
+        1001
+      ],
+      "recommended_padding_source_px": 8,
+      "clipping_note": "Main atlas box includes the visible subject plus padding, but excludes very-low-alpha tails; it is not an alpha-lossless full-support crop."
+    },
+    "cabbage": {
+      "inspection_cell_xyxy": [
+        600,
+        0,
+        1050,
+        385
+      ],
+      "alpha_gt_0_bbox_xyxy": [
+        617,
+        36,
+        1050,
+        370
+      ],
+      "alpha_gt_8_bbox_xyxy": [
+        755,
+        113,
+        975,
+        366
+      ],
+      "alpha_gt_32_bbox_xyxy": [
+        756,
+        114,
+        975,
+        366
+      ],
+      "recommended_padding_source_px": 8,
+      "clipping_note": "Main atlas box includes the visible subject plus padding, but excludes very-low-alpha tails; it is not an alpha-lossless full-support crop."
+    },
+    "radish": {
+      "inspection_cell_xyxy": [
+        1050,
+        0,
+        1536,
+        385
+      ],
+      "alpha_gt_0_bbox_xyxy": [
+        1050,
+        24,
+        1512,
+        382
+      ],
+      "alpha_gt_8_bbox_xyxy": [
+        1113,
+        113,
+        1337,
+        369
+      ],
+      "alpha_gt_32_bbox_xyxy": [
+        1113,
+        113,
+        1336,
+        368
+      ],
+      "recommended_padding_source_px": 8,
+      "clipping_note": "Main atlas box includes the visible subject plus padding, but excludes very-low-alpha tails; it is not an alpha-lossless full-support crop."
+    },
+    "rice": {
+      "inspection_cell_xyxy": [
+        600,
+        385,
+        1050,
+        680
+      ],
+      "alpha_gt_0_bbox_xyxy": [
+        627,
+        406,
+        1050,
+        658
+      ],
+      "alpha_gt_8_bbox_xyxy": [
+        721,
+        411,
+        1000,
+        656
+      ],
+      "alpha_gt_32_bbox_xyxy": [
+        721,
+        411,
+        999,
+        655
+      ],
+      "recommended_padding_source_px": 8,
+      "clipping_note": "Main atlas box includes the visible subject plus padding, but excludes very-low-alpha tails; it is not an alpha-lossless full-support crop."
+    },
+    "chili": {
+      "inspection_cell_xyxy": [
+        1050,
+        385,
+        1536,
+        680
+      ],
+      "alpha_gt_0_bbox_xyxy": [
+        1107,
+        409,
+        1498,
+        680
+      ],
+      "alpha_gt_8_bbox_xyxy": [
+        1113,
+        413,
+        1337,
+        667
+      ],
+      "alpha_gt_32_bbox_xyxy": [
+        1113,
+        414,
+        1336,
+        667
+      ],
+      "recommended_padding_source_px": 8,
+      "clipping_note": "Main atlas box includes the visible subject plus padding, but excludes very-low-alpha tails; it is not an alpha-lossless full-support crop."
+    },
+    "blueberry": {
+      "inspection_cell_xyxy": [
+        600,
+        680,
+        1050,
+        1024
+      ],
+      "alpha_gt_0_bbox_xyxy": [
+        601,
+        681,
+        1008,
+        1024
+      ],
+      "alpha_gt_8_bbox_xyxy": [
+        744,
+        686,
+        976,
+        974
+      ],
+      "alpha_gt_32_bbox_xyxy": [
+        745,
+        686,
+        976,
+        972
+      ],
+      "recommended_padding_source_px": 8,
+      "clipping_note": "Main atlas box includes the visible subject plus padding, but excludes very-low-alpha tails; it is not an alpha-lossless full-support crop."
+    },
+    "compost": {
+      "inspection_cell_xyxy": [
+        1050,
+        680,
+        1536,
+        1024
+      ],
+      "alpha_gt_0_bbox_xyxy": [
+        1075,
+        693,
+        1530,
+        1000
+      ],
+      "alpha_gt_8_bbox_xyxy": [
+        1086,
+        702,
+        1382,
+        974
+      ],
+      "alpha_gt_32_bbox_xyxy": [
+        1086,
+        702,
+        1382,
+        973
+      ],
+      "recommended_padding_source_px": 8,
+      "clipping_note": "Main atlas box includes the visible subject plus padding, but excludes very-low-alpha tails; it is not an alpha-lossless full-support crop."
+    }
+  },
+  "logical_display_targets": {
+    "merchant_box": [
+      96,
+      176
+    ],
+    "item_box": [
+      32,
+      32
+    ],
+    "fit": "contain / preserve source aspect ratio; do not stretch each bbox to a square",
+    "status": "Intended logical display sizes only; not verified native pixel grid or export sizes."
+  },
+  "limitations": [
+    "Not hard-alpha sprites: all visible pixels have alpha below 255 and edges include partial alpha.",
+    "The generated layout is not an exact equal-cell sprite grid; use the recorded measured rectangles.",
+    "Read-only source rectangles do not remove soft edges, quantize color, clean noise or establish an exact common pixel grid.",
+    "The left character extends slightly beyond the requested left-third line; the measured inspection boundary uses x=600 to include the complete subject."
+  ]
+}
