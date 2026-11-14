@@ -6,7 +6,21 @@
   "reference_images": [],
   "art_profile_id": null,
   "ui_profile_id": null,
-  "projection": {"kind": null, "camera_angle_or_rule": null, "visible_planes": null},
+  "projection": {
+    "kind": null,
+    "camera_angle_or_rule": null,
+    "visible_planes": null,
+    "vanishing": null,
+    "verticals": null,
+    "ground_edges": null,
+    "front_to_top_ratio": null,
+    "baseline": {
+      "grid_unit_px": null,
+      "character_height_px": null,
+      "storey_height_px": null,
+      "overlay_size": null
+    }
+  },
   "scale": {"logical_tile_size": null, "reference_character_height": null, "display_integer_scale": null},
   "lighting": {"key_direction": null, "shadow_color_role": null, "exceptions": []},
   "palette": {"named_colors": [], "roles": {}, "allowed_variations": []},
