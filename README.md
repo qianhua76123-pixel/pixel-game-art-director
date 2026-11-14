@@ -36,6 +36,7 @@ v1.5.0 重做乡村商店这一屏：店主改为靠在柜台后的半身人物�
 - [当前柜台小样](examples/rural-shop-demo/README.md) · [v3 美术方向](examples/rural-shop-demo/art-direction-v3.md)
 - [整套审视与制作规划](review/shop-rethink/index.html) · [MD方案](review/shop-rethink/plan.md) · [Agent任务JSON](review/shop-rethink/plan.json)
 - [真实商店并排对照](review/shop-benchmark/index.html) · [对照说明与原图来源](review/shop-benchmark/README.md)
+- [像素 UI 零件库：拆分、生成与装配](references/ui-kit-production.md)
 - [一致性检查方法](references/consistency-review.md) · [技术检查输出示例](examples/audit-demo/EXAMPLE.md)
 - [来源与许可](THIRD_PARTY_NOTICES.md)：代码和第三方内容不是同一许可证。
 
