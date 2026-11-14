@@ -82,6 +82,6 @@ python3 scripts/task_bundle.py --task '暗黑背包UI，九宫格面板、选中
 
 先加载项目主题与资产用途，再看检索结果摘要，按ID打开相关MD的中文导读、配图与原文小节。处理自然语言任务时，原文可带引擎版本和工具前提；按目标环境核对后再执行。涉及一致性时继续读 [一致性审阅](consistency-review.md)：`validate_theme_contract.py` 仅检查合同结构、继承引用与已记录证据，`audit_assets.py` 按另一份测量合同检查图片。主题结构通过不能证明视觉一致，未定参数和未审画面分别保留 `INCOMPLETE` / `UNDETERMINED`。
 
-UI制作按需读取 [系统模式](ui-system-patterns.md) → [设计基础](ui-design-foundations.md) → [制作与验证](ui-design.md)，把本次决定写入 [UI设计合同](../assets/templates/ui-design-contract.json)。审查时读 [证据协议](ui-evaluation-method.md)，不要把检索匹配分数当作设计质量或用户测试结果；不清楚怎样组合时可看 [乡村商店推演](../examples/ui-design-reasoning.md) 和 [三个可运行小样](../examples/rural-shop-demo/README.md)。小样图集存在软alpha，严格硬alpha检查失败；可运行界面不是原生像素素材已生产合格的证明。
+UI制作按需读取 [系统模式](ui-system-patterns.md) → [设计基础](ui-design-foundations.md) → [制作与验证](ui-design.md)，把本次决定写入 [UI设计合同](../assets/templates/ui-design-contract.json)。制作或扩展可复用像素零件时再读 [零件库的拆分、生成与装配](ui-kit-production.md)。审查时读 [证据协议](ui-evaluation-method.md)，不要把检索匹配分数当作设计质量或用户测试结果；不清楚怎样组合时可看 [乡村商店推演](../examples/ui-design-reasoning.md) 和 [三个可运行小样](../examples/rural-shop-demo/README.md)。小样图集存在软alpha，严格硬alpha检查失败；可运行界面不是原生像素素材已生产合格的证明。
 
 任务路由维护在 [task-routing.json](task-routing.json)。新增教程只需进入 `library/catalog.json`，即可参与元数据匹配；加入精选任务路线可以提高复杂请求的命中稳定性。没有对应ID的可选教程被跳过，不会生成假文件路径。
