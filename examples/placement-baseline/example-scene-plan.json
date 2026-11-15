@@ -1,0 +1,73 @@
+{
+  "scene_type": "gate-courtyard",
+  "required_elements": [
+    {
+      "name": "gate-opening",
+      "rect": [
+        216,
+        136,
+        48,
+        16
+      ]
+    },
+    {
+      "name": "boundary-wall",
+      "rect": [
+        48,
+        136,
+        384,
+        16
+      ]
+    }
+  ],
+  "primary_path": {
+    "entrance": "south road",
+    "route": "gate opening",
+    "destination": "courtyard landmark",
+    "kind": "main",
+    "units": "px",
+    "polyline": [
+      [
+        240,
+        252
+      ],
+      [
+        240,
+        144
+      ],
+      [
+        240,
+        80
+      ]
+    ]
+  },
+  "paths": [],
+  "doors": [
+    {
+      "name": "side-door",
+      "kind": "residential",
+      "facing": "south",
+      "units": "px",
+      "rect": [
+        80,
+        96,
+        16,
+        24
+      ]
+    }
+  ],
+  "stand_points": [
+    {
+      "name": "stele-view",
+      "x": 240,
+      "y": 112
+    }
+  ],
+  "landmarks": [
+    {
+      "name": "stele",
+      "x": 240,
+      "y": 64
+    }
+  ]
+}
