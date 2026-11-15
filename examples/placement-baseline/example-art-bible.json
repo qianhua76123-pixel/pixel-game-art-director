@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "status": "example",
+  "project_name": "Example only — not a real game",
+  "task": "Demonstrate a placement and circulation overlay",
+  "reference_images": [],
+  "art_profile_id": null,
+  "ui_profile_id": null,
+  "projection": {
+    "kind": "orthographic-front-top",
+    "camera_angle_or_rule": "Front-facing top-down 3/4: see the front facade and a foreshortened roof top; no vanishing; verticals stay vertical; no side faces.",
+    "visible_planes": [
+      "front",
+      "top"
+    ],
+    "vanishing": "none",
+    "verticals": "remain-vertical",
+    "ground_edges": "parallel-equal-spacing",
+    "front_to_top_ratio": "3:2",
+    "baseline": {
+      "grid_unit_px": 16,
+      "character_height_px": 32,
+      "storey_height_px": 48,
+      "overlay_size": [
+        480,
+        270
+      ]
+    }
+  },
+  "layout": {
+    "grid_unit_px": 16,
+    "character_footprint_tiles": [
+      1,
+      1
+    ],
+    "path_widths": {
+      "main": 3,
+      "alley": 2,
+      "bridge_or_steps": 2
+    },
+    "door_clearances": {
+      "residential": [
+        3,
+        3
+      ],
+      "public": [
+        4,
+        4
+      ]
+    },
+    "building_gap": 2,
+    "building_to_map_edge": 1,
+    "building_to_water": 2,
+    "building_to_water_exception": "埠头、码头、桥梁须有石阶或护栏",
+    "interact_gap": 1,
+    "reserved_stand_tile": true,
+    "cluster": {
+      "size": 5,
+      "radius": 3,
+      "gap": 2
+    },
+    "overlay_size": [
+      480,
+      270
+    ]
+  },
+  "scale": {
+    "logical_tile_size": null,
+    "reference_character_height": null,
+    "display_integer_scale": null
+  },
+  "lighting": {
+    "key_direction": null,
+    "shadow_color_role": null,
+    "exceptions": []
+  },
+  "palette": {
+    "named_colors": [],
+    "roles": {},
+    "allowed_variations": []
+  },
+  "shape_language": {
+    "outline_rule": null,
+    "cluster_density": null,
+    "material_rules": {}
+  },
+  "animation": {
+    "directions": [],
+    "canvas_by_role": {},
+    "pivots_by_role": {},
+    "frame_timing_policy": null
+  },
+  "ui": {
+    "material": null,
+    "nine_slice_rules": null,
+    "font_fallbacks": [],
+    "type_sizes_at_display": {},
+    "states": {},
+    "input_targets": []
+  },
+  "exports": {
+    "source_format": null,
+    "delivery_format": null,
+    "naming_rule": null
+  },
+  "machine_audit_contract": "audit-contract.json",
+  "accepted_exceptions": [],
+  "open_decisions": [],
+  "evidence": []
+}

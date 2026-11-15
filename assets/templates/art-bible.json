@@ -7,6 +7,31 @@
   "art_profile_id": null,
   "ui_profile_id": null,
   "projection": {"kind": null, "camera_angle_or_rule": null, "visible_planes": null},
+  "layout": {
+    "grid_unit_px": null,
+    "character_footprint_tiles": null,
+    "path_widths": {
+      "main": null,
+      "alley": null,
+      "bridge_or_steps": null
+    },
+    "door_clearances": {
+      "residential": null,
+      "public": null
+    },
+    "building_gap": null,
+    "building_to_map_edge": null,
+    "building_to_water": null,
+    "building_to_water_exception": null,
+    "interact_gap": null,
+    "reserved_stand_tile": null,
+    "cluster": {
+      "size": null,
+      "radius": null,
+      "gap": null
+    },
+    "overlay_size": null
+  },
   "scale": {"logical_tile_size": null, "reference_character_height": null, "display_integer_scale": null},
   "lighting": {"key_direction": null, "shadow_color_role": null, "exceptions": []},
   "palette": {"named_colors": [], "roles": {}, "allowed_variations": []},
