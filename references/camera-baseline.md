@@ -40,17 +40,21 @@
 ```bash
 python3 scripts/camera_baseline.py --bible /path/to/art-bible.json --out /tmp/camera-baseline.png
 python3 scripts/camera_baseline.py --kind orthographic-front-top --size 480x270 --unit 16 --character-height 32 --out /tmp/camera-baseline.png
+python3 scripts/camera_baseline.py --bible /path/to/art-bible.json --under /path/to/scene.png --out /tmp/camera-baseline-on-scene.png
+python3 scripts/camera_baseline.py --bible /path/to/art-bible.json --prompt
 ```
 
-字段仍为 `null` 时，脚本应拒绝出图并说明缺什么，不能默认为某种俯视。示例合同和示意叠加层见 [camera-baseline 示例](../examples/camera-baseline/README.md)。该脚本只负责把已确认的投影画成格子，不给图像自动判定通过或失败。
+字段仍为 `null` 时，脚本应拒绝出图并说明缺什么，不能默认为某种俯视。`--under` 把透明基准线叠到一张已有原图或场景合成稿上，得到的仍是审查对照图，不打分，也不表示通过。底图与基准线同尺寸时直接叠。一边正好是另一边的整数倍时，只做最近邻缩放再叠，不拉伸，也不做双线性缩放。对不上、又不是整数倍时，脚本拒绝并说明原因，不写文件。比画布小的单件不会自动找位置摆进去；先把它铺到一张与基准线同尺寸的画布上，再叠加。`--prompt`（同 `--print-prompt`）只按已填写的字段打出一段可粘贴的机位条款，空字段略过，不替项目补一个倾角；不加 `--out` 时不画图。示例合同和示意叠加层见 [camera-baseline 示例](../examples/camera-baseline/README.md)。该脚本只负责把已确认的投影画成格子或叠到指定图上，不给图像自动判定通过或失败。
 
 ## 3. 何时叠、怎样看
 
 1. 世界或场景成组出图前，先冻结合同并生成一张与目标逻辑画布（或视口）同尺寸的基准线。同一项目修订只保留这一套，不按单件另出一套倾角。
-2. 提示词引用同一合同：写清有无消失点、竖线是否垂直、应看见哪些面。不要在每个任务里重写相机。
+2. 提示词引用同一合同：写清有无消失点、竖线是否垂直、应看见哪些面。不要在每个任务里重写相机。需要粘贴时用 `--prompt` 从已填写的规范打出条款，空字段略过。示例合同打出的是：`投影：orthographic-front-top。消失点：none。竖线：remain-vertical。可见面：front、top。地面边：parallel-equal-spacing。立面与顶面高度比：3:2。基准：480×270，格宽 16 逻辑像素。`
 3. 先把单件（原图和像素化结果）放在基准线上核对，再看整张合成。只看单件合格不够。
 4. 地面、水体、道路与建筑、树木必须叠在**同一张**基准线上。地面是整张缩放的底图时尤其要查左右边是否平行，这是整张底图最容易混入透视的地方。
 5. 在最终显示倍率下看一次落地和尺度；缩略全图只能看布局，不能代替原尺寸核对。
+
+地面、水面和道路应按逻辑画布的尺寸生成，或做成已经对齐格宽的地块与分块。不要先画一整张更大的地面，再缩小塞进视口：缩小会把像素做糊，也是正交项目里意外消失点最常混进来的做法。审查时仍把同一张基准线叠在原图和合成稿上。
 
 记录方式与 [一致性检查](consistency-review.md) 相同：写文件或画面位置、预期（合同原文）、观察到的事实、状态。没有叠基准线就写 `UNDETERMINED`，不要凭印象写成通过。
 
@@ -59,6 +63,7 @@ python3 scripts/camera_baseline.py --kind orthographic-front-top --size 480x270 
 出现下列情况应退回，即使单件单独看“像那么回事”，即使色板和尺寸检查已经通过：
 
 - 合同写明无消失点，但道路、屋脊、岸线或地面左右边向深处收窄或张开。
+- 地面、水面或道路是把一整张更大的画缩小进视口，而不是按逻辑画布或已对齐格宽的地块绘制。
 - 墙、柱、树干等应垂直的边明显倾斜，或左右两端的铅垂关系不一致。
 - 同组建筑的可见顶面比例明显不同，或有的露出侧面、有的不露，且没有记录例外。
 - 一张合成稿里，地面、建筑、道具不在同一套格子上（机位混用）。

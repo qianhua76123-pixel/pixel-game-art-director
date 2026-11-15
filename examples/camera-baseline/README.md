@@ -11,7 +11,9 @@
 
 ```bash
 python3 scripts/camera_baseline.py --bible examples/camera-baseline/example-art-bible.json --out examples/camera-baseline/orthographic-front-top.png
+python3 scripts/camera_baseline.py --bible examples/camera-baseline/example-art-bible.json --under /path/to/scene.png --out /tmp/camera-baseline-on-scene.png
+python3 scripts/camera_baseline.py --bible examples/camera-baseline/example-art-bible.json --prompt
 python3 scripts/camera_baseline.py --demo --out examples/camera-baseline/ortho-vs-taper-demo.png
 ```
 
-把透明叠加层盖在原尺寸或整数倍近邻放大的场景合成稿上审查。本目录的图不证明任何项目已经验收。
+`--under` 把透明基准线叠到一张已有原图或合成稿上，只接受同尺寸，或一边正好是另一边的整数倍（最近邻，不拉伸）。对不上就不写文件。比画布小的单件要先铺进同尺寸画布，脚本不会自动摆放。`--prompt` 按合同打出可粘贴的机位条款，空字段略过，不判定透视通过。本目录的图不证明任何项目已经验收。

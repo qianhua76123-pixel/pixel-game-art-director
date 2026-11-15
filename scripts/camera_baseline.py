@@ -4,6 +4,8 @@
 
 This writes a review aid, not a game asset. It does not score or approve art.
 Unspecified projection fields are refused; the script will not invent a camera.
+--under only composites that overlay onto an existing picture. --prompt only
+prints a clause from fields that are already filled.
 """
 from __future__ import annotations
 
@@ -273,6 +275,117 @@ def render(cfg: dict, *, opaque_bg=False) -> Image.Image:
     return im
 
 
+def _missing(value) -> bool:
+    return value is None or value == "" or value == [] or value == {} or value == "UNDETERMINED"
+
+
+def _resolved_kind(kind_raw):
+    if not kind_raw or kind_raw in (None, "", "UNDETERMINED"):
+        die("projection.kind is unset; pass --kind or fill the art bible")
+    kind = KINDS.get(str(kind_raw).strip().lower())
+    if not kind:
+        die("unknown kind %r; expected one of: %s" % (kind_raw, ", ".join(sorted(set(KINDS.values())))))
+    return kind
+
+
+def format_prompt(proj: dict, args: argparse.Namespace) -> str:
+    """Paste-ready camera clause. Null fields are omitted, never invented."""
+    kind = _resolved_kind(args.kind or proj.get("kind"))
+    parts = [f"投影：{kind}"]
+
+    def add(label, value):
+        if _missing(value):
+            return
+        if isinstance(value, list):
+            text = "、".join(str(item) for item in value if not _missing(item))
+            if not text:
+                return
+        else:
+            text = str(value)
+        parts.append(f"{label}：{text}")
+
+    add("消失点", proj.get("vanishing"))
+    add("竖线", proj.get("verticals"))
+    add("可见面", proj.get("visible_planes"))
+    add("地面边", proj.get("ground_edges"))
+    add("立面与顶面高度比", proj.get("front_to_top_ratio"))
+
+    baseline = proj.get("baseline") if isinstance(proj.get("baseline"), dict) else {}
+    size = None
+    if args.size:
+        size = parse_size(args.size)
+    else:
+        overlay = baseline.get("overlay_size")
+        if isinstance(overlay, list) and len(overlay) == 2 and all(isinstance(x, int) and x > 0 for x in overlay):
+            size = (overlay[0], overlay[1])
+    unit = args.unit if args.unit is not None else baseline.get("grid_unit_px")
+    if not isinstance(unit, int) or unit <= 0:
+        unit = None
+    bits = []
+    if size:
+        bits.append(f"{size[0]}×{size[1]}")
+    if unit:
+        bits.append(f"格宽 {unit} 逻辑像素")
+    if bits:
+        parts.append("基准：" + "，".join(bits))
+    return "。".join(parts) + "。"
+
+
+def uniform_integer_factor(small: tuple[int, int], large: tuple[int, int]) -> int | None:
+    """Return n>=1 when large is exactly n times small on both axes."""
+    sw, sh = small
+    lw, lh = large
+    if sw <= 0 or sh <= 0 or lw <= 0 or lh <= 0:
+        return None
+    if lw % sw or lh % sh:
+        return None
+    sx, sy = lw // sw, lh // sh
+    if sx == sy and sx >= 1:
+        return sx
+    return None
+
+
+def composite_under(overlay: Image.Image, under_path: Path) -> Image.Image:
+    """Lay the transparent baseline over an existing picture. Review image only.
+
+    Same size composites directly. A uniform integer multiple is scaled with
+    nearest-neighbor and then composited. Any other size is refused. Parts
+    smaller than the canvas are not given an automatic position.
+    """
+    try:
+        with Image.open(under_path) as src:
+            under = src.convert("RGBA")
+    except (OSError, ValueError) as exc:
+        die(f"cannot read --under image: {exc}")
+    ow, oh = overlay.size
+    uw, uh = under.size
+    if uw < 1 or uh < 1:
+        die("--under image has no pixels")
+    if (uw, uh) == (ow, oh):
+        base, layer = under, overlay
+    else:
+        grow_overlay = uniform_integer_factor((ow, oh), (uw, uh))
+        grow_under = uniform_integer_factor((uw, uh), (ow, oh))
+        if grow_overlay and grow_overlay > 1:
+            layer = overlay.resize((uw, uh), Image.Resampling.NEAREST)
+            base = under
+        elif grow_under and grow_under > 1:
+            base = under.resize((ow, oh), Image.Resampling.NEAREST)
+            layer = overlay
+        else:
+            die(
+                "--under is %dx%d and the baseline is %dx%d. "
+                "Sizes must match, or one side must be a uniform integer multiple of the other. "
+                "Refusing to stretch or bilinear-scale. "
+                "A part smaller than the canvas is not auto-placed: "
+                "lay it onto a same-size canvas first, then overlay."
+                % (uw, uh, ow, oh)
+            )
+    out = base.copy()
+    out.alpha_composite(layer)
+    return out
+
+
 def render_demo(cfg: dict) -> Image.Image:
     """Side-by-side teaching plate: parallel road vs tapering road under the same grid."""
     w, h = 640, 360
@@ -330,7 +443,9 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--unit", type=int, help="grid unit in logical pixels")
     p.add_argument("--character-height", type=int, dest="character_height")
     p.add_argument("--storey-height", type=int, dest="storey_height")
-    p.add_argument("--out", type=Path, required=True)
+    p.add_argument("--out", type=Path, help="write a review overlay or comparison image; omitted for --prompt text only")
+    p.add_argument("--under", type=Path, help="composite the transparent baseline onto this source or scene image (review comparison only; nearest-neighbor integer scale)")
+    p.add_argument("--prompt", "--print-prompt", action="store_true", help="print a paste-ready camera clause from filled fields; does not draw an image unless --out is also set")
     p.add_argument("--demo", action="store_true", help="draw a pass/fail teaching plate instead of a transparent overlay")
     p.add_argument("--allow-implied-vanishing", action="store_true", help=argparse.SUPPRESS)
     return p
@@ -338,8 +453,19 @@ def build_parser() -> argparse.ArgumentParser:
 
 def main(argv=None) -> int:
     args = build_parser().parse_args(argv)
+    if args.demo and (args.under or args.prompt):
+        die("--demo cannot be combined with --under or --prompt")
+    if args.demo and not args.out:
+        die("pass --out to write the teaching plate")
+    if args.under and not args.out:
+        die("--under needs --out; the comparison image is not written without it")
+    if not args.out and not args.prompt and not args.demo:
+        die("pass --out to write a review overlay, or --prompt to print a camera clause")
+
+    clause = None
+    im = None
     if args.demo:
-        cfg = {
+        im = render_demo({
             "kind": "orthographic-front-top",
             "size": (640, 360),
             "unit": 16,
@@ -347,16 +473,24 @@ def main(argv=None) -> int:
             "storey_height_px": 48,
             "front_to_top_ratio": "3:2",
             "vanishing": "none",
-        }
-        im = render_demo(cfg)
+        })
     else:
-        proj = load_projection(args.bible)
-        cfg = resolve(proj, args)
-        im = render(cfg, opaque_bg=False)
-    args.out = args.out.expanduser()
-    args.out.parent.mkdir(parents=True, exist_ok=True)
-    im.save(args.out)
-    print(f"wrote {args.out} {im.size[0]}x{im.size[1]} {im.mode}")
+        proj = load_projection(args.bible) if (args.out or args.prompt) else {}
+        if args.out:
+            cfg = resolve(proj, args)
+            im = render(cfg, opaque_bg=False)
+            if args.under:
+                im = composite_under(im, args.under.expanduser())
+        if args.prompt:
+            clause = format_prompt(proj, args)
+
+    if im is not None:
+        args.out = args.out.expanduser()
+        args.out.parent.mkdir(parents=True, exist_ok=True)
+        im.save(args.out)
+        print(f"wrote {args.out} {im.size[0]}x{im.size[1]} {im.mode}")
+    if clause:
+        print(clause)
     return 0
 
 
