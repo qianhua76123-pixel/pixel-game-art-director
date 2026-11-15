@@ -7,6 +7,8 @@ Unset required contract or scene-plan fields are refused; the script will not
 guess widths, clearances, or typological elements.
 --under only composites that overlay onto an existing picture. --prompt only
 prints a clause from fields that are already filled.
+Optional scene-plan joints are named in that clause for a human checklist.
+They are not drawn, measured, or scored. Missing joints are skipped.
 """
 from __future__ import annotations
 
@@ -166,6 +168,27 @@ def path_records(plan: dict) -> list[dict]:
             if isinstance(item, dict):
                 recs.append(dict(item, name=item.get("name") or f"path-{i + 1}", is_primary=False))
     return recs
+
+
+def joint_labels(plan: dict) -> list[str]:
+    """Names of declared joints. Not a measurement and not a pass or fail."""
+    raw = plan.get("joints") if isinstance(plan, dict) else None
+    if not isinstance(raw, list):
+        return []
+    labels = []
+    for item in raw:
+        if isinstance(item, str) and not _missing(item):
+            labels.append(item)
+            continue
+        if not isinstance(item, dict) or _missing(item.get("name")):
+            continue
+        label = str(item["name"])
+        src = item.get("from")
+        dst = item.get("to")
+        if not _missing(src) and not _missing(dst):
+            label = f"{label}（{src} → {dst}）"
+        labels.append(label)
+    return labels
 
 
 def element_records(plan: dict) -> list[dict]:
@@ -533,6 +556,9 @@ def format_prompt(layout: dict, plan: dict, args: argparse.Namespace, proj: dict
                 stands.append(str(item["name"]))
         if stands:
             parts.append("站立点：" + "、".join(stands))
+        joints = joint_labels(plan)
+        if joints:
+            parts.append("接头：" + "、".join(joints))
 
     if not parts:
         die("layout contract has no filled fields; unset values are not guessed")

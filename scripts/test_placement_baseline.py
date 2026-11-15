@@ -250,8 +250,14 @@ class PlacementBaselineTests(unittest.TestCase):
                 "桥或石阶宽：2 格", "住宅 3×3 格", "公共 4×4 格",
                 "gate-courtyard", "gate-opening", "boundary-wall",
                 "south road", "courtyard landmark", "stele",
+                "接头：", "west-gate-post（boundary-wall → gate-opening）",
+                "east-gate-post（boundary-wall → gate-opening）",
             ):
                 self.assertIn(term, result.stdout)
+            blob = (result.stdout + result.stderr).lower()
+            self.assertNotIn("pass", blob)
+            self.assertNotIn("fail", blob)
+            self.assertNotIn("approv", blob)
             self.assertNotIn("null", result.stdout.lower())
             self.assertNotIn("None", result.stdout)
 
@@ -268,6 +274,7 @@ class PlacementBaselineTests(unittest.TestCase):
             self.assertNotIn("巷宽", result.stdout)
             self.assertNotIn("门前净空", result.stdout)
             self.assertNotIn("场景类型", result.stdout)
+            self.assertNotIn("接头", result.stdout)
             self.assertNotIn("null", result.stdout.lower())
             self.assertNotIn("None", result.stdout)
 
@@ -284,6 +291,48 @@ class PlacementBaselineTests(unittest.TestCase):
             result = run(["--bible", str(empty), "--prompt", "--out", str(out)], check=False)
             self.assertNotEqual(result.returncode, 0)
             self.assertFalse(out.exists())
+
+    def test_joints_are_a_checklist_and_do_not_change_the_overlay(self):
+        with tempfile.TemporaryDirectory() as td:
+            td = Path(td)
+            bible = self._small_bible(
+                td, grid_unit_px=8, overlay_size=[64, 64], path_widths={"main": 2},
+            )
+            plan = self._small_plan(td)
+            plain = td / "plain.png"
+            result = run(["--bible", str(bible), "--plan", str(plan), "--out", str(plain)])
+            self.assertEqual(result.returncode, 0, result.stderr)
+            noted = json.loads(plan.read_text(encoding="utf-8"))
+            noted["joints"] = [
+                {"name": "west-gate-post", "from": "boundary-wall", "to": "gate-opening"},
+                {"name": None, "from": "boundary-wall", "to": "gate-opening"},
+                {"from": "boundary-wall", "to": "gate-opening"},
+                "courtyard-corner",
+            ]
+            noted_path = td / "noted.json"
+            noted_path.write_text(json.dumps(noted), encoding="utf-8")
+            marked = td / "marked.png"
+            result = run(["--bible", str(bible), "--plan", str(noted_path), "--out", str(marked)])
+            self.assertEqual(result.returncode, 0, result.stderr)
+            with Image.open(plain) as a, Image.open(marked) as b:
+                self.assertEqual(list(a.convert("RGBA").getdata()), list(b.convert("RGBA").getdata()))
+            result = run(["--bible", str(bible), "--plan", str(noted_path), "--prompt"])
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertIn("接头：west-gate-post（boundary-wall → gate-opening）、courtyard-corner", result.stdout)
+            self.assertNotIn("null", result.stdout.lower())
+            self.assertNotIn("None", result.stdout)
+            blob = (result.stdout + result.stderr).lower()
+            self.assertNotIn("pass", blob)
+            self.assertNotIn("fail", blob)
+            self.assertNotIn("approv", blob)
+            omitted = dict(noted)
+            omitted["joints"] = None
+            omitted_path = td / "omitted.json"
+            omitted_path.write_text(json.dumps(omitted), encoding="utf-8")
+            result = run(["--bible", str(bible), "--plan", str(omitted_path), "--prompt"])
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertNotIn("接头", result.stdout)
+            self.assertIn("gate-courtyard", result.stdout)
 
     def test_corridor_keeps_declared_width_no_taper(self):
         with tempfile.TemporaryDirectory() as td:

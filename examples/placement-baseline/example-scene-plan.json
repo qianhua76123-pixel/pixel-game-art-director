@@ -69,5 +69,17 @@
       "x": 240,
       "y": 64
     }
+  ],
+  "joints": [
+    {
+      "name": "west-gate-post",
+      "from": "boundary-wall",
+      "to": "gate-opening"
+    },
+    {
+      "name": "east-gate-post",
+      "from": "boundary-wall",
+      "to": "gate-opening"
+    }
   ]
 }
